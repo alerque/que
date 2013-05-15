@@ -2,6 +2,6 @@
 jobs = 5
 include = cat $HOME/.config/mr/config.d/*
 
-[ALIASES]
+[ALIAS]
 
 #vim: syntax=sh
