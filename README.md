@@ -1,12 +1,14 @@
 que
 ===
 
-My personal dotfiles and other system initialization stuff.
+My personal computing environment including but not limited to system initialization tools, dotfiles, scripts and other paraphanalia.
 
-On a system with `vcsh` and `mr` already installed:
-
-	vcsh clone git@github.com:alerque/que.git
-	
-Or use this setup bootstrap script
+Initialization on a fresh user directory:
 
 	sh <(curl https://raw.github.com/alerque/que/master/bin/questrap)
+
+Otherwise to update:
+
+	mr up
+
+No really, that's all.
