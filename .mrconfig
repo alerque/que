@@ -1,8 +1,6 @@
-[$HOME]
-checkout = vcsh clone git@github.com:alerque/que.git
-
 [DEFAULT]
-include =
+jobs = 5
+include = cat ${XDG_CONFIG_HOME:-$HOME/.config}/mr/config.d/*
 
 [ALIASES]
 
