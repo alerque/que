@@ -1,0 +1,9 @@
+[$HOME]
+checkout = vcsh clone git@github.com:alerque/que.git
+
+[DEFAULT]
+include =
+
+[ALIASES]
+
+#vim: syntax=sh
