@@ -1,2 +1,2 @@
-[$XDG_CONFIG_HOME/vcsh/repo.d/que.git]
+[$HOME/.config/vcsh/repo.d/que.git]
 checkout = vcsh clone git@github.com:alerque/que.git
