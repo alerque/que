@@ -11,9 +11,40 @@ which vcsh > /dev/null
 cd $HOME
 
 if [ ! -d .config/vcsh/repo.d/que.git ]; then
-	vcsh clone git@github.com:alerque/que.git
+	if [ ! -f ./bin/questrap ]; then
+		vcsh clone git@github.com:alerque/que.git
+	else
+		echo "not able to handle checkout in top of existing home dir yet"
+		exit
+		git clone --no-checkout git@github.com:alerque/que.git que.tmp
+		mv que.tmp/.git .
+		rmdir que.tmp
+		git reset HEAD
+	fi
 else
-	vcsh run que git pull
+	mr up
+	#vcsh run que git pull
 fi
 
 #ln -s .config/mr/{available.d,repo.d}/que.vcsh
+
+exit
+
+## old version....
+
+#!/bin/sh
+
+TMPDIR=$(mktemp -d $TMPDIR/XXXXXX)
+
+# This package is for $HOME
+cd
+
+# TODO: install pre-requisits
+which git || exit
+
+git clone https://github.com/alerque/que.git $TMPDIR
+rsync -avb $TMPDIR/ $HOME/ 
+rm -rf $TMPDIR
+
+#curl -#L https://github.com/alerque/que/tarball/master |
+#	tar -xzv --strip-components 1
