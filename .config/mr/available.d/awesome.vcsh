@@ -1,0 +1,2 @@
+[$HOME/.config/vcsh/repo.d/awesome.git]
+checkout = vcsh clone git@github.com:alerque/que-awesome.git
