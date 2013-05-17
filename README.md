@@ -8,7 +8,7 @@ setup
 
 Initialization on a fresh user directory:
 
-	sh <(curl https://raw.github.com/alerque/que/master/bin/questrap)
+	sh <(curl -s -L https://raw.github.com/alerque/que/master/bin/questrap)
 
 Otherwise to update:
 
@@ -24,11 +24,11 @@ Adding a new repo
 1. Create config file `.config/mr/available.d/$NAME.vcsh`
 2. Create sylink `cd .config/mr/config/d; ln -s ../available.d/$NAME.vcsh`
 3. Add config to que repo `vcsh run que git add .config/mr/available.d/$NAME.vcsh`
-4. Init repo `vcsh init`
-5. `vcsh write-gitignore $NAME`
-6. `vcsh run $NAME git add -f <at least one something>`
-7. `vcsh run $NAME git commit`
+4. Init repo `vcsh init $NAME`
+5. Setup ignores `vcsh write-gitignore $NAME`
+6. Add something to get the repo off the ground `vcsh run $NAME git add -f <at least one something>`
+7. Commit so we actually have a repo`vcsh run $NAME git commit -m "initial commit"`
 8. Optionally add an upstream `vcsh run $NAME git remote add origin $URL`
-9. Optionally add an upstream `vcsh run $NAME git push -u origin master`
+9. Optionally push to upstream `vcsh run $NAME git push -u origin master`
 
-After that, the usual `mr up`, `mr commit`, `mr push` etc should work.
+After that, the usual `mr up`, `mr ci`, `mr push` etc should just work.
