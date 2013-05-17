@@ -3,6 +3,9 @@ que
 
 My personal computing environment including but not limited to system initialization tools, dotfiles, scripts and other paraphanalia.
 
+setup
+-----
+
 Initialization on a fresh user directory:
 
 	sh <(curl https://raw.github.com/alerque/que/master/bin/questrap)
@@ -13,7 +16,8 @@ Otherwise to update:
 
 No really, that's all.
 
-----
+usage
+-----
 
 Adding a new repo
 
@@ -26,3 +30,5 @@ Adding a new repo
 7. `vcsh run $NAME git commit`
 8. Optionally add an upstream `vcsh run $NAME git remote add origin $URL`
 9. Optionally add an upstream `vcsh run $NAME git push -u origin master`
+
+After that, the usual `mr up`, `mr commit`, `mr push` etc should work.
