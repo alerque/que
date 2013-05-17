@@ -1,0 +1,2 @@
+[$HOME/.config/vcsh/repo.d/que-tmux.git]
+checkout = vcsh clone git@github.com:alerque/que-tmux.git
