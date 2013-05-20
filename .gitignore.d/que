@@ -1,0 +1,17 @@
+*
+!bin
+!bin/questrap
+!.config
+!.config/mr
+!.config/mr/available.d
+!.config/mr/available.d/awesome.vcsh
+!.config/mr/available.d/que.vcsh
+!.config/mr/available.d/tmux.vcsh
+!.config/mr/available.d/zsh.vcsh
+!.config/mr/config.d
+!.config/mr/config.d/que.vcsh
+!.config/mr/config.d/tmux.vcsh
+!.config/mr/config.d/vim.vcsh
+!.config/mr/config.d/zsh.vcsh
+!.mrconfig
+!README.md
