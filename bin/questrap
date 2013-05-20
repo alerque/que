@@ -1,5 +1,7 @@
 #!/bin/sh
 
+set -x
+
 # Error out of script if _anything_ goes wrong
 set -e
 
@@ -26,13 +28,21 @@ else
 	#vcsh run que git pull
 fi
 
-#ln -s .config/mr/{available.d,repo.d}/que.vcsh
+case $HOSTNAME in
+	lemur|pars|laylek)
+		# Desktop stuff
+		ln -s .config/mr/{available.d,repo.d}/awesome.vcsh
+		#ln -s .config/mr/{available.d,repo.d}/urxvt.vcsh
+		#ln -s .config/mr/{available.d,repo.d}/xorg.vcsh
+		;;
+	camelion)
+		# Server stuff
+		;;
+esac
 
 exit
 
 ## old version....
-
-#!/bin/sh
 
 TMPDIR=$(mktemp -d $TMPDIR/XXXXXX)
 
