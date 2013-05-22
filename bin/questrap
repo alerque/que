@@ -6,27 +6,34 @@ set -x
 set -e
 
 # Make sure we have the tools (otherwise we should be running a system init routine instead)
+which git > /dev/null
 which mr > /dev/null
 which vcsh > /dev/null
 
 # Clone the very base bit in
 cd $HOME
 
-if [ ! -d .config/vcsh/repo.d/que.git ]; then
-	if [ ! -f ./bin/questrap ]; then
-		vcsh clone git@github.com:alerque/que.git
-	else
-		echo "not able to handle checkout in top of existing home dir yet"
-		exit
-		git clone --no-checkout git@github.com:alerque/que.git que.tmp
-		mv que.tmp/.git .
-		rmdir que.tmp
-		git reset HEAD
-	fi
-else
-	mr up
-	#vcsh run que git pull
+#TODO check for SSH auth credentials first
+
+git config --global user.email "caleb@alerque.com"
+git config --global user.name "Caleb Maclennan"
+
+if [ ! -d .ssh/ ]; then
+	mkdir -p .ssh
+	echo -e "Host github.com\n\tIdentityFile ~/.ssh/github\n\tStrictHostKeyChecking no\n" >> .ssh/config
+	cp /tmp/ghk .ssh/github
+	chmod 600 .ssh/github
+	eval $(ssh-agent)
+	ssh-add .ssh/github
 fi
+
+if [ ! -d .config/vcsh/repo.d/que.git ]; then
+	vcsh clone git@github.com:alerque/que.git
+fi
+
+mr up
+
+exit
 
 case $HOSTNAME in
 	lemur|pars|laylek)
