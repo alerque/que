@@ -14,10 +14,6 @@ which vcsh > /dev/null
 cd $HOME
 
 #TODO check for SSH auth credentials first
-
-git config --global user.email "caleb@alerque.com"
-git config --global user.name "Caleb Maclennan"
-
 if [ ! -d .ssh/ ]; then
 	mkdir -p .ssh
 	echo -e "Host github.com\n\tIdentityFile ~/.ssh/github\n\tStrictHostKeyChecking no\n" >> .ssh/config
@@ -33,14 +29,12 @@ fi
 
 mr up
 
-exit
-
 case $HOSTNAME in
 	lemur|pars|laylek)
 		# Desktop stuff
-		ln -s .config/mr/{available.d,repo.d}/awesome.vcsh
-		#ln -s .config/mr/{available.d,repo.d}/urxvt.vcsh
-		#ln -s .config/mr/{available.d,repo.d}/xorg.vcsh
+		ln -s .config/mr/{available.d,config.d}/awesome.vcsh
+		#ln -s .config/mr/{available.d,config.d}/uxbl.vcsh
+		ln -s .config/mr/{available.d,config.d}/xorg.vcsh
 		;;
 	camelion)
 		# Server stuff
