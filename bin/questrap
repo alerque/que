@@ -10,10 +10,10 @@ which git > /dev/null
 which mr > /dev/null
 which vcsh > /dev/null
 
-# Clone the very base bit in
+# Clone the very base bit in...
 cd $HOME
 
-#TODO check for SSH auth credentials first
+# TODO: setup SSH auth credentials first
 if [ ! -d .ssh/ ]; then
 	mkdir -p .ssh
 	echo -e "Host github.com\n\tIdentityFile ~/.ssh/github\n\tStrictHostKeyChecking no\n" >> .ssh/config
@@ -27,19 +27,26 @@ if [ ! -d .config/vcsh/repo.d/que.git ]; then
 	vcsh clone git@github.com:alerque/que.git
 fi
 
-mr up
+enable_repo() {
+	ln -s .config/mr/{available.d,config.d}/$1.vcsh
+}
+
+enable_repo vim
+enable_repo zsh
+enable_repo tmux
+enable_repo utils
 
 case $HOSTNAME in
 	lemur|pars|laylek)
-		# Desktop stuff
-		ln -s .config/mr/{available.d,config.d}/awesome.vcsh
-		#ln -s .config/mr/{available.d,config.d}/uxbl.vcsh
-		ln -s .config/mr/{available.d,config.d}/xorg.vcsh
+		enable_repo awesome
+		#enable_repo uxbl
+		enable_repo xorg
 		;;
 	camelion)
-		# Server stuff
 		;;
 esac
+
+mr up
 
 exit
 

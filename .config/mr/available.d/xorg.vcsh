@@ -1,0 +1,2 @@
+[$HOME/.config/vcsh/repo.d/que-xorg.git]
+checkout = vcsh clone git@github.com:alerque/que-xorg.git
