@@ -10,3 +10,5 @@
 	user = caleb@pld-linux.org
 [push]
 	default = simple
+[color]
+	ui = true
