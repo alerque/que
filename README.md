@@ -8,7 +8,7 @@ setup
 
 Initialization on a fresh user directory:
 
-	sh <(curl -s -L https://raw.github.com/alerque/que/master/bin/questrap)
+	sh <(curl -s -L https://raw.github.com/alerque/que/master/bin/questrap.sh)
 
 Otherwise to update:
 
