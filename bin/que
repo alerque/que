@@ -1,0 +1,17 @@
+#!/bin/zsh
+
+if [ "$1" = "que" ]; then
+	repo=que
+else
+	repo=que-$1
+fi
+
+shift
+
+vcsh run $repo git $@
+
+# Auto update and stage the gitignore file whenever a new file is added to a repo
+if [ "$1" = "add" -a "$2" = "-f" ]; then
+	vcsh write-gitignore $repo
+	vcsh run $repo git add ~/.gitignore.d/$repo
+fi

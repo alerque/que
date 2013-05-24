@@ -1,5 +1,6 @@
 *
 !/bin
+!/bin/que
 !/bin/questrap.sh
 !/.config
 !/.config/mr
