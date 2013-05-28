@@ -1,0 +1,2 @@
+[$HOME/.config/vcsh/repo.d/caleb-private.git]
+checkout = vcsh clone git@camelion.alerque.com:caleb-private.git
