@@ -1,7 +1,7 @@
 [DEFAULT]
 jobs = 5
 include = cat $HOME/.config/mr/config.d/*
-  if -d $HOME/.config/mr/config.d-$HOSTNAME; then
+  if [ -d $HOME/.config/mr/config.d-$HOSTNAME ]; then
 	cat $HOME/.config/mr/config.d-$HOSTNAME/*
   fi
 
