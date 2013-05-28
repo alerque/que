@@ -9,6 +9,7 @@
 !/.config/mr
 !/.config/mr/available.d
 !/.config/mr/available.d/awesome.vcsh
+!/.config/mr/available.d/pictures.git
 !/.config/mr/available.d/que.vcsh
 !/.config/mr/available.d/tmux.vcsh
 !/.config/mr/available.d/utils.vcsh
@@ -18,6 +19,7 @@
 !/.config/mr/config.d
 !/.config/mr/config.d-lemur
 !/.config/mr/config.d-lemur/awesome.vcsh
+!/.config/mr/config.d-lemur/pictures.git
 !/.config/mr/config.d-lemur/xorg.vcsh
 !/.config/mr/config.d/que.vcsh
 !/.config/mr/config.d/tmux.vcsh
