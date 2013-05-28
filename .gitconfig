@@ -9,6 +9,6 @@
 [pld]
 	user = caleb@pld-linux.org
 [push]
-	default = simple
+	default = matching
 [color]
 	ui = true
