@@ -25,6 +25,6 @@ grep -n '==' /etc/rc.d/init.d/functions |
 	cut -d: -f1 |
 	read line && sudo ex -u NONE "+:${line}s/==/=/g" "+:x" /etc/rc.d/init.d/functions
 
-mkdir -p ~/rpm
-cd ~/rpm
-cvs -z3 -d:pserver:cvs@cvs.pld-linux.org:/cvsroot co packages/builder
+#mkdir -p ~/rpm
+#cd ~/rpm
+#cvs -z3 -d:pserver:cvs@cvs.pld-linux.org:/cvsroot co packages/builder
