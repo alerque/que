@@ -15,6 +15,8 @@ cat /etc/pld-release | cut -d\( -f2 | cut -c1-2 | read tree
 # Make sure the basics every system is going to need are installed and updated
 poldek -n ${tree:l} -iv vim vim-static sudo screen zsh-completions subversion pcregrep glibc-localedb-all ctags iputils-ping
 
+# TODO: build vcsh, mr, git-annex -r standalone
+
 # Set suid bit on ping so users can use it!
 sudo chmod 755 /bin/ping
 sudo chmod u+s /bin/ping
@@ -25,6 +27,4 @@ grep -n '==' /etc/rc.d/init.d/functions |
 	cut -d: -f1 |
 	read line && sudo ex -u NONE "+:${line}s/==/=/g" "+:x" /etc/rc.d/init.d/functions
 
-#mkdir -p ~/rpm
-#cd ~/rpm
-#cvs -z3 -d:pserver:cvs@cvs.pld-linux.org:/cvsroot co packages/builder
+test -d ~/rpm || builder --init-rpm-dir
