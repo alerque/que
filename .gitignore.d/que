@@ -21,6 +21,10 @@
 !/.config/mr/config.d-lemur/awesome.vcsh
 !/.config/mr/config.d-lemur/pictures.git
 !/.config/mr/config.d-lemur/xorg.vcsh
+!/.config/mr/config.d-leylek
+!/.config/mr/config.d-leylek/awesome.vcsh
+!/.config/mr/config.d-leylek/pictures.git
+!/.config/mr/config.d-leylek/xorg.vcsh
 !/.config/mr/config.d/que.vcsh
 !/.config/mr/config.d/tmux.vcsh
 !/.config/mr/config.d/utils.vcsh
