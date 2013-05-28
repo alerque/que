@@ -1,7 +1,10 @@
 *
 !/bin
 !/bin/que
-!/bin/questrap.sh
+!/bin/que-home-bootstrap.sh
+!/bin/que-sys-bootstrap.sh
+!/bin/que-sys-init-pld.zsh
+!/bin/que-sys-init-ubuntu.bash
 !/.config
 !/.config/mr
 !/.config/mr/available.d
