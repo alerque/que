@@ -15,6 +15,8 @@ cat /etc/pld-release | cut -d\( -f2 | cut -c1-2 | read tree
 # Make sure the basics every system is going to need are installed and updated
 poldek -n ${tree:l} -iv vim vim-static sudo screen zsh-completions subversion pcregrep glibc-localedb-all ctags iputils-ping
 
+# TODO: ssh-askpass-fullscreen slock awesome
+
 # TODO: build vcsh, mr, git-annex -r standalone
 
 # Set suid bit on ping so users can use it!
