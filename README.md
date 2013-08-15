@@ -3,12 +3,19 @@ que
 
 My personal computing environment including but not limited to system initialization tools, dotfiles, scripts and other paraphanalia.
 
-setup
------
+system setup
+------------
+
+Setup a fresh system from scratch (or update an existing one):
+
+	bash <(curl -s -L https://raw.github.com/alerque/que/master/bin/que-sys-bootstrap.bash)
+
+home setup
+----------
 
 Initialization on a fresh user directory:
 
-	sh <(curl -s -L https://raw.github.com/alerque/que/master/bin/que-home-bootstrap.sh)
+	bash <(curl -s -L https://raw.github.com/alerque/que/master/bin/que-home-bootstrap.bash)
 
 Otherwise to update:
 
