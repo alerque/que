@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # Detect distro
 grep -q -s "^Amazon Linux AMI" /etc/system-release && DISTRO=ala
