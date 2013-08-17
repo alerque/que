@@ -32,5 +32,5 @@ INITSCRIPT="que-sys-init-${DISTRO}.bash"
 if [ -f "$DIR/$INITSCRIPT" ]; then
 	source "$DIR/$INITSCRIPT"
 else
-	source <(curl -S -L https://raw.github.com/alerque/que/master/bin/$INITSCRIPT)
+	source <(curl -s -L https://raw.github.com/alerque/que/master/bin/$INITSCRIPT)
 fi
