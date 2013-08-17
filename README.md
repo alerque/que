@@ -6,6 +6,11 @@ My personal computing environment including but not limited to system initializa
 system setup
 ------------
 
+Requires:
+
+* bash, curl
+* loged in as user with sudo privs
+
 Setup a fresh system from scratch (or update an existing one):
 
 	bash <(curl -s -L https://raw.github.com/alerque/que/master/bin/que-sys-bootstrap.bash)
