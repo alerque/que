@@ -10,7 +10,7 @@ tree=$(cat /etc/pld-release | cut -d\( -f2 | cut -c1-2 | tr [:upper:] [:lower:])
 #which ex > /dev/null || poldek -iv vim-static && ex -u NONE "+:%s!^_prefix.*!_prefix = http://pld.ouraynet.com/dists/${tree:l}!g" "+:x" /etc/poldek/pld-source.conf
 
 # Make sure the basics every system is going to need are installed and updated
-sudo poldek -n ${tree:l} -iv $BASEPACKAGES zsh-completions pcregrep glibc-localedb-all ctags iputils-ping
+sudo poldek -n ${tree:l} -iv $BASEPACKAGES git-core zsh-completions pcregrep glibc-localedb-all ctags iputils-ping
 
 # TODO: ssh-askpass-fullscreen slock awesome
 

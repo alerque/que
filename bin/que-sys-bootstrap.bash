@@ -2,7 +2,7 @@
 
 # Setup stuff
 
-BASEPACKAGES="zsh subversion vim git tmux sudo"
+BASEPACKAGES="zsh subversion vim tmux sudo"
 
 function flunk() {
 	echo "Fatal Error: $*"
