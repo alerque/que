@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# Make sure this is sane
-test -f "/etc/pld-release" || exit
-
 # Find out some basics about the system
 tree=$(cat /etc/pld-release | cut -d\( -f2 | cut -c1-2)
 
@@ -13,7 +10,7 @@ tree=$(cat /etc/pld-release | cut -d\( -f2 | cut -c1-2)
 #which ex > /dev/null || poldek -iv vim-static && ex -u NONE "+:%s!^_prefix.*!_prefix = http://pld.ouraynet.com/dists/${tree:l}!g" "+:x" /etc/poldek/pld-source.conf
 
 # Make sure the basics every system is going to need are installed and updated
-poldek -n ${tree:l} -iv vim vim-static sudo screen zsh-completions subversion pcregrep glibc-localedb-all ctags iputils-ping
+poldek -n ${tree:l} -iv $BASEPACKAGES zsh-completions pcregrep glibc-localedb-all ctags iputils-ping
 
 # TODO: ssh-askpass-fullscreen slock awesome
 
@@ -31,4 +28,4 @@ sudo chmod u+s /bin/ping
 #	cut -d: -f1 |
 #	read line && sudo ex -u NONE "+:${line}s/==/=/g" "+:x" /etc/rc.d/init.d/functions
 
-test -d ~/rpm || builder --init-rpm-dir
+#test -d ~/rpm || builder --init-rpm-dir

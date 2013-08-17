@@ -1,13 +1,5 @@
 #!/bin/bash
 
-function flunk() {
-	echo "$*"
-	exit
-}
-
-# Make sure this is sane
-grep -q -s "^Amazon Linux AMI" /etc/system-release || flunk "Not an Amazon Linux AMI"
-
 # Figure out and set our hostname based on the EC2 instance name
 # (Uses que user that has read only permission to access tags on my EC2 account)
 HOSTNAME=$(ec2-describe-tags \
@@ -24,4 +16,4 @@ sudo hostname $HOSTNAME.alerque.com
 sudo yum -y distribution-synchronization
 
 # Get packages that we're going to want across the board
-sudo yum -y install zsh subversion git tmux ctags pcre-tools
+sudo yum -y install $BASEPACKAGES ctags pcre-tools

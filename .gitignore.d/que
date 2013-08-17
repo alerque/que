@@ -1,4 +1,11 @@
 *
+!/bin
+!/bin/que
+!/bin/que-home-bootstrap.bash
+!/bin/que-sys-bootstrap.bash
+!/bin/que-sys-init-ala.bash
+!/bin/que-sys-init-pld.bash
+!/bin/que-sys-init-ubuntu.bash
 !/.config
 !/.config/mr
 !/.config/mr/available.d
@@ -13,6 +20,7 @@
 !/.config/mr/available.d/xorg.vcsh
 !/.config/mr/available.d/zsh.vcsh
 !/.config/mr/config.d
+!/.config/mr/config.d/caleb-private.vcsh
 !/.config/mr/config.d-lemur
 !/.config/mr/config.d-lemur/awesome.vcsh
 !/.config/mr/config.d-lemur/pictures.git
@@ -26,7 +34,6 @@
 !/.config/mr/config.d-pars/awesome.vcsh
 !/.config/mr/config.d-pars/pictures.git
 !/.config/mr/config.d-pars/xorg.vcsh
-!/.config/mr/config.d/caleb-private.vcsh
 !/.config/mr/config.d/que.vcsh
 !/.config/mr/config.d/tmux.vcsh
 !/.config/mr/config.d/utils.vcsh
@@ -37,9 +44,3 @@
 !/.gitignore.d/que
 !/.mrconfig
 !/README.md
-!/bin
-!/bin/que
-!/bin/que-home-bootstrap.sh
-!/bin/que-sys-bootstrap.sh
-!/bin/que-sys-init-pld.zsh
-!/bin/que-sys-init-ubuntu.bash
