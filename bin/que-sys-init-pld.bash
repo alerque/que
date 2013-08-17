@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Find out some basics about the system
-tree=$(cat /etc/pld-release | cut -d\( -f2 | cut -c1-2)
+tree=$(cat /etc/pld-release | cut -d\( -f2 | cut -c1-2 | tr [:upper:] [:lower:])
 
 # Setup poldek repositories
 #grep -q caleb /etc/poldek/source.conf ||
