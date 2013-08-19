@@ -2,11 +2,15 @@
 
 # Setup stuff
 
-BASEPACKAGES="zsh subversion vim tmux sudo"
+BASEPACKAGES=(zsh subversion git ctags pcre-tools vim tmux sudo mosh)
 
 function flunk() {
 	echo "Fatal Error: $*"
 	exit 0
+}
+
+function distro_pkg () {
+	BASEPACKAGES=${BASEPACKAGES[@]/%$1/$2}
 }
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" > /dev/null && pwd )"
@@ -19,6 +23,23 @@ test -f /etc/pld-release && DISTRO=pld
 grep -q -s "^Amazon Linux AMI" /etc/system-release && DISTRO=ala
 
 test -n "$DISTRO" || flunk "unrecognized distro"
+
+case $DISTRO in
+	ala)
+		;;
+	pld)
+		distro_pkg zsh zsh-completions
+		distro_pkg git git-core
+		distro_pkg pcretools pcregrep
+		;;
+	ubuntu)
+		distro_pkg ctags ""
+		distro_pkg vim vim-gnome
+		;;
+	*)
+		flunk "Distro $DISTRO not yet supported"
+		;;
+esac
 
 # Make sure we have privs
 sudo -n true || flunk "no sudo privs"

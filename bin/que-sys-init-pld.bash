@@ -13,7 +13,7 @@ tree=$(cat /etc/pld-release | cut -d\( -f2 | cut -c1-2 | tr [:upper:] [:lower:])
 sudo poldek --noask -n ${tree} --upgrade-dist
 
 # Make sure the basics every system is going to need are installed and updated
-sudo poldek --noask -n ${tree} -iv $BASEPACKAGES git-core zsh-completions pcregrep glibc-localedb-all ctags iputils-ping man
+sudo poldek --noask -n ${tree} -iv $BASEPACKAGES glibc-localedb-all iputils-ping man
 
 # TODO: ssh-askpass-fullscreen slock awesome
 
