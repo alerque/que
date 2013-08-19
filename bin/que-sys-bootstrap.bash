@@ -58,6 +58,9 @@ fi
 
 # If we're on a system with etckeeper, make sure it's setup
 if which etckeeper; then
-	( cd /etc ; etckeeper vcs status || etckeeper init )
-	etckeeper commit "End of que-sys-bootstrap.bash run"
+	(
+	cd /etc 
+	etckeeper vcs status || sudo etckeeper init
+	sudo etckeeper commit "End of que-sys-bootstrap.bash run"
+	)
 fi
