@@ -60,7 +60,7 @@ fi
 if which etckeeper; then
 	(
 	cd /etc 
-	etckeeper vcs status || sudo etckeeper init
+	sudo etckeeper vcs status || sudo etckeeper init
 	sudo etckeeper commit "End of que-sys-bootstrap.bash run"
 	)
 fi
