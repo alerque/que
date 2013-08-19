@@ -34,7 +34,6 @@ case $DISTRO in
 		;;
 	ubuntu)
 		distro_pkg ctags ""
-		distro_pkg vim vim-gnome
 		;;
 	*)
 		flunk "Distro $DISTRO not yet supported"
