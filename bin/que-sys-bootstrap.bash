@@ -2,7 +2,7 @@
 
 # Setup stuff
 
-BASEPACKAGES=(zsh subversion git ctags pcre-tools vim tmux sudo mosh etckeeper)
+BASEPACKAGES=(zsh subversion git ctags pcre-tools vim tmux sudo mosh etckeeper ruby-modules zip unizp)
 
 function flunk() {
 	echo "Fatal Error: $*"
@@ -64,3 +64,6 @@ if which etckeeper; then
 	sudo etckeeper commit "End of que-sys-bootstrap.bash run"
 	)
 fi
+
+# Setup EC2 tools
+#curl http://s3.amazonaws.com/ec2-downloads/ec2-api-tools.zip
