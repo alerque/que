@@ -9,7 +9,8 @@ system setup
 Requires:
 
 * bash, curl
-* loged in as user with sudo privs
+* working network connection
+* booted and logged in as user with sudo privs
 
 Setup a fresh system from scratch (or update an existing one):
 
