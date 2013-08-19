@@ -5,12 +5,15 @@ tree=$(cat /etc/pld-release | cut -d\( -f2 | cut -c1-2 | tr [:upper:] [:lower:])
 
 # Setup poldek repositories
 #grep -q caleb /etc/poldek/source.conf ||
-#	echo "\n[source]\nname    = caleb\ntype    = pndir\npath    = http://rpms.alerque.com/dists/${tree:l}/\nauto    = yes\nautoup  = yes" >> /etc/poldek/source.conf
+#	echo "\n[source]\nname    = caleb\ntype    = pndir\npath    = http://rpms.alerque.com/dists/${tree}/\nauto    = yes\nautoup  = yes" >> /etc/poldek/source.conf
 
-#which ex > /dev/null || poldek -iv vim-static && ex -u NONE "+:%s!^_prefix.*!_prefix = http://pld.ouraynet.com/dists/${tree:l}!g" "+:x" /etc/poldek/pld-source.conf
+#which ex > /dev/null || poldek -iv vim-static && ex -u NONE "+:%s!^_prefix.*!_prefix = http://pld.ouraynet.com/dists/${tree}!g" "+:x" /etc/poldek/pld-source.conf
+
+# Freshen everything up
+sudo poldek -O suggests=no -n ${tree} --upgrade-dist
 
 # Make sure the basics every system is going to need are installed and updated
-sudo poldek -O suggests=no -n ${tree:l} -iv $BASEPACKAGES git-core zsh-completions pcregrep glibc-localedb-all ctags iputils-ping
+sudo poldek -O suggests=no -n ${tree} -iv $BASEPACKAGES git-core zsh-completions pcregrep glibc-localedb-all ctags iputils-ping man
 
 # TODO: ssh-askpass-fullscreen slock awesome
 
