@@ -2,7 +2,7 @@
 
 # Setup stuff
 
-BASEPACKAGES=(zsh subversion git ctags pcre-tools vim tmux sudo mosh etckeeper ruby-modules zip unizp)
+BASEPACKAGES=(zsh subversion git ctags pcre-tools vim tmux sudo mosh etckeeper ruby-modules zip unzip)
 
 function flunk() {
 	echo "Fatal Error: $*"
