@@ -10,7 +10,7 @@ function flunk() {
 }
 
 function distro_pkg () {
-	BASEPACKAGES=${BASEPACKAGES[@]/%$1/$2}
+	BASEPACKAGES=(${BASEPACKAGES[@]/%$1/$2})
 }
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" > /dev/null && pwd )"
@@ -30,7 +30,7 @@ case $DISTRO in
 	pld)
 		distro_pkg zsh zsh-completions
 		distro_pkg git git-core
-		distro_pkg pcretools pcregrep
+		distro_pkg pcre-tools pcregrep
 		;;
 	ubuntu)
 		distro_pkg ctags ""
