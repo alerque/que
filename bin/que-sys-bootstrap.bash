@@ -2,7 +2,7 @@
 
 # Setup stuff
 
-BASEPACKAGES=(zsh subversion git ctags pcre-tools vim tmux sudo mosh)
+BASEPACKAGES=(zsh subversion git ctags pcre-tools vim tmux sudo mosh etckeeper)
 
 function flunk() {
 	echo "Fatal Error: $*"
@@ -33,7 +33,8 @@ case $DISTRO in
 		distro_pkg pcre-tools pcregrep
 		;;
 	ubuntu)
-		distro_pkg ctags ""
+		#distro_pkg ctags ""
+		#distro_pkg etckeeper ""
 		;;
 	*)
 		flunk "Distro $DISTRO not yet supported"
@@ -53,4 +54,10 @@ if [ -f "$DIR/$INITSCRIPT" ]; then
 	source "$DIR/$INITSCRIPT"
 else
 	source <(curl -s -L https://raw.github.com/alerque/que/master/bin/$INITSCRIPT)
+fi
+
+# If we're on a system with etckeeper, make sure it's setup
+if which etckeeper; then
+	( cd /etc ; etckeeper vcs status || etckeeper init )
+	etckeeper commit "End of que-sys-bootstrap.bash run"
 fi
