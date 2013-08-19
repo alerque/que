@@ -11,4 +11,4 @@ sudo apt-get upgrade || flunk "Couldn't upgrade system packages"
 #read -p "Reboot? (y/n): " reboot
 #[[ $reboot  == y ]] && sudo reboot
 
-sudo apt-get install $BASEPACKAGES
+sudo apt-get install ${BASEPACKAGES[@]}

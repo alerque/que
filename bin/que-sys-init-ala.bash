@@ -16,4 +16,4 @@ sudo hostname $HOSTNAME.alerque.com
 sudo yum -y distribution-synchronization
 
 # Get packages that we're going to want across the board
-sudo yum -y install $BASEPACKAGES
+sudo yum -y install ${BASEPACKAGES[@]}
