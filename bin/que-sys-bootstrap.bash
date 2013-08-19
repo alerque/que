@@ -56,6 +56,9 @@ else
 	source <(curl -s -L https://raw.github.com/alerque/que/master/bin/$INITSCRIPT)
 fi
 
+# Setup my user
+sudo useradd -s $(which zsh) -m -k /dev/null -G wheel caleb
+
 # If we're on a system with etckeeper, make sure it's setup
 if which etckeeper; then
 	(
@@ -66,4 +69,5 @@ if which etckeeper; then
 fi
 
 # Setup EC2 tools
+#openssl-tools xfsprogs ca-certificates-update
 #curl http://s3.amazonaws.com/ec2-downloads/ec2-api-tools.zip
