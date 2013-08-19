@@ -10,10 +10,10 @@ tree=$(cat /etc/pld-release | cut -d\( -f2 | cut -c1-2 | tr [:upper:] [:lower:])
 #which ex > /dev/null || poldek -iv vim-static && ex -u NONE "+:%s!^_prefix.*!_prefix = http://pld.ouraynet.com/dists/${tree}!g" "+:x" /etc/poldek/pld-source.conf
 
 # Freshen everything up
-sudo poldek -O suggests=no -n ${tree} --upgrade-dist
+sudo poldek --noask -n ${tree} --upgrade-dist
 
 # Make sure the basics every system is going to need are installed and updated
-sudo poldek -O suggests=no -n ${tree} -iv $BASEPACKAGES git-core zsh-completions pcregrep glibc-localedb-all ctags iputils-ping man
+sudo poldek --noask -n ${tree} -iv $BASEPACKAGES git-core zsh-completions pcregrep glibc-localedb-all ctags iputils-ping man
 
 # TODO: ssh-askpass-fullscreen slock awesome
 
