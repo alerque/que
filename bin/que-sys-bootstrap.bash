@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Setup stuff
-
 BASEPACKAGES=(zsh subversion git ctags pcre-tools vim tmux sudo mosh etckeeper ruby-modules zip unzip)
+DESKTOPPACKAGES=(awesome dropbox parcellite google-chrome google-talkplugin)
 
 function flunk() {
 	echo "Fatal Error: $*"
@@ -17,7 +17,7 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" > /dev/null && pwd )"
 
 # Detect distro
 test -f /etc/pld-release && DISTRO=pld
-#test -f /etc/ubuntu-release && DISTRO=pld # use lsb_release?
+#test -f /etc/ubuntu-release && DISTRO=ubuntu # use lsb_release?
 #test -f /etc/arch-release && DISTRO=arch
 #test -f /etc/fedora-release && DISTRO=fedora
 grep -q -s "^Amazon Linux AMI" /etc/system-release && DISTRO=ala
