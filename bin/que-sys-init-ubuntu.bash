@@ -16,3 +16,6 @@ sudo apt-get -y autoremove
 #[[ $reboot  == y ]] && sudo reboot
 
 sudo apt-get -y install ${BASEPACKAGES[@]}
+
+# Fix etckeeper defaults
+sudo sed -i 's/^VCS=".*"$/VCS="git"/' /etc/etckeeper/etckeeper.conf
