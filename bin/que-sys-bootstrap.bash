@@ -17,9 +17,9 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" > /dev/null && pwd )"
 
 # Detect distro
 test -f /etc/pld-release && DISTRO=pld
-#test -f /etc/ubuntu-release && DISTRO=ubuntu # use lsb_release?
+grep -q -s "Ubuntu" /etc/lsb-release && DISTRO=ubuntu
+test -f /etc/fedora-release && DISTRO=fedora
 #test -f /etc/arch-release && DISTRO=arch
-#test -f /etc/fedora-release && DISTRO=fedora
 grep -q -s "^Amazon Linux AMI" /etc/system-release && DISTRO=ala
 
 test -n "$DISTRO" || flunk "unrecognized distro"
@@ -33,9 +33,11 @@ case $DISTRO in
 		distro_pkg pcre-tools pcregrep
 		;;
 	ubuntu)
-		#distro_pkg ctags ""
-		#distro_pkg etckeeper ""
+		continue
 		;;
+	fedora)
+		continue
+	;;
 	*)
 		flunk "Distro $DISTRO not yet supported"
 		;;
