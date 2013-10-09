@@ -33,10 +33,10 @@ case $DISTRO in
 		distro_pkg pcre-tools pcregrep
 		;;
 	ubuntu)
-		continue
+		:
 		;;
 	fedora)
-		continue
+		:
 	;;
 	*)
 		flunk "Distro $DISTRO not yet supported"
