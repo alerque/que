@@ -74,6 +74,9 @@ if which etckeeper; then
 	)
 fi
 
+# For convenience show how to seutp my home directory
+echo "Perhaps you want home stuff too?\nsu - caleb\nbash <(curl -s -L https://raw.github.com/alerque/que/master/bin/que-home-bootstrap.bash)"
+
 # Setup EC2 tools
 #openssl-tools xfsprogs ca-certificates-update
 #curl http://s3.amazonaws.com/ec2-downloads/ec2-api-tools.zip
