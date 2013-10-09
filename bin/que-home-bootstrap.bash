@@ -32,22 +32,3 @@ if [ ! -d .config/vcsh/repo.d/que.git ]; then
 fi
 
 mr up
-
-exit
-
-## old version....
-
-TMPDIR=$(mktemp -d $TMPDIR/XXXXXX)
-
-# This package is for $HOME
-cd
-
-# TODO: install pre-requisits
-which git || exit
-
-git clone https://github.com/alerque/que.git $TMPDIR
-rsync -avb $TMPDIR/ $HOME/ 
-rm -rf $TMPDIR
-
-#curl -#L https://github.com/alerque/que/tarball/master |
-#	tar -xzv --strip-components 1

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Setup stuff
-BASEPACKAGES=(zsh subversion git ctags pcre-tools vim tmux sudo mosh etckeeper ruby-modules zip unzip)
+BASEPACKAGES=(zsh subversion git ctags pcre-tools vim tmux sudo mosh etckeeper ruby zip unzip)
 DESKTOPPACKAGES=(awesome dropbox parcellite google-chrome google-talkplugin)
 
 function flunk() {
@@ -24,6 +24,8 @@ grep -q -s "^Amazon Linux AMI" /etc/system-release && DISTRO=ala
 
 test -n "$DISTRO" || flunk "unrecognized distro"
 
+WHEEL=wheel
+
 case $DISTRO in
 	ala)
 		;;
@@ -31,9 +33,11 @@ case $DISTRO in
 		distro_pkg zsh zsh-completions
 		distro_pkg git git-core
 		distro_pkg pcre-tools pcregrep
+		distro_pkg ruby ruby-modules
 		;;
 	ubuntu)
-		:
+		WHEEL=adm
+		distro_pkg pcre-tools pcregrep
 		;;
 	fedora)
 		:
@@ -59,7 +63,7 @@ else
 fi
 
 # Setup my user
-sudo useradd -s $(which zsh) -m -k /dev/null -G wheel caleb
+sudo useradd -s $(which zsh) -m -k /dev/null -G $WHEEL caleb
 
 # If we're on a system with etckeeper, make sure it's setup
 if which etckeeper; then
