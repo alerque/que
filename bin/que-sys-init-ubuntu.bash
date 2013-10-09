@@ -7,6 +7,7 @@ fi
 
 sudo apt-get -y update || flunk "Couldn't get apt-get repos"
 sudo apt-get -y upgrade || flunk "Couldn't upgrade system packages"
+sudo apt-get -y autoremove
 
 #read -p "Reboot? (y/n): " reboot
 #[[ $reboot  == y ]] && sudo reboot
