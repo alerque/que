@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Setup stuff
-BASEPACKAGES=(zsh subversion git ctags pcre-tools vim tmux sudo mosh etckeeper ruby zip unzip)
-DESKTOPPACKAGES=(awesome dropbox parcellite google-chrome google-talkplugin)
+BASEPACKAGES=(zsh subversion git ctags pcre-tools vim tmux sudo mosh etckeeper ruby zip unzip mr vcsh)
+DESKTOPPACKAGES=(awesome dropbox parcellite google-chrome google-talkplugin owncloud-client)
 
 function flunk() {
 	echo "Fatal Error: $*"

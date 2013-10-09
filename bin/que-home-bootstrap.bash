@@ -8,7 +8,7 @@ set -e
 # Make sure we have the tools (otherwise we should be running a system init routine instead)
 which git > /dev/null
 which mr > /dev/null
-which vcsh || {
+which vcsh && vcsh -v 2>&1 | head -n 1 | grep -q 1.3 || {
 	mkdir -p ~/projects
 	git clone git@github.com:alerque/vcsh.git ~/projects/vcsh
 	sudo ln -sf ~/projects/vcsh/vcsh /usr/local/bin/
