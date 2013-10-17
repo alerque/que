@@ -16,11 +16,11 @@ function distro_pkg () {
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" > /dev/null && pwd )"
 
 # Detect distro
+grep -q -s "^Amazon Linux AMI" /etc/system-release && DISTRO=ala
+test -f /etc/arch-release && DISTRO=arch
+test -f /etc/fedora-release && DISTRO=fedora
 test -f /etc/pld-release && DISTRO=pld
 grep -q -s "Ubuntu" /etc/lsb-release && DISTRO=ubuntu
-test -f /etc/fedora-release && DISTRO=fedora
-#test -f /etc/arch-release && DISTRO=arch
-grep -q -s "^Amazon Linux AMI" /etc/system-release && DISTRO=ala
 
 test -n "$DISTRO" || flunk "unrecognized distro"
 
@@ -28,7 +28,14 @@ WHEEL=wheel
 
 case $DISTRO in
 	ala)
+		:
 		;;
+	arch)
+		:
+		;;
+	fedora)
+		:
+	;;
 	pld)
 		distro_pkg zsh zsh-completions
 		distro_pkg git git-core
@@ -39,11 +46,8 @@ case $DISTRO in
 		WHEEL=adm
 		distro_pkg pcre-tools pcregrep
 		;;
-	fedora)
-		:
-	;;
 	*)
-		flunk "Distro $DISTRO not yet supported"
+		flunk "Unknown Linux distribution"
 		;;
 esac
 
@@ -75,7 +79,7 @@ if which etckeeper; then
 fi
 
 # For convenience show how to seutp my home directory
-echo "Perhaps you want home stuff too?\nsu - caleb\nbash <(curl -s -L https://raw.github.com/alerque/que/master/bin/que-home-bootstrap.bash)"
+echo -e "Perhaps you want home stuff too?\nsu - caleb\nbash <(curl -s -L https://raw.github.com/alerque/que/master/bin/que-home-bootstrap.bash)"
 
 # Setup EC2 tools
 #openssl-tools xfsprogs ca-certificates-update
