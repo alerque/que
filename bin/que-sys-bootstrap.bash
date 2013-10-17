@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Setup stuff
-BASEPACKAGES=(zsh subversion git ctags pcre-tools vim tmux sudo mosh etckeeper ruby zip unzip mr vcsh)
+BASEPACKAGES=(zsh subversion git ctags pcre-tools vim tmux sudo mosh etckeeper ruby zip unzip mr vcsh wget)
 DESKTOPPACKAGES=(awesome dropbox parcellite google-chrome google-talkplugin owncloud-client)
 
 function flunk() {
