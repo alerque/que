@@ -31,6 +31,10 @@ case $DISTRO in
 		:
 		;;
 	arch)
+		distro_pkg pcre-tools pcre
+		distro_pkg etckeeper ""
+		distro_pkg mr ""
+		distro_pkg vcsh ""
 		:
 		;;
 	fedora)
