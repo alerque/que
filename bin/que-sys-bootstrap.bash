@@ -86,7 +86,7 @@ if which etckeeper; then
 fi
 
 # For convenience show how to setup my home directory
-echo -e "Perhaps you want home stuff too?\nsu - caleb\nbash <(curl -s -L https://raw.github.com/alerque/que/master/bin/que-home-bootstrap.bash)"
+echo -e "Perhaps you want home stuff too?\n    su - caleb\n    bash <(curl -s -L https://raw.github.com/alerque/que/master/bin/que-home-bootstrap.bash)"
 
 # Setup EC2 tools
 #openssl-tools xfsprogs ca-certificates-update
