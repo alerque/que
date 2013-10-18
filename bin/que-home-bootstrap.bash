@@ -10,7 +10,7 @@ which git > /dev/null
 which mr > /dev/null
 grep -q vcsh-unclobber $(which vcsh) || {
 	mkdir -p ~/projects
-	git clone git@github.com:alerque/vcsh.git ~/projects/vcsh || :
+	test -d ~/projects/vcsh || git clone git@github.com:alerque/vcsh.git ~/projects/vcsh
 	sudo ln -sf ~/projects/vcsh/vcsh /usr/local/bin/
 	sudo cp ~/projects/vcsh/vcsh $(which vcsh)
 }
