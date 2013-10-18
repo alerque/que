@@ -16,7 +16,7 @@ function distro_pkg () {
 
 function compile_pkg () {
 	BASEPACKAGES=(${BASEPACKAGES[@]/%$1/})
-	COMPILEPACKAGES=(${COMPILEPACKAGES[@] $1)
+	COMPILEPACKAGES=(${COMPILEPACKAGES[@]} $1)
 }
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" > /dev/null && pwd )"
