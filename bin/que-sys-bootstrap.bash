@@ -2,7 +2,8 @@
 
 # Setup stuff
 BASEPACKAGES=(zsh subversion git ctags pcre-tools vim tmux sudo mosh etckeeper ruby zip unzip mr vcsh wget)
-DESKTOPPACKAGES=(awesome dropbox parcellite google-chrome google-talkplugin owncloud-client)
+DESKTOPPACKAGES=(awesome dropbox parcellite google-chrome google-talkplugin owncloud-client gnome)
+COMPILEPACKAGES=()
 
 function flunk() {
 	echo "Fatal Error: $*"
@@ -11,6 +12,11 @@ function flunk() {
 
 function distro_pkg () {
 	BASEPACKAGES=(${BASEPACKAGES[@]/%$1/$2})
+}
+
+function compile_pkg () {
+	BASEPACKAGES=(${BASEPACKAGES[@]/%$1/})
+	COMPILEPACKAGES=(${COMPILEPACKAGES[@] $1)
 }
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" > /dev/null && pwd )"
@@ -32,9 +38,9 @@ case $DISTRO in
 		;;
 	arch)
 		distro_pkg pcre-tools pcre
-		distro_pkg etckeeper ""
-		distro_pkg mr ""
-		distro_pkg vcsh ""
+		compile_pkg etckeeper
+		compile_pkg vcsh
+		compile_pkg mr
 		:
 		;;
 	fedora)
@@ -45,6 +51,7 @@ case $DISTRO in
 		distro_pkg git git-core
 		distro_pkg pcre-tools pcregrep
 		distro_pkg ruby ruby-modules
+		distro_pkg gnome metapackages-gnome
 		;;
 	ubuntu)
 		WHEEL=adm
@@ -78,7 +85,7 @@ if which etckeeper; then
 	)
 fi
 
-# For convenience show how to seutp my home directory
+# For convenience show how to setup my home directory
 echo -e "Perhaps you want home stuff too?\nsu - caleb\nbash <(curl -s -L https://raw.github.com/alerque/que/master/bin/que-home-bootstrap.bash)"
 
 # Setup EC2 tools

@@ -29,3 +29,6 @@ grep -q haskell-core /etc/pacman.conf || (
 	pacman-key --lsign-key 4209170B
 )
 bash <(curl aur.sh) -si aura --noconfirm --asroot
+
+# Compile and install things not coming out of the distro main tree
+aura -A --needed --noconfirm ${COMPILEPACKAGES[@]}
