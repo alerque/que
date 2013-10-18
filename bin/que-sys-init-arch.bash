@@ -30,7 +30,7 @@ lspci | grep -iq virtualbox && (
 # Get AUR going
 pacman -S --needed --noconfirm base-devel
 grep -q haskell-core /etc/pacman.conf || (
-	sed -i 's#^\[extra\]$#[haskell-core]\nSigLevel = Optional TrustAll\nServer = http://xsounds.org/~haskell/core/$arch\n\n[extra]#g' /etc/pacman.conf
+	sed -i 's#^\[extra\]$#[haskell-core]\nServer = http://xsounds.org/~haskell/core/$arch\n\n[extra]#g' /etc/pacman.conf
 	pacman-key --recv-keys 4209170B
 	pacman-key --lsign-key 4209170B
 	pacman -Sy --noconfirm
