@@ -1,5 +1,7 @@
 #!/bin/bash
 
+sed -i 's/^# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/g' /etc/sudoers
+
 # Freshen everything up
 pacman -Syu --needed --noconfirm
 
