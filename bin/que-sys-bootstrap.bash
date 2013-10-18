@@ -55,12 +55,8 @@ case $DISTRO in
 		;;
 esac
 
-# Make sure we have privs
-sudo -n true || flunk "no sudo privs"
-
-# Make sure we have dependencies the init scripts will need
-
-# Check for network access
+# Make sure we are root
+test $UID -eq 0 || flunk "Must be root for system bootstrap"
 
 # Import and run init script for this OS
 INITSCRIPT="que-sys-init-${DISTRO}.bash"
@@ -71,14 +67,14 @@ else
 fi
 
 # Setup my user
-sudo useradd -s $(which zsh) -m -k /dev/null -G $WHEEL caleb
+useradd -s $(which zsh) -m -k /dev/null -G $WHEEL caleb
 
 # If we're on a system with etckeeper, make sure it's setup
 if which etckeeper; then
 	(
 	cd /etc 
-	sudo etckeeper vcs status || sudo etckeeper init
-	sudo etckeeper commit "End of que-sys-bootstrap.bash run"
+	etckeeper vcs status || etckeeper init
+	etckeeper commit "End of que-sys-bootstrap.bash run"
 	)
 fi
 
