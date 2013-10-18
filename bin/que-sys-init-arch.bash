@@ -10,7 +10,7 @@ sudo pacman -S --needed --noconfirm ${BASEPACKAGES[@]}
 systemctl enable dhcpcd@$(ip link show | grep ^2: | awk -F: '{gsub(/[ \t]+/, "", $2); print $2}').service
 
 # Desktop stuff?
-# pacman -S --needed --noconfirm gnome
+# pacman -S --needed --noconfirm gnome xf86-video-nouveau nouveau-dri
 # systemctl enable gdm
 
 # Get AUR going
