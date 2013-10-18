@@ -3,6 +3,7 @@
 sed -i 's/^# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/g' /etc/sudoers
 
 # Make sure we're off on the right foot before we get to adding  keys
+pacman -Syy
 pacman -Su haveged
 haveged -w 1024
 pacman-key --init
