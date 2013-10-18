@@ -13,6 +13,14 @@ pacman -S --needed --noconfirm ${BASEPACKAGES[@]}
 # pacman -S --needed --noconfirm gnome xf86-video-nouveau nouveau-dri
 # systemctl enable gdm
 
+# Detect VirtualBox guest and configure accordingly
+lspci | grep -iq virtualbox && (
+	pacman -S --needed --noconfirm virtualbox-guest-utils
+	echo -e "vboxguest\nvboxsf\nvboxvideo" > /etc/modules-load.d/virtualbox.conf
+	systemctl enable vboxservice.service
+	# pacman -S --needed --noconfirm xf86-video-vbox
+)
+
 # Get AUR going
 pacman -S --needed --noconfirm base-devel
 grep -q haskell-core /etc/pacman.conf || (
