@@ -2,6 +2,10 @@
 
 sed -i 's/^# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/g' /etc/sudoers
 
+# Make sure we're off on the right foot before we get to adding  keys
+pacman-key --init
+pacman-key --populate archlinux
+
 # Freshen everything up
 pacman -Syu --needed --noconfirm
 
@@ -26,8 +30,8 @@ lspci | grep -iq virtualbox && (
 # Get AUR going
 pacman -S --needed --noconfirm base-devel
 grep -q haskell-core /etc/pacman.conf || (
-	sed -i 's#^\[extra\]$#[haskell-core]\nSigLevel = PackageRequired\nServer = http://xsounds.org/~haskell/core/$arch\n\n[extra]#g' /etc/pacman.conf
-	pacman-key -r 4209170B
+	sed -i 's#^\[extra\]$#[haskell-core]\nSigLevel = Optional TrustAll\nServer = http://xsounds.org/~haskell/core/$arch\n\n[extra]#g' /etc/pacman.conf
+	pacman-key --recv-keys 4209170B
 	pacman-key --lsign-key 4209170B
 	pacman -Sy --noconfirm
 )
