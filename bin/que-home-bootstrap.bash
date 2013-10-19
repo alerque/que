@@ -31,7 +31,7 @@ ssh-add .ssh/github
 which vcsh && grep -q vcsh-unclobber $(which vcsh) || {
 	mkdir -p ~/projects ;
 	test -f ~/projects/vcsh/vcsh || git clone git@github.com:alerque/vcsh.git ~/projects/vcsh ;
-	export PATH=~/projects/vcsh:$PATH ;
+	export PATH="~/projects/vcsh:$PATH" ;
 }
 
 # If we don't have a config file for me, clone it manually so we have starting point
