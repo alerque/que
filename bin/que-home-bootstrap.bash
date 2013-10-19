@@ -27,17 +27,13 @@ cd $HOME
 
 # TODO: setup SSH auth credentials first
 test -d .ssh || mkdir .ssh
-test -f .ssh/id_rsa || ( umask 177 && curl --user caleb -o .ssh/id_rsa 'http://git.alerque.com/?p=caleb-private.git;a=blob_plain;f=.ssh/id_rsa;hb=HEAD')
-test -f .ssh/github || ( umask 177 && curl --user caleb -o .ssh/github 'http://git.alerque.com/?p=caleb-private.git;a=blob_plain;f=.ssh/github;hb=HEAD')
-
+test -f .ssh/id_rsa -f .ssh/github || ( umask 177 && curl --user caleb 'http://git.alerque.com/?p=caleb-private.git;a=blob_plain;f=.ssh/id_rsa;hb=HEAD' -o .ssh/id_rsa  'http://git.alerque.com/?p=caleb-private.git;a=blob_plain;f=.ssh/github;hb=HEAD' -o .ssh/github )
 grep -q github .ssh/config || echo -e "Host github.com\n\tIdentityFile ~/.ssh/github\n\tStrictHostKeyChecking no\n" >> .ssh/config
 
 eval $(ssh-agent)
 ssh-add .ssh/id_rsa
 ssh-add .ssh/github
 
-if [ ! -d .config/vcsh/repo.d/que.git ]; then
-	vcsh clone git@github.com:alerque/que.git
-fi
+test -f .mrconfig || vcsh clone git@github.com:alerque/que.git
 
 mr up
