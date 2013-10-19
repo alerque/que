@@ -27,7 +27,7 @@ cd $HOME
 
 # TODO: setup SSH auth credentials first
 test -d .ssh || mkdir .ssh
-test -f .ssh/id_rsa -f .ssh/github || ( umask 177 && curl --user caleb 'http://git.alerque.com/?p=caleb-private.git;a=blob_plain;f=.ssh/id_rsa;hb=HEAD' -o .ssh/id_rsa  'http://git.alerque.com/?p=caleb-private.git;a=blob_plain;f=.ssh/github;hb=HEAD' -o .ssh/github )
+test -f .ssh/id_rsa -a -f .ssh/github || ( umask 177 && curl --user caleb 'http://git.alerque.com/?p=caleb-private.git;a=blob_plain;f=.ssh/id_rsa;hb=HEAD' -o .ssh/id_rsa  'http://git.alerque.com/?p=caleb-private.git;a=blob_plain;f=.ssh/github;hb=HEAD' -o .ssh/github )
 grep -q github .ssh/config || (umask 177 && echo -e "Host github.com\n\tIdentityFile ~/.ssh/github\n\tStrictHostKeyChecking no\n" >> .ssh/config)
 
 eval $(ssh-agent)
