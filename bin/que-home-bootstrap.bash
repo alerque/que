@@ -27,12 +27,19 @@ eval $(ssh-agent)
 ssh-add .ssh/id_rsa
 ssh-add .ssh/github
 
-# Make sure our vcsh has my anti-clobber hack, otherwise setup a local one for this operation
-which vcsh && grep -q vcsh-unclobber $(which vcsh) || {
+# Make sure our vcsh has the hooks necessary for my anti-clobber hack,
+# otherwise checkout and use a local one for this operation
+which vcsh && grep -q 'hook pre-merge' $(which vcsh) || {
 	mkdir -p ~/projects ;
 	test -f ~/projects/vcsh/vcsh || git clone git@github.com:alerque/vcsh.git ~/projects/vcsh ;
 	export PATH="~/projects/vcsh:$PATH" ;
 }
+
+# Get hooks we want to use on the initial clone (even though these will
+# get pulled down later as part of the actual clone)
+mkdir -p .config/vcsh/hooks-enabled
+test -f .config/vcsh/hooks-enabled/pre-merge-unclobber || curl -o .config/vcsh/hooks-enabled/pre-merge-unclobber https://raw.github.com/alerque/que/master/.config/vcsh/hooks-enabled/pre-merge-unclobber
+test -f .config/vcsh/hooks-enabled/post-merge-unclobber || curl -o .config/vcsh/hooks-enabled/post-merge-unclobber https://raw.github.com/alerque/que/master/.config/vcsh/hooks-enabled/post-merge-unclobber
 
 # If we don't have a config file for me, clone it manually so we have starting point
 test -f .mrconfig || vcsh clone git@github.com:alerque/que.git
