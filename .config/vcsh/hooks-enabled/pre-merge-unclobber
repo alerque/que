@@ -6,10 +6,6 @@
 # as far as git knows, and a post-merge hook can figure out what to do with
 # the extant versions of the objects.
 
-echo run hook pre-merge
-
 for object in $(git ls-tree -r origin/master | awk '{print $4}'); do
-	[ -e "$object" ] || continue
-	mv "$object" "$object.vcsh-unclobber" 
-	echo "extant object $object moved to $objec.vcsh-unclobber"
+	[ -e "$object" ] && mv "$object" "$object.vcsh-unclobber" 
 done
