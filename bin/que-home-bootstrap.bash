@@ -41,6 +41,6 @@ test -f .config/vcsh/hooks-enabled/post-merge-unclobber || curl -o .config/vcsh/
 chmod +x .config/vcsh/hooks-enabled/{pre,post}-merge-unclobber
 
 # If we don't have a config file for me, clone it manually so we have starting point
-test -f .mrconfig || vcsh -v clone git@github.com:alerque/que.git
+test -f .mrconfig || vcsh clone git@github.com:alerque/que.git
 
 mr up
