@@ -29,7 +29,7 @@ function distro_pkg () {
 function compile_pkg () {
 	BASEPACKAGES=(${BASEPACKAGES[@]/%$1/})
 	DESKTOPPACKAGES=(${DESKTOPPACKAGES[@]/%$1/})
-	case $1 in
+	case $2 in
 		desktop)
 			COMPILEDESKTOPPACKAGES=(${COMPILEDESKTOPPACKAGES[@]} $1)
 			;;
