@@ -88,6 +88,8 @@ fi
 # Setup my user
 useradd -s $(which zsh) -m -k /dev/null -G $WHEEL caleb
 
+# TODO make sure wheel has sudo permissions
+
 # If we're on a system with etckeeper, make sure it's setup
 if which etckeeper; then
 	(
