@@ -12,7 +12,7 @@ esac
 
 # Setup stuff
 BASEPACKAGES=(zsh subversion git ctags pcre-tools vim tmux sudo mosh etckeeper ruby zip unzip mr vcsh wget)
-DESKTOPPACKAGES=(awesome dropbox parcellite chromium flashplugin google-talkplugin owncloud-client gnome rdesktop libreoffice)
+DESKTOPPACKAGES=(awesome dropbox parcellite chromium google-chrome flashplugin google-talkplugin owncloud-client gnome rdesktop libreoffice smplayer dvdrtools gimp xiphos transmission-gtk)
 COMPILEBASEPACKAGES=()
 COMPILEDESKTOPPACKAGES=()
 
@@ -60,15 +60,15 @@ case $DISTRO in
 		distro_pkg flashplugin chromium-pepper-flash
 		distro_pkg libreoffice libreoffice-{gnome,en-US,writer,calc,impress,math,draw} unoconv
 
-		distro_pkg dropbox ""
-		distro_pkg google-talkplugin ""
-		distro_pkg owncloud-client ""
 
 		compile_pkg etckeeper
 		compile_pkg vcsh
 		compile_pkg mr
-		#compile_desktop_pkg google-chrome
 		compile_desktop_pkg chromium-pepper-flash
+		compile_desktop_pkg owncloud-client
+		compile_desktop_pkg xiphos
+		compile_desktop_pkg google-talkplugin
+		compile_desktop_pkg dropbox
 		:
 		;;
 	fedora)
