@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -x
+
 ISDESKTOP=0
 case $1 in
 	desktop)
