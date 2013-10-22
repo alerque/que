@@ -27,8 +27,14 @@ function distro_pkg () {
 function compile_pkg () {
 	BASEPACKAGES=(${BASEPACKAGES[@]/%$1/})
 	DESKTOPPACKAGES=(${DESKTOPPACKAGES[@]/%$1/})
-	COMPILEBASEPACKAGES=(${COMPILEBASEPACKAGES[@]} $1)
-	COMPILEDESKTOPPACKAGES=(${COMPILEDESKTOPPACKAGES[@]} $1)
+	case $1 in
+		desktop)
+			COMPILEDESKTOPPACKAGES=(${COMPILEDESKTOPPACKAGES[@]} $1)
+			;;
+		*)
+			COMPILEBASEPACKAGES=(${COMPILEBASEPACKAGES[@]} $1)
+			;;
+	esac
 }
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" > /dev/null && pwd )"
@@ -57,7 +63,7 @@ case $DISTRO in
 		compile_pkg etckeeper
 		compile_pkg vcsh
 		compile_pkg mr
-		compile_pkg google-chrome
+		compile_pkg google-chrome desktop
 		:
 		;;
 	fedora)
