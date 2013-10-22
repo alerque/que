@@ -1,7 +1,5 @@
 #!/bin/bash
 
-set -x
-
 ISDESKTOP=0
 case $1 in
 	desktop)
@@ -55,6 +53,10 @@ case $DISTRO in
 		compile_pkg etckeeper
 		compile_pkg vcsh
 		compile_pkg mr
+		distro_pkg dropbox ""
+		distro_pkg google-chrome ""
+		distro_pkg google-talkplugin ""
+		distro_pkg owncloud-client ""
 		:
 		;;
 	fedora)
