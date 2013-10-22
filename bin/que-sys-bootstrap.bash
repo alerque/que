@@ -66,7 +66,7 @@ case $DISTRO in
 		compile_pkg etckeeper
 		compile_pkg vcsh
 		compile_pkg mr
-		compile_desktop_pkg google-chrome
+		#compile_desktop_pkg google-chrome
 		compile_desktop_pkg chromium-pepper-flash
 		:
 		;;
