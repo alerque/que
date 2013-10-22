@@ -12,7 +12,7 @@ esac
 
 # Setup stuff
 BASEPACKAGES=(zsh subversion git ctags pcre-tools vim tmux sudo mosh etckeeper ruby zip unzip mr vcsh wget)
-DESKTOPPACKAGES=(awesome dropbox parcellite google-chrome google-talkplugin owncloud-client gnome)
+DESKTOPPACKAGES=(awesome dropbox parcellite chromium flashplugin google-talkplugin owncloud-client gnome)
 COMPILEBASEPACKAGES=()
 COMPILEDESKTOPPACKAGES=()
 
@@ -57,6 +57,8 @@ case $DISTRO in
 		;;
 	arch)
 		distro_pkg pcre-tools pcre
+		distro_pkg flashplugin chromium-pepper-flash
+
 		distro_pkg dropbox ""
 		distro_pkg google-talkplugin ""
 		distro_pkg owncloud-client ""
@@ -65,6 +67,7 @@ case $DISTRO in
 		compile_pkg vcsh
 		compile_pkg mr
 		compile_desktop_pkg google-chrome
+		compile_desktop_pkg chromium-pepper-flash
 		:
 		;;
 	fedora)
