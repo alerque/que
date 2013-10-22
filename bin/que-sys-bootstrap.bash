@@ -50,13 +50,14 @@ case $DISTRO in
 		;;
 	arch)
 		distro_pkg pcre-tools pcre
+		distro_pkg dropbox ""
+		distro_pkg google-talkplugin ""
+		distro_pkg owncloud-client ""
+
 		compile_pkg etckeeper
 		compile_pkg vcsh
 		compile_pkg mr
-		distro_pkg dropbox ""
-		distro_pkg google-chrome ""
-		distro_pkg google-talkplugin ""
-		distro_pkg owncloud-client ""
+		compile_pkg google-chrome
 		:
 		;;
 	fedora)
@@ -109,3 +110,7 @@ echo -e "Perhaps you want home stuff too?\n    su - caleb\n    bash <(curl -s -L
 # Setup EC2 tools
 #openssl-tools xfsprogs ca-certificates-update
 #curl http://s3.amazonaws.com/ec2-downloads/ec2-api-tools.zip
+
+if [ "$ISDESKTOP" == '1' ]; then
+	echo "Need to manually install appropriate video driver"
+fi
