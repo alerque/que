@@ -1,9 +1,18 @@
 #!/bin/bash
 
+ISDESKTOP=0
+case $1 in
+	desktop)
+		ISDESKTOP=1
+		shift
+		;;
+esac
+
 # Setup stuff
 BASEPACKAGES=(zsh subversion git ctags pcre-tools vim tmux sudo mosh etckeeper ruby zip unzip mr vcsh wget)
 DESKTOPPACKAGES=(awesome dropbox parcellite google-chrome google-talkplugin owncloud-client gnome)
-COMPILEPACKAGES=()
+COMPILEBASEPACKAGES=()
+COMPILEDESKTOPPACKAGES=()
 
 function flunk() {
 	echo "Fatal Error: $*"
@@ -12,11 +21,14 @@ function flunk() {
 
 function distro_pkg () {
 	BASEPACKAGES=(${BASEPACKAGES[@]/%$1/$2})
+	DESKTOPPACKAGES=(${DESKTOPPACKAGES[@]/%$1/$2})
 }
 
 function compile_pkg () {
 	BASEPACKAGES=(${BASEPACKAGES[@]/%$1/})
-	COMPILEPACKAGES=(${COMPILEPACKAGES[@]} $1)
+	DESKTOPPACKAGES=(${DESKTOPPACKAGES[@]/%$1/})
+	COMPILEBASEPACKAGES=(${COMPILEBASEPACKAGES[@]} $1)
+	COMPILEDESKTOPPACKAGES=(${COMPILEDESKTOPPACKAGES[@]} $1)
 }
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" > /dev/null && pwd )"

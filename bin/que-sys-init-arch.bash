@@ -14,6 +14,7 @@ pacman -Syu --needed --noconfirm
 
 # Make sure the basics every system is going to need are installed and updated
 pacman -S --needed --noconfirm ${BASEPACKAGES[@]}
+test $ISDESKTOP == '1' && pacman -S --needed --noconfirm ${DESKTOPPACKAGES[@]}
 
 # Network first net device on boot
 #systemctl enable dhcpcd@$(ip link show | grep ^2: | awk -F: '{gsub(/[ \t]+/, "", $2); print $2}').service
@@ -41,4 +42,5 @@ grep -q haskell-core /etc/pacman.conf || (
 which aura || bash <(curl aur.sh) -si aura --noconfirm --asroot
 
 # Compile and install things not coming out of the distro main tree
-aura -A --needed --noconfirm ${COMPILEPACKAGES[@]}
+aura -A --needed --noconfirm ${COMPILEBASEPACKAGES[@]}
+test $ISDESKTOP == '1' && aura -A --needed --noconfirm ${COMPILEDESKTOPPACKAGES[@]}
