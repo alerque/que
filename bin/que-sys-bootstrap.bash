@@ -70,6 +70,7 @@ case $DISTRO in
 		compile_desktop_pkg xiphos
 		compile_desktop_pkg google-talkplugin
 		compile_desktop_pkg dropbox
+		compile_desktop_pkg google-chrome
 		:
 		;;
 	fedora)
