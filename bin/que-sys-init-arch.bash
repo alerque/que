@@ -44,3 +44,7 @@ which aura || bash <(curl aur.sh) -si aura --noconfirm --asroot
 # Compile and install things not coming out of the distro main tree
 aura -A --needed --noconfirm ${COMPILEBASEPACKAGES[@]}
 test "$ISDESKTOP" == '1' && aura -A --needed --noconfirm ${COMPILEDESKTOPPACKAGES[@]}
+
+if "$ISDESKTOP" == '1'; then
+	systemctl enable gdm
+fi
