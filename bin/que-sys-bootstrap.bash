@@ -12,7 +12,7 @@ esac
 
 # Setup stuff
 BASEPACKAGES=(zsh subversion git ctags pcre-tools vim tmux sudo mosh etckeeper ruby zip unzip mr vcsh wget)
-DESKTOPPACKAGES=(awesome dropbox parcellite chromium google-chrome flashplugin google-talkplugin owncloud-client gnome rdesktop libreoffice smplayer dvdrtools gimp xiphos transmission-gtk rhythmbox cups gnome-packagekit)
+DESKTOPPACKAGES=(awesome dropbox parcellite google-chrome google-talkplugin owncloud-client gnome rdesktop libreoffice smplayer dvdrtools gimp xiphos transmission-gtk rhythmbox cups gnome-packagekit)
 COMPILEBASEPACKAGES=()
 COMPILEDESKTOPPACKAGES=()
 
@@ -57,7 +57,7 @@ case $DISTRO in
 		;;
 	arch)
 		distro_pkg pcre-tools pcre
-		distro_pkg flashplugin chromium-pepper-flash
+		#distro_pkg flashplugin chromium-pepper-flash
 		distro_pkg libreoffice libreoffice-{gnome,en-US,writer,calc,impress,math,draw} unoconv
 		distro_pkg cups cups cups-filters system-config-printer cups-pk-helper gsfonts gutenprint foomatic-{filters,db{,-engine,-nonfree}} hplip splix cups-pdf
 
