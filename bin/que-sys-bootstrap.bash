@@ -65,7 +65,7 @@ case $DISTRO in
 		compile_pkg etckeeper
 		compile_pkg vcsh
 		compile_pkg mr
-		compile_desktop_pkg chromium-pepper-flash
+		#compile_desktop_pkg chromium-pepper-flash
 		compile_desktop_pkg owncloud-client
 		compile_desktop_pkg xiphos
 		compile_desktop_pkg google-talkplugin
