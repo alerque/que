@@ -47,6 +47,8 @@ test "$ISDESKTOP" == '1' && aura -A --needed --noconfirm ${COMPILEDESKTOPPACKAGE
 
 systemctl enable sshd
 
+echo 'kernel.sysrq = 1' > /etc/sysctl.d/99-sysctl.conf
+
 if "$ISDESKTOP" == '1'; then
 	systemctl enable gdm
 fi
