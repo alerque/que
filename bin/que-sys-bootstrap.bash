@@ -1,7 +1,5 @@
 #!/bin/bash
 
-set -x
-
 ISDESKTOP=0
 case $1 in
 	desktop)
@@ -12,7 +10,7 @@ esac
 
 # Setup stuff
 BASEPACKAGES=(zsh subversion git ctags pcre-tools vim tmux sudo mosh etckeeper ruby zip unzip mr vcsh wget unrar)
-DESKTOPPACKAGES=(awesome dropbox parcellite chromium google-chrome flashplugin google-talkplugin owncloud-client gnome rdesktop libreoffice smplayer dvdrtools gimp xiphos transmission-gtk)
+DESKTOPPACKAGES=(awesome dropbox parcellite chromium google-chrome flashplugin google-talkplugin owncloud-client gnome rdesktop libreoffice smplayer dvdrtools gimp xiphos transmission-gtk rhythmbox cups gnome-packagekit)
 COMPILEBASEPACKAGES=()
 COMPILEDESKTOPPACKAGES=()
 
@@ -57,19 +55,21 @@ case $DISTRO in
 		;;
 	arch)
 		distro_pkg pcre-tools pcre
-		distro_pkg flashplugin chromium-pepper-flash
+		#distro_pkg flashplugin chromium-pepper-flash
 		distro_pkg gnome gnome{,extras,tweak-tool}
 		distro_pkg libreoffice libreoffice-{gnome,en-US,writer,calc,impress,math,draw} unoconv
+		distro_pkg cups cups cups-filters system-config-printer cups-pk-helper gsfonts gutenprint foomatic-{filters,db{,-engine,-nonfree}} hplip splix cups-pdf
 
 
 		compile_pkg etckeeper
 		compile_pkg vcsh
 		compile_pkg mr
-		compile_desktop_pkg chromium-pepper-flash
+		#compile_desktop_pkg chromium-pepper-flash
 		compile_desktop_pkg owncloud-client
 		compile_desktop_pkg xiphos
 		compile_desktop_pkg google-talkplugin
 		compile_desktop_pkg dropbox
+		compile_desktop_pkg google-chrome
 		:
 		;;
 	fedora)

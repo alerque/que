@@ -1,7 +1,5 @@
 #!/bin/bash
 
-set -x
-
 sed -i 's/^# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/g' /etc/sudoers
 
 # Make sure we're off on the right foot before we get to adding  keys
