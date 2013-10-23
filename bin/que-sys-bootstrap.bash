@@ -11,7 +11,7 @@ case $1 in
 esac
 
 # Setup stuff
-BASEPACKAGES=(zsh subversion git ctags pcre-tools vim tmux sudo mosh etckeeper ruby zip unzip mr vcsh wget)
+BASEPACKAGES=(zsh subversion git ctags pcre-tools vim tmux sudo mosh etckeeper ruby zip unzip mr vcsh wget unrar)
 DESKTOPPACKAGES=(awesome dropbox parcellite chromium google-chrome flashplugin google-talkplugin owncloud-client gnome rdesktop libreoffice smplayer dvdrtools gimp xiphos transmission-gtk)
 COMPILEBASEPACKAGES=()
 COMPILEDESKTOPPACKAGES=()
@@ -58,6 +58,7 @@ case $DISTRO in
 	arch)
 		distro_pkg pcre-tools pcre
 		distro_pkg flashplugin chromium-pepper-flash
+		distro_pkg gnome gnome{,extras,tweak-tool}
 		distro_pkg libreoffice libreoffice-{gnome,en-US,writer,calc,impress,math,draw} unoconv
 
 
