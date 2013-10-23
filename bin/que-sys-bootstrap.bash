@@ -56,7 +56,7 @@ case $DISTRO in
 	arch)
 		distro_pkg pcre-tools pcre
 		#distro_pkg flashplugin chromium-pepper-flash
-		distro_pkg gnome gnome{,-extras,-tweak-tool}
+		distro_pkg gnome gnome{,-extra,-tweak-tool}
 		distro_pkg libreoffice libreoffice-{gnome,en-US,writer,calc,impress,math,draw} unoconv
 		distro_pkg cups cups cups-filters system-config-printer cups-pk-helper gsfonts gutenprint foomatic-{filters,db{,-engine,-nonfree}} hplip splix cups-pdf
 
