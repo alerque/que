@@ -45,6 +45,8 @@ which aura || bash <(curl aur.sh) -si aura --noconfirm --asroot
 aura -A --needed --noconfirm ${COMPILEBASEPACKAGES[@]}
 test "$ISDESKTOP" == '1' && aura -A --needed --noconfirm ${COMPILEDESKTOPPACKAGES[@]}
 
+systemctl enable sshd
+
 if "$ISDESKTOP" == '1'; then
 	systemctl enable gdm
 fi
