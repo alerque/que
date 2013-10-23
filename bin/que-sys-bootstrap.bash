@@ -10,7 +10,7 @@ esac
 
 # Setup stuff
 BASEPACKAGES=(zsh subversion git ctags pcre-tools vim tmux sudo mosh etckeeper ruby zip unzip mr vcsh wget unrar)
-DESKTOPPACKAGES=(awesome dropbox parcellite chromium google-chrome flashplugin google-talkplugin owncloud-client gnome rdesktop libreoffice smplayer dvdrtools gimp xiphos transmission-gtk rhythmbox cups gnome-packagekit)
+DESKTOPPACKAGES=(awesome dropbox parcellite chromium google-chrome flashplugin google-talkplugin owncloud-client gnome rdesktop libreoffice smplayer gimp xiphos transmission-gtk rhythmbox cups gnome-packagekit)
 COMPILEBASEPACKAGES=()
 COMPILEDESKTOPPACKAGES=()
 
