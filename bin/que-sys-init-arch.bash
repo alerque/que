@@ -49,7 +49,7 @@ systemctl enable sshd
 
 echo 'kernel.sysrq = 1' > /etc/sysctl.d/99-sysctl.conf
 
-if "$ISDESKTOP" == '1'; then
+if [ "$ISDESKTOP" == '1' ]; then
 	systemctl enable gdm
 	systemctl enable cups
 	systemctl enable NetworkManager
