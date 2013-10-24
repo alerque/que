@@ -45,6 +45,7 @@ which aura || bash <(curl aur.sh) -si aura --noconfirm --asroot
 aura -A --needed --noconfirm ${COMPILEBASEPACKAGES[@]}
 test "$ISDESKTOP" == '1' && aura -A --needed --noconfirm ${COMPILEDESKTOPPACKAGES[@]}
 
+# TODO: Need to set root login and password auth options
 systemctl enable sshd
 
 echo 'kernel.sysrq = 1' > /etc/sysctl.d/99-sysctl.conf
