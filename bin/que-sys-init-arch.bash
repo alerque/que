@@ -42,14 +42,16 @@ grep -q haskell-core /etc/pacman.conf || (
 which aura || bash <(curl aur.sh) -si aura --noconfirm --asroot
 
 # Compile and install things not coming out of the distro main tree
-aura -A --needed --noconfirm ${COMPILEBASEPACKAGES[@]}
-test "$ISDESKTOP" == '1' && aura -A --needed --noconfirm ${COMPILEDESKTOPPACKAGES[@]}
+aura -Ax --needed --noconfirm ${COMPILEBASEPACKAGES[@]}
+test "$ISDESKTOP" == '1' && aura -Ax --needed --noconfirm ${COMPILEDESKTOPPACKAGES[@]}
 
 # TODO: Need to set root login and password auth options
 systemctl enable sshd
 
 echo 'kernel.sysrq = 1' > /etc/sysctl.d/99-sysctl.conf
 
-if "$ISDESKTOP" == '1'; then
+if [ "$ISDESKTOP" == '1' ]; then
 	systemctl enable gdm
+	systemctl enable cups
+	systemctl enable NetworkManager
 fi
