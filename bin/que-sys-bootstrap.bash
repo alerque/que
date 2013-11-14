@@ -9,7 +9,7 @@ case $1 in
 esac
 
 # Setup stuff
-BASEPACKAGES=(zsh subversion git ctags pcre-tools vim tmux sudo mosh etckeeper ruby zip unzip mr vcsh wget unrar syslog-ng lsof htop gdisk strace)
+BASEPACKAGES=(zsh subversion git ctags pcre-tools vim tmux sudo mosh etckeeper ruby zip unzip mr vcsh wget unrar syslog-ng lsof htop gdisk strace ntp)
 DESKTOPPACKAGES=(awesome dropbox parcellite chromium flashplugin google-talkplugin owncloud-client gnome rdesktop libreoffice smplayer gimp xiphos transmission-gtk rhythmbox cups gnome-packagekit networkmanager)
 COMPILEBASEPACKAGES=()
 COMPILEDESKTOPPACKAGES=()

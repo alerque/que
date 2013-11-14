@@ -47,6 +47,7 @@ test "$ISDESKTOP" == '1' && aura -Ax --needed --noconfirm ${COMPILEDESKTOPPACKAG
 
 # TODO: Need to set root login and password auth options
 systemctl enable sshd
+systemctl enable ntpd
 
 echo 'kernel.sysrq = 1' > /etc/sysctl.d/99-sysctl.conf
 
