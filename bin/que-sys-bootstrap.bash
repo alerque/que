@@ -10,7 +10,7 @@ esac
 
 # Setup stuff
 BASEPACKAGES=(zsh subversion git ctags pcre-tools vim tmux sudo mosh etckeeper ruby zip unzip mr vcsh wget unrar syslog-ng lsof htop gdisk strace ntp)
-DESKTOPPACKAGES=(awesome dropbox parcellite chromium flashplugin google-talkplugin owncloud-client gnome rdesktop libreoffice smplayer gimp xiphos transmission-gtk rhythmbox cups gnome-packagekit networkmanager)
+DESKTOPPACKAGES=(awesome dropbox parcellite chromium flashplugin google-talkplugin owncloud-client gnome rdesktop libreoffice smplayer gimp xiphos transmission-gtk rhythmbox cups gnome-packagekit networkmanager gvfs)
 COMPILEBASEPACKAGES=()
 COMPILEDESKTOPPACKAGES=()
 
@@ -55,19 +55,20 @@ case $DISTRO in
 		;;
 	arch)
 		distro_pkg pcre-tools pcre
-		distro_pkg flashplugin chromium-pepper-flash
-		distro_pkg gnome gnome{,-extra,-tweak-tool,-shell-extension-maximus}
+		distro_pkg flashplugin chromium-pepper-flash-stable
+		distro_pkg gnome gnome gnome-{extra,tweaktool,shell-extension-maximus}
 		distro_pkg libreoffice libreoffice-{gnome,en-US,writer,calc,impress,math,draw} unoconv
 		distro_pkg cups cups cups-filters system-config-printer cups-pk-helper gsfonts gutenprint foomatic-{filters,db{,-engine,-nonfree}} hplip splix cups-pdf
 		distro_pkg networkmanager networkmanager network-manager-applet
-
+		distro_pkg gvfs gvfs-{mtp,smb,goa,afp}
+		distro_pkg xiphos ""
 
 		compile_pkg etckeeper
 		compile_pkg vcsh
 		compile_pkg mr
-		compile_desktop_pkg chromium-pepper-flash
+		compile_desktop_pkg chromium-pepper-flash-stable
 		compile_desktop_pkg owncloud-client
-		compile_desktop_pkg xiphos
+		#compile_desktop_pkg xiphos
 		compile_desktop_pkg google-talkplugin
 		compile_desktop_pkg dropbox
 		#compile_desktop_pkg google-chrome
