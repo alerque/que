@@ -1,0 +1,10 @@
+[$HOME/projects/vcsh]
+checkout =
+	git clone git@github.com:alerque/vcsh.git
+	cd vcsh
+	git remote add upstream git@github.com:RichiH/vcsh.git
+
+zap =
+	git pull upstream
+	git merge upstream/master
+	git push origin master

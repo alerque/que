@@ -1,0 +1,5 @@
+[$HOME/projects/picue]
+checkout = bzr branch lp:~alerque/lyricue/picue
+
+[$HOME/projects/lyricue]
+checkout = bzr branch lp:~alerque/lyricue/pld lyricue
