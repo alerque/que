@@ -5,6 +5,6 @@ checkout =
 	git remote add upstream git@github.com:RichiH/vcsh.git
 
 zap =
-	git pull upstream
+	git pull upstream master
 	git merge upstream/master
 	git push origin master
