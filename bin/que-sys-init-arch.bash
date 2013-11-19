@@ -45,7 +45,7 @@ which aura || bash <(curl aur.sh) -si aura --noconfirm --asroot
 grep -q archlinuxfr /etc/pacman.conf || (
 	sed -i 's#^\[extra\]$#[archlinuxfr]\nSigLevel = Never\nServer = http://repo.archlinux.fr/$arch\n\n[extra]#g' /etc/pacman.conf
 )
-which yaourt || pacman -Sy yaourt
+which yaourt || pacman -Sy --needed --noconfirm yaourt
 
 # Compile and install things not coming out of the distro main tree
 aura -Ax --needed --noconfirm ${COMPILEBASEPACKAGES[@]}
