@@ -40,8 +40,8 @@ grep -q archlinuxfr /etc/pacman.conf || (
 which yaourt || pacman -Sy --needed --noconfirm yaourt aurvote customizepkg
 
 # Compile and install things not coming out of the distro main tree
-yaourt -Sabbu --noconfirm ${COMPILEBASEPACKAGES[@]}
-test "$ISDESKTOP" == '1' && yaourt -Sabbu --noconfirm ${COMPILEDESKTOPPACKAGES[@]}
+yaourt -Sa --noconfirm ${COMPILEBASEPACKAGES[@]}
+test "$ISDESKTOP" == '1' && yaourt -Sa --noconfirm ${COMPILEDESKTOPPACKAGES[@]}
 
 # TODO: Need to set root login and password auth options
 systemctl enable sshd
