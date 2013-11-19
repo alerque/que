@@ -33,6 +33,7 @@ lspci | grep -iq virtualbox && (
 
 # Get AUR going
 pacman -S --needed --noconfirm base-devel
+# TODO: remove aura (ergo these haskell deps) in favor of yaourt?
 grep -q haskell-core /etc/pacman.conf || (
 	sed -i 's#^\[extra\]$#[haskell-core]\nServer = http://xsounds.org/~haskell/core/$arch\n\n[extra]#g' /etc/pacman.conf
 	pacman-key --recv-keys 4209170B
@@ -40,6 +41,11 @@ grep -q haskell-core /etc/pacman.conf || (
 	pacman -Sy --noconfirm
 )
 which aura || bash <(curl aur.sh) -si aura --noconfirm --asroot
+
+grep -q archlinuxfr /etc/pacman.conf || (
+	sed -i 's#^\[extra\]$#[archlinuxfr]\nSigLevel = Never\nServer = http://repo.archlinux.fr/$arch\n\n[extra]#g' /etc/pacman.conf
+)
+which yaourt || pacman -Sy yaourt
 
 # Compile and install things not coming out of the distro main tree
 aura -Ax --needed --noconfirm ${COMPILEBASEPACKAGES[@]}
