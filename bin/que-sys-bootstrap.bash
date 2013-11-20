@@ -56,7 +56,7 @@ case $DISTRO in
 	arch)
 		distro_pkg pcre-tools pcre
 		distro_pkg flashplugin chromium-pepper-flash-stable
-		distro_pkg gnome gnome gnome-{extra,tweaktool,shell-extension-maximus,defaults-list
+		distro_pkg gnome gnome gnome-{extra,tweaktool,shell-extension-maximus,defaults-list}
 		distro_pkg libreoffice libreoffice-{gnome,en-US,writer,calc,impress,math,draw} unoconv
 		distro_pkg cups cups cups-filters system-config-printer cups-pk-helper gsfonts gutenprint foomatic-{filters,db{,-engine,-nonfree}} hplip splix cups-pdf
 		distro_pkg networkmanager networkmanager network-manager-applet
@@ -73,8 +73,7 @@ case $DISTRO in
 		compile_desktop_pkg google-talkplugin
 		compile_desktop_pkg dropbox
 		#compile_desktop_pkg google-chrome
-		compile_desktop_pkg gnome-shell-extension-maximus
-		compile_desktop_pkg gnome-defaults-list
+		compile_desktop_pkg gnome-{shell-extension-maximus,defaults-list}
 		:
 		;;
 	fedora)
