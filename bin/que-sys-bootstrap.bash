@@ -56,13 +56,13 @@ case $DISTRO in
 	arch)
 		distro_pkg pcre-tools pcre
 		distro_pkg flashplugin chromium-pepper-flash-stable
-		distro_pkg gnome gnome gnome-{extra,tweaktool,shell-extension-maximus,defaults-list}
+		distro_pkg gnome gnome gnome-{extra,tweak-tool,shell-extension-maximus,defaults-list}
 		distro_pkg libreoffice libreoffice-{gnome,en-US,writer,calc,impress,math,draw} unoconv
 		distro_pkg cups cups cups-filters system-config-printer cups-pk-helper gsfonts gutenprint foomatic-{filters,db{,-engine,-nonfree}} hplip splix cups-pdf
 		distro_pkg networkmanager networkmanager network-manager-applet
 		distro_pkg gvfs gvfs-{mtp,smb,goa,afp}
 		distro_pkg xiphos ""
-		distro_pkg ttf-fonts ttf-{cheapskate,droid,freefont,gentium,libration,linux-libertine}
+		distro_pkg ttf-fonts ttf-{cheapskate,droid,freefont,gentium,liberation,linux-libertine}
 
 		compile_pkg etckeeper
 		compile_pkg vcsh
@@ -73,7 +73,8 @@ case $DISTRO in
 		compile_desktop_pkg google-talkplugin
 		compile_desktop_pkg dropbox
 		#compile_desktop_pkg google-chrome
-		compile_desktop_pkg gnome-{shell-extension-maximus,defaults-list}
+		compile_desktop_pkg gnome-shell-extension-maximus
+		compile_desktop_pkg gnome-defaults-list
 		:
 		;;
 	fedora)
