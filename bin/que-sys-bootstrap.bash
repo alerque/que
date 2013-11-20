@@ -108,7 +108,8 @@ else
 fi
 
 # Setup my user
-useradd -s $(which zsh) -m -k /dev/null -G $WHEEL caleb
+useradd -s $(which zsh) -m -k /dev/null -c "Caleb Maclennan" caleb
+usermod -aG $WHEEL caleb
 
 # TODO make sure wheel has sudo permissions
 
