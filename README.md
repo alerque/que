@@ -35,8 +35,8 @@ usage
 Adding a new repo
 
 1. Create config file `.config/mr/available.d/$NAME.vcsh`
-2. Create sylink `cd .config/mr/config/d; ln -s ../available.d/$NAME.vcsh`
-3. Add config to que repo `vcsh run que git add .config/mr/available.d/$NAME.vcsh`
+2. Create sylink `cd .config/mr/config.d; ln -s ../available.d/$NAME.vcsh`
+3. Add config to que repo `vcsh run que git add -f .config/mr/available.d/$NAME.vcsh`
 4. Init repo `vcsh init $NAME`
 5. Setup ignores `vcsh write-gitignore $NAME`
 6. Add something to get the repo off the ground `vcsh run $NAME git add -f <at least one something>`
