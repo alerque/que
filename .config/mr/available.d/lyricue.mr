@@ -1,0 +1,20 @@
+[$HOME/projects/lyricue-pi]
+checkout = bzr branch lp:~alerque/lyricue/picue
+
+[$HOME/projects/lyricue-pld]
+checkout = bzr branch lp:~alerque/lyricue/pld lyricue
+
+[$HOME/projects/picue]
+checkout = git clone git@github.com:alerque/picue.git
+
+[$HOME/projects/lyricue-android]
+checkout =
+	git clone git@github.com:alerque/lyricue-android.git
+	cd lyricue-android
+	git remote add upstream git@github.com:cjd/lyricue-android.git
+
+zap =
+	git pull upstream master
+	git merge upstream/master
+	git push origin master
+
