@@ -1,8 +1,8 @@
 [$HOME/projects/lyricue-pi]
-checkout = bzr branch lp:~alerque/lyricue/picue
+checkout = bzr branch lp:~alerque/lyricue/picue lyricue-pi
 
 [$HOME/projects/lyricue-pld]
-checkout = bzr branch lp:~alerque/lyricue/pld lyricue
+checkout = bzr branch lp:~alerque/lyricue/pld lyricue-pld
 
 [$HOME/projects/picue]
 checkout = git clone git@github.com:alerque/picue.git
