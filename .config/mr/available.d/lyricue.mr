@@ -1,8 +1,22 @@
 [$HOME/projects/lyricue-pi]
 checkout = bzr branch lp:~alerque/lyricue/picue lyricue-pi
+zap =
+	bzr shelve
+	bzr pull :parent
+	bzr merge lp:lyricue
+	bzr commit -m "Merge from upstream"
+	bzr push :parent
+	bzr unshelve
 
 [$HOME/projects/lyricue-pld]
-checkout = bzr branch lp:~alerque/lyricue/pld lyricue
+checkout = bzr branch lp:~alerque/lyricue/pld lyricue-pld
+zap =
+	bzr shelve
+	bzr pull :parent
+	bzr merge lp:lyricue
+	bzr commit -m "Merge from upstream"
+	bzr push :parent
+	bzr unshelve
 
 [$HOME/projects/picue]
 checkout = git clone git@github.com:alerque/picue.git
