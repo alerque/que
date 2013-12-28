@@ -60,6 +60,7 @@ case $DISTRO in
 		distro_pkg libreoffice libreoffice-{gnome,en-US,writer,calc,impress,math,draw} unoconv
 		distro_pkg cups cups cups-filters system-config-printer cups-pk-helper gsfonts gutenprint foomatic-{filters,db{,-engine,-nonfree}} hplip splix cups-pdf
 		distro_pkg networkmanager networkmanager network-manager-applet
+		distro_pkg keepassx keepassx2
 		distro_pkg gvfs gvfs-{mtp,smb,goa,afp}
 		distro_pkg xiphos ""
 		distro_pkg ttf-fonts ttf-{cheapskate,droid,freefont,gentium,liberation,linux-libertine}
@@ -69,6 +70,7 @@ case $DISTRO in
 		compile_pkg myrepos
 		compile_desktop_pkg chromium-pepper-flash-stable
 		compile_desktop_pkg owncloud-client
+		compile_desktop_pkg keepassx2
 		#compile_desktop_pkg xiphos
 		compile_desktop_pkg google-talkplugin
 		compile_desktop_pkg dropbox
