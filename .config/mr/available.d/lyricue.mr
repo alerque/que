@@ -1,5 +1,6 @@
 [$HOME/projects/lyricue-pi]
 checkout = bzr branch lp:~alerque/lyricue/picue lyricue-pi
+skip = true
 zap =
 	bzr shelve
 	bzr pull :parent
@@ -10,6 +11,7 @@ zap =
 
 [$HOME/projects/lyricue-pld]
 checkout = bzr branch lp:~alerque/lyricue/pld lyricue-pld
+skip = true
 zap =
 	bzr shelve
 	bzr pull :parent
@@ -19,9 +21,11 @@ zap =
 	bzr unshelve
 
 [$HOME/projects/picue]
+skip = true
 checkout = git clone git@github.com:alerque/picue.git
 
 [$HOME/projects/lyricue-android]
+skip = true
 checkout =
 	git clone git@github.com:alerque/lyricue-android.git
 	cd lyricue-android
