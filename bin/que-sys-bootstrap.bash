@@ -29,7 +29,7 @@ function distro_pkg () {
 }
 
 function compile_pkg () {
-	if [[ "${BASEPACKAGES[@]" =~ "$1" ]]; then
+	if [[ "${BASEPACKAGES[@]}" =~ "$1" ]]; then
 		BASEPACKAGES=(${BASEPACKAGES[@]/%$1/})
 		DESKTOPPACKAGES=(${DESKTOPPACKAGES[@]/%$1/})
 		COMPILEBASEPACKAGES=(${COMPILEBASEPACKAGES[@]} $1)
@@ -37,7 +37,7 @@ function compile_pkg () {
 }
 
 function compile_desktop_pkg () {
-	if [[ "${DESKTOPPACKAGES[@]" =~ "$1" ]]; then
+	if [[ "${DESKTOPPACKAGES[@]}" =~ "$1" ]]; then
 		BASEPACKAGES=(${BASEPACKAGES[@]/%$1/})
 		DESKTOPPACKAGES=(${DESKTOPPACKAGES[@]/%$1/})
 		COMPILEDESKTOPPACKAGES=(${COMPILEDESKTOPPACKAGES[@]} $1)
