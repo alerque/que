@@ -19,21 +19,29 @@ function flunk() {
 	exit 0
 }
 
+function add_pkg () {
+	BASEPACKAGES=(${BASEPACKAGES[@]} $@)
+}
+
 function distro_pkg () {
 	BASEPACKAGES=(${BASEPACKAGES[@]/%$1/${*:2}})
 	DESKTOPPACKAGES=(${DESKTOPPACKAGES[@]/%$1/${*:2}})
 }
 
 function compile_pkg () {
-	BASEPACKAGES=(${BASEPACKAGES[@]/%$1/})
-	DESKTOPPACKAGES=(${DESKTOPPACKAGES[@]/%$1/})
-	COMPILEBASEPACKAGES=(${COMPILEBASEPACKAGES[@]} $1)
+	if [[ "${BASEPACKAGES[@]" =~ "$1" ]]; then
+		BASEPACKAGES=(${BASEPACKAGES[@]/%$1/})
+		DESKTOPPACKAGES=(${DESKTOPPACKAGES[@]/%$1/})
+		COMPILEBASEPACKAGES=(${COMPILEBASEPACKAGES[@]} $1)
+	fi
 }
 
 function compile_desktop_pkg () {
-	BASEPACKAGES=(${BASEPACKAGES[@]/%$1/})
-	DESKTOPPACKAGES=(${DESKTOPPACKAGES[@]/%$1/})
-	COMPILEDESKTOPPACKAGES=(${COMPILEDESKTOPPACKAGES[@]} $1)
+	if [[ "${DESKTOPPACKAGES[@]" =~ "$1" ]]; then
+		BASEPACKAGES=(${BASEPACKAGES[@]/%$1/})
+		DESKTOPPACKAGES=(${DESKTOPPACKAGES[@]/%$1/})
+		COMPILEDESKTOPPACKAGES=(${COMPILEDESKTOPPACKAGES[@]} $1)
+	fi
 }
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" > /dev/null && pwd )"
@@ -46,6 +54,13 @@ test -f /etc/pld-release && DISTRO=pld
 grep -q -s "Ubuntu" /etc/lsb-release && DISTRO=ubuntu
 
 test -n "$DISTRO" || flunk "unrecognized distro"
+
+# Detect virtual environments
+IS_VBOX=$(lspci | grep -iq virtualbox)
+IS_EC2=$(uname -r | grep -iq ec2)
+if [[ $IS_EC2 ]]; then
+	add_pkg ec2-ami-tools
+fi
 
 WHEEL=wheel
 
@@ -68,13 +83,14 @@ case $DISTRO in
 		compile_pkg etckeeper
 		compile_pkg vcsh
 		compile_pkg myrepos
+		compile_pkg ec2-ami-tools
 		compile_desktop_pkg chromium-pepper-flash-stable
 		compile_desktop_pkg owncloud-client
 		compile_desktop_pkg keepassx2
-		#compile_desktop_pkg xiphos
+		compile_desktop_pkg xiphos
 		compile_desktop_pkg google-talkplugin
 		compile_desktop_pkg dropbox
-		#compile_desktop_pkg google-chrome
+		compile_desktop_pkg google-chrome
 		compile_desktop_pkg gnome-shell-extension-maximus
 		compile_desktop_pkg gnome-defaults-list
 		:
