@@ -10,7 +10,7 @@ sudo sed -i 's/^enabled=0$/enabled=1/g' /etc/yum.repos.d/epel.repo
 sudo yum -y install ${BASEPACKAGES[@]}
 
 if is_opt $ISEC2; then
-	source <(curl -s -L https://raw.github.com/alerque/que/master/bin/que-sys-config-ec2.bash)                       
+	remote_source que-sys-config-ec2.bash
 
 	sudo sed -i -e "s/^HOSTNAME=.*/HOSTNAME=$HOSTNAME.alerque.com/g" /etc/sysconfig/network
 	sudo hostname $HOSTNAME.alerque.com

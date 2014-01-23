@@ -55,8 +55,8 @@ if is_opt $ISDESKTOP; then
 	systemctl enable NetworkManager
 fi
 
-if is_opt $IS_EC2; then
-	source <(curl -s -L https://raw.github.com/alerque/que/master/bin/que-sys-config-ec2.bash)           
+if is_opt $ISEC2; then
+	remote_source que-sys-config-ec2.bash
 
 	hostnamectl set-hostname $HOSTNAME.alerque.com
 fi
