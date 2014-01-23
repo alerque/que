@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if is_opt $ISVBOX; then
+if is_opt $ISEC2; then
 	# (Uses que user that has read only permission to access tags on my EC2 account)
 	export HOSTNAME=$(ec2-describe-tags \
 			--aws-access-key AKIAIMSI2QP22SMUTUVQ \
