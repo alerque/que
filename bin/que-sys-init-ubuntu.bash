@@ -1,7 +1,6 @@
 #!/bin/bash
 
-IS_VBOX=$(lspci | grep -iq virtualbox)
-if [[ $IS_VBOX && ! $(lsmod | grep -iq vbox) ]]; then
+if is_opt $ISVBOX ! lsmod | grep -iq vbox; then
 	flunk "Please install virtualbox-additions"
 fi
 

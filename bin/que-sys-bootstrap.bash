@@ -1,9 +1,8 @@
 #!/bin/bash
 
-ISDESKTOP=0
 case $1 in
 	desktop)
-		ISDESKTOP=1
+		ISDESKTOP=0
 		shift
 		;;
 esac
@@ -44,6 +43,18 @@ function compile_desktop_pkg () {
 	fi
 }
 
+function remote_source () {
+	if [ -f "$DIR/$1" ]; then
+		source "$DIR/$1"
+	else
+		source <(curl -s -L https://raw.github.com/alerque/que/master/bin/$1)
+	fi
+}
+
+is_opt () {
+	(( ! ${1:-1} ))
+}
+
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" > /dev/null && pwd )"
 
 # Detect distro
@@ -56,9 +67,9 @@ grep -q -s "Ubuntu" /etc/lsb-release && DISTRO=ubuntu
 test -n "$DISTRO" || flunk "unrecognized distro"
 
 # Detect virtual environments
-export IS_VBOX=$(lspci | grep -iq virtualbox)
-export IS_EC2=$(uname -r | grep -iq ec2)
-if [[ $IS_EC2 ]]; then
+ISVBOX=$(lspci | grep -iq virtualbox; echo $?)
+ISEC2=$(uname -r | grep -iq ec2; echo $?)
+if is_opt $ISEC2; then
 	add_pkg ec2-api-tools ec2-metadata
 fi
 
@@ -148,6 +159,6 @@ echo -e "Perhaps you want home stuff too?\n    su - caleb\n    bash <(curl -s -L
 #openssl-tools xfsprogs ca-certificates-update
 #curl http://s3.amazonaws.com/ec2-downloads/ec2-api-tools.zip
 
-if [ "$ISDESKTOP" == '1' ]; then
+if is_opt $ISDESKTOP; then
 	echo "Need to manually install appropriate video driver"
 fi

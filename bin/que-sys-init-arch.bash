@@ -14,7 +14,7 @@ pacman -Syu --needed --noconfirm
 
 # Make sure the basics every system is going to need are installed and updated
 pacman -S --needed --noconfirm ${BASEPACKAGES[@]}
-test "$ISDESKTOP" == '1' && pacman -S --needed --noconfirm ${DESKTOPPACKAGES[@]}
+is_opt $ISDESKTOP && pacman -S --needed --noconfirm ${DESKTOPPACKAGES[@]}
 
 # Network first net device on boot
 #systemctl enable dhcpcd@$(ip link show | grep ^2: | awk -F: '{gsub(/[ \t]+/, "", $2); print $2}').service
@@ -41,7 +41,7 @@ which yaourt || pacman -Sy --needed --noconfirm yaourt aurvote customizepkg
 
 # Compile and install things not coming out of the distro main tree
 yaourt --noconfirm -S --needed ${COMPILEBASEPACKAGES[@]}
-test "$ISDESKTOP" == '1' && yaourt --noconfirm -S --needed ${COMPILEDESKTOPPACKAGES[@]}
+in_opt $ISDESKTOP && yaourt --noconfirm -S --needed ${COMPILEDESKTOPPACKAGES[@]}
 
 # TODO: Need to set root login and password auth options
 systemctl enable sshd
@@ -49,13 +49,13 @@ systemctl enable ntpd
 
 echo 'kernel.sysrq = 1' > /etc/sysctl.d/99-sysctl.conf
 
-if [ "$ISDESKTOP" == '1' ]; then
+if is_opt $ISDESKTOP; then
 	systemctl enable gdm
 	systemctl enable cups
 	systemctl enable NetworkManager
 fi
 
-if [[ $IS_EC2 ]]; then
+if is_opt $IS_EC2; then
 	source <(curl -s -L https://raw.github.com/alerque/que/master/bin/que-sys-config-ec2.bash)           
 
 	hostnamectl set-hostname $HOSTNAME.alerque.com
