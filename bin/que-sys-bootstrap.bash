@@ -56,10 +56,10 @@ grep -q -s "Ubuntu" /etc/lsb-release && DISTRO=ubuntu
 test -n "$DISTRO" || flunk "unrecognized distro"
 
 # Detect virtual environments
-IS_VBOX=$(lspci | grep -iq virtualbox)
-IS_EC2=$(uname -r | grep -iq ec2)
+export IS_VBOX=$(lspci | grep -iq virtualbox)
+export IS_EC2=$(uname -r | grep -iq ec2)
 if [[ $IS_EC2 ]]; then
-	add_pkg ec2-ami-tools
+	add_pkg ec2-api-tools ec2-metadata
 fi
 
 WHEEL=wheel
@@ -84,6 +84,7 @@ case $DISTRO in
 		compile_pkg vcsh
 		compile_pkg myrepos
 		compile_pkg ec2-ami-tools
+		compile_pkg ec2-metadata
 		compile_desktop_pkg chromium-pepper-flash-stable
 		compile_desktop_pkg owncloud-client
 		compile_desktop_pkg keepassx2

@@ -54,3 +54,9 @@ if [ "$ISDESKTOP" == '1' ]; then
 	systemctl enable cups
 	systemctl enable NetworkManager
 fi
+
+if [[ $IS_EC2 ]]; then
+	source <(curl -s -L https://raw.github.com/alerque/que/master/bin/que-sys-config-ec2.bash)           
+
+	hostnamectl set-hostname $HOSTNAME.alerque.com
+fi
