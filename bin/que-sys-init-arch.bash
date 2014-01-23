@@ -41,7 +41,7 @@ which yaourt || pacman -Sy --needed --noconfirm yaourt aurvote customizepkg
 
 # Compile and install things not coming out of the distro main tree
 yaourt --noconfirm -S --needed ${COMPILEBASEPACKAGES[@]}
-in_opt $ISDESKTOP && yaourt --noconfirm -S --needed ${COMPILEDESKTOPPACKAGES[@]}
+is_opt $ISDESKTOP && yaourt --noconfirm -S --needed ${COMPILEDESKTOPPACKAGES[@]}
 
 # TODO: Need to set root login and password auth options
 systemctl enable sshd
