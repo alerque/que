@@ -11,13 +11,16 @@ cd $HOME
 which git mr curl ssh-agent > /dev/null
 
 # If everything isn't just right with SSH keys and config for the next step, manually fetch them
-test -d .ssh || mkdir .ssh
-test -f .ssh/id_rsa -a -f .ssh/github && grep -q github .ssh/config || (
-	umask 177
-	curl --user caleb \
-		-o .ssh/id_rsa 'http://git.alerque.com/?p=caleb-private.git;a=blob_plain;f=.ssh/id_rsa;hb=HEAD' \
-		-o .ssh/github 'http://git.alerque.com/?p=caleb-private.git;a=blob_plain;f=.ssh/github;hb=HEAD' \
-		-o .ssh/config 'http://git.alerque.com/?p=caleb-private.git;a=blob_plain;f=.ssh/config;hb=HEAD'
+(umask 177
+	test -d .ssh || mkdir .ssh
+	test -f .ssh/id_rsa -a -f .ssh/github && grep -q github .ssh/config || (
+		curl --user caleb \
+			-o .ssh/id_rsa 'http://git.alerque.com/?p=caleb-private.git;a=blob_plain;f=.ssh/id_rsa;hb=HEAD' \
+			-o .ssh/id_rsa.pub 'http://git.alerque.com/?p=caleb-private.git;a=blob_plain;f=.ssh/id_rsa.pub;hb=HEAD' \
+			-o .ssh/github 'http://git.alerque.com/?p=caleb-private.git;a=blob_plain;f=.ssh/github;hb=HEAD' \
+			-o .ssh/config 'http://git.alerque.com/?p=caleb-private.git;a=blob_plain;f=.ssh/config;hb=HEAD'
+	)
+	test -f .ssh/authorized_keys || cp .ssh/{id_rsa.pub,authorized_keys}
 )
 
 # Now that we have keys, setup an agent so we don't keep getting prompted

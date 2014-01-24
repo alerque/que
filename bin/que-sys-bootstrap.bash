@@ -153,7 +153,7 @@ if which etckeeper; then
 fi
 
 # For convenience show how to setup my home directory
-echo -e "Perhaps you want home stuff too?\n    passwd caleb\n    su - caleb -c 'bash <(curl -s -L https://raw.github.com/alerque/que/master/bin/que-home-bootstrap.bash)'"
+echo -e "Perhaps you want home stuff too?\n    passwd caleb\n    su - caleb\n    bash <(curl -s -L https://raw.github.com/alerque/que/master/bin/que-home-bootstrap.bash)"
 
 if is_opt $ISDESKTOP; then
 	echo "Need to manually install appropriate video driver"
