@@ -16,13 +16,6 @@ pacman -Syu --needed --noconfirm
 pacman -S --needed --noconfirm ${BASEPACKAGES[@]}
 is_opt $ISDESKTOP && pacman -S --needed --noconfirm ${DESKTOPPACKAGES[@]}
 
-# Network first net device on boot
-#systemctl enable dhcpcd@$(ip link show | grep ^2: | awk -F: '{gsub(/[ \t]+/, "", $2); print $2}').service
-e
-# Desktop stuff?
-# pacman -S --needed --noconfirm gnome xf86-video-nouveau nouveau-dri
-# systemctl enable gdm
-
 # Detect VirtualBox guest and configure accordingly
 lspci | grep -iq virtualbox && (
 	pacman -S --needed --noconfirm virtualbox-guest-utils
@@ -46,10 +39,12 @@ is_opt $ISDESKTOP && yaourt --noconfirm -S --needed ${COMPILEDESKTOPPACKAGES[@]}
 # TODO: Need to set root login and password auth options
 systemctl enable sshd
 systemctl enable ntpd
+systemctl enable cronie
 
 echo 'kernel.sysrq = 1' > /etc/sysctl.d/99-sysctl.conf
 
 if is_opt $ISDESKTOP; then
+	# pacman -S --needed --noconfirm xf86-video-nouveau nouveau-dri
 	systemctl enable gdm
 	systemctl enable cups
 	systemctl enable NetworkManager

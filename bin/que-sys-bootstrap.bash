@@ -80,6 +80,8 @@ case $DISTRO in
 		:
 		;;
 	arch)
+		add_pkg pkgstats
+
 		distro_pkg pcre-tools pcre
 		distro_pkg flashplugin chromium-pepper-flash-stable
 		distro_pkg gnome gnome gnome-{extra,tweak-tool,shell-extension-maximus,defaults-list}
