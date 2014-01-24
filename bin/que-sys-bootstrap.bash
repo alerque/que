@@ -94,7 +94,7 @@ case $DISTRO in
 		compile_pkg etckeeper
 		compile_pkg vcsh
 		compile_pkg myrepos
-		compile_pkg ec2-ami-tools
+		compile_pkg ec2-api-tools
 		compile_pkg ec2-metadata
 		compile_desktop_pkg chromium-pepper-flash-stable
 		compile_desktop_pkg owncloud-client
@@ -153,11 +153,7 @@ if which etckeeper; then
 fi
 
 # For convenience show how to setup my home directory
-echo -e "Perhaps you want home stuff too?\n    su - caleb\n    bash <(curl -s -L https://raw.github.com/alerque/que/master/bin/que-home-bootstrap.bash)"
-
-# Setup EC2 tools
-#openssl-tools xfsprogs ca-certificates-update
-#curl http://s3.amazonaws.com/ec2-downloads/ec2-api-tools.zip
+echo -e "Perhaps you want home stuff too?\n    passwd caleb\n    su - caleb -c 'bash <(curl -s -L https://raw.github.com/alerque/que/master/bin/que-home-bootstrap.bash)'"
 
 if is_opt $ISDESKTOP; then
 	echo "Need to manually install appropriate video driver"
