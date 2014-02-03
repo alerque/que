@@ -1,2 +1,6 @@
 [$HOME/projects/aur]
 checkout = git clone git@github.com:alerque/aur.git
+
+[$HOME/projects/aur-mirror]
+checkout = git clone git://pkgbuild.com/aur-mirror.git
+skip = true
