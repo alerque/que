@@ -1,0 +1,2 @@
+[$HOME/projects/aur]
+checkout = git clone 'git@github.com:alerque/aur.git' 'aur'

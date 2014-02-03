@@ -3,6 +3,7 @@
 !/bin/que
 !/bin/que-home-bootstrap.bash
 !/bin/que-sys-bootstrap.bash
+!/bin/que-sys-config-ec2.bash
 !/bin/que-sys-init-ala.bash
 !/bin/que-sys-init-arch.bash
 !/bin/que-sys-init-fedora.bash
@@ -11,6 +12,7 @@
 !/.config
 !/.config/mr
 !/.config/mr/available.d
+!/.config/mr/available.d/aur.git
 !/.config/mr/available.d/awesome.vcsh
 !/.config/mr/available.d/caleb-private.vcsh
 !/.config/mr/available.d/gnome.vcsh
@@ -32,6 +34,7 @@
 !/.config/mr/config.d-hare/gnome.vcsh
 !/.config/mr/config.d-hare/xorg.vcsh
 !/.config/mr/config.d-jaguar
+!/.config/mr/config.d-jaguar/aur.git
 !/.config/mr/config.d-jaguar/awesome.vcsh
 !/.config/mr/config.d-jaguar/gnome.vcsh
 !/.config/mr/config.d-jaguar/lyricue.mr
@@ -50,6 +53,7 @@
 !/.config/mr/config.d-karakulak/pictures.annex
 !/.config/mr/config.d-karakulak/xorg.vcsh
 !/.config/mr/config.d-lemur
+!/.config/mr/config.d-lemur/aur.git
 !/.config/mr/config.d-lemur/awesome.vcsh
 !/.config/mr/config.d-lemur/gnome.vcsh
 !/.config/mr/config.d-lemur/lyricue.mr
@@ -57,6 +61,7 @@
 !/.config/mr/config.d-lemur/pictures.annex
 !/.config/mr/config.d-lemur/xorg.vcsh
 !/.config/mr/config.d-leylek
+!/.config/mr/config.d-leylek/aur.git
 !/.config/mr/config.d-leylek/awesome.vcsh
 !/.config/mr/config.d-leylek/gnome.vcsh
 !/.config/mr/config.d-leylek/lyricue.mr
