@@ -25,6 +25,7 @@
 !/.config/mr/available.d/utils.vcsh
 !/.config/mr/available.d/vcsh.git
 !/.config/mr/available.d/vim.vcsh
+!/.config/mr/available.d/websites.mr
 !/.config/mr/available.d/xorg.vcsh
 !/.config/mr/available.d/zsh.vcsh
 !/.config/mr/config.d
@@ -41,6 +42,7 @@
 !/.config/mr/config.d-jaguar/musescore.vcsh
 !/.config/mr/config.d-jaguar/pictures.annex
 !/.config/mr/config.d-jaguar/systems.mr
+!/.config/mr/config.d-jaguar/websites.mr
 !/.config/mr/config.d-jaguar/xorg.vcsh
 !/.config/mr/config.d-karabatak
 !/.config/mr/config.d-karabatak/awesome.vcsh
@@ -59,6 +61,7 @@
 !/.config/mr/config.d-lemur/lyricue.mr
 !/.config/mr/config.d-lemur/musescore.vcsh
 !/.config/mr/config.d-lemur/pictures.annex
+!/.config/mr/config.d-lemur/websites.mr
 !/.config/mr/config.d-lemur/xorg.vcsh
 !/.config/mr/config.d-leylek
 !/.config/mr/config.d-leylek/aur.git
