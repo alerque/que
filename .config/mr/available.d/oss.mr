@@ -1,8 +1,21 @@
 [$HOME/projects/vcsh]
+skip = true
 checkout =
 	git clone git@github.com:alerque/vcsh.git
 	cd vcsh
 	git remote add upstream git@github.com:RichiH/vcsh.git
+
+zap =
+	git pull upstream master
+	git merge upstream/master
+	git push origin master
+
+[$HOME/projects/paperwalking]
+skip = true
+checkout =
+	git clone git@github.com:alerque/paperwalking.git
+	cd vcsh
+	git remote add upstream git@github.com:migurski/paperwalking.git
 
 zap =
 	git pull upstream master
