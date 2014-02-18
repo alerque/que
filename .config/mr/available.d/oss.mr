@@ -14,7 +14,7 @@ zap =
 skip = true
 checkout =
 	git clone git@github.com:alerque/paperwalking.git
-	cd vcsh
+	cd paperwalking
 	git remote add upstream git@github.com:migurski/paperwalking.git
 
 zap =
