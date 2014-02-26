@@ -110,6 +110,8 @@ case $DISTRO in
 		compile_desktop_pkg gnome-defaults-list
         compile_desktop_pkg powerline-fonts-git
 		:
+
+        distro_pkg syslog-ng ''
 		;;
 	fedora)
 		:
