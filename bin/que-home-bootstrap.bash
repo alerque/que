@@ -49,4 +49,5 @@ test -f .mrconfig || vcsh clone git@github.com:alerque/que.git
 mr up
 
 # Fetch third party plugins for vim
+[[ -d ~/.vim/bundle/vundle ]] || git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 vim +BundleInstall! +BundleClean! +all +qa
