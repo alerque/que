@@ -1,2 +1,5 @@
 [$HOME/projects/websites/protestan.org]
-checkout = git clone ssh://camelion.alerque.com/~protestan/www
+checkout = git clone gitlab@gitlab.alerque.com:caleb/protestan.org.git
+
+[$HOME/projects/websites/iguana.alerque.com]
+checkout = git clone gitlab@gitlab.alerque.com:caleb/iguana.alerque.com.git
