@@ -9,3 +9,8 @@ brew update
 
 brew install ${BASEPACKAGES[@]}
 brew upgrade ${BASEPACKAGES[@]}
+
+is_opt $ISDESKTOP && brew install ${DESKTOPPACKAGES[@]}
+is_opt $ISDESKTOP && brew upgrade ${DESKTOPPACKAGES[@]}
+
+brew linkapps

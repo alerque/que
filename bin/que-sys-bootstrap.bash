@@ -140,6 +140,32 @@ case $DISTRO in
         distro_pkg gdisk ''
         distro_pkg strace ''
         distro_pkg ntp ''
+
+        distro_pkg awesome ''
+        distro_pkg dropbox ''
+        distro_pkg parcellite ''
+        distro_pkg chromium ''
+        distro_pkg flashplugin ''
+        distro_pkg google-talkplugin ''
+        distro_pkg owncloud-client ''
+        distro_pkg gnome-packagekit ''
+        distro_pkg gnome ''
+        distro_pkg rdesktop ''
+        distro_pkg libreoffice ''
+        distro_pkg smplayer ''
+        distro_pkg gimp ''
+        distro_pkg xiphos ''
+        distro_pkg transmission-gtk ''
+        distro_pkg rhythmbox ''
+        distro_pkg cups ''
+        distro_pkg networkmanager ''
+        distro_pkg gvfs ''
+        distro_pkg keepassx ''
+        distro_pkg ttf-fonts ''
+        distro_pkg x11-ssh-askpass ''
+        distro_pkg powerline-fonts ''
+
+        distro_pkg gvim macvim
 		;;
 	*)
 		flunk "Unknown system"
