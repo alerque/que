@@ -1,0 +1,10 @@
+[$HOME/projects/SE-AutoReviewComments]
+checkout =
+	git clone git@github.com:alerque/SE-AutoReviewComments.git
+	cd SE-AutoReviewComments
+	git remote add upstream git@github.com:Benjol/SE-AutoReviewComments.git
+
+zap =
+	git pull upstream master
+	git merge upstream/master
+	git push origin master
