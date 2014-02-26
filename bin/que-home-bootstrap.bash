@@ -47,3 +47,6 @@ chmod +x .config/vcsh/hooks-enabled/{pre,post}-merge-unclobber
 test -f .mrconfig || vcsh clone git@github.com:alerque/que.git
 
 mr up
+
+# Fetch third party plugins for vim
+vim +BundleInstall! +BundleClean! +all +qa
