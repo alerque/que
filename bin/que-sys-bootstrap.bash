@@ -63,11 +63,12 @@ test -f /etc/arch-release && DISTRO=arch
 test -f /etc/fedora-release && DISTRO=fedora
 test -f /etc/pld-release && DISTRO=pld
 grep -q -s "Ubuntu" /etc/lsb-release && DISTRO=ubuntu
+uname -s | grep -q Darwin && DISTRO=osx
 
 test -n "$DISTRO" || flunk "unrecognized distro"
 
 # Detect virtual environments
-ISVBOX=$(lspci | grep -iq virtualbox; echo $?)
+ISVBOX=$(command -v lspci && lspci | grep -iq virtualbox; echo $?)
 ISEC2=$(uname -r | grep -iq ec2; echo $?)
 if is_opt $ISEC2; then
 	add_pkg ec2-api-tools ec2-metadata
@@ -109,7 +110,6 @@ case $DISTRO in
 		compile_desktop_pkg gnome-shell-extension-maximus
 		compile_desktop_pkg gnome-defaults-list
         compile_desktop_pkg powerline-fonts-git
-		:
 
         distro_pkg syslog-ng ''
 		;;
@@ -127,13 +127,31 @@ case $DISTRO in
 		WHEEL=adm
 		distro_pkg pcre-tools pcregrep
 		;;
+	osx)
+		add_pkg rename
+		distro_pkg myrepos mr
+        distro_pkg pcre-tools pcre
+        distro_pkg sudo ''
+        distro_pkg etckeeper ''
+        distro_pkg unzip ''
+        distro_pkg unrar ''
+        distro_pkg zip ''
+        distro_pkg syslog-ng ''
+        distro_pkg gdisk ''
+        distro_pkg strace ''
+        distro_pkg ntp ''
+		;;
 	*)
-		flunk "Unknown Linux distribution"
+		flunk "Unknown system"
 		;;
 esac
 
-# Make sure we are root
-test $UID -eq 0 || flunk "Must be root for system bootstrap"
+# Make sure we are root on linux
+case $(uname -s) in
+    Linux)
+        test $UID -eq 0 || flunk "Must be root for system bootstrap"
+        ;;
+esac
 
 # Import and run init script for this OS
 INITSCRIPT="que-sys-init-${DISTRO}.bash"
@@ -150,7 +168,7 @@ usermod -aG $WHEEL caleb
 # TODO make sure wheel has sudo permissions
 
 # If we're on a system with etckeeper, make sure it's setup
-if which etckeeper; then
+if command -v etckeeper; then
 	(
 	cd /etc 
 	etckeeper vcs status || etckeeper init
