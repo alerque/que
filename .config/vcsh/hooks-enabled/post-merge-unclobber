@@ -7,4 +7,4 @@
 # sees these as un-staged changes to the working branch and you can deal
 # with them by adding them or reverting.
 
-find -name '*.vcsh-unclobber' -execdir rename .vcsh-unclobber '' {} \;
+find ./ -name '*.vcsh-unclobber' -execdir rename .vcsh-unclobber '' {} \;
