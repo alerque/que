@@ -2,12 +2,15 @@
 checkout =
 	git clone git@github.com:alerque/SE-AutoReviewComments.git
 	cd SE-AutoReviewComments
-	git remote add upstream git@github.com:Benjol/SE-AutoReviewComments.git
+	git remote add benjol git@github.com:Benjol/SE-AutoReviewComments.git
 	git remote add izzy git@github.com:IzzySoft/SE-AutoReviewComments.git
 	git remote add oliver git@github.com:oliversalzburg/SE-AutoReviewComments.git
 
 zap =
-	git checkout master
 	git fetch --all
-	git merge upstream/master
+	git checkout master &&
+	git merge --ff-only benjol/master &&
 	git push origin master
+	git checkout devel &&
+	git merge benjol/devel --ff-only &&
+	git push origin devel
