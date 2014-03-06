@@ -9,3 +9,7 @@ checkout =
 [$HOME/projects/ipk_belgeler]
 checkout =
 	git clone gitlab@gitlab.alerque.com:ipk/ipk_belgeler.git
+
+[$HOME/projects/ipk_ilahiler]
+checkout =
+	git clone gitlab@gitlab.alerque.com:ipk/ipk_ilahiler.git
