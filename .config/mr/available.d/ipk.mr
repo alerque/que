@@ -13,3 +13,7 @@ checkout =
 [$HOME/projects/ipk_ilahiler]
 checkout =
 	git clone gitlab@gitlab.alerque.com:ipk/ipk_ilahiler.git
+
+[$HOME/projects/moab]
+checkout =
+	git clone git@github.com:alerque/moab.git
