@@ -1,5 +1,5 @@
-[$HOME/projects/FreeCheck]
-checkout = git clone git@github.com:alerque/FreeCheck.git
+[$HOME/projects/freecheck]
+checkout = git clone git@github.com:alerque/freecheck.git
 
-[$HOME/projects/GnuMICR]
-checkout = git clone git@github.com:alerque/GnuMicr.git
+[$HOME/projects/gnumicr]
+checkout = git clone git@github.com:alerque/gnumicr.git
