@@ -16,6 +16,7 @@
 !/.config/mr/available.d/aur.git
 !/.config/mr/available.d/awesome.vcsh
 !/.config/mr/available.d/caleb-private.vcsh
+!/.config/mr/available.d/freecheck.git
 !/.config/mr/available.d/gnome.vcsh
 !/.config/mr/available.d/ipk.mr
 !/.config/mr/available.d/lyricue.mr
@@ -43,6 +44,7 @@
 !/.config/mr/config.d-jaguar
 !/.config/mr/config.d-jaguar/aur.git
 !/.config/mr/config.d-jaguar/awesome.vcsh
+!/.config/mr/config.d-jaguar/freecheck.git
 !/.config/mr/config.d-jaguar/gnome.vcsh
 !/.config/mr/config.d-jaguar/ipk.mr
 !/.config/mr/config.d-jaguar/lyricue.mr
@@ -67,6 +69,7 @@
 !/.config/mr/config.d-lemur
 !/.config/mr/config.d-lemur/aur.git
 !/.config/mr/config.d-lemur/awesome.vcsh
+!/.config/mr/config.d-lemur/freecheck.git
 !/.config/mr/config.d-lemur/gnome.vcsh
 !/.config/mr/config.d-lemur/ipk.mr
 !/.config/mr/config.d-lemur/lyricue.mr
@@ -104,6 +107,7 @@
 !/.config/mr/config.d-rabbit/xorg.vcsh
 !/.config/mr/config.d-shrimp
 !/.config/mr/config.d-shrimp/awesome.vcsh
+!/.config/mr/config.d-shrimp/freecheck.git
 !/.config/mr/config.d-shrimp/gnome.vcsh
 !/.config/mr/config.d-shrimp/xorg.vcsh
 !/.config/mr/config.d-sincap
