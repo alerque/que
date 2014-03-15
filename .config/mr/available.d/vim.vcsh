@@ -1,5 +1,5 @@
 [$HOME/.config/vcsh/repo.d/que-vim.git]
 checkout = vcsh clone git@github.com:alerque/que-vim.git
 update =
-	git pull
+	vcsh run que-vim git pull
 	vim +BundleInstall! +BundleClean! +all +qa
