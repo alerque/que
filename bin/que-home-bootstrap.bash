@@ -11,8 +11,8 @@ cd $HOME
 which git mr curl ssh-agent > /dev/null
 
 # If everything isn't just right with SSH keys and config for the next step, manually fetch them
+test -d .ssh || mkdir .ssh ; chmod 750 .ssh
 (umask 177
-	test -d .ssh || mkdir .ssh
 	test -f .ssh/id_rsa -a -f .ssh/github && grep -q github .ssh/config || (
 		curl --user caleb \
 			-o .ssh/id_rsa 'http://git.alerque.com/?p=caleb-private.git;a=blob_plain;f=.ssh/id_rsa;hb=HEAD' \
