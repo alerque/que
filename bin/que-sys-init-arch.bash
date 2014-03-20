@@ -12,6 +12,9 @@ pkill haveged
 # Freshen everything up
 pacman -Syu --needed --noconfirm
 
+# Arch won't install gvim if vim is around, so to make the transition between package sets eaiser:
+is_opt $ISDESKTOP && pacman -R --noconfirm vim
+
 # Make sure the basics every system is going to need are installed and updated
 pacman -S --needed --noconfirm ${BASEPACKAGES[@]}
 is_opt $ISDESKTOP && pacman -S --needed --noconfirm ${DESKTOPPACKAGES[@]}

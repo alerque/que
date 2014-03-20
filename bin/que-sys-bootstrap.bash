@@ -96,7 +96,7 @@ case $DISTRO in
         distro_pkg powerline-fonts powerline-fonts-git
 
         # gvim and vim conflict, so if we are going to get the former don't try to install the latter
-        is_opt $ISDESKTOP && distro_pkg vim gvim
+        is_opt $ISDESKTOP && distro_pkg gvim "" && distro_pkg vim gvim
 
 		compile_pkg etckeeper
 		compile_pkg vcsh
