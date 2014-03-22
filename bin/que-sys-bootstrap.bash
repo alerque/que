@@ -84,7 +84,7 @@ case $DISTRO in
 		add_pkg pkgstats
 
 		distro_pkg pcre-tools pcre
-		distro_pkg flashplugin chromium-pepper-flash-stable
+		distro_pkg flashplugin chromium-pepper-flash
 		distro_pkg gnome gnome gnome-{extra,tweak-tool,shell-extension-maximus,defaults-list}
 		distro_pkg libreoffice libreoffice-{gnome,en-US,writer,calc,impress,math,draw} unoconv
 		distro_pkg cups cups cups-filters system-config-printer cups-pk-helper gsfonts gutenprint foomatic-{filters,db{,-engine,-nonfree}} hplip splix cups-pdf
