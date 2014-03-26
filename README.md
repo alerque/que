@@ -1,7 +1,14 @@
 que
 ===
 
-My personal computing environment including but not limited to system initialization tools, dotfiles, scripts and other paraphanalia.
+Caleb Maclennan's personal computing environment, including but not limited to:
+
+* system initialization and configuration tools
+* home directory managment via
+  * [myropos][myrepos] for repositories
+  * [vcsh][vcsh] for dotfiles
+  * [git-annex][git-annex] for storing stuff™
+* misc other scripts and paraphanalia
 
 system setup
 ------------
@@ -10,11 +17,13 @@ Requires:
 
 * bash, curl
 * working network connection
-* booted and logged in as user with sudo privs
+* booted and logged in as root
 
 Setup a fresh system from scratch (or update an existing one):
 
 	bash <(curl -s -L https://raw.github.com/alerque/que/master/bin/que-sys-bootstrap.bash)
+
+Optionally add `desktop` as an arugment to install base GUI package set.
 
 home setup
 ----------
@@ -45,3 +54,7 @@ Adding a new repo
 9. Optionally push to upstream `vcsh run $NAME git push -u origin master`
 
 After that, the usual `mr up`, `mr ci`, `mr push` etc should just work.
+
+  [vcsh]: https://github.com/RichiH/vcsh
+  [myrepos]: http://myrepos.branchable.com/
+  [git-annex]: https://git-annex.branchable.com/
