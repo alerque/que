@@ -4,8 +4,14 @@ checkout = git clone gitlab@gitlab.alerque.com:wayne/dowlink.net.git
 [$HOME/projects/grandpa/gdow.net]
 checkout = git clone gitlab@gitlab.alerque.com:wayne/gdow.net.git
 
+[$HOME/projects/grandpa/personal.gdow.net]
+checkout = git clone gitlab@gitlab.alerque.com:wayne/personal.gdow.net.git
+
 [$HOME/projects/grandpa/gwdow.net]
 checkout = git clone gitlab@gitlab.alerque.com:wayne/gwdow.net.git
+
+[$HOME/projects/grandpa/personal.gwdow.net]
+checkout = git clone gitlab@gitlab.alerque.com:wayne/personal.gwdow.net.git
 
 [$HOME/projects/grandpa/ledow.net]
 checkout = git clone gitlab@gitlab.alerque.com:wayne/ledow.net.git
@@ -13,14 +19,20 @@ checkout = git clone gitlab@gitlab.alerque.com:wayne/ledow.net.git
 [$HOME/projects/grandpa/lindadow.net]
 checkout = git clone gitlab@gitlab.alerque.com:wayne/lindadow.net.git
 
-[$HOME/projects/grandpa/personal.gdow.net]
-checkout = git clone gitlab@gitlab.alerque.com:wayne/personal.gdow.net.git
-
 [$HOME/projects/grandpa/personal.lindadow.net]
 checkout = git clone gitlab@gitlab.alerque.com:wayne/personal.lindadow.net.git
+
+[$HOME/projects/grandpa/waynedow.net]
+checkout = git clone gitlab@gitlab.alerque.com:wayne/waynedow.net.git
 
 [$HOME/projects/grandpa/personal.waynedow.net]
 checkout = git clone gitlab@gitlab.alerque.com:wayne/personal.waynedow.net.git
 
-[$HOME/projects/grandpa/waynedow.net]
-checkout = git clone gitlab@gitlab.alerque.com:wayne/waynedow.net.git
+[$HOME/projects/grandpa/cars.waynedow.net]
+checkout = git clone gitlab@gitlab.alerque.com:wayne/cars.waynedow.net.git
+
+[$HOME/projects/grandpa/ouraypdfs]
+checkout = git clone gitlab@gitlab.alerque.com:wayne/ouraypdfs.git
+
+[$HOME/projects/grandpa/ouraypersonalpdfs]
+checkout = git clone gitlab@gitlab.alerque.com:wayne/ouraypersonalpdfs.git
