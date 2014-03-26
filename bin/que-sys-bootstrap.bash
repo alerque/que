@@ -94,12 +94,13 @@ case $DISTRO in
 		distro_pkg xiphos ""
 		distro_pkg ttf-fonts ttf-{cheapskate,droid,freefont,gentium,liberation,linux-libertine}
         distro_pkg powerline-fonts powerline-fonts-git
+        distro_pkg vcsh vcsh-git
 
         # gvim and vim conflict, so if we are going to get the former don't try to install the latter
         is_opt $ISDESKTOP && distro_pkg gvim "" && distro_pkg vim gvim
 
 		compile_pkg etckeeper
-		compile_pkg vcsh
+		compile_pkg vcsh-git
 		compile_pkg myrepos
 		compile_pkg ec2-api-tools
 		compile_pkg ec2-metadata
