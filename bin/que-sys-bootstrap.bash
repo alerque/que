@@ -8,7 +8,7 @@ case $1 in
 esac
 
 # Setup stuff
-BASEPACKAGES=(zsh subversion git ctags pcre-tools vim tmux sudo mosh etckeeper ruby zip unzip myrepos vcsh wget unrar syslog-ng lsof htop gdisk strace ntp keychain programmers-dvorak)
+BASEPACKAGES=(zsh subversion git ctags pcre-tools vim tmux sudo mosh etckeeper ruby zip unzip myrepos vcsh wget unrar syslog-ng lsof htop gdisk strace ntp keychain programmers-dvorak rsync)
 DESKTOPPACKAGES=(awesome dropbox parcellite chromium flashplugin google-talkplugin owncloud-client gnome rdesktop libreoffice smplayer gimp xiphos transmission-gtk rhythmbox cups gnome-packagekit networkmanager gvfs keepassx ttf-fonts x11-ssh-askpass powerline-fonts gvim)
 COMPILEBASEPACKAGES=()
 COMPILEDESKTOPPACKAGES=()
@@ -105,7 +105,7 @@ case $DISTRO in
 		compile_pkg ec2-metadata
 		compile_pkg programmers-dvorak
 
-		compile_desktop_pkg chromium-pepper-flash-stable
+		compile_desktop_pkg chromium-pepper-flash
 		compile_desktop_pkg owncloud-client
 		compile_desktop_pkg keepassx2
 		compile_desktop_pkg xiphos
