@@ -2,8 +2,8 @@
 
 sed -i 's/^# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/g' /etc/sudoers
 
-# Cleanup stuff before we start that will make a mess later
-pacman --noconfirm -Rns aura
+# Cleanup stuff before we start that will make a mess later, mostly packages that have changed names
+echo aura chromium-pepper-flash-stable mr | xargs -n 1 pacman --noconfirm -Rns
 pacman --noconfirm -Rns $(pacman -Qtdq)
 
 # Make sure we're off on the right foot before we get to adding  keys
