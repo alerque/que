@@ -8,7 +8,7 @@ case $1 in
 esac
 
 # Setup stuff
-BASEPACKAGES=(zsh subversion git ctags pcre-tools vim tmux sudo mosh etckeeper ruby zip unzip myrepos vcsh wget unrar syslog-ng lsof htop gdisk strace ntp keychain programmers-dvorak)
+BASEPACKAGES=(zsh subversion git ctags pcre-tools vim tmux sudo mosh etckeeper ruby zip unzip myrepos vcsh wget unrar syslog-ng lsof htop gdisk strace ntp keychain programmers-dvorak rsync)
 DESKTOPPACKAGES=(awesome dropbox parcellite chromium flashplugin google-talkplugin owncloud-client gnome rdesktop libreoffice smplayer gimp xiphos transmission-gtk rhythmbox cups gnome-packagekit networkmanager gvfs keepassx ttf-fonts x11-ssh-askpass powerline-fonts gvim)
 COMPILEBASEPACKAGES=()
 COMPILEDESKTOPPACKAGES=()
@@ -84,7 +84,7 @@ case $DISTRO in
 		add_pkg pkgstats
 
 		distro_pkg pcre-tools pcre
-		distro_pkg flashplugin chromium-pepper-flash-stable
+		distro_pkg flashplugin chromium-pepper-flash
 		distro_pkg gnome gnome gnome-{extra,tweak-tool,shell-extension-maximus,defaults-list}
 		distro_pkg libreoffice libreoffice-{gnome,en-US,writer,calc,impress,math,draw} unoconv
 		distro_pkg cups cups cups-filters system-config-printer cups-pk-helper gsfonts gutenprint foomatic-{filters,db{,-engine,-nonfree}} hplip splix cups-pdf
@@ -94,18 +94,19 @@ case $DISTRO in
 		distro_pkg xiphos ""
 		distro_pkg ttf-fonts ttf-{cheapskate,droid,freefont,gentium,liberation,linux-libertine}
         distro_pkg powerline-fonts powerline-fonts-git
+        distro_pkg vcsh vcsh-git
 
         # gvim and vim conflict, so if we are going to get the former don't try to install the latter
         is_opt $ISDESKTOP && distro_pkg gvim "" && distro_pkg vim gvim
 
 		compile_pkg etckeeper
-		compile_pkg vcsh
+		compile_pkg vcsh-git
 		compile_pkg myrepos
 		compile_pkg ec2-api-tools
 		compile_pkg ec2-metadata
 		compile_pkg programmers-dvorak
 
-		compile_desktop_pkg chromium-pepper-flash-stable
+		compile_desktop_pkg chromium-pepper-flash
 		compile_desktop_pkg owncloud-client
 		compile_desktop_pkg keepassx2
 		compile_desktop_pkg xiphos

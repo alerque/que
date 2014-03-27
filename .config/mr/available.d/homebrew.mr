@@ -1,0 +1,21 @@
+[$HOME/projects/homebrew]
+checkout =
+	git clone https://github.com/alerque/homebrew.git
+	cd homebrew
+	git remote add upstream git@github.com:Homebrew/homebrew.git
+zap =
+	git checkout master
+	git pull upstream master
+	git merge upstream/master
+	git push origin master
+
+[$HOME/projects/homebrew-cask]
+checkout =
+	git clone git@github.com:alerque/homebrew-cask.git
+	cd homebrew-cask
+	git remote add upstream git@github.com:phinze/homebrew-cask.git
+zap =
+	git checkout master
+	git pull upstream master
+	git merge upstream/master
+	git push origin master

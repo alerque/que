@@ -2,6 +2,10 @@
 
 sed -i 's/^# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/g' /etc/sudoers
 
+# Cleanup stuff before we start that will make a mess later
+pacman --noconfirm -Rns aura
+pacman --noconfirm -Rns $(pacman -Qtdq)
+
 # Make sure we're off on the right foot before we get to adding  keys
 pacman -Syu --needed --noconfirm haveged
 haveged -w 1024
