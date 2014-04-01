@@ -9,7 +9,7 @@ esac
 
 # Setup stuff
 BASEPACKAGES=(zsh subversion git ctags pcre-tools vim tmux sudo mosh etckeeper ruby zip unzip myrepos vcsh wget unrar syslog-ng lsof htop gdisk strace ntp keychain programmers-dvorak rsync)
-DESKTOPPACKAGES=(awesome dropbox parcellite chromium flashplugin google-talkplugin owncloud-client gnome rdesktop libreoffice smplayer gimp xiphos transmission-gtk rhythmbox cups gnome-packagekit networkmanager gvfs keepassx ttf-fonts ssh-askpass-fullscreen powerline-fonts gvim rxvt-unicode)
+DESKTOPPACKAGES=(awesome dropbox parcellite chromium flashplugin google-talkplugin owncloud-client gnome rdesktop libreoffice smplayer gimp xiphos transmission-gtk rhythmbox cups gnome-packagekit networkmanager gvfs keepassx ttf-fonts ssh-askpass-fullscreen powerline-fonts gvim rxvt-unicode pulseaudio)
 COMPILEBASEPACKAGES=()
 COMPILEDESKTOPPACKAGES=()
 
@@ -85,7 +85,8 @@ case $DISTRO in
 
 		distro_pkg pcre-tools pcre
 		distro_pkg flashplugin chromium-pepper-flash
-		distro_pkg gnome gnome gnome-{extra,tweak-tool,shell-extension-maximus,defaults-list} pa-applet batti notification-daemon
+		distro_pkg gnome gnome gnome-{extra,tweak-tool,shell-extension-maximus,defaults-list} batti notification-daemon 
+		distro_pkg pulseaudio pulseaudio-gnome pa{systray,man,vucontrol,prefs,mixer,-applet}
 		distro_pkg libreoffice libreoffice-{gnome,en-US,writer,calc,impress,math,draw} unoconv
 		distro_pkg cups cups cups-filters system-config-printer cups-pk-helper gsfonts gutenprint foomatic-{filters,db{,-engine,-nonfree}} hplip splix cups-pdf
 		distro_pkg networkmanager networkmanager network-manager-applet
