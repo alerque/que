@@ -96,7 +96,7 @@ case $DISTRO in
 		distro_pkg ttf-fonts ttf-{cheapskate,droid,freefont,gentium,liberation,linux-libertine}
         distro_pkg powerline-fonts powerline-fonts-git
         distro_pkg vcsh vcsh-git
-        distro_pkg awesome awesome awesome-gnome eminent-git
+        distro_pkg awesome awesome awesome-gnome eminent-git awesome-revelation-git
         distro_pkg urxvt rxvt-unicode{,-terminfo}
 
         # gvim and vim conflict, so if we are going to get the former don't try to install the latter
