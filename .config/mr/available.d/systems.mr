@@ -1,5 +1,5 @@
 [$HOME/projects/systems-svn]
-checkout = svn co http://svn.alerque.com/svn/systems
+checkout = svn co http://svn.alerque.com/svn/systems systems-svn
 
 [$HOME/projects/systems/dns]
 checkout = git clone gitlab@gitlab.alerque.com:systems/dns.git
