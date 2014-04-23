@@ -6,6 +6,8 @@ include =
 		cat $HOME/.config/mr/config.d-$HOSTNAME/*
 	fi
 
+git_update = git pull --ff --ff-only "$@"
+
 [ALIAS]
 
 #vim: syntax=sh
