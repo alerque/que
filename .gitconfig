@@ -13,3 +13,7 @@
 	ui = true
 [merge]
 	ff = false
+[branch]
+	autosetuprebase = always
+[branch "*"]
+	rebase = preserve
