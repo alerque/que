@@ -15,5 +15,8 @@
 	ff = false
 [branch]
 	autosetuprebase = always
-[branch "*"]
 	rebase = preserve
+[pull]
+	rebase = true
+[rebase]
+	autosquash = true
