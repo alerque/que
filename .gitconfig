@@ -20,9 +20,12 @@
 	rebase = true
 [rebase]
 	autosquash = true
+	autostash = true
 [alias]
 	graph = log --all --graph --decorate --oneline
 	ds = diff --staged
 	co = checkout
 [log]
 	abbrevCommit = true
+[status]
+	short = true
