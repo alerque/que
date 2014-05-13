@@ -20,3 +20,5 @@
 	rebase = true
 [rebase]
 	autosquash = true
+[alias]
+	graph = log --all --graph --decorate --oneline
