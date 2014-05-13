@@ -22,3 +22,7 @@
 	autosquash = true
 [alias]
 	graph = log --all --graph --decorate --oneline
+	ds = diff --staged
+	co = checkout
+[log]
+	abbrevCommit = true
