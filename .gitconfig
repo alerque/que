@@ -5,10 +5,27 @@
 	name = Caleb Maclennan
 [github]
 	user = alerque
-	token = 61b118054b0d3b197327394154bd8276
 [pld]
 	user = caleb@pld-linux.org
 [push]
 	default = matching
 [color]
 	ui = true
+[merge]
+	ff = false
+[branch]
+	autosetuprebase = always
+	rebase = preserve
+[pull]
+	rebase = true
+[rebase]
+	autosquash = true
+	autostash = true
+[alias]
+	graph = log --all --graph --decorate --oneline
+	ds = diff --staged
+	co = checkout
+[log]
+	abbrevCommit = true
+[status]
+	short = true
