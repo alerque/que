@@ -85,6 +85,7 @@ case $DISTRO in
 
 		distro_pkg pcre-tools pcre
 		distro_pkg flashplugin chromium-pepper-flash
+		distro_pkg chromium chromium chromium-libpdf
 		distro_pkg gnome gnome gnome-{extra,tweak-tool,shell-extension-maximus,defaults-list} batti notification-daemon 
 		distro_pkg pulseaudio pulseaudio-gnome pa{systray,man,vucontrol,prefs,mixer,-applet}
 		distro_pkg libreoffice libreoffice-{gnome,en-US,writer,calc,impress,math,draw} unoconv
@@ -98,6 +99,7 @@ case $DISTRO in
         distro_pkg vcsh vcsh-git
         distro_pkg awesome awesome awesome-gnome eminent-git awesome-revelation-git
         distro_pkg urxvt rxvt-unicode{,-terminfo}
+		distro_pkg zsh zsh zsh-completions
 
         # gvim and vim conflict, so if we are going to get the former don't try to install the latter
         is_opt $ISDESKTOP && distro_pkg gvim "" && distro_pkg vim gvim
