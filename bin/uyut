@@ -1,0 +1,16 @@
+#!/bin/zsh
+
+HOSTNAME=$(hostname)
+
+[ "$HOSTNAME" = "$1" ] || { echo "This is $HOSTNAME but you acted on '$1'; are you sure you know what you're doing?" ; exit }
+
+case $HOSTNAME in
+	leylek|lemur|pars)
+		sudo sh -c 'echo mem > /sys/power/state'
+		sleep 2
+		xmodmap -e keycode\ 48\ \=\ apostrophe\ quotedbl ; xmodmap ~/.xmodmaprc
+		;;
+	*)
+		echo "Unknown host, no sleep routine defined"
+		;;
+esac
