@@ -1,10 +1,15 @@
 #!/bin/zsh
 
-HOSTNAME=$(hostname)
+HOSTNAME=$(hostname -s)
 
 [ "$HOSTNAME" = "$1" ] || { echo "This is $HOSTNAME but you acted on '$1'; are you sure you know what you're doing?" ; exit }
 
 case $HOSTNAME in
+	jaguar)
+		sudo -v && slock &
+		sudo systemctl suspend && slock
+		source <(grep evrouter ~/.xprofile)
+		;;
 	leylek|lemur|pars)
 		sudo sh -c 'echo mem > /sys/power/state'
 		sleep 2
