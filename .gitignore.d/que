@@ -10,7 +10,6 @@
 !/bin/que-sys-init-osx.bash
 !/bin/que-sys-init-pld.bash
 !/bin/que-sys-init-ubuntu.bash
-!/bin/uyut
 !/.config
 !/.config/mr
 !/.config/mr/available.d
@@ -37,6 +36,8 @@
 !/.config/mr/available.d/xorg.vcsh
 !/.config/mr/available.d/zsh.vcsh
 !/.config/mr/config.d
+!/.config/mr/config.d-basilisk
+!/.config/mr/config.d-basilisk/systems.mr
 !/.config/mr/config.d/caleb-private.vcsh
 !/.config/mr/config.d-hare
 !/.config/mr/config.d-hare/awesome.vcsh
@@ -44,6 +45,7 @@
 !/.config/mr/config.d-hare/xorg.vcsh
 !/.config/mr/config.d-iguana
 !/.config/mr/config.d-iguana/aur.git
+!/.config/mr/config.d-iguana/systems.mr
 !/.config/mr/config.d-jaguar
 !/.config/mr/config.d-jaguar/aur.git
 !/.config/mr/config.d-jaguar/awesome.vcsh
