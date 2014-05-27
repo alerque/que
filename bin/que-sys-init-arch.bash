@@ -16,6 +16,9 @@ pkill haveged
 # Freshen everything up
 pacman -Syu --needed --noconfirm
 
+# Remove anything that needs cleaning up first
+pacman -R --needed --noconfirm ${REMOVEPACKAGES[@]}
+
 # Arch won't install gvim if vim is around, so to make the transition between package sets eaiser:
 is_opt $ISDESKTOP && pacman -R --noconfirm vim
 
