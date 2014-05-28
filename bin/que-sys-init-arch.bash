@@ -2,10 +2,6 @@
 
 sed -i 's/^# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/g' /etc/sudoers
 
-# Cleanup stuff before we start that will make a mess later, mostly packages that have changed names
-echo aura chromium-pepper-flash-stable mr | xargs -n 1 pacman --noconfirm -Rns
-pacman --noconfirm -Rns $(pacman -Qtdq)
-
 # Make sure we're off on the right foot before we get to adding  keys
 pacman -Syu --needed --noconfirm haveged
 haveged -w 1024
@@ -17,7 +13,8 @@ pkill haveged
 pacman -Syu --needed --noconfirm
 
 # Remove anything that needs cleaning up first
-pacman -R --needed --noconfirm ${REMOVEPACKAGES[@]}
+pacman -Rns --needed --noconfirm ${REMOVEPACKAGES[@]}
+pacman --noconfirm -Rns $(pacman -Qtdq)
 
 # Arch won't install gvim if vim is around, so to make the transition between package sets eaiser:
 is_opt $ISDESKTOP && pacman -R --noconfirm vim
