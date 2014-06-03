@@ -1,11 +1,16 @@
 #!/bin/bash
 
-case $1 in
-	desktop)
-		ISDESKTOP=0
-		shift
-		;;
-esac
+while [[ $# -gt 0 ]]; do
+    case $1 in
+        desktop)
+            ISDESKTOP=0
+            ;;
+        debug)
+            ISDEBUG=0
+            ;;
+    esac
+    shift
+done
 
 # Setup stuff
 BASEPACKAGES=(zsh subversion git ctags pcre-tools vim tmux sudo mosh etckeeper ruby zip unzip myrepos vcsh wget unrar syslog-ng lsof htop gdisk strace ntp keychain programmers-dvorak rsync)
@@ -86,6 +91,9 @@ case $DISTRO in
 		:
 		;;
 	arch)
+        # If we have ever installed desktop stuff, assume it again
+        pacman -Q gvim && ISDESKTOP=0
+
 		add_pkg pkgstats
 
 		distro_pkg pcre-tools pcre
@@ -107,7 +115,7 @@ case $DISTRO in
 		distro_pkg zsh zsh zsh-completions
 
         # gvim and vim conflict, so if we are going to get the former don't try to install the latter
-        is_opt $ISDESKTOP || pacman -Q gvim && distro_pkg gvim "" && distro_pkg vim gvim
+        is_opt $ISDESKTOP && distro_pkg gvim "" && distro_pkg vim gvim
 
 		compile_pkg etckeeper
 		compile_pkg vcsh-git

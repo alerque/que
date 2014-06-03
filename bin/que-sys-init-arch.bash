@@ -1,10 +1,10 @@
 #!/bin/bash
 
+# Enable sudo access to wheel group
 sed -i 's/^# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/g' /etc/sudoers
 
-# Make sure debug env var is either empty or prefix everything with a debug function
-: ${DEBUG:=}
-[[ -z $DEBUG ]] || DEBUG='debug'
+# If run in debug mode prefix anything that changes the system with a debug function
+is_opt $ISDEBUG && DEBUG='debug'
 function debug () {
 	echo DEBUG: "$@"
 }
