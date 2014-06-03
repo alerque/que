@@ -20,10 +20,10 @@ pkill haveged
 $DEBUG pacman -Syu --needed --noconfirm
 
 # Remove anything that needs cleaning up first
-$DEBUG pacman -Rns --needed --noconfirm ${REMOVEPACKAGES[@]}
-$DEBUG pacman --noconfirm -Rns $(pacman -Qtdq)
+$DEBUG pacman -Rns --needed --noconfirm ${REMOVEPACKAGES[@]} $(pacman -Qtdq)
 
-# Arch won't install gvim if vim is around, so to make the transition between package sets eaiser:
+# Arch won't install gvim if vim is around, so to make the transition between
+# package sets easier:
 is_opt $ISDESKTOP && $DEBUG pacman -R --noconfirm vim
 
 # Make sure the basics every system is going to need are installed and updated
