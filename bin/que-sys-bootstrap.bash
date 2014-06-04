@@ -110,7 +110,7 @@ case $DISTRO in
 		distro_pkg ttf-fonts ttf-{cheapskate,droid,freefont,gentium,liberation,linux-libertine}
         distro_pkg powerline python-powerline-git powerline-fonts python2-powerline-fontpatcher-git
         distro_pkg vcsh vcsh-git
-        distro_pkg awesome awesome awesome-gnome eminent-git awesome-revelation-git
+        distro_pkg awesome awesome awesome-gnome eminent-git awesome-revelation-git lua-oocairo vicious
         distro_pkg urxvt rxvt-unicode{,-terminfo}
 		distro_pkg zsh zsh zsh-completions
 
