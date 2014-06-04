@@ -92,9 +92,10 @@ case $DISTRO in
 		;;
 	arch)
         # If we have ever installed desktop stuff, assume it again
-        pacman -Q gvim && ISDESKTOP=0
+        pacman -Q gvim 2>&- >&- && ISDESKTOP=0
 
 		add_pkg pkgstats
+		add_pkg pkgbuild-introspection
 
 		distro_pkg pcre-tools pcre
 		distro_pkg flashplugin chromium-pepper-flash
