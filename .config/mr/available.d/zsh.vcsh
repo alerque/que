@@ -1,2 +1,10 @@
 [$HOME/.config/vcsh/repo.d/que-zsh.git]
 checkout = vcsh clone git@github.com:alerque/que-zsh.git
+
+[$HOME/.zprezto]
+checkout =
+	git clone --recursive git@github.com:alerque/prezto.git .zprezto
+update =
+	git pull
+	git submodule update --init --recursive
+

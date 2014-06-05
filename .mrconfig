@@ -8,11 +8,4 @@ include =
 
 [ALIAS]
 
-[$HOME/.zprezto]
-checkout =
-	git clone --recursive git@github.com:alerque/prezto.git .zprezto
-update =
-	git pull
-	git submodule update --init --recursive
-
 #vim: syntax=sh
