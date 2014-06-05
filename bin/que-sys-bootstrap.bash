@@ -14,8 +14,8 @@ done
 
 # Setup stuff
 BASEPACKAGES=(zsh subversion git ctags pcre-tools vim tmux sudo mosh etckeeper ruby zip unzip myrepos vcsh wget unrar syslog-ng lsof htop gdisk strace ntp keychain programmers-dvorak rsync)
-DESKTOPPACKAGES=(awesome dropbox parcellite chromium flashplugin google-talkplugin owncloud-client gnome rdesktop libreoffice smplayer gimp xiphos transmission-gtk rhythmbox cups gnome-packagekit networkmanager gvfs keepassx ttf-fonts ssh-askpass-fullscreen powerline gvim urxvt pulseaudio slock xautolock compton)
-REMOVEPACKAGES=(powerline-fonts-git chromium-pepper-flash-stable aura)
+DESKTOPPACKAGES=(awesome dropbox parcellite chromium flashplugin google-talkplugin owncloud-client gnome rdesktop libreoffice smplayer gimp xiphos transmission-gtk rhythmbox cups gnome-packagekit networkmanager gvfs keepassx ttf-fonts ssh-askpass-fullscreen powerline-fonts gvim urxvt pulseaudio slock xautolock compton)
+REMOVEPACKAGES=(python-powerline-git powerline-fonts-git chromium-pepper-flash-stable aura)
 COMPILEBASEPACKAGES=()
 COMPILEDESKTOPPACKAGES=()
 
@@ -109,7 +109,7 @@ case $DISTRO in
 		distro_pkg gvfs gvfs-{mtp,smb,goa,afp}
 		distro_pkg xiphos ""
 		distro_pkg ttf-fonts ttf-{cheapskate,droid,freefont,gentium,liberation,linux-libertine}
-        distro_pkg powerline python-powerline-git powerline-fonts python2-powerline-fontpatcher-git
+        distro_pkg powerline-fonts powerline-fonts python2-powerline-fontpatcher-git
         distro_pkg vcsh vcsh-git
         distro_pkg awesome awesome awesome-gnome eminent-git awesome-revelation-git lua-oocairo vicious
         distro_pkg urxvt rxvt-unicode{,-terminfo}
@@ -135,7 +135,6 @@ case $DISTRO in
 		compile_desktop_pkg google-chrome
 		compile_desktop_pkg gnome-shell-extension-maximus
 		compile_desktop_pkg gnome-defaults-list
-        compile_desktop_pkg python-powerline-git
         compile_desktop_pkg python2-powerline-fontpatcher-git
         compile_desktop_pkg powerline-fonts
 
