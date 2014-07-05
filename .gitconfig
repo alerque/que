@@ -23,8 +23,11 @@
 	autostash = true
 [alias]
 	graph = log --all --graph --decorate --oneline
-	ds = diff --staged
+	br = branch
+	ci = commit
 	co = checkout
+	ds = diff --staged
+	st = status
 [log]
 	abbrevCommit = true
 [status]
