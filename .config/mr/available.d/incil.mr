@@ -1,0 +1,24 @@
+[$HOME/projects/incil_imports]
+checkout =
+	git clone gitlab@gitlab.alerque.com:ipk/incil_imports.git
+
+[$HOME/projects/websites/incil.info]
+checkout =
+	git clone gitlab@gitlab.alerque.com:ipk/incil.info.git
+
+[$HOME/projects/browserbible-3]
+checkout =
+	git clone git@github.com:alerque/browserbible-3.git
+	cd browserbible-3
+	git remote add upstream git@github.com:digitalbiblesociety/browserbible-3.git
+	git remote add iguana gitlab@gitlab.alerque.com:ipk/browserbible-3.git
+	git remote add kkt.incil.info gitlab@gitlab.alerque.com:ipk/kkt.incil.info.git
+	git fetch --all
+
+[$HOME/projects/incil_cizimler]
+checkout =
+	git clone gitlab@gitlab.alerque.com:ipk/incil_cizimler.git
+
+[$HOME/projects/incil_eklentisi]
+checkout =
+	git clone gitlab@gitlab.alerque.com:ipk/incil_eklentisi.git
