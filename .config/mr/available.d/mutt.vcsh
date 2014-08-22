@@ -1,0 +1,2 @@
+[$HOME/.config/vcsh/repo.d/que-mutt.git]
+checkout = vcsh clone git@github.com:alerque/que-mutt.git

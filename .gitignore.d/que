@@ -1,4 +1,15 @@
 *
+!/bin
+!/bin/que
+!/bin/que-home-bootstrap.bash
+!/bin/que-sys-bootstrap.bash
+!/bin/que-sys-config-ec2.bash
+!/bin/que-sys-init-ala.bash
+!/bin/que-sys-init-arch.bash
+!/bin/que-sys-init-fedora.bash
+!/bin/que-sys-init-osx.bash
+!/bin/que-sys-init-pld.bash
+!/bin/que-sys-init-ubuntu.bash
 !/.config
 !/.config/mr
 !/.config/mr/available.d
@@ -13,6 +24,7 @@
 !/.config/mr/available.d/ipk.mr
 !/.config/mr/available.d/lyricue.mr
 !/.config/mr/available.d/musescore.vcsh
+!/.config/mr/available.d/mutt.vcsh
 !/.config/mr/available.d/paperwalking.git
 !/.config/mr/available.d/pictures.annex
 !/.config/mr/available.d/que.vcsh
@@ -28,6 +40,7 @@
 !/.config/mr/config.d
 !/.config/mr/config.d-basilisk
 !/.config/mr/config.d-basilisk/systems.mr
+!/.config/mr/config.d/caleb-private.vcsh
 !/.config/mr/config.d-hare
 !/.config/mr/config.d-hare/awesome.vcsh
 !/.config/mr/config.d-hare/gnome.vcsh
@@ -44,6 +57,7 @@
 !/.config/mr/config.d-jaguar/incil.mr
 !/.config/mr/config.d-jaguar/ipk.mr
 !/.config/mr/config.d-jaguar/lyricue.mr
+!/.config/mr/config.d-jaguar/mutt.vcsh
 !/.config/mr/config.d-jaguar/paperwalking.git
 !/.config/mr/config.d-jaguar/pictures.annex
 !/.config/mr/config.d-jaguar/systems.mr
@@ -71,6 +85,7 @@
 !/.config/mr/config.d-lemur/incil.mr
 !/.config/mr/config.d-lemur/ipk.mr
 !/.config/mr/config.d-lemur/lyricue.mr
+!/.config/mr/config.d-lemur/mutt.vcsh
 !/.config/mr/config.d-lemur/pictures.annex
 !/.config/mr/config.d-lemur/systems.mr
 !/.config/mr/config.d-lemur/userscripts.mr
@@ -85,6 +100,7 @@
 !/.config/mr/config.d-leylek/ipk.mr
 !/.config/mr/config.d-leylek/lyricue.mr
 !/.config/mr/config.d-leylek/musescore.vcsh
+!/.config/mr/config.d-leylek/mutt.vcsh
 !/.config/mr/config.d-leylek/pictures.annex
 !/.config/mr/config.d-leylek/systems.mr
 !/.config/mr/config.d-leylek/xorg.vcsh
@@ -100,6 +116,7 @@
 !/.config/mr/config.d-pars/awesome.vcsh
 !/.config/mr/config.d-pars/pictures.annex
 !/.config/mr/config.d-pars/xorg.vcsh
+!/.config/mr/config.d/que.vcsh
 !/.config/mr/config.d-rabbit
 !/.config/mr/config.d-rabbit/awesome.vcsh
 !/.config/mr/config.d-rabbit/gnome.vcsh
@@ -115,8 +132,6 @@
 !/.config/mr/config.d-sincap/ipk.mr
 !/.config/mr/config.d-sincap/userscripts.mr
 !/.config/mr/config.d-sincap/xorg.vcsh
-!/.config/mr/config.d/caleb-private.vcsh
-!/.config/mr/config.d/que.vcsh
 !/.config/mr/config.d/tmux.vcsh
 !/.config/mr/config.d/utils.vcsh
 !/.config/mr/config.d/vim.vcsh
@@ -129,16 +144,7 @@
 !/.gitignore
 !/.gitignore.d
 !/.gitignore.d/que
+!/.gnupg
+!/.gnupg/gpg.conf
 !/.mrconfig
 !/README.md
-!/bin
-!/bin/que
-!/bin/que-home-bootstrap.bash
-!/bin/que-sys-bootstrap.bash
-!/bin/que-sys-config-ec2.bash
-!/bin/que-sys-init-ala.bash
-!/bin/que-sys-init-arch.bash
-!/bin/que-sys-init-fedora.bash
-!/bin/que-sys-init-osx.bash
-!/bin/que-sys-init-pld.bash
-!/bin/que-sys-init-ubuntu.bash
