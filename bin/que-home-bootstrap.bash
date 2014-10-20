@@ -39,8 +39,8 @@ which vcsh && grep -q 'hook pre-merge' $(which vcsh) || {
 # Get hooks we want to use on the initial clone (even though these will
 # get pulled down later as part of the actual clone)
 mkdir -p .config/vcsh/hooks-enabled
-test -f .config/vcsh/hooks-enabled/pre-merge-unclobber || curl -o .config/vcsh/hooks-enabled/pre-merge-unclobber https://raw.github.com/alerque/que/master/.config/vcsh/hooks-enabled/pre-merge-unclobber
-test -f .config/vcsh/hooks-enabled/post-merge-unclobber || curl -o .config/vcsh/hooks-enabled/post-merge-unclobber https://raw.github.com/alerque/que/master/.config/vcsh/hooks-enabled/post-merge-unclobber
+test -f .config/vcsh/hooks-enabled/pre-merge-unclobber || curl -L -o .config/vcsh/hooks-enabled/pre-merge-unclobber https://raw.github.com/alerque/que/master/.config/vcsh/hooks-enabled/pre-merge-unclobber
+test -f .config/vcsh/hooks-enabled/post-merge-unclobber || curl -L -o .config/vcsh/hooks-enabled/post-merge-unclobber https://raw.github.com/alerque/que/master/.config/vcsh/hooks-enabled/post-merge-unclobber
 chmod +x .config/vcsh/hooks-enabled/{pre,post}-merge-unclobber
 
 # If we don't have a config file for me, clone it manually so we have starting point
