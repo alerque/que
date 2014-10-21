@@ -14,7 +14,7 @@ done
 
 # Setup stuff
 BASEPACKAGES=(zsh subversion git ctags pcre-tools vim tmux sudo mosh etckeeper ruby zip unzip myrepos vcsh wget unrar syslog-ng lsof htop gdisk strace ntp keychain programmers-dvorak rsync)
-DESKTOPPACKAGES=(awesome dropbox parcellite chromium flashplugin google-talkplugin owncloud-client gnome rdesktop libreoffice smplayer gimp xiphos transmission-gtk rhythmbox cups gnome-packagekit networkmanager gvfs keepassx ttf-fonts ssh-askpass-fullscreen powerline-fonts gvim urxvt pulseaudio slock xautolock compton)
+DESKTOPPACKAGES=(awesome parcellite chromium flashplugin google-talkplugin owncloud-client gnome rdesktop libreoffice smplayer gimp xiphos transmission-gtk rhythmbox cups gnome-packagekit networkmanager gvfs keepassx ttf-fonts ssh-askpass-fullscreen powerline-fonts gvim urxvt pulseaudio slock xautolock compton)
 REMOVEPACKAGES=(python-powerline-git powerline-fonts-git chromium-pepper-flash-stable aura)
 COMPILEBASEPACKAGES=()
 COMPILEDESKTOPPACKAGES=()
@@ -131,7 +131,6 @@ case $DISTRO in
 		compile_desktop_pkg keepassx2
 		compile_desktop_pkg xiphos
 		compile_desktop_pkg google-talkplugin
-		compile_desktop_pkg dropbox
 		compile_desktop_pkg google-chrome
 		compile_desktop_pkg gnome-shell-extension-maximus
 		compile_desktop_pkg gnome-defaults-list
@@ -171,7 +170,6 @@ case $DISTRO in
         distro_pkg ntp ''
 
         distro_pkg awesome ''
-        distro_pkg dropbox ''
         distro_pkg parcellite ''
         distro_pkg chromium ''
         distro_pkg flashplugin ''
