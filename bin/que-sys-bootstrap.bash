@@ -15,7 +15,7 @@ done
 # Setup stuff
 BASEPACKAGES=(zsh subversion git ctags pcre-tools vim tmux sudo mosh etckeeper ruby zip unzip myrepos vcsh wget unrar syslog-ng lsof htop gdisk strace ntp keychain programmers-dvorak rsync)
 DESKTOPPACKAGES=(awesome parcellite chromium flashplugin google-talkplugin owncloud-client gnome rdesktop libreoffice smplayer gimp xiphos transmission-gtk rhythmbox cups gnome-packagekit networkmanager gvfs keepassx ttf-fonts ssh-askpass-fullscreen powerline-fonts gvim urxvt pulseaudio slock xautolock compton firefox)
-REMOVEPACKAGES=(python-powerline-git powerline-fonts-git chromium-pepper-flash-stable aura)
+REMOVEPACKAGES=(python-powerline-git powerline-fonts-git chromium-pepper-flash-stable aura dropbox)
 COMPILEBASEPACKAGES=()
 COMPILEDESKTOPPACKAGES=()
 
