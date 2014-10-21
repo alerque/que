@@ -96,6 +96,7 @@ case $DISTRO in
 
 		add_pkg pkgstats
 		add_pkg pkgbuild-introspection
+        add_pkg rxvt-unicode-terminfo
 
 		distro_pkg pcre-tools pcre
 		distro_pkg flashplugin chromium-pepper-flash
