@@ -14,7 +14,7 @@ done
 
 # Setup stuff
 BASEPACKAGES=(zsh subversion git ctags pcre-tools vim tmux sudo mosh etckeeper ruby zip unzip myrepos vcsh wget unrar syslog-ng lsof htop gdisk strace ntp keychain programmers-dvorak rsync)
-DESKTOPPACKAGES=(awesome parcellite chromium flashplugin google-talkplugin owncloud-client gnome rdesktop libreoffice smplayer gimp xiphos transmission-gtk rhythmbox cups gnome-packagekit networkmanager gvfs keepassx ttf-fonts ssh-askpass-fullscreen powerline-fonts gvim urxvt pulseaudio slock xautolock compton)
+DESKTOPPACKAGES=(awesome parcellite chromium flashplugin google-talkplugin owncloud-client gnome rdesktop libreoffice smplayer gimp xiphos transmission-gtk rhythmbox cups gnome-packagekit networkmanager gvfs keepassx ttf-fonts ssh-askpass-fullscreen powerline-fonts gvim urxvt pulseaudio slock xautolock compton firefox)
 REMOVEPACKAGES=(python-powerline-git powerline-fonts-git chromium-pepper-flash-stable aura)
 COMPILEBASEPACKAGES=()
 COMPILEDESKTOPPACKAGES=()
@@ -100,7 +100,7 @@ case $DISTRO in
 		distro_pkg pcre-tools pcre
 		distro_pkg flashplugin chromium-pepper-flash
 		distro_pkg chromium chromium chromium-libpdf
-		distro_pkg gnome gnome gnome-{extra,tweak-tool,shell-extension-maximus,defaults-list} batti notification-daemon 
+		distro_pkg gnome gnome gnome-{extra,tweak-tool,shell-extension-maximus,defaults-list} batti notification-daemon
 		distro_pkg pulseaudio pulseaudio-gnome pa{systray,man,vucontrol,prefs,mixer,-applet}
 		distro_pkg libreoffice libreoffice-{gnome,en-US,writer,calc,impress,math,draw} unoconv
 		distro_pkg cups cups cups-filters system-config-printer cups-pk-helper gsfonts gutenprint foomatic-{filters,db{,-engine,-nonfree}} hplip splix cups-pdf
@@ -114,6 +114,7 @@ case $DISTRO in
         distro_pkg awesome awesome awesome-gnome eminent-git awesome-revelation-git lua-oocairo vicious
         distro_pkg urxvt rxvt-unicode{,-terminfo}
 		distro_pkg zsh zsh zsh-completions
+        distro_pkg firefox firefox{,adblock-plus,firebug,i18n-tr}
 
         # gvim and vim conflict, so if we are going to get the former don't try to install the latter
         is_opt $ISDESKTOP && distro_pkg gvim "" && distro_pkg vim gvim
