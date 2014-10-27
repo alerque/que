@@ -18,6 +18,7 @@ test -d .ssh || mkdir .ssh ; chmod 750 .ssh
 			-o .ssh/id_rsa 'http://git.alerque.com/?p=caleb-private.git;a=blob_plain;f=.ssh/id_rsa;hb=HEAD' \
 			-o .ssh/id_rsa.pub 'http://git.alerque.com/?p=caleb-private.git;a=blob_plain;f=.ssh/id_rsa.pub;hb=HEAD' \
 			-o .ssh/github 'http://git.alerque.com/?p=caleb-private.git;a=blob_plain;f=.ssh/github;hb=HEAD' \
+			-o .ssh/known_hosts 'http://git.alerque.com/?p=caleb-private.git;a=blob_plain;f=.ssh/known_hosts;hb=HEAD' \
 			-o .ssh/config 'http://git.alerque.com/?p=caleb-private.git;a=blob_plain;f=.ssh/config;hb=HEAD'
 	)
 	test -f .ssh/authorized_keys || cp .ssh/{id_rsa.pub,authorized_keys}
