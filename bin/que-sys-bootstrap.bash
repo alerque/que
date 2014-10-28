@@ -13,7 +13,7 @@ while [[ $# -gt 0 ]]; do
 done
 
 # Setup stuff
-BASEPACKAGES=(zsh subversion git ctags pcre-tools vim tmux sudo mosh etckeeper ruby zip unzip myrepos vcsh wget unrar syslog-ng lsof htop gdisk strace ntp keychain programmers-dvorak rsync)
+BASEPACKAGES=(zsh subversion git ctags pcre-tools vim tmux sudo mosh etckeeper ruby zip unzip myrepos vcsh wget unrar syslog-ng lsof htop gdisk strace ntp keychain programmers-dvorak rsync mutt)
 DESKTOPPACKAGES=(awesome parcellite chromium flashplugin google-talkplugin owncloud-client gnome rdesktop libreoffice smplayer gimp xiphos transmission-gtk rhythmbox cups gnome-packagekit networkmanager gvfs keepassx ttf-fonts ssh-askpass-fullscreen powerline-fonts gvim urxvt pulseaudio slock xautolock compton firefox)
 REMOVEPACKAGES=(python-powerline-git powerline-fonts-git chromium-pepper-flash-stable aura dropbox)
 COMPILEBASEPACKAGES=()
@@ -116,6 +116,7 @@ case $DISTRO in
         distro_pkg urxvt rxvt-unicode{,-terminfo}
 		distro_pkg zsh zsh zsh-completions
         distro_pkg firefox firefox{,adblock-plus,firebug,i18n-tr}
+        distro_pkg mutt mutt-sidebar goobook-git
 
         # gvim and vim conflict, so if we are going to get the former don't try to install the latter
         is_opt $ISDESKTOP && distro_pkg gvim "" && distro_pkg vim gvim
