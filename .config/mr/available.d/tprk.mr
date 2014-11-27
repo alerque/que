@@ -14,9 +14,9 @@ checkout =
 checkout =
 	git clone gitlab@gitlab.alerque.com:tprk/ilahiler.git
 
-[$HOME/projects/tprk/liturjiler_antalaya]
+[$HOME/projects/tprk/liturjiler_antalya]
 checkout =
-	git clone gitlab@gitlab.alerque.com:tprk/liturjiler_antalaya.git
+	git clone gitlab@gitlab.alerque.com:tprk/liturjiler_antalya.git
 
 [$HOME/projects/tprk/liturjiler_izmir]
 checkout =
