@@ -30,6 +30,7 @@
 !/.config/mr/available.d/que.vcsh
 !/.config/mr/available.d/systems.mr
 !/.config/mr/available.d/tmux.vcsh
+!/.config/mr/available.d/tprk.mr
 !/.config/mr/available.d/userscripts.mr
 !/.config/mr/available.d/utils.vcsh
 !/.config/mr/available.d/vcsh.git
@@ -44,6 +45,7 @@
 !/.config/mr/config.d-armadillo/incil.mr
 !/.config/mr/config.d-armadillo/ipk.mr
 !/.config/mr/config.d-armadillo/mutt.vcsh
+!/.config/mr/config.d-armadillo/tprk.mr
 !/.config/mr/config.d-armadillo/xorg.vcsh
 !/.config/mr/config.d-basilisk
 !/.config/mr/config.d-basilisk/systems.mr
@@ -56,6 +58,7 @@
 !/.config/mr/config.d-iguana/aur.git
 !/.config/mr/config.d-iguana/ipk.mr
 !/.config/mr/config.d-iguana/systems.mr
+!/.config/mr/config.d-iguana/tprk.mr
 !/.config/mr/config.d-jaguar
 !/.config/mr/config.d-jaguar/aur.git
 !/.config/mr/config.d-jaguar/awesome.vcsh
@@ -69,6 +72,7 @@
 !/.config/mr/config.d-jaguar/paperwalking.git
 !/.config/mr/config.d-jaguar/pictures.annex
 !/.config/mr/config.d-jaguar/systems.mr
+!/.config/mr/config.d-jaguar/tprk.mr
 !/.config/mr/config.d-jaguar/userscripts.mr
 !/.config/mr/config.d-jaguar/vcsh.git
 !/.config/mr/config.d-jaguar/websites.mr
@@ -96,6 +100,7 @@
 !/.config/mr/config.d-lemur/mutt.vcsh
 !/.config/mr/config.d-lemur/pictures.annex
 !/.config/mr/config.d-lemur/systems.mr
+!/.config/mr/config.d-lemur/tprk.mr
 !/.config/mr/config.d-lemur/userscripts.mr
 !/.config/mr/config.d-lemur/vcsh.git
 !/.config/mr/config.d-lemur/websites.mr
@@ -111,6 +116,7 @@
 !/.config/mr/config.d-leylek/mutt.vcsh
 !/.config/mr/config.d-leylek/pictures.annex
 !/.config/mr/config.d-leylek/systems.mr
+!/.config/mr/config.d-leylek/tprk.mr
 !/.config/mr/config.d-leylek/xorg.vcsh
 !/.config/mr/config.d-lobster
 !/.config/mr/config.d-lobster/awesome.vcsh
@@ -138,6 +144,7 @@
 !/.config/mr/config.d-sincap/homebrew.mr
 !/.config/mr/config.d-sincap/incil.mr
 !/.config/mr/config.d-sincap/ipk.mr
+!/.config/mr/config.d-sincap/tprk.mr
 !/.config/mr/config.d-sincap/userscripts.mr
 !/.config/mr/config.d-sincap/xorg.vcsh
 !/.config/mr/config.d/tmux.vcsh

@@ -1,0 +1,23 @@
+[$HOME/projects/latex_kumhavuzu]
+checkout =
+	git clone gitlab@gitlab.alerque.com:ipk/latex_kumhavuzu.git
+
+[$HOME/projects/tprk/aletler]
+checkout =
+	git clone gitlab@gitlab.alerque.com:tprk/aletler.git
+
+[$HOME/projects/tprk/iktibaslar]
+checkout =
+	git clone gitlab@gitlab.alerque.com:tprk/iktibaslar.git
+
+[$HOME/projects/tprk/ilahiler]
+checkout =
+	git clone gitlab@gitlab.alerque.com:tprk/ilahiler.git
+
+[$HOME/projects/tprk/liturjiler_antalaya]
+checkout =
+	git clone gitlab@gitlab.alerque.com:tprk/liturjiler_antalaya.git
+
+[$HOME/projects/tprk/liturjiler_izmir]
+checkout =
+	git clone gitlab@gitlab.alerque.com:tprk/liturjiler_izmir.git
