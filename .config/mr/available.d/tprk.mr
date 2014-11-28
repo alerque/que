@@ -6,6 +6,10 @@ checkout =
 checkout =
 	git clone --recursive gitlab@gitlab.alerque.com:tprk/aletler.git
 
+[$HOME/projects/tprk/derlemeler]
+checkout =
+	git clone --recursive gitlab@gitlab.alerque.com:tprk/derlemeler.git
+
 [$HOME/projects/tprk/iktibaslar]
 checkout =
 	git clone --recursive gitlab@gitlab.alerque.com:tprk/iktibaslar.git
