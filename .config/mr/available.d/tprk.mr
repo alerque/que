@@ -5,23 +5,47 @@ checkout =
 [$HOME/projects/tprk/aletler]
 checkout =
 	git clone --recursive gitlab@gitlab.alerque.com:tprk/aletler.git
+update =
+	git pull
+	git submodule update --init --remote
+	git submodule foreach -q --recursive 'branch="$(git config -f $toplevel/.gitmodules submodule.$name.branch)"; git checkout $branch'
 
 [$HOME/projects/tprk/derlemeler]
 checkout =
 	git clone --recursive gitlab@gitlab.alerque.com:tprk/derlemeler.git
+update =
+	git pull
+	git submodule update --init --remote
+	git submodule foreach -q --recursive 'branch="$(git config -f $toplevel/.gitmodules submodule.$name.branch)"; git checkout $branch'
 
 [$HOME/projects/tprk/iktibaslar]
 checkout =
 	git clone --recursive gitlab@gitlab.alerque.com:tprk/iktibaslar.git
+update =
+	git pull
+	git submodule update --init --remote
+	git submodule foreach -q --recursive 'branch="$(git config -f $toplevel/.gitmodules submodule.$name.branch)"; git checkout $branch'
 
 [$HOME/projects/tprk/ilahiler]
 checkout =
 	git clone --recursive gitlab@gitlab.alerque.com:tprk/ilahiler.git
+update =
+	git pull
+	git submodule update --init --remote
+	git submodule foreach -q --recursive 'branch="$(git config -f $toplevel/.gitmodules submodule.$name.branch)"; git checkout $branch'
 
 [$HOME/projects/tprk/liturjiler_antalya]
 checkout =
 	git clone --recursive gitlab@gitlab.alerque.com:tprk/liturjiler_antalya.git
+update =
+	git pull
+	git submodule update --init --remote
+	git submodule foreach -q --recursive 'branch="$(git config -f $toplevel/.gitmodules submodule.$name.branch)"; git checkout $branch'
 
 [$HOME/projects/tprk/liturjiler_izmir]
 checkout =
 	git clone --recursive gitlab@gitlab.alerque.com:tprk/liturjiler_izmir.git
+update =
+	git pull
+	git submodule update --init --remote
+	git submodule foreach -q --recursive 'branch="$(git config -f $toplevel/.gitmodules submodule.$name.branch)"; git checkout $branch'
