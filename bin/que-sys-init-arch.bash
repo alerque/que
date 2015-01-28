@@ -11,10 +11,12 @@ function debug () {
 
 # Make sure we're off on the right foot before we get to adding  keys
 $DEBUG pacman -Syu --needed --noconfirm haveged
-haveged -w 1024
+systemctl start haveged
+systemctl enable haveged
+# If system has old GPG keys clear them before signing new ones...
+# rm -rf /etc/pacman.d/gnupg
 $DEBUG pacman-key --init
 $DEBUG pacman-key --populate archlinux
-pkill haveged
 
 # Freshen everything up
 $DEBUG pacman -Syu --needed --noconfirm
