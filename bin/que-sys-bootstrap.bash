@@ -127,6 +127,8 @@ case $DISTRO in
 		compile_pkg ec2-api-tools
 		compile_pkg ec2-metadata
 		compile_pkg programmers-dvorak
+        compile_pkg mutt-sidebar
+        compile_pkg goobook-git
 
 		compile_desktop_pkg chromium-pepper-flash
 		compile_desktop_pkg compton
