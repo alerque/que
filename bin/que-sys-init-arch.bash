@@ -48,6 +48,36 @@ grep -q archlinuxfr /etc/pacman.conf || (
 )
 which yaourt || $DEBUG pacman -Sy --needed --noconfirm yaourt aurvote customizepkg
 
+# Arch folks disabled building packages as root in makepkg. As this is required
+# for this script, patch it to work again. See Github issue for details:
+#	https://github.com/archlinuxfr/yaourt/issues/67
+grep -q asroot /usr/bin/makepkg || (cd / && patch -b -p0) <<EndOfPatch
+--- /usr/bin/makepkg~
++++ /usr/bin/makepkg
+@@ -3372,7 +3372,7 @@ OPT_LONG=('allsource' 'check' 'clean' 'cleanbuild' 'config:' 'force' 'geninteg'
+           'help' 'holdver' 'ignorearch' 'install' 'key:' 'log' 'noarchive' 'nobuild'
+           'nocolor' 'nocheck' 'nodeps' 'noextract' 'noprepare' 'nosign' 'pkg:' 'repackage'
+           'rmdeps' 'sign' 'skipchecksums' 'skipinteg' 'skippgpcheck' 'source' 'syncdeps'
+-          'verifysource' 'version')
++          'verifysource' 'version' 'asroot')
+ 
+ # Pacman Options
+ OPT_LONG+=('asdeps' 'noconfirm' 'needed' 'noprogressbar')
+@@ -3580,11 +3580,7 @@ PACKAGER=${_PACKAGER:-$PACKAGER}
+ CARCH=${_CARCH:-$CARCH}
+ 
+ if (( ! INFAKEROOT )); then
+-	if (( EUID == 0 )); then
+-		error "$(gettext "Running %s as root is not allowed as it can cause permanent,\n\
+-catastrophic damage to your system.")" "makepkg"
+-		exit 1 # $E_USER_ABORT
+-	fi
++	:
+ else
+ 	if [[ -z $FAKEROOTKEY ]]; then
+ 		error "$(gettext "Do not use the %s option. This option is only for use by %s.")" "'-F'" "makepkg"
+EndOfPatch
+
 # Compile and install things not coming out of the distro main tree
 $DEBUG yaourt --noconfirm -S --needed ${COMPILEBASEPACKAGES[@]}
 is_opt $ISDESKTOP && $DEBUG yaourt --noconfirm -S --needed ${COMPILEDESKTOPPACKAGES[@]}
