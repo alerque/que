@@ -22,7 +22,7 @@ $DEBUG pacman-key --populate archlinux
 $DEBUG pacman -Syu --needed --noconfirm
 
 # Remove anything that needs cleaning up first
-$DEBUG pacman -Rns --needed --noconfirm ${REMOVEPACKAGES[@]} $(pacman -Qtdq)
+$DEBUG pacman -Rns --noconfirm ${REMOVEPACKAGES[@]} $(pacman -Qtdq)
 
 # Arch won't install gvim if vim is around, so to make the transition between
 # package sets easier:
