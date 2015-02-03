@@ -51,7 +51,7 @@ which yaourt || $DEBUG pacman -Sy --needed --noconfirm yaourt aurvote customizep
 # Arch folks disabled building packages as root in makepkg. As this is required
 # for this script, patch it to work again. See Github issue for details:
 #	https://github.com/archlinuxfr/yaourt/issues/67
-grep -q asroot /usr/bin/makepkg || (cd / && patch -b -p0) <<EndOfPatch
+grep -q asroot /usr/bin/makepkg || (cd / && patch -b -p0) <<"EndOfPatch"
 --- /usr/bin/makepkg~
 +++ /usr/bin/makepkg
 @@ -3372,7 +3372,7 @@ OPT_LONG=('allsource' 'check' 'clean' 'cleanbuild' 'config:' 'force' 'geninteg'
