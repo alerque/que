@@ -8,6 +8,9 @@ while [[ $# -gt 0 ]]; do
         debug)
             ISDEBUG=0
             ;;
+        echo)
+            set -x
+            ;;
     esac
     shift
 done
