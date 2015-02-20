@@ -15,7 +15,7 @@ done
 # Setup stuff
 BASEPACKAGES=(zsh subversion git ctags pcre-tools vim tmux sudo mosh etckeeper ruby zip unzip myrepos vcsh wget unrar syslog-ng lsof htop gdisk strace ntp keychain programmers-dvorak rsync cyrus-sasl mutt)
 DESKTOPPACKAGES=(awesome parcellite chromium flashplugin google-talkplugin owncloud-client gnome rdesktop libreoffice smplayer gimp xiphos transmission-gtk rhythmbox cups gnome-packagekit networkmanager gvfs keepassx ttf-fonts ssh-askpass-fullscreen powerline-fonts gvim urxvt pulseaudio slock xautolock compton firefox)
-REMOVEPACKAGES=(python-powerline-git powerline-fonts-git chromium-pepper-flash-stable aura dropbox)
+REMOVEPACKAGES=(python-powerline-git powerline-fonts chromium-pepper-flash-stable aura dropbox chromium-libpdf)
 COMPILEBASEPACKAGES=()
 COMPILEDESKTOPPACKAGES=()
 
@@ -98,19 +98,19 @@ case $DISTRO in
 		add_pkg pkgbuild-introspection
         add_pkg rxvt-unicode-terminfo
 
+        # Distro specific package names
 		distro_pkg pcre-tools pcre
 		distro_pkg flashplugin chromium-pepper-flash
-		distro_pkg chromium chromium chromium-libpdf
 		distro_pkg gnome gnome gnome-{extra,tweak-tool,shell-extension-maximus,defaults-list} batti notification-daemon
-		distro_pkg pulseaudio pulseaudio-gnome pa{systray,man,vucontrol,prefs,mixer,-applet}
-		distro_pkg libreoffice libreoffice-{gnome,en-US,writer,calc,impress,math,draw} unoconv
+		distro_pkg pulseaudio pa{systray,man,vucontrol,prefs,mixer,-applet}
+		distro_pkg libreoffice libreoffice-fresh{,-tr} unoconv
 		distro_pkg cups cups cups-filters system-config-printer cups-pk-helper gsfonts gutenprint foomatic-{filters,db{,-engine,-nonfree}} hplip splix cups-pdf
 		distro_pkg networkmanager networkmanager network-manager-applet
 		distro_pkg keepassx keepassx2
 		distro_pkg gvfs gvfs-{mtp,smb,goa,afp}
 		distro_pkg xiphos ""
 		distro_pkg ttf-fonts ttf-{cheapskate,droid,freefont,gentium,liberation,linux-libertine}
-        distro_pkg powerline-fonts powerline-fonts python2-powerline-fontpatcher-git
+        distro_pkg powerline-fonts powerline-fonts-git python2-powerline-fontpatcher-git
         distro_pkg vcsh vcsh-git
         distro_pkg awesome awesome awesome-gnome eminent-git awesome-revelation-git lua-oocairo vicious
         distro_pkg urxvt rxvt-unicode{,-terminfo}
@@ -132,7 +132,6 @@ case $DISTRO in
 
 		compile_desktop_pkg chromium-pepper-flash
 		compile_desktop_pkg compton
-		compile_desktop_pkg owncloud-client
 		compile_desktop_pkg keepassx2
 		compile_desktop_pkg xiphos
 		compile_desktop_pkg google-talkplugin
@@ -140,11 +139,13 @@ case $DISTRO in
 		compile_desktop_pkg gnome-shell-extension-maximus
 		compile_desktop_pkg gnome-defaults-list
         compile_desktop_pkg python2-powerline-fontpatcher-git
-        compile_desktop_pkg powerline-fonts
+        compile_desktop_pkg powerline-fonts-git
+        compile_desktop_pkg eminent-git
 
         distro_pkg syslog-ng ''
 
         remove_pkg mr
+        remove_pkg batti
 		;;
 	fedora)
 		:
