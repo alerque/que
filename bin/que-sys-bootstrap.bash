@@ -37,6 +37,21 @@ function distro_pkg () {
 	DESKTOPPACKAGES=(${DESKTOPPACKAGES[@]/%$1/${*:2}})
 }
 
+function skip_pkg () {
+	if [[ "${BASEPACKAGES[@]}" =~ "$1" ]]; then
+		BASEPACKAGES=(${BASEPACKAGES[@]/%$1/})
+    fi
+	if [[ "${COMPILEBASEPACKAGES[@]}" =~ "$1" ]]; then
+		COMPILEBASEPACKAGES=(${COMPILEBASEPACKAGES[@]/%$1/})
+    fi
+	if [[ "${DESKTOPPACKAGES[@]}" =~ "$1" ]]; then
+		DESKTOPPACKAGES=(${DESKTOPPACKAGES[@]/%$1/})
+    fi
+	if [[ "${COMPILEDESKTOPPACKAGES[@]}" =~ "$1" ]]; then
+		COMPILEDESKTOPPACKAGES=(${COMPILEDESKTOPPACKAGES[@]/%$1/})
+    fi
+}
+
 function compile_pkg () {
 	if [[ "${BASEPACKAGES[@]}" =~ "$1" ]]; then
 		BASEPACKAGES=(${BASEPACKAGES[@]/%$1/})
@@ -94,13 +109,19 @@ case $DISTRO in
         # If we have ever installed desktop stuff, assume it again
         pacman -Q gvim 2>&- >&- && ISDESKTOP=0
 
+        # Temporarily broken packages
+        skip_pkg batti ''
+        skip_pkg programmers-dvorak ''
+        skip_pkg flashplugin ''
+        skip_pkg chromium-pepper-flash ''
+
 		add_pkg pkgstats
 		add_pkg pkgbuild-introspection
         add_pkg rxvt-unicode-terminfo
 
         # Distro specific package names
 		distro_pkg pcre-tools pcre
-		distro_pkg flashplugin chromium-pepper-flash
+		#distro_pkg flashplugin chromium-pepper-flash
 		distro_pkg gnome gnome gnome-{extra,tweak-tool,shell-extension-maximus,defaults-list} batti notification-daemon
 		distro_pkg pulseaudio pa{systray,man,vucontrol,prefs,mixer,-applet}
 		distro_pkg libreoffice libreoffice-fresh{,-tr} unoconv
@@ -126,11 +147,11 @@ case $DISTRO in
 		compile_pkg myrepos
 		compile_pkg ec2-api-tools
 		compile_pkg ec2-metadata
-		compile_pkg programmers-dvorak
+		#compile_pkg programmers-dvorak
         compile_pkg mutt-sidebar
         compile_pkg goobook-git
 
-		compile_desktop_pkg chromium-pepper-flash
+		#compile_desktop_pkg chromium-pepper-flash
 		compile_desktop_pkg compton
 		compile_desktop_pkg keepassx2
 		compile_desktop_pkg xiphos
@@ -145,7 +166,6 @@ case $DISTRO in
         distro_pkg syslog-ng ''
 
         remove_pkg mr
-        remove_pkg batti
 		;;
 	fedora)
 		:
