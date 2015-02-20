@@ -113,7 +113,6 @@ case $DISTRO in
         pacman -Q gvim 2>&- >&- && ISDESKTOP=0
 
         # Temporarily broken packages
-        skip_pkg batti ''
         skip_pkg programmers-dvorak ''
         skip_pkg flashplugin ''
         skip_pkg chromium-pepper-flash ''
@@ -126,7 +125,7 @@ case $DISTRO in
 		distro_pkg pcre-tools pcre
 		#distro_pkg flashplugin chromium-pepper-flash
 		distro_pkg gnome gnome gnome-{extra,tweak-tool,shell-extension-maximus,defaults-list} batti notification-daemon
-		distro_pkg pulseaudio pa{systray,man,vucontrol,prefs,mixer,-applet}
+		distro_pkg pulseaudio pa{systray,man,vucontrol,prefs,mixer,-applet-git}
 		distro_pkg libreoffice libreoffice-fresh{,-tr} unoconv
 		distro_pkg cups cups cups-filters system-config-printer cups-pk-helper gsfonts gutenprint foomatic-{filters,db{,-engine,-nonfree}} hplip splix cups-pdf
 		distro_pkg networkmanager networkmanager network-manager-applet
@@ -139,7 +138,7 @@ case $DISTRO in
         distro_pkg awesome awesome awesome-gnome eminent-git awesome-revelation-git lua-oocairo vicious
         distro_pkg urxvt rxvt-unicode{,-terminfo}
 		distro_pkg zsh zsh zsh-completions
-        distro_pkg firefox firefox{,adblock-plus,firebug,i18n-tr}
+        distro_pkg firefox firefox{,-adblock-plus,-firebug,-i18n-tr}
         distro_pkg mutt mutt-sidebar goobook-git
 
         # gvim and vim conflict, so if we are going to get the former don't try to install the latter
@@ -165,6 +164,14 @@ case $DISTRO in
         compile_desktop_pkg python2-powerline-fontpatcher-git
         compile_desktop_pkg powerline-fonts-git
         compile_desktop_pkg eminent-git
+        compile_desktop_pkg awesome-revelation-git
+        compile_desktop_pkg lua-oocairo
+        compile_desktop_pkg awesome-gnome
+        compile_desktop_pkg batti
+        compile_desktop_pkg ssh-askpass-fullscreen
+        compile_desktop_pkg pasystray
+        compile_desktop_pkg paman
+        compile_desktop_pkg pa-applet-git
 
         distro_pkg syslog-ng ''
 
