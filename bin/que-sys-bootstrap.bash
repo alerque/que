@@ -135,7 +135,7 @@ case $DISTRO in
 		compile_desktop_pkg keepassx2
 		compile_desktop_pkg xiphos
 		compile_desktop_pkg google-talkplugin
-		compile_desktop_pkg google-chrome
+		#compile_desktop_pkg google-chrome
 		compile_desktop_pkg gnome-shell-extension-maximus
 		compile_desktop_pkg gnome-defaults-list
         compile_desktop_pkg python2-powerline-fontpatcher-git
