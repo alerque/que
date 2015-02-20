@@ -79,8 +79,12 @@ grep -q asroot /usr/bin/makepkg || (cd / && patch -b -p0) <<"EndOfPatch"
 EndOfPatch
 
 # Compile and install things not coming out of the distro main tree
-$DEBUG yaourt --noconfirm -S --needed ${COMPILEBASEPACKAGES[@]}
-is_opt $ISDESKTOP && $DEBUG yaourt --noconfirm -S --needed ${COMPILEDESKTOPPACKAGES[@]}
+for PKG in ${COMPILEBASEPACKAGES[@]} ; do
+    $DEBUG yaourt --noconfirm -S --needed $PKG
+done
+for PKG in ${COMPILEDESKTOPPACKAGES[@]} ; do
+    is_opt $ISDESKTOP && $DEBUG yaourt --noconfirm -S --needed $PKG
+done
 
 # TODO: Need to set root login and password auth options
 systemctl enable sshd
