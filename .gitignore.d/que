@@ -17,10 +17,12 @@
 !/.config/mr/available.d/awesome.vcsh
 !/.config/mr/available.d/caleb-private.vcsh
 !/.config/mr/available.d/freecheck.git
+!/.config/mr/available.d/gimp.vcsh
 !/.config/mr/available.d/gnome.vcsh
 !/.config/mr/available.d/grandpa.mr
 !/.config/mr/available.d/homebrew.mr
 !/.config/mr/available.d/incil.mr
+!/.config/mr/available.d/inkscape.vcsh
 !/.config/mr/available.d/ipk.mr
 !/.config/mr/available.d/lyricue.mr
 !/.config/mr/available.d/musescore.vcsh
@@ -63,9 +65,11 @@
 !/.config/mr/config.d-jaguar/aur.git
 !/.config/mr/config.d-jaguar/awesome.vcsh
 !/.config/mr/config.d-jaguar/freecheck.git
+!/.config/mr/config.d-jaguar/gimp.vcsh
 !/.config/mr/config.d-jaguar/gnome.vcsh
 !/.config/mr/config.d-jaguar/grandpa.mr
 !/.config/mr/config.d-jaguar/incil.mr
+!/.config/mr/config.d-jaguar/inkscape.vcsh
 !/.config/mr/config.d-jaguar/ipk.mr
 !/.config/mr/config.d-jaguar/lyricue.mr
 !/.config/mr/config.d-jaguar/mutt.vcsh
@@ -92,9 +96,11 @@
 !/.config/mr/config.d-lemur/aur.git
 !/.config/mr/config.d-lemur/awesome.vcsh
 !/.config/mr/config.d-lemur/freecheck.git
+!/.config/mr/config.d-lemur/gimp.vcsh
 !/.config/mr/config.d-lemur/gnome.vcsh
 !/.config/mr/config.d-lemur/grandpa.mr
 !/.config/mr/config.d-lemur/incil.mr
+!/.config/mr/config.d-lemur/inkscape.vcsh
 !/.config/mr/config.d-lemur/ipk.mr
 !/.config/mr/config.d-lemur/lyricue.mr
 !/.config/mr/config.d-lemur/mutt.vcsh
@@ -108,8 +114,10 @@
 !/.config/mr/config.d-leylek
 !/.config/mr/config.d-leylek/aur.git
 !/.config/mr/config.d-leylek/awesome.vcsh
+!/.config/mr/config.d-leylek/gimp.vcsh
 !/.config/mr/config.d-leylek/gnome.vcsh
 !/.config/mr/config.d-leylek/incil.mr
+!/.config/mr/config.d-leylek/inkscape.vcsh
 !/.config/mr/config.d-leylek/ipk.mr
 !/.config/mr/config.d-leylek/lyricue.mr
 !/.config/mr/config.d-leylek/musescore.vcsh
