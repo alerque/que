@@ -28,6 +28,7 @@
 	co = checkout
 	ds = diff --staged
 	st = status
+	dls = diff-tree --no-commit-id --name-status -r
 [log]
 	abbrevCommit = true
 [status]
