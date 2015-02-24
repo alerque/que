@@ -49,3 +49,11 @@ update =
 	git pull
 	git submodule update --init --remote
 	git submodule foreach -q --recursive 'branch="$(git config -f $toplevel/.gitmodules submodule.$name.branch)"; git checkout $branch'
+
+[$HOME/projects/tprk/liturjiler_balcova]
+checkout =
+	git clone --recursive gitlab@gitlab.alerque.com:tprk/liturjiler_balcova.git
+update =
+	git pull
+	git submodule update --init --remote
+	git submodule foreach -q --recursive 'branch="$(git config -f $toplevel/.gitmodules submodule.$name.branch)"; git checkout $branch'

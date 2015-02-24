@@ -9,3 +9,11 @@ checkout =
 [$HOME/projects/vaazlarim]
 checkout =
 	git clone gitlab@gitlab.alerque.com:caleb/vaazlarim.git
+
+[$HOME/projects/ipk/ceviriler]
+checkout =
+	git clone gitlab@gitlab.alerque.com:ipk/ceviriler.git
+
+[$HOME/projects/ipk/ceviriler.wiki]
+checkout =
+	git clone gitlab@gitlab.alerque.com:ipk/ceviriler.wiki.git
