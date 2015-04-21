@@ -8,7 +8,7 @@
 [pld]
 	user = caleb@pld-linux.org
 [push]
-	default = matching
+	default = simple
 [color]
 	ui = true
 [merge]
