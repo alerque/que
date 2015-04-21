@@ -40,3 +40,5 @@
 	abbrevCommit = true
 [status]
 	short = true
+[rerere]
+	enabled = true
