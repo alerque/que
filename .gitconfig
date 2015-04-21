@@ -30,6 +30,12 @@
 	st = status
 	lg = log --oneline --reverse
 	dls = diff-tree --no-commit-id --name-status -r
+	getroot = !pwd
+	# http://stackoverflow.com/a/4991675/313192
+	oldest-ancestor = !zsh -c 'diff --old-line-format='' --new-line-format='' <(git rev-list --first-parent "${1:-master}") <(git rev-list --first-parent "${2:-HEAD}") | head -1' -
+	branchlog = !sh -c "git log `git oldest-ancestor`.."
+	branchdiff = !sh -c "git diff `git oldest-ancestor`.."
+	rebase2fork = !zsh -c 'git rebase -i $(git merge-base --fork-point "${0:-master}")'
 [log]
 	abbrevCommit = true
 [status]
