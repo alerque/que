@@ -1,0 +1,2 @@
+[$HOME/.config/vcsh/repo.d/que-fonts.git]
+checkout = vcsh clone /dotfiles/que-fonts.git
