@@ -30,6 +30,7 @@
 	ds = diff --staged
 	wd = diff --word-diff --ignore-all-space
 	wds = diff --staged --word-diff --ignore-all-space
+	difftex = difftool -y -t latex
 	st = status
 	lg = log --oneline --reverse
 	dls = diff-tree --no-commit-id --name-status -r
@@ -45,3 +46,5 @@
 	short = true
 [rerere]
 	enabled = true
+[difftool.latex]
+	cmd = latexdiff "$LOCAL" "$REMOTE"
