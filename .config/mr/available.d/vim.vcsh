@@ -1,10 +1,10 @@
 [$HOME/.config/vcsh/repo.d/que-vim.git]
 checkout = vcsh clone git@github.com:alerque/que-vim.git
 
-[$HOME/.vim/bundle/vundle]
+[$HOME/.vim/bundle/Vundle.vim]
 checkout =
 	mkdir -p $HOME/.vim/bundle/
-	git clone https://github.com/gmarik/vundle.git $HOME/.vim/bundle/vundle
+	git clone https://github.com/VundleVim/Vundle.vim.git $HOME/.vim/bundle/Vundle.vim
 update =
 	git pull
-	vim +BundleInstall! +BundleClean! +all +qa
+	vim +PluginInstall! +PluginClean! +all +qa
