@@ -29,6 +29,7 @@
 !/.config/mr/available.d/mutt.vcsh
 !/.config/mr/available.d/paperwalking.git
 !/.config/mr/available.d/pictures.annex
+!/.config/mr/available.d/que-atom.vcsh
 !/.config/mr/available.d/que-fonts.vcsh
 !/.config/mr/available.d/que.vcsh
 !/.config/mr/available.d/systems.mr
@@ -76,6 +77,7 @@
 !/.config/mr/config.d-jaguar/mutt.vcsh
 !/.config/mr/config.d-jaguar/paperwalking.git
 !/.config/mr/config.d-jaguar/pictures.annex
+!/.config/mr/config.d-jaguar/que-atom.vcsh
 !/.config/mr/config.d-jaguar/que-fonts.vcsh
 !/.config/mr/config.d-jaguar/systems.mr
 !/.config/mr/config.d-jaguar/tprk.mr
@@ -125,6 +127,7 @@
 !/.config/mr/config.d-leylek/musescore.vcsh
 !/.config/mr/config.d-leylek/mutt.vcsh
 !/.config/mr/config.d-leylek/pictures.annex
+!/.config/mr/config.d-leylek/que-atom.vcsh
 !/.config/mr/config.d-leylek/systems.mr
 !/.config/mr/config.d-leylek/tprk.mr
 !/.config/mr/config.d-leylek/xorg.vcsh
