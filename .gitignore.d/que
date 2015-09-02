@@ -31,6 +31,9 @@
 !/.config/mr/available.d/pictures.annex
 !/.config/mr/available.d/que-atom.vcsh
 !/.config/mr/available.d/que-fonts.vcsh
+!/.config/mr/available.d/que-gimp.vcsh
+!/.config/mr/available.d/que-inkscape.vcsh
+!/.config/mr/available.d/que-mutt.vcsh
 !/.config/mr/available.d/que.vcsh
 !/.config/mr/available.d/systems.mr
 !/.config/mr/available.d/tmux.vcsh
