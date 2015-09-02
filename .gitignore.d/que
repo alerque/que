@@ -82,6 +82,9 @@
 !/.config/mr/config.d-jaguar/pictures.annex
 !/.config/mr/config.d-jaguar/que-atom.vcsh
 !/.config/mr/config.d-jaguar/que-fonts.vcsh
+!/.config/mr/config.d-jaguar/que-gimp.vcsh
+!/.config/mr/config.d-jaguar/que-inkscape.vcsh
+!/.config/mr/config.d-jaguar/que-mutt.vcsh
 !/.config/mr/config.d-jaguar/systems.mr
 !/.config/mr/config.d-jaguar/tprk.mr
 !/.config/mr/config.d-jaguar/userscripts.mr
@@ -131,6 +134,10 @@
 !/.config/mr/config.d-leylek/mutt.vcsh
 !/.config/mr/config.d-leylek/pictures.annex
 !/.config/mr/config.d-leylek/que-atom.vcsh
+!/.config/mr/config.d-leylek/que-fonts.vcsh
+!/.config/mr/config.d-leylek/que-gimp.vcsh
+!/.config/mr/config.d-leylek/que-inkscape.vcsh
+!/.config/mr/config.d-leylek/que-mutt.vcsh
 !/.config/mr/config.d-leylek/systems.mr
 !/.config/mr/config.d-leylek/tprk.mr
 !/.config/mr/config.d-leylek/xorg.vcsh
@@ -160,6 +167,7 @@
 !/.config/mr/config.d-sincap/homebrew.mr
 !/.config/mr/config.d-sincap/incil.mr
 !/.config/mr/config.d-sincap/ipk.mr
+!/.config/mr/config.d-sincap/que-atom.vcsh
 !/.config/mr/config.d-sincap/que-fonts.vcsh
 !/.config/mr/config.d-sincap/tprk.mr
 !/.config/mr/config.d-sincap/userscripts.mr
