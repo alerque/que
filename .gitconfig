@@ -21,13 +21,14 @@
 [rebase]
 	autosquash = true
 	autostash = true
+	preserve = true
 [alias]
 	graph = log --all --graph --decorate --oneline
 	br = branch
 	ci = commit
 	co = checkout
-	di = diff
-	ds = diff --staged
+	di = diff --minimal
+	ds = diff --minimal --staged
 	wd = diff --word-diff --ignore-all-space
 	wds = diff --staged --word-diff --ignore-all-space
 	difftex = difftool -y -t latex
