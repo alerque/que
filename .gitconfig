@@ -43,6 +43,7 @@
 	rebase2fork = !zsh -c 'git rebase -i $(git merge-base --fork-point "${0:-master}")'
 [log]
 	abbrevCommit = true
+	follow = true
 [status]
 	short = true
 [rerere]
