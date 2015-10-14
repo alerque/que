@@ -24,8 +24,10 @@
 	preserve = true
 [alias]
 	graph = log --all --graph --decorate --oneline
+	aa = add -a
+	ap = add -p
 	br = branch
-	ci = commit
+	ci = commit -vv
 	co = checkout
 	di = diff --minimal
 	ds = diff --minimal --staged
