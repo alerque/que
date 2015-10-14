@@ -52,3 +52,5 @@
 	enabled = true
 [difftool.latex]
 	cmd = latexdiff "$LOCAL" "$REMOTE"
+[fetch]
+	prune = true
