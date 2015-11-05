@@ -1,2 +1,0 @@
-[$HOME/.config/vcsh/repo.d/que-gimp.git]
-checkout = vcsh clone git@github.com:alerque/que-gimp.git
