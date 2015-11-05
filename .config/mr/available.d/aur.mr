@@ -1,0 +1,131 @@
+[/home/caleb/projects/aur]
+checkout = git clone 'git@github.com:alerque/aur.git' 'aur'
+
+[/home/caleb/projects/aur/n1]
+checkout = git clone 'ssh+git://aur@aur.archlinux.org:22/n1.git' 'n1'
+
+[/home/caleb/projects/aur/ttf-sil-lateef]
+checkout = git clone 'ssh+git://aur@aur4.archlinux.org/ttf-sil-lateef.git' 'ttf-sil-lateef'
+
+[/home/caleb/projects/aur/stund]
+checkout = git clone 'ssh+git://aur@aur4.archlinux.org:22/stund.git/' 'stund'
+
+[/home/caleb/projects/aur/cups-xerox-phaser-6500]
+checkout = git clone 'ssh+git://aur@aur4.archlinux.org:22/cups-xerox-phaser-6500.git/' 'cups-xerox-phaser-6500'
+
+[/home/caleb/projects/aur/git-crypt]
+checkout = git clone 'ssh+git://aur@aur4.archlinux.org:22/git-crypt.git/' 'git-crypt'
+
+[/home/caleb/projects/aur/otf-bravura]
+checkout = git clone 'ssh://aur@aur4.archlinux.org/otf-bravura.git' 'otf-bravura'
+
+[/home/caleb/projects/aur/gitlab-git-http-server]
+checkout = git clone 'ssh+git://aur@aur.archlinux.org:22/gitlab-git-http-server.git/' 'gitlab-git-http-server'
+
+[/home/caleb/projects/aur/openldap-migrationtools]
+checkout = git clone 'ssh+git://aur@aur4.archlinux.org:22/openldap-migrationtools.git/' 'openldap-migrationtools'
+
+[/home/caleb/projects/aur/gnumicr]
+checkout = git clone 'ssh+git://aur@aur4.archlinux.org:22/gnumicr.git/' 'gnumicr'
+
+[/home/caleb/projects/aur/otf-libertine-git]
+checkout = git clone 'ssh://aur@aur4.archlinux.org/otf-libertine-git.git' 'otf-libertine-git'
+
+[/home/caleb/projects/aur/perl-net-bonjour]
+checkout = git clone 'ssh+git://aur@aur4.archlinux.org:22/perl-net-bonjour.git/' 'perl-net-bonjour'
+
+[/home/caleb/projects/aur/imgv]
+checkout = git clone 'ssh+git://aur@aur4.archlinux.org:22/imgv.git/' 'imgv'
+
+[/home/caleb/projects/aur/aspell-tr]
+checkout = git clone 'ssh+git://aur@aur4.archlinux.org:22/aspell-tr.git/' 'aspell-tr'
+
+[/home/caleb/projects/aur/freecheck]
+checkout = git clone 'ssh+git://aur@aur4.archlinux.org:22/freecheck.git/' 'freecheck'
+
+[/home/caleb/projects/aur/git-annex]
+checkout = git clone 'ssh+git://aur@aur4.archlinux.org:22/git-annex.git/' 'git-annex'
+
+[/home/caleb/projects/aur/perl-class-accessor-lvalue]
+checkout = git clone 'ssh+git://aur@aur4.archlinux.org:22/perl-class-accessor-lvalue.git/' 'perl-class-accessor-lvalue'
+
+[/home/caleb/projects/aur/keybase]
+checkout = git clone 'ssh+git://aur@aur4.archlinux.org:22/keybase.git/' 'keybase'
+
+[/home/caleb/projects/aur/git-annex-bin]
+checkout = git clone 'ssh+git://aur@aur4.archlinux.org:22/git-annex-bin.git/' 'git-annex-bin'
+
+[/home/caleb/projects/aur/aguilas]
+checkout = git clone 'ssh+git://aur@aur4.archlinux.org:22/aguilas.git/' 'aguilas'
+
+[/home/caleb/projects/aur/pwm]
+checkout = git clone 'ssh+git://aur@aur4.archlinux.org:22/pwm.git/' 'pwm'
+
+[/home/caleb/projects/aur/freecheck-git]
+checkout = git clone 'ssh+git://aur@aur4.archlinux.org:22/freecheck-git.git/' 'freecheck-git'
+
+[/home/caleb/projects/aur/sile]
+checkout = git clone 'ssh+git://aur@aur4.archlinux.org:22/sile.git/' 'sile'
+
+[/home/caleb/projects/aur/mattermost]
+checkout = git clone 'ssh+git://aur@aur.archlinux.org:22/mattermost.git/' 'mattermost'
+
+[/home/caleb/projects/aur/sile-x]
+checkout = git clone 'ssh+git://aur@aur4.archlinux.org:22/sile.git/' 'sile-x'
+
+[/home/caleb/projects/aur/git-annex-git]
+checkout = git clone 'ssh+git://aur@aur4.archlinux.org:22/git-annex-git.git/' 'git-annex-git'
+
+[/home/caleb/projects/aur/diradm-git]
+checkout = git clone 'ssh+git://aur@aur4.archlinux.org:22/diradm-git.git/' 'diradm-git'
+
+[/home/caleb/projects/aur/nodejs-node-inspector]
+checkout = git clone 'ssh+git://aur@aur4.archlinux.org:22/nodejs-node-inspector.git/' 'nodejs-node-inspector'
+
+[/home/caleb/projects/aur/gitlab]
+checkout = git clone 'ssh+git://aur@aur.archlinux.org:22/gitlab.git/' 'gitlab'
+
+[/home/caleb/projects/aur/lua-luafilesystem]
+checkout = git clone 'ssh+git://aur@aur.archlinux.org/lua-luafilesystem.git' 'lua-luafilesystem'
+
+[/home/caleb/projects/aur/ec2-metadata]
+checkout = git clone 'ssh+git://aur@aur4.archlinux.org:22/ec2-metadata.git/' 'ec2-metadata'
+
+[/home/caleb/projects/aur/gitzone]
+checkout = git clone 'ssh+git://aur@aur4.archlinux.org:22/gitzone.git/' 'gitzone'
+
+[/home/caleb/projects/aur/wacom-utility]
+checkout = git clone 'ssh+git://aur@aur4.archlinux.org:22/wacom-utility.git/' 'wacom-utility'
+
+[/home/caleb/projects/aur/tmux-truecolor]
+checkout = git clone 'https://aur.archlinux.org/tmux-truecolor.git' 'tmux-truecolor'
+
+[/home/caleb/projects/aur/lyricue]
+checkout = git clone 'ssh+git://aur@aur4.archlinux.org:22/lyricue.git/' 'lyricue'
+
+[/home/caleb/projects/aur/otf-amiri]
+checkout = git clone 'ssh://aur@aur4.archlinux.org/otf-amiri.git' 'otf-amiri'
+
+[/home/caleb/projects/aur/powerline-fonts]
+checkout = git clone 'ssh+git://aur@aur4.archlinux.org:22/powerline-fonts.git/' 'powerline-fonts'
+
+[/home/caleb/projects/aur/perl-net-rendezvous-publish]
+checkout = git clone 'ssh+git://aur@aur4.archlinux.org:22/perl-net-rendezvous-publish.git/' 'perl-net-rendezvous-publish'
+
+[/home/caleb/projects/aur/sile-git]
+checkout = git clone 'ssh+git://aur@aur4.archlinux.org/sile-git.git/' 'sile-git'
+
+[/home/caleb/projects/aur/powerline-fonts-git]
+checkout = git clone 'ssh+git://aur@aur4.archlinux.org:22/powerline-fonts-git.git/' 'powerline-fonts-git'
+
+[/home/caleb/projects/aur/ldapauthmanager]
+checkout = git clone 'ssh+git://aur@aur4.archlinux.org:22/ldapauthmanager.git/' 'ldapauthmanager'
+
+[/home/caleb/projects/aur/ttf-amiri-mine]
+checkout = git clone 'ssh://aur@aur4.archlinux.org/ttf-amiri.git' 'ttf-amiri-mine'
+
+[/home/caleb/projects/aur/git-crypt-git]
+checkout = git clone 'ssh+git://aur@aur4.archlinux.org:22/git-crypt-git.git/' 'git-crypt-git'
+
+[/home/caleb/projects/aur/n1-git]
+checkout = git clone 'ssh+git://aur@aur.archlinux.org:22/n1-git.git' 'n1-git'
