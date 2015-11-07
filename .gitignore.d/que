@@ -13,7 +13,6 @@
 !/.config
 !/.config/mr
 !/.config/mr/available.d
-!/.config/mr/available.d/aur.git
 !/.config/mr/available.d/aur.mr
 !/.config/mr/available.d/caleb-private.vcsh
 !/.config/mr/available.d/freecheck.git
@@ -61,12 +60,12 @@
 !/.config/mr/config.d-hare/que-gnome.vcsh
 !/.config/mr/config.d-hare/que-xorg.vcsh
 !/.config/mr/config.d-iguana
-!/.config/mr/config.d-iguana/aur.git
+!/.config/mr/config.d-iguana/aur.mr
 !/.config/mr/config.d-iguana/ipk.mr
 !/.config/mr/config.d-iguana/systems.mr
 !/.config/mr/config.d-iguana/tprk.mr
 !/.config/mr/config.d-jaguar
-!/.config/mr/config.d-jaguar/aur.git
+!/.config/mr/config.d-jaguar/aur.mr
 !/.config/mr/config.d-jaguar/freecheck.git
 !/.config/mr/config.d-jaguar/grandpa.mr
 !/.config/mr/config.d-jaguar/incil.mr
@@ -92,7 +91,7 @@
 !/.config/mr/config.d-karabatak/que-gnome.vcsh
 !/.config/mr/config.d-karabatak/que-xorg.vcsh
 !/.config/mr/config.d-lemur
-!/.config/mr/config.d-lemur/aur.git
+!/.config/mr/config.d-lemur/aur.mr
 !/.config/mr/config.d-lemur/freecheck.git
 !/.config/mr/config.d-lemur/grandpa.mr
 !/.config/mr/config.d-lemur/incil.mr
@@ -112,7 +111,7 @@
 !/.config/mr/config.d-lemur/viachristus.mr
 !/.config/mr/config.d-lemur/websites.mr
 !/.config/mr/config.d-leylek
-!/.config/mr/config.d-leylek/aur.git
+!/.config/mr/config.d-leylek/aur.mr
 !/.config/mr/config.d-leylek/incil.mr
 !/.config/mr/config.d-leylek/ipk.mr
 !/.config/mr/config.d-leylek/lyricue.mr
