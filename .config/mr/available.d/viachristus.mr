@@ -1,0 +1,8 @@
+[$HOME/projects/viachristus/avadanlik]
+checkout = git clone gitlab@gitlab.alerque.com:viachristus/avadanlik.git
+
+[$HOME/projects/viachristus/mujdeyi_korumak]
+checkout = git clone gitlab@gitlab.alerque.com:viachristus/mujdeyi_korumak.git
+
+[$HOME/projects/viachristus/dua_cagrisi]
+checkout = git clone gitlab@gitlab.alerque.com:viachristus/dua_cagrisi.git
