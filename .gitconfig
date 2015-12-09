@@ -1,5 +1,6 @@
 [core]
 	excludesfile = ~/.gitignore
+	quotepath = off
 [user]
 	email = caleb@alerque.com
 	name = Caleb Maclennan
