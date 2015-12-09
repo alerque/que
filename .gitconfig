@@ -27,6 +27,7 @@
 	aa = add -a
 	ap = add -p
 	br = branch
+	chp = cherry-pick
 	ci = commit -vv
 	co = checkout
 	di = diff --minimal
