@@ -90,6 +90,7 @@
 !/.config/mr/config.d-karabatak/que-awesome.vcsh
 !/.config/mr/config.d-karabatak/que-gnome.vcsh
 !/.config/mr/config.d-karabatak/que-xorg.vcsh
+!/.config/mr/config.d-karabatak/viachristus.mr
 !/.config/mr/config.d-lemur
 !/.config/mr/config.d-lemur/aur.mr
 !/.config/mr/config.d-lemur/freecheck.git
