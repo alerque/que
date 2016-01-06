@@ -56,3 +56,5 @@
 	cmd = latexdiff "$LOCAL" "$REMOTE"
 [fetch]
 	prune = true
+[stash]
+	showPatch = true
