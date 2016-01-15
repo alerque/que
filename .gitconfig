@@ -45,6 +45,7 @@
 	branchlog = !sh -c "git log `git oldest-ancestor`.."
 	branchdiff = !sh -c "git diff `git oldest-ancestor`.."
 	rebase2fork = !zsh -c 'git rebase -i $(git merge-base --fork-point "${0:-master}")'
+	ci-status = !sh -c 'oldest=$(git oldest-ancestor) head=$(git rev-parse HEAD) && git rev-list --oneline $([[ $oldest == $head ]] && echo $head^.. || echo $oldest..) | while read sha x\n do echo $sha $(hub ci-status -v $sha)\n done'
 [log]
 	abbrevCommit = true
 	follow = true
