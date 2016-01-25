@@ -17,7 +17,7 @@ while [[ $# -gt 0 ]]; do
 done
 
 # Setup stuff
-BASEPACKAGES=(zsh subversion git ctags pcre-tools vim tmux sudo mosh etckeeper ruby zip unzip myrepos vcsh wget unrar syslog-ng lsof htop gdisk strace ntp keychain programmers-dvorak rsync cyrus-sasl mutt fzf fasd)
+BASEPACKAGES=(zsh subversion git ctags pcre-tools vim tmux sudo mosh etckeeper ruby zip unzip myrepos vcsh wget unrar syslog-ng lsof htop gdisk strace ntp keychain programmers-dvorak rsync cyrus-sasl mutt fzf fasd cron)
 DESKTOPPACKAGES=(awesome parcellite chromium flashplugin google-talkplugin owncloud-client gnome rdesktop libreoffice smplayer gimp xiphos transmission-gtk rhythmbox cups gnome-packagekit networkmanager gvfs keepassx ttf-fonts ssh-askpass-fullscreen powerline-fonts gvim termite pulseaudio slock xautolock compton firefox zathura)
 REMOVEPACKAGES=(python-powerline-git powerline-fonts chromium-pepper-flash-stable aura dropbox chromium-libpdf)
 COMPILEBASEPACKAGES=()
@@ -118,6 +118,7 @@ case $DISTRO in
         add_pkg rxvt-unicode-terminfo
 
         # Distro specific package names
+        distro_pkg cron cronie
 		distro_pkg pcre-tools pcre
 		#distro_pkg flashplugin chromium-pepper-flash
 		distro_pkg gnome gnome gnome-{extra,tweak-tool,shell-extension-maximus,defaults-list} batti notification-daemon
