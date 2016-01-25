@@ -58,14 +58,9 @@ function skip_pkg () {
 function compile_pkg () {
 	if [[ "${BASEPACKAGES[@]}" =~ "$1" ]]; then
 		BASEPACKAGES=(${BASEPACKAGES[@]/%$1/})
-		DESKTOPPACKAGES=(${DESKTOPPACKAGES[@]/%$1/})
 		COMPILEBASEPACKAGES=(${COMPILEBASEPACKAGES[@]} $1)
 	fi
-}
-
-function compile_desktop_pkg () {
 	if [[ "${DESKTOPPACKAGES[@]}" =~ "$1" ]]; then
-		BASEPACKAGES=(${BASEPACKAGES[@]/%$1/})
 		DESKTOPPACKAGES=(${DESKTOPPACKAGES[@]/%$1/})
 		COMPILEDESKTOPPACKAGES=(${COMPILEDESKTOPPACKAGES[@]} $1)
 	fi
@@ -153,26 +148,26 @@ case $DISTRO in
         compile_pkg mutt-sidebar
         compile_pkg goobook-git
 
-		#compile_desktop_pkg chromium-pepper-flash
-		compile_desktop_pkg compton
-		compile_desktop_pkg keepassx2
-		compile_desktop_pkg xiphos
-		compile_desktop_pkg google-talkplugin
-		#compile_desktop_pkg google-chrome
-		compile_desktop_pkg gnome-shell-extension-maximus
-		compile_desktop_pkg gnome-defaults-list
-        compile_desktop_pkg python2-powerline-fontpatcher-git
-        compile_desktop_pkg powerline-fonts-git
-        compile_desktop_pkg eminent-git
-        compile_desktop_pkg awesome-revelation-git
-        compile_desktop_pkg lua-oocairo
-        compile_desktop_pkg awesome-gnome
-        compile_desktop_pkg batti
-        compile_desktop_pkg ssh-askpass-fullscreen
-        compile_desktop_pkg pasystray
-        compile_desktop_pkg paman
-        compile_desktop_pkg pa-applet-git
-        compile_desktop_pkg tmux-truecolor-git
+		#compile_pkg chromium-pepper-flash
+		compile_pkg compton
+		compile_pkg keepassx2
+		compile_pkg xiphos
+		compile_pkg google-talkplugin
+		#compile_pkg google-chrome
+		compile_pkg gnome-shell-extension-maximus
+		compile_pkg gnome-defaults-list
+        compile_pkg python2-powerline-fontpatcher-git
+        compile_pkg powerline-fonts-git
+        compile_pkg eminent-git
+        compile_pkg awesome-revelation-git
+        compile_pkg lua-oocairo
+        compile_pkg awesome-gnome
+        compile_pkg batti
+        compile_pkg ssh-askpass-fullscreen
+        compile_pkg pasystray
+        compile_pkg paman
+        compile_pkg pa-applet-git
+        compile_pkg tmux-truecolor-git
 
         distro_pkg syslog-ng ''
 
