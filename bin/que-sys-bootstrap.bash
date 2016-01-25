@@ -117,15 +117,14 @@ case $DISTRO in
         # Distro specific package names
         distro_pkg cron cronie
 		distro_pkg pcre-tools pcre
-		distro_pkg gnome gnome gnome-{extra,tweak-tool,shell-extension-maximus,defaults-list} batti notification-daemon
+		distro_pkg gnome gnome gnome-{extra,tweak-tool,defaults-list} batti notification-daemon
 		distro_pkg pulseaudio pa{systray,man,vucontrol,prefs,mixer,-applet-git}
 		distro_pkg libreoffice libreoffice-fresh{,-tr} unoconv
 		distro_pkg cups cups cups-filters system-config-printer cups-pk-helper gsfonts gutenprint foomatic-{filters,db{,-engine,-nonfree}} hplip splix cups-pdf
 		distro_pkg networkmanager networkmanager network-manager-applet
 		distro_pkg keepassx keepassx2
 		distro_pkg gvfs gvfs-{mtp,smb,goa}
-		distro_pkg xiphos ""
-		distro_pkg ttf-fonts ttf-{cheapskate,freefont,gentium-{basic,plus},liberation,linux-libertine,hack,amiri,montserrat,sbl-{hebrew,greek},sil-{abyssinica,la,teef},google-fonts-git} otf-{libertinus,bravura,crimson-text}
+		distro_pkg ttf-fonts ttf-{cheapskate,freefont,gentium-{basic,plus},liberation,linux-libertine,hack,amiri,montserrat,sbl-{hebrew,greek},sil-{abyssinica,lateef},google-fonts-git} otf-{libertinus,bravura,crimson-text}
         distro_pkg vcsh vcsh-git
         distro_pkg awesome awesome eminent-git awesome-revelation-git vicious
         distro_pkg urxvt rxvt-unicode{,-terminfo}
@@ -154,7 +153,6 @@ case $DISTRO in
 		compile_pkg xiphos
 		compile_pkg google-talkplugin
 		#compile_pkg google-chrome
-		compile_pkg gnome-shell-extension-maximus
 		compile_pkg gnome-defaults-list
         compile_pkg lua-oocairo
         compile_pkg awesome-gnome
