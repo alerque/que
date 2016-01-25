@@ -112,6 +112,7 @@ case $DISTRO in
 		add_pkg pkgstats
 		add_pkg pkgbuild-introspection
         add_pkg rxvt-unicode-terminfo
+        add_pkg termite-terminfo
 
         # Distro specific package names
         distro_pkg cron cronie
@@ -126,7 +127,7 @@ case $DISTRO in
 		distro_pkg xiphos ""
 		distro_pkg ttf-fonts ttf-{cheapskate,droid,freefont,gentium-{basic,plus},liberation,linux-libertine,hack,amiri,cardo,montserrat,sbl-{hebrew,greek,abyssinica,lateef,noto}} otf-{libertinus,bravura,crimson-text,isabella}
         distro_pkg vcsh vcsh-git
-        distro_pkg awesome awesome awesome-gnome eminent-git awesome-revelation-git lua-oocairo vicious
+        distro_pkg awesome awesome eminent-git awesome-revelation-git lua-oocairo vicious
         distro_pkg urxvt rxvt-unicode{,-terminfo}
 		distro_pkg zsh zsh zsh-completions
         distro_pkg firefox firefox{,-adblock-plus,-firebug,-i18n-tr}
