@@ -8,6 +8,7 @@ while [[ $# -gt 0 ]]; do
         debug)
             ISDEBUG=0
             set -e
+            set -x
             ;;
         echo)
             set -x
