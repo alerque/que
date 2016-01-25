@@ -80,7 +80,7 @@ EndOfPatch
 
 # Compile and install things not coming out of the distro main tree
 for PKG in ${COMPILEBASEPACKAGES[@]} ; do
-    $DEBUG yaourt --noconfirm -S --needed $PKG
+    $DEBUG yaourt --noconfirm -S --needed $PKG ||:
 done
 for PKG in ${COMPILEDESKTOPPACKAGES[@]} ; do
     is_opt $ISDESKTOP && $DEBUG yaourt --noconfirm -S --needed $PKG ||:
