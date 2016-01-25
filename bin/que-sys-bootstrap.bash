@@ -16,8 +16,8 @@ while [[ $# -gt 0 ]]; do
 done
 
 # Setup stuff
-BASEPACKAGES=(zsh subversion git ctags pcre-tools vim tmux sudo mosh etckeeper ruby zip unzip myrepos vcsh wget unrar syslog-ng lsof htop gdisk strace ntp keychain programmers-dvorak rsync cyrus-sasl mutt)
-DESKTOPPACKAGES=(awesome parcellite chromium flashplugin google-talkplugin owncloud-client gnome rdesktop libreoffice smplayer gimp xiphos transmission-gtk rhythmbox cups gnome-packagekit networkmanager gvfs keepassx ttf-fonts ssh-askpass-fullscreen powerline-fonts gvim urxvt pulseaudio slock xautolock compton firefox)
+BASEPACKAGES=(zsh subversion git ctags pcre-tools vim tmux sudo mosh etckeeper ruby zip unzip myrepos vcsh wget unrar syslog-ng lsof htop gdisk strace ntp keychain programmers-dvorak rsync cyrus-sasl mutt fzf fasd)
+DESKTOPPACKAGES=(awesome parcellite chromium flashplugin google-talkplugin owncloud-client gnome rdesktop libreoffice smplayer gimp xiphos transmission-gtk rhythmbox cups gnome-packagekit networkmanager gvfs keepassx ttf-fonts ssh-askpass-fullscreen powerline-fonts gvim termite pulseaudio slock xautolock compton firefox)
 REMOVEPACKAGES=(python-powerline-git powerline-fonts chromium-pepper-flash-stable aura dropbox chromium-libpdf)
 COMPILEBASEPACKAGES=()
 COMPILEDESKTOPPACKAGES=()
@@ -132,17 +132,17 @@ case $DISTRO in
 		distro_pkg keepassx keepassx2
 		distro_pkg gvfs gvfs-{mtp,smb,goa,afp}
 		distro_pkg xiphos ""
-		distro_pkg ttf-fonts ttf-{cheapskate,droid,freefont,gentium,liberation,linux-libertine}
-        distro_pkg powerline-fonts powerline-fonts-git python2-powerline-fontpatcher-git
+		distro_pkg ttf-fonts ttf-{cheapskate,droid,freefont,gentium,liberation,linux-libertine,hack}
         distro_pkg vcsh vcsh-git
         distro_pkg awesome awesome awesome-gnome eminent-git awesome-revelation-git lua-oocairo vicious
         distro_pkg urxvt rxvt-unicode{,-terminfo}
 		distro_pkg zsh zsh zsh-completions
         distro_pkg firefox firefox{,-adblock-plus,-firebug,-i18n-tr}
         distro_pkg mutt mutt-sidebar goobook-git
+        distro_pkg tmux tmux-truecolor-git teamocil
 
         # gvim and vim conflict, so if we are going to get the former don't try to install the latter
-        is_opt $ISDESKTOP && distro_pkg gvim "" && distro_pkg vim gvim
+        is_opt $ISDESKTOP && distro_pkg gvim "" && distro_pkg vim gvim neovim
 
 		compile_pkg etckeeper
 		compile_pkg vcsh-git
@@ -172,6 +172,7 @@ case $DISTRO in
         compile_desktop_pkg pasystray
         compile_desktop_pkg paman
         compile_desktop_pkg pa-applet-git
+        compile_desktop_pkg tmux-truecolor-git
 
         distro_pkg syslog-ng ''
 
