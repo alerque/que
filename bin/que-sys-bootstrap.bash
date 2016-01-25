@@ -168,6 +168,7 @@ case $DISTRO in
         compile_pkg ssh-askpass-fullscreen
         compile_pkg pasystray
         compile_pkg paman
+        compile_pkg fasd
 
         distro_pkg syslog-ng ''
 
