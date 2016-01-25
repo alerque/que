@@ -22,15 +22,15 @@ $DEBUG pacman-key --populate archlinux
 $DEBUG pacman -Syu --needed --noconfirm
 
 # Remove anything that needs cleaning up first
-$DEBUG pacman -Rns --noconfirm ${REMOVEPACKAGES[@]} $(pacman -Qtdq)
+$DEBUG pacman -Rns --noconfirm ${REMOVEPACKAGES[@]} $(pacman -Qtdq) ||:
 
 # Arch won't install gvim if vim is around, so to make the transition between
 # package sets easier:
-is_opt $ISDESKTOP && $DEBUG pacman -R --noconfirm vim
+is_opt $ISDESKTOP && $DEBUG pacman -R --noconfirm vim ||:
 
 # Make sure the basics every system is going to need are installed and updated
 $DEBUG pacman -S --needed --noconfirm ${BASEPACKAGES[@]}
-is_opt $ISDESKTOP && $DEBUG pacman -S --needed --noconfirm ${DESKTOPPACKAGES[@]}
+is_opt $ISDESKTOP && $DEBUG pacman -S --needed --noconfirm ${DESKTOPPACKAGES[@]} ||:
 
 # Detect VirtualBox guest and configure accordingly
 lspci | grep -iq virtualbox && (
@@ -38,7 +38,7 @@ lspci | grep -iq virtualbox && (
 	echo -e "vboxguest\nvboxsf\nvboxvideo" > /etc/modules-load.d/virtualbox.conf
 	systemctl enable vboxservice.service
 	# $DEBUG pacman -S --needed --noconfirm xf86-video-vbox
-)
+) ||:
 
 # Get AUR going
 $DEBUG pacman -S --needed --noconfirm base-devel
@@ -83,7 +83,7 @@ for PKG in ${COMPILEBASEPACKAGES[@]} ; do
     $DEBUG yaourt --noconfirm -S --needed $PKG
 done
 for PKG in ${COMPILEDESKTOPPACKAGES[@]} ; do
-    is_opt $ISDESKTOP && $DEBUG yaourt --noconfirm -S --needed $PKG
+    is_opt $ISDESKTOP && $DEBUG yaourt --noconfirm -S --needed $PKG ||:
 done
 
 # TODO: Need to set root login and password auth options
