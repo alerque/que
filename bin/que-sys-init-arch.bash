@@ -28,18 +28,6 @@ $DEBUG pacman -Rns --noconfirm ${REMOVEPACKAGES[@]} $(pacman -Qtdq) ||:
 # package sets easier:
 is_opt $ISDESKTOP && $DEBUG pacman -R --noconfirm vim ||:
 
-# Make sure the basics every system is going to need are installed and updated
-$DEBUG pacman -S --needed --noconfirm ${BASEPACKAGES[@]}
-is_opt $ISDESKTOP && $DEBUG pacman -S --needed --noconfirm ${DESKTOPPACKAGES[@]} ||:
-
-# Detect VirtualBox guest and configure accordingly
-lspci | grep -iq virtualbox && (
-	$DEBUG pacman -S --needed --noconfirm virtualbox-guest-utils
-	echo -e "vboxguest\nvboxsf\nvboxvideo" > /etc/modules-load.d/virtualbox.conf
-	systemctl enable vboxservice.service
-	# $DEBUG pacman -S --needed --noconfirm xf86-video-vbox
-) ||:
-
 # Get AUR going
 $DEBUG pacman -S --needed --noconfirm base-devel
 
@@ -47,6 +35,18 @@ grep -q archlinuxfr /etc/pacman.conf || (
 	sed -i 's#^\[extra\]$#[archlinuxfr]\nSigLevel = Never\nServer = http://repo.archlinux.fr/$arch\n\n[extra]#g' /etc/pacman.conf
 )
 which yaourt || $DEBUG pacman -Sy --needed --noconfirm yaourt aurvote customizepkg
+
+# Make sure the basics every system is going to need are installed and updated
+$DEBUG yaourt -S --needed --noconfirm ${BASEPACKAGES[@]}
+is_opt $ISDESKTOP && $DEBUG yaourt -S --needed --noconfirm ${DESKTOPPACKAGES[@]} ||:
+
+# Detect VirtualBox guest and configure accordingly
+lspci | grep -iq virtualbox && (
+	$DEBUG yaourt -S --needed --noconfirm virtualbox-guest-utils
+	echo -e "vboxguest\nvboxsf\nvboxvideo" > /etc/modules-load.d/virtualbox.conf
+	systemctl enable vboxservice.service
+	# $DEBUG yaourt -S --needed --noconfirm xf86-video-vbox
+) ||:
 
 # Arch folks disabled building packages as root in makepkg. As this is required
 # for this script, patch it to work again. See Github issue for details:
