@@ -140,14 +140,16 @@ case $DISTRO in
         # gvim and vim conflict, so if we are going to get the former don't try to install the latter
         is_opt $ISDESKTOP && distro_pkg gvim "" && distro_pkg vim gvim neovim
 
+        for pkg in ${BASEPACKAGES[@]} ${DESKTOPPACKAGES[@]}; do
+            [[ $pkg == *-git ]] && compile_pkg $pkg
+        done
+
 		compile_pkg etckeeper
-		compile_pkg vcsh-git
 		compile_pkg myrepos
 		compile_pkg ec2-api-tools
 		compile_pkg ec2-metadata
 		#compile_pkg programmers-dvorak
         compile_pkg mutt-sidebar
-        compile_pkg goobook-git
 
 		#compile_pkg chromium-pepper-flash
 		compile_pkg compton
@@ -157,18 +159,12 @@ case $DISTRO in
 		#compile_pkg google-chrome
 		compile_pkg gnome-shell-extension-maximus
 		compile_pkg gnome-defaults-list
-        compile_pkg python2-powerline-fontpatcher-git
-        compile_pkg powerline-fonts-git
-        compile_pkg eminent-git
-        compile_pkg awesome-revelation-git
         compile_pkg lua-oocairo
         compile_pkg awesome-gnome
         compile_pkg batti
         compile_pkg ssh-askpass-fullscreen
         compile_pkg pasystray
         compile_pkg paman
-        compile_pkg pa-applet-git
-        compile_pkg tmux-truecolor-git
 
         distro_pkg syslog-ng ''
 
