@@ -17,7 +17,7 @@ done
 
 # Setup stuff
 BASEPACKAGES=(zsh subversion git ctags pcre-tools vim tmux sudo mosh etckeeper ruby zip unzip myrepos vcsh wget unrar syslog-ng lsof htop gdisk strace ntp keychain programmers-dvorak rsync cyrus-sasl mutt fzf fasd)
-DESKTOPPACKAGES=(awesome parcellite chromium flashplugin google-talkplugin owncloud-client gnome rdesktop libreoffice smplayer gimp xiphos transmission-gtk rhythmbox cups gnome-packagekit networkmanager gvfs keepassx ttf-fonts ssh-askpass-fullscreen powerline-fonts gvim termite pulseaudio slock xautolock compton firefox)
+DESKTOPPACKAGES=(awesome parcellite chromium flashplugin google-talkplugin owncloud-client gnome rdesktop libreoffice smplayer gimp xiphos transmission-gtk rhythmbox cups gnome-packagekit networkmanager gvfs keepassx ttf-fonts ssh-askpass-fullscreen powerline-fonts gvim termite pulseaudio slock xautolock compton firefox zathura)
 REMOVEPACKAGES=(python-powerline-git powerline-fonts chromium-pepper-flash-stable aura dropbox chromium-libpdf)
 COMPILEBASEPACKAGES=()
 COMPILEDESKTOPPACKAGES=()
@@ -135,6 +135,7 @@ case $DISTRO in
         distro_pkg firefox firefox{,-adblock-plus,-firebug,-i18n-tr}
         distro_pkg mutt mutt-sidebar goobook-git
         distro_pkg tmux tmux-truecolor-git teamocil
+        distro_pkg zathura zathura{,-pdf-mupdf,-epub-git}
 
         # gvim and vim conflict, so if we are going to get the former don't try to install the latter
         is_opt $ISDESKTOP && distro_pkg gvim "" && distro_pkg vim gvim neovim
