@@ -125,7 +125,7 @@ case $DISTRO in
 		distro_pkg keepassx keepassx2
 		distro_pkg gvfs gvfs-{mtp,smb,goa}
 		distro_pkg xiphos ""
-		distro_pkg ttf-fonts ttf-{cheapskate,droid,freefont,gentium-{basic,plus},liberation,linux-libertine,hack,amiri,cardo,montserrat,sbl-{hebrew,greek},sil-{abyssinica,lateef},noto} otf-{libertinus,bravura,crimson-text,isabella}
+		distro_pkg ttf-fonts ttf-{cheapskate,freefont,gentium-{basic,plus},liberation,linux-libertine,hack,amiri,montserrat,sbl-{hebrew,greek},sil-{abyssinica,la,teef},google-fonts-git} otf-{libertinus,bravura,crimson-text}
         distro_pkg vcsh vcsh-git
         distro_pkg awesome awesome eminent-git awesome-revelation-git vicious
         distro_pkg urxvt rxvt-unicode{,-terminfo}
