@@ -7,8 +7,6 @@ while [[ $# -gt 0 ]]; do
             ;;
         debug)
             ISDEBUG=0
-            set -e
-            set -x
             ;;
         echo)
             set -x
@@ -16,6 +14,8 @@ while [[ $# -gt 0 ]]; do
     esac
     shift
 done
+
+set -e
 
 # Setup stuff
 BASEPACKAGES=(zsh subversion git ctags pcre-tools vim tmux sudo mosh etckeeper ruby zip unzip myrepos vcsh wget unrar syslog-ng lsof htop gdisk strace ntp keychain programmers-dvorak rsync cyrus-sasl mutt fzf fasd cron)
