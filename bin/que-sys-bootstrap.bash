@@ -169,6 +169,7 @@ case $DISTRO in
         compile_pkg pasystray
         compile_pkg paman
         compile_pkg fasd
+        compile_pkg teamocil
 
         distro_pkg syslog-ng ''
 
