@@ -19,7 +19,7 @@ set -e
 
 # Setup stuff
 BASEPACKAGES=(zsh subversion git ctags pcre-tools vim tmux sudo mosh etckeeper ruby zip unzip myrepos vcsh wget unrar syslog-ng lsof htop gdisk strace ntp keychain programmers-dvorak rsync cyrus-sasl mutt fzf fasd cron)
-DESKTOPPACKAGES=(awesome parcellite chromium flashplugin google-talkplugin owncloud-client gnome rdesktop libreoffice smplayer gimp xiphos transmission-gtk rhythmbox cups gnome-packagekit networkmanager gvfs keepassx ttf-fonts ssh-askpass-fullscreen powerline-fonts gvim termite pulseaudio slock xautolock compton firefox zathura)
+DESKTOPPACKAGES=(awesome parcellite chromium flashplugin google-talkplugin owncloud-client gnome rdesktop libreoffice smplayer gimp xiphos transmission-gtk rhythmbox cups gnome-packagekit networkmanager gvfs keepassx ttf-fonts ssh-askpass-fullscreen gvim termite pulseaudio slock xautolock compton firefox zathura)
 REMOVEPACKAGES=(python-powerline-git powerline-fonts chromium-pepper-flash-stable aura dropbox chromium-libpdf)
 COMPILEBASEPACKAGES=()
 COMPILEDESKTOPPACKAGES=()
@@ -222,7 +222,6 @@ case $DISTRO in
         distro_pkg keepassx ''
         distro_pkg ttf-fonts ''
         distro_pkg x11-ssh-askpass ''
-        distro_pkg powerline-fonts ''
 
         distro_pkg gvim macvim
 		;;
