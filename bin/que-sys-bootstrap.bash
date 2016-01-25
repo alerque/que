@@ -19,8 +19,8 @@ set -e
 
 # Setup stuff
 BASEPACKAGES=(zsh subversion git ctags pcre-tools vim tmux sudo mosh etckeeper ruby zip unzip myrepos vcsh wget unrar syslog-ng lsof htop gdisk strace ntp keychain programmers-dvorak rsync cyrus-sasl mutt fzf fasd cron)
-DESKTOPPACKAGES=(awesome parcellite chromium flashplugin google-talkplugin owncloud-client gnome rdesktop libreoffice smplayer gimp xiphos transmission-gtk rhythmbox cups gnome-packagekit networkmanager gvfs keepassx ttf-fonts ssh-askpass-fullscreen gvim termite pulseaudio slock xautolock compton firefox zathura)
-REMOVEPACKAGES=(python-powerline-git powerline-fonts chromium-pepper-flash-stable aura dropbox chromium-libpdf)
+DESKTOPPACKAGES=(awesome parcellite chromium google-talkplugin owncloud-client gnome rdesktop libreoffice smplayer gimp xiphos transmission-gtk rhythmbox cups gnome-packagekit networkmanager gvfs keepassx ttf-fonts ssh-askpass-fullscreen gvim termite pulseaudio slock xautolock compton firefox zathura)
+REMOVEPACKAGES=(python-powerline-git powerline-fonts aura dropbox chromium-libpdf)
 COMPILEBASEPACKAGES=()
 COMPILEDESKTOPPACKAGES=()
 
@@ -109,10 +109,6 @@ case $DISTRO in
         # If we have ever installed desktop stuff, assume it again
         pacman -Q gvim 2>&- >&- && ISDESKTOP=0
 
-        # Temporarily broken packages
-        skip_pkg flashplugin ''
-        skip_pkg chromium-pepper-flash ''
-
 		add_pkg pkgstats
 		add_pkg pkgbuild-introspection
         add_pkg rxvt-unicode-terminfo
@@ -120,7 +116,6 @@ case $DISTRO in
         # Distro specific package names
         distro_pkg cron cronie
 		distro_pkg pcre-tools pcre
-		#distro_pkg flashplugin chromium-pepper-flash
 		distro_pkg gnome gnome gnome-{extra,tweak-tool,shell-extension-maximus,defaults-list} batti notification-daemon
 		distro_pkg pulseaudio pa{systray,man,vucontrol,prefs,mixer,-applet-git}
 		distro_pkg libreoffice libreoffice-fresh{,-tr} unoconv
@@ -153,7 +148,6 @@ case $DISTRO in
 		#compile_pkg programmers-dvorak
         compile_pkg mutt-sidebar
 
-		#compile_pkg chromium-pepper-flash
 		compile_pkg compton
 		compile_pkg keepassx2
 		compile_pkg xiphos
@@ -205,7 +199,6 @@ case $DISTRO in
         distro_pkg awesome ''
         distro_pkg parcellite ''
         distro_pkg chromium ''
-        distro_pkg flashplugin ''
         distro_pkg google-talkplugin ''
         distro_pkg owncloud-client ''
         distro_pkg gnome-packagekit ''
