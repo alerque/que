@@ -110,7 +110,6 @@ case $DISTRO in
         pacman -Q gvim 2>&- >&- && ISDESKTOP=0
 
         # Temporarily broken packages
-        skip_pkg programmers-dvorak ''
         skip_pkg flashplugin ''
         skip_pkg chromium-pepper-flash ''
 
