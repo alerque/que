@@ -57,5 +57,10 @@
 	cmd = latexdiff "$LOCAL" "$REMOTE"
 [fetch]
 	prune = true
+	fsckobjects = true
 [stash]
 	showPatch = true
+[transfer]
+	fsckobjects = true
+[receive]
+	fsckobjects = true
