@@ -3,5 +3,6 @@ checkout =
 	vcsh clone git@github.com:alerque/que-vim.git
 	nvim +PlugInstall +all +qa
 update =
+	rm -rf $HOME/.vim/bundle
 	git pull
 	nvim +PlugUpgrade +PlugClean +PlugUpdate +all +qa
