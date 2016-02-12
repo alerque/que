@@ -107,7 +107,7 @@ case $DISTRO in
 		;;
 	arch)
         # If we have ever installed desktop stuff, assume it again
-        pacman -Q gvim 2>&- >&- && ISDESKTOP=0
+        pacman -Q awesome 2>&- >&- && ISDESKTOP=0
 
 		add_pkg pkgstats
 		add_pkg pkgbuild-introspection
@@ -136,6 +136,8 @@ case $DISTRO in
 
         # gvim and vim conflict, so if we are going to get the former don't try to install the latter
         is_opt $ISDESKTOP && distro_pkg gvim "" && distro_pkg vim gvim neovim
+        distro_pkg vim neovim
+        distro_pkg neovim neovim python{,2}-neovim
 
         for pkg in ${BASEPACKAGES[@]} ${DESKTOPPACKAGES[@]}; do
             [[ $pkg == *-git ]] && compile_pkg $pkg
@@ -216,6 +218,7 @@ case $DISTRO in
         distro_pkg ttf-fonts ''
         distro_pkg x11-ssh-askpass ''
 
+        distro_pkg vim neovim
         distro_pkg gvim macvim
 		;;
 	*)
