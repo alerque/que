@@ -4,6 +4,39 @@ checkout = git clone gitlab@gitlab.alerque.com:viachristus/avadanlik.git
 [$HOME/projects/viachristus/dg_kitapciklar]
 checkout = git clone gitlab@gitlab.alerque.com:viachristus/dg_kitapciklar.git
 
+[$HOME/projects/viachristus/incil.info]
+checkout = git clone gitlab@gitlab.alerque.com:viachristus/incil.info.git
+
+[$HOME/projects/viachristus/incil_cizimler]
+checkout = git clone gitlab@gitlab.alerque.com:viachristus/incil_cizimler.git
+
+[$HOME/projects/viachristus/incil_data]
+checkout = git clone gitlab@gitlab.alerque.com:viachristus/incil_data.git
+
+[$HOME/projects/viachristus/incil_eklentisi]
+checkout = git clone gitlab@gitlab.alerque.com:viachristus/incil_eklentisi.git
+
+[$HOME/projects/viachristus/incil_imports]
+checkout = git clone gitlab@gitlab.alerque.com:viachristus/incil_imports.git
+
+[$HOME/projects/viachristus/incil_lists]
+checkout = git clone gitlab@gitlab.alerque.com:viachristus/incil_lists.git
+
+[$HOME/projects/viachristus/incil_parallels]
+checkout = git clone gitlab@gitlab.alerque.com:viachristus/incil_parallels.git
+
+[$HOME/projects/viachristus/kkt.incil.info]
+checkout = git clone gitlab@gitlab.alerque.com:viachristus/kkt.incil.info.git
+
+[$HOME/projects/viachristus/ligonier]
+checkout = git clone gitlab@gitlab.alerque.com:viachristus/ligonier.git
+
+[$HOME/projects/viachristus/logo]
+checkout = git clone gitlab@gitlab.alerque.com:viachristus/logo.git
+
+[$HOME/projects/viachristus/ozde_ilahiyat]
+checkout = git clone gitlab@gitlab.alerque.com:viachristus/ozde_ilahiyat.git
+
 [$HOME/projects/viachristus/mujdeyi_korumak]
 checkout = git clone gitlab@gitlab.alerque.com:viachristus/mujdeyi_korumak.git
 
