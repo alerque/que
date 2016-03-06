@@ -123,3 +123,6 @@ checkout = git clone 'ssh+git://aur@aur.archlinux.org:22/git-crypt-git.git/' 'gi
 
 [/home/caleb/projects/aur/n1-git]
 checkout = git clone 'ssh+git://aur@aur.archlinux.org:22/n1-git.git' 'n1-git'
+
+[/home/caleb/projects/aur/st]
+checkout = git clone 'https://aur.archlinux.org/st.git' 'st'
