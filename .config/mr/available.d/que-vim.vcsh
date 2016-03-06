@@ -2,8 +2,11 @@
 order = 5
 checkout =
 	vcsh clone git@github.com:alerque/que-vim.git
-	nvim +PlugInstall +all +qa
+	cd $HOME
+	nvim +PlugInstall +UpdateRemotePlugins +all +qa
 update =
+	vcsh run que-vim git pull
 	rm -rf $HOME/.vim/bundle
 	git pull
-	nvim +PlugUpgrade +PlugClean +PlugUpdate +UpdateRemotePlugins +all +qa
+	cd $HOME
+	nvim +PlugUpgrade +PlugClean! +PlugUpdate +UpdateRemotePlugins +all +qa
