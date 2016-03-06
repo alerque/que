@@ -6,4 +6,4 @@ checkout =
 update =
 	rm -rf $HOME/.vim/bundle
 	git pull
-	nvim +PlugUpgrade +PlugClean +PlugUpdate +all +qa
+	nvim +PlugUpgrade +PlugClean +PlugUpdate +UpdateRemotePlugins +all +qa
