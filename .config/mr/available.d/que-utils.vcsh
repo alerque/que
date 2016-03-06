@@ -1,2 +1,3 @@
 [$HOME/.config/vcsh/repo.d/que-utils.git]
+order = 5
 checkout = vcsh clone git@github.com:alerque/que-utils.git

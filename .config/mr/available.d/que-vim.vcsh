@@ -1,4 +1,5 @@
 [$HOME/.config/vcsh/repo.d/que-vim.git]
+order = 5
 checkout =
 	vcsh clone git@github.com:alerque/que-vim.git
 	nvim +PlugInstall +all +qa

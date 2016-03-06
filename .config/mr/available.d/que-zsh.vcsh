@@ -1,4 +1,5 @@
 [$HOME/.config/vcsh/repo.d/que-zsh.git]
+order = 5
 checkout = vcsh clone git@github.com:alerque/que-zsh.git
 
 [$HOME/.zprezto]
