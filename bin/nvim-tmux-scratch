@@ -1,4 +1,4 @@
 #!/usr/bin/env zsh
 set -e
 echo 'quakeconsole["right"][mouse.screen]:toggle()' | awesome-client
-tmux new-window -t scratch "nvim $@ '+set  binary' '+set noeol' '+AutoSaveToggle' '+PencilSoft' && echo 'quakeconsole[\"right\"][mouse.screen]:toggle()' | awesome-client"
+tmux new-window -t scratch "nvim $@ '+AutoSaveToggle' '+set  binary' '+set noeol' '+PencilSoft' '+$' '+startinsert!' && echo 'quakeconsole[\"right\"][mouse.screen]:toggle()' | awesome-client"
