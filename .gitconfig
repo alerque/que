@@ -23,6 +23,8 @@
 	autosquash = true
 	autostash = true
 	preserve = true
+[commit]
+	gpgsign = true
 [alias]
 	graph = log --all --graph --decorate --oneline
 	aa = add -a
