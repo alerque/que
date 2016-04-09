@@ -34,6 +34,9 @@ checkout = git clone gitlab@gitlab.alerque.com:viachristus/ligonier.git
 [$HOME/projects/viachristus/logo]
 checkout = git clone gitlab@gitlab.alerque.com:viachristus/logo.git
 
+[$HOME/projects/viachristus/mk_kitapciklar]
+checkout = git clone gitlab@gitlab.alerque.com:viachristus/mk_kitapciklar.git
+
 [$HOME/projects/viachristus/mujdeyi_korumak]
 checkout = git clone gitlab@gitlab.alerque.com:viachristus/mujdeyi_korumak.git
 
@@ -43,8 +46,9 @@ checkout = git clone gitlab@gitlab.alerque.com:viachristus/sapel_kutuphanesi.git
 [$HOME/projects/viachristus/teolojiye_giris]
 checkout = git clone gitlab@gitlab.alerque.com:viachristus/teolojiye_giris.git
 
-[$HOME/projects/viachristus/tgc_kitapciklar]
-checkout = git clone gitlab@gitlab.alerque.com:viachristus/tgc_kitapciklar.git
-
 [$HOME/projects/viachristus/kum_huvuzu]
 checkout = git clone gitlab@gitlab.alerque.com:viachristus/kum_huvuzu.git
+
+[$HOME/projects/viachristus/vahiy]
+checkout = git clone gitlab@gitlab.alerque.com:viachristus/vahiy.git
+
