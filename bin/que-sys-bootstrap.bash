@@ -18,9 +18,9 @@ done
 set -e
 
 # Setup stuff
-BASEPACKAGES=(zsh git ctags pcre-tools tmux sudo mosh etckeeper ruby zip unzip myrepos vcsh wget unrar lsof htop gdisk strace ntp programmers-dvorak rsync cyrus-sasl mutt fzf fasd cron vim)
-DESKTOPPACKAGES=(awesome parcellite chromium google-talkplugin owncloud-client gnome rdesktop libreoffice smplayer gimp xiphos transmission-gtk cups gnome-packagekit networkmanager gvfs keepassx ttf-fonts ssh-askpass-fullscreen termite pulseaudio slock xautolock compton firefox zathura-pdf-mupdf)
-REMOVEPACKAGES=(python-powerline-git powerline-fonts aura dropbox chromium-libpdf)
+BASEPACKAGES=(zsh git ctags pcre-tools tmux sudo mosh etckeeper ruby zip unzip myrepos vcsh wget unrar lsof htop gdisk strace ntp programmers-dvorak rsync cyrus-sasl mutt fzf fasd cron vim git-crypt git-annex gnupg)
+DESKTOPPACKAGES=(awesome parcellite chromium google-talkplugin owncloud-client gnome rdesktop libreoffice smplayer gimp xiphos transmission-gtk cups gnome-packagekit networkmanager gvfs keepassx ttf-fonts ssh-askpass-fullscreen termite pulseaudio slock xautolock compton firefox zathura)
+REMOVEPACKAGES=(python-powerline-git powerline-fonts aura dropbox chromium-libpdf firefox-adblock-plus)
 COMPILEBASEPACKAGES=()
 COMPILEDESKTOPPACKAGES=()
 
@@ -123,12 +123,12 @@ case $DISTRO in
 		distro_pkg networkmanager networkmanager network-manager-applet
 		distro_pkg keepassx keepassx2
 		distro_pkg gvfs gvfs-{mtp,smb,goa}
-		distro_pkg ttf-fonts ttf-{cheapskate,freefont,gentium-{basic,plus},liberation,linux-libertine,hack,amiri,montserrat,sbl-{hebrew,greek},sil-{abyssinica,lateef},google-fonts-git} otf-{libertinus,bravura,crimson-text}
+		distro_pkg ttf-fonts ttf-{cheapskate,freefont,gentium-{basic,plus},liberation,hack,amiri,montserrat,sbl-{hebrew,greek},sil-{abyssinica,lateef},google-fonts-git} otf-{libertinus,bravura,crimson-text}
 		distro_pkg vcsh vcsh-git
-		distro_pkg awesome awesome eminent-git awesome-revelation-git vicious
+		distro_pkg awesome awesome awesome-revelation-git vicious
 		distro_pkg urxvt rxvt-unicode{,-terminfo}
 		distro_pkg zsh zsh zsh-completions
-		distro_pkg firefox firefox{,-adblock-plus,-firebug,-i18n-tr}
+		distro_pkg firefox firefox{,-firebug,-i18n-tr}
 		distro_pkg mutt mutt-sidebar goobook-git
 		distro_pkg tmux tmux-git teamocil
 		distro_pkg zathura zathura{,-pdf-mupdf,-epub-git}
@@ -162,6 +162,7 @@ case $DISTRO in
 		compile_pkg paman
 		compile_pkg fasd
 		compile_pkg teamocil
+		compile_pkg zathura-epub-git
 
 		distro_pkg syslog-ng ''
 
