@@ -18,8 +18,8 @@ done
 set -e
 
 # Setup stuff
-BASEPACKAGES=(zsh subversion git ctags pcre-tools vim tmux sudo mosh etckeeper ruby zip unzip myrepos vcsh wget unrar syslog-ng lsof htop gdisk strace ntp keychain programmers-dvorak rsync cyrus-sasl mutt fzf fasd cron)
-DESKTOPPACKAGES=(awesome parcellite chromium google-talkplugin owncloud-client gnome rdesktop libreoffice smplayer gimp xiphos transmission-gtk rhythmbox cups gnome-packagekit networkmanager gvfs keepassx ttf-fonts ssh-askpass-fullscreen gvim termite pulseaudio slock xautolock compton firefox zathura)
+BASEPACKAGES=(zsh git ctags pcre-tools tmux sudo mosh etckeeper ruby zip unzip myrepos vcsh wget unrar lsof htop gdisk strace ntp programmers-dvorak rsync cyrus-sasl mutt fzf fasd cron vim)
+DESKTOPPACKAGES=(awesome parcellite chromium google-talkplugin owncloud-client gnome rdesktop libreoffice smplayer gimp xiphos transmission-gtk cups gnome-packagekit networkmanager gvfs keepassx ttf-fonts ssh-askpass-fullscreen termite pulseaudio slock xautolock compton firefox zathura-pdf-mupdf)
 REMOVEPACKAGES=(python-powerline-git powerline-fonts aura dropbox chromium-libpdf)
 COMPILEBASEPACKAGES=()
 COMPILEDESKTOPPACKAGES=()
@@ -106,16 +106,15 @@ case $DISTRO in
 		:
 		;;
 	arch)
-        # If we have ever installed desktop stuff, assume it again
-        pacman -Q awesome 2>&- >&- && ISDESKTOP=0
+		# If we have ever installed desktop stuff, assume it again
+		pacman -Q awesome 2>&- >&- && ISDESKTOP=0
 
 		add_pkg pkgstats
 		add_pkg pkgbuild-introspection
-        add_pkg rxvt-unicode-terminfo
-        add_pkg termite-terminfo
+		add_pkg termite-terminfo
 
-        # Distro specific package names
-        distro_pkg cron cronie
+		# Distro specific package names
+		distro_pkg cron cronie
 		distro_pkg pcre-tools pcre
 		distro_pkg gnome gnome gnome-{extra,tweak-tool,defaults-list} batti notification-daemon
 		distro_pkg pulseaudio pa{systray,man,vucontrol,prefs,mixer,-applet-git}
@@ -125,30 +124,29 @@ case $DISTRO in
 		distro_pkg keepassx keepassx2
 		distro_pkg gvfs gvfs-{mtp,smb,goa}
 		distro_pkg ttf-fonts ttf-{cheapskate,freefont,gentium-{basic,plus},liberation,linux-libertine,hack,amiri,montserrat,sbl-{hebrew,greek},sil-{abyssinica,lateef},google-fonts-git} otf-{libertinus,bravura,crimson-text}
-        distro_pkg vcsh vcsh-git
-        distro_pkg awesome awesome eminent-git awesome-revelation-git vicious
-        distro_pkg urxvt rxvt-unicode{,-terminfo}
+		distro_pkg vcsh vcsh-git
+		distro_pkg awesome awesome eminent-git awesome-revelation-git vicious
+		distro_pkg urxvt rxvt-unicode{,-terminfo}
 		distro_pkg zsh zsh zsh-completions
-        distro_pkg firefox firefox{,-adblock-plus,-firebug,-i18n-tr}
-        distro_pkg mutt mutt-sidebar goobook-git
-        distro_pkg tmux tmux-truecolor-git teamocil
-        distro_pkg zathura zathura{,-pdf-mupdf,-epub-git}
+		distro_pkg firefox firefox{,-adblock-plus,-firebug,-i18n-tr}
+		distro_pkg mutt mutt-sidebar goobook-git
+		distro_pkg tmux tmux-git teamocil
+		distro_pkg zathura zathura{,-pdf-mupdf,-epub-git}
 
-        # gvim and vim conflict, so if we are going to get the former don't try to install the latter
-        is_opt $ISDESKTOP && distro_pkg gvim "" && distro_pkg vim gvim neovim
-        distro_pkg vim neovim
-        distro_pkg neovim neovim python{,2}-neovim
+		# gvim and vim conflict, so if we are going to get the former don't try to install the latter
+		distro_pkg vim neovim
+		distro_pkg neovim neovim python{,2}-neovim
 
-        for pkg in ${BASEPACKAGES[@]} ${DESKTOPPACKAGES[@]}; do
-            [[ $pkg == *-git ]] && compile_pkg $pkg
-        done
+		for pkg in ${BASEPACKAGES[@]} ${DESKTOPPACKAGES[@]}; do
+		    [[ $pkg == *-git ]] && compile_pkg $pkg
+		done
 
 		compile_pkg etckeeper
 		compile_pkg myrepos
 		compile_pkg ec2-api-tools
 		compile_pkg ec2-metadata
-		#compile_pkg programmers-dvorak
-        compile_pkg mutt-sidebar
+		compile_pkg programmers-dvorak
+		compile_pkg mutt-sidebar
 
 		compile_pkg compton
 		compile_pkg keepassx2
@@ -156,18 +154,18 @@ case $DISTRO in
 		compile_pkg google-talkplugin
 		#compile_pkg google-chrome
 		compile_pkg gnome-defaults-list
-        compile_pkg lua-oocairo
-        compile_pkg awesome-gnome
-        compile_pkg batti
-        compile_pkg ssh-askpass-fullscreen
-        compile_pkg pasystray
-        compile_pkg paman
-        compile_pkg fasd
-        compile_pkg teamocil
+		compile_pkg lua-oocairo
+		compile_pkg awesome-gnome
+		compile_pkg batti
+		compile_pkg ssh-askpass-fullscreen
+		compile_pkg pasystray
+		compile_pkg paman
+		compile_pkg fasd
+		compile_pkg teamocil
 
-        distro_pkg syslog-ng ''
+		distro_pkg syslog-ng ''
 
-        remove_pkg mr
+		remove_pkg mr
 		;;
 	fedora)
 		:
