@@ -1,18 +1,18 @@
 #!/bin/bash
 
 while [[ $# -gt 0 ]]; do
-    case $1 in
-        desktop)
-            ISDESKTOP=0
-            ;;
-        debug)
-            ISDEBUG=0
-            ;;
-        echo)
-            set -x
-            ;;
-    esac
-    shift
+	case $1 in
+		desktop)
+			ISDESKTOP=0
+			;;
+		debug)
+			ISDEBUG=0
+			;;
+		echo)
+			set -x
+			;;
+	esac
+	shift
 done
 
 set -e
@@ -34,7 +34,7 @@ function add_pkg () {
 }
 
 function remove_pkg () {
-    REMOVEPACKAGES=(${REMOVEPACKAGES[@]} $1)
+	REMOVEPACKAGES=(${REMOVEPACKAGES[@]} $1)
 }
 
 function distro_pkg () {
@@ -45,16 +45,16 @@ function distro_pkg () {
 function skip_pkg () {
 	if [[ "${BASEPACKAGES[@]}" =~ "$1" ]]; then
 		BASEPACKAGES=(${BASEPACKAGES[@]/%$1/})
-    fi
+	fi
 	if [[ "${COMPILEBASEPACKAGES[@]}" =~ "$1" ]]; then
 		COMPILEBASEPACKAGES=(${COMPILEBASEPACKAGES[@]/%$1/})
-    fi
+	fi
 	if [[ "${DESKTOPPACKAGES[@]}" =~ "$1" ]]; then
 		DESKTOPPACKAGES=(${DESKTOPPACKAGES[@]/%$1/})
-    fi
+	fi
 	if [[ "${COMPILEDESKTOPPACKAGES[@]}" =~ "$1" ]]; then
 		COMPILEDESKTOPPACKAGES=(${COMPILEDESKTOPPACKAGES[@]/%$1/})
-    fi
+	fi
 }
 
 function compile_pkg () {
@@ -184,40 +184,40 @@ case $DISTRO in
 	osx)
 		add_pkg rename
 		distro_pkg myrepos mr
-        distro_pkg pcre-tools pcre
-        distro_pkg sudo ''
-        distro_pkg etckeeper ''
-        distro_pkg unzip ''
-        distro_pkg unrar ''
-        distro_pkg zip ''
-        distro_pkg syslog-ng ''
-        distro_pkg gdisk ''
-        distro_pkg strace ''
-        distro_pkg ntp ''
+		distro_pkg pcre-tools pcre
+		distro_pkg sudo ''
+		distro_pkg etckeeper ''
+		distro_pkg unzip ''
+		distro_pkg unrar ''
+		distro_pkg zip ''
+		distro_pkg syslog-ng ''
+		distro_pkg gdisk ''
+		distro_pkg strace ''
+		distro_pkg ntp ''
 
-        distro_pkg awesome ''
-        distro_pkg parcellite ''
-        distro_pkg chromium ''
-        distro_pkg google-talkplugin ''
-        distro_pkg owncloud-client ''
-        distro_pkg gnome-packagekit ''
-        distro_pkg gnome ''
-        distro_pkg rdesktop ''
-        distro_pkg libreoffice ''
-        distro_pkg smplayer ''
-        distro_pkg gimp ''
-        distro_pkg xiphos ''
-        distro_pkg transmission-gtk ''
-        distro_pkg rhythmbox ''
-        distro_pkg cups ''
-        distro_pkg networkmanager ''
-        distro_pkg gvfs ''
-        distro_pkg keepassx ''
-        distro_pkg ttf-fonts ''
-        distro_pkg x11-ssh-askpass ''
+		distro_pkg awesome ''
+		distro_pkg parcellite ''
+		distro_pkg chromium ''
+		distro_pkg google-talkplugin ''
+		distro_pkg owncloud-client ''
+		distro_pkg gnome-packagekit ''
+		distro_pkg gnome ''
+		distro_pkg rdesktop ''
+		distro_pkg libreoffice ''
+		distro_pkg smplayer ''
+		distro_pkg gimp ''
+		distro_pkg xiphos ''
+		distro_pkg transmission-gtk ''
+		distro_pkg rhythmbox ''
+		distro_pkg cups ''
+		distro_pkg networkmanager ''
+		distro_pkg gvfs ''
+		distro_pkg keepassx ''
+		distro_pkg ttf-fonts ''
+		distro_pkg x11-ssh-askpass ''
 
-        distro_pkg vim neovim
-        distro_pkg gvim macvim
+		distro_pkg vim neovim
+		distro_pkg gvim macvim
 		;;
 	*)
 		flunk "Unknown system"
@@ -226,9 +226,9 @@ esac
 
 # Make sure we are root on linux
 case $(uname -s) in
-    Linux)
-        test $UID -eq 0 || flunk "Must be root for system bootstrap"
-        ;;
+	Linux)
+		test $UID -eq 0 || flunk "Must be root for system bootstrap"
+		;;
 esac
 
 # Import and run init script for this OS
