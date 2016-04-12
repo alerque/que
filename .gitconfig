@@ -4,12 +4,15 @@
 [user]
 	email = caleb@alerque.com
 	name = Caleb Maclennan
+	signingkey = 75267693!
 [github]
 	user = alerque
 [pld]
 	user = caleb@pld-linux.org
 [push]
 	default = simple
+	gpgsign = if-asked
+	recurseSubmodules = check
 [color]
 	ui = true
 [merge]
@@ -19,12 +22,17 @@
 	rebase = preserve
 [pull]
 	rebase = true
+[apply]
+	;whitespace = fix
 [rebase]
 	autosquash = true
 	autostash = true
 	preserve = true
+	stat = true
 [commit]
 	gpgsign = true
+[format]
+	signoff = true
 [alias]
 	graph = log --all --graph --decorate --oneline
 	aa = add -a
