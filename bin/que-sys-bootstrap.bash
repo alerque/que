@@ -1,5 +1,7 @@
 #!/bin/bash
 
+: ${STRAP_URL:=https://raw.github.com/alerque/que/master/bin}
+
 while [[ $# -gt 0 ]]; do
 	case $1 in
 		desktop)
@@ -237,7 +239,7 @@ INITSCRIPT="que-sys-init-${DISTRO}.bash"
 if [ -f "$DIR/$INITSCRIPT" ]; then
 	source "$DIR/$INITSCRIPT"
 else
-	source <(curl -s -L https://raw.github.com/alerque/que/master/bin/$INITSCRIPT)
+	source <(curl -s -L $STRAP_URL/$INITSCRIPT)
 fi
 
 # Setup my user
@@ -256,7 +258,7 @@ if command -v etckeeper; then
 fi
 
 # For convenience show how to setup my home directory
-echo -e "Perhaps you want home stuff too?\n    passwd caleb\n    su - caleb\n    bash <(curl -s -L https://raw.github.com/alerque/que/master/bin/que-home-bootstrap.bash)"
+echo -e "Perhaps you want home stuff too?\n    passwd caleb\n    su - caleb\n    bash <(curl -s -L $STRAP_URL/que-home-bootstrap.bash)"
 
 if is_opt $ISDESKTOP; then
 	echo "Need to manually install appropriate video driver"
