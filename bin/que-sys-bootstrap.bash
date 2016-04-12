@@ -138,10 +138,11 @@ case $DISTRO in
 		# gvim and vim conflict, so if we are going to get the former don't try to install the latter
 		distro_pkg vim {,python{,2}-}neovim
 
-		for pkg in ${BASEPACKAGES[@]} ${DESKTOPPACKAGES[@]}; do
-		    [[ $pkg == *-git ]] && compile_pkg $pkg && continue
-            pacman -Si $pkg | grep -q ": $pkg$" && compile_pkg $pkg ||:
-		done
+        for pkg in $(pacman -Si ${BASEPACKAGES[@]} ${DESKTOPPACKAGES[@]} 2>&1 |
+            grep -x 'error: package .* was not found' |
+            awk -F\' '{print $2}'); do
+                compile_pkg $pkg
+            done
 
 		remove_pkg mr
 		;;
