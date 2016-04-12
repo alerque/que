@@ -51,20 +51,19 @@ lspci | grep -iq virtualbox && (
 # Arch folks disabled building packages as root in makepkg. As this is required
 # for this script, patch it to work again. See Github issue for details:
 #	https://github.com/archlinuxfr/yaourt/issues/67
-#grep -q asroot /usr/bin/makepkg || (cd / && patch -b -p0) <<"EndOfPatch"
-cat >/dev/null <<"EndOfPatch"
+grep -q asroot /usr/bin/makepkg || (cd / && patch -b -p0) <<"EndOfPatch"
 --- /usr/bin/makepkg~
 +++ /usr/bin/makepkg
-@@ -3372,7 +3372,7 @@ OPT_LONG=('allsource' 'check' 'clean' 'cleanbuild' 'config:' 'force' 'geninteg'
+@@ -1917,7 +1917,7 @@
            'help' 'holdver' 'ignorearch' 'install' 'key:' 'log' 'noarchive' 'nobuild'
-           'nocolor' 'nocheck' 'nodeps' 'noextract' 'noprepare' 'nosign' 'pkg:' 'repackage'
-           'rmdeps' 'sign' 'skipchecksums' 'skipinteg' 'skippgpcheck' 'source' 'syncdeps'
--          'verifysource' 'version')
-+          'verifysource' 'version' 'asroot')
+           'nocolor' 'nocheck' 'nodeps' 'noextract' 'noprepare' 'nosign' 'packagelist'
+           'printsrcinfo' 'repackage' 'rmdeps' 'sign' 'skipchecksums' 'skipinteg'
+-          'skippgpcheck' 'source' 'syncdeps' 'verifysource' 'version')
++          'skippgpcheck' 'source' 'syncdeps' 'verifysource' 'version' 'asroot')
  
  # Pacman Options
  OPT_LONG+=('asdeps' 'noconfirm' 'needed' 'noprogressbar')
-@@ -3580,11 +3580,7 @@ PACKAGER=${_PACKAGER:-$PACKAGER}
+@@ -2113,11 +2113,7 @@
  CARCH=${_CARCH:-$CARCH}
  
  if (( ! INFAKEROOT )); then
@@ -96,8 +95,8 @@ echo 'kernel.sysrq = 1' > /etc/sysctl.d/99-sysctl.conf
 
 if is_opt $ISDESKTOP; then
 	# $DEBUG pacman -S --needed --noconfirm xf86-video-nouveau nouveau-dri
-	systemctl enable gdm
-	systemctl enable cups
+	systemctl enable lightdm
+	systemctl enable org.cups.cupsd
 	systemctl enable NetworkManager
 fi
 
