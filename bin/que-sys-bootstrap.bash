@@ -118,7 +118,7 @@ case $DISTRO in
 		# Distro specific package names
 		distro_pkg cron cronie
 		distro_pkg pcre-tools pcre
-		distro_pkg gnome gnome gnome-{extra,tweak-tool,defaults-list} batti notification-daemon
+		distro_pkg gnome lightdm gnome gnome-{extra,tweak-tool,defaults-list} cbatticon notification-daemon
 		distro_pkg pulseaudio pa{systray,man,vucontrol,prefs,mixer,-applet-git}
 		distro_pkg libreoffice libreoffice-fresh{,-tr} unoconv
 		distro_pkg cups cups cups-filters system-config-printer cups-pk-helper gsfonts gutenprint foomatic-{filters,db{,-engine,-nonfree}} hplip splix cups-pdf
@@ -143,14 +143,13 @@ case $DISTRO in
 		    [[ $pkg == *-git ]] && compile_pkg $pkg
 		done
 
-		compile_pkg etckeeper
+		compile_pkg git-crypt
 		compile_pkg myrepos
 		compile_pkg ec2-api-tools
 		compile_pkg ec2-metadata
 		compile_pkg programmers-dvorak
 		compile_pkg mutt-sidebar
 
-		compile_pkg compton
 		compile_pkg keepassx2
 		compile_pkg xiphos
 		compile_pkg google-talkplugin
@@ -158,7 +157,6 @@ case $DISTRO in
 		compile_pkg gnome-defaults-list
 		compile_pkg lua-oocairo
 		compile_pkg awesome-gnome
-		compile_pkg batti
 		compile_pkg ssh-askpass-fullscreen
 		compile_pkg pasystray
 		compile_pkg paman
