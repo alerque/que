@@ -136,35 +136,12 @@ case $DISTRO in
 		distro_pkg zathura zathura{,-pdf-mupdf,-epub-git}
 
 		# gvim and vim conflict, so if we are going to get the former don't try to install the latter
-		distro_pkg vim neovim
-		distro_pkg neovim neovim python{,2}-neovim
+		distro_pkg vim {,python{,2}-}neovim
 
 		for pkg in ${BASEPACKAGES[@]} ${DESKTOPPACKAGES[@]}; do
-		    [[ $pkg == *-git ]] && compile_pkg $pkg
+		    [[ $pkg == *-git ]] && compile_pkg $pkg && continue
+            pacman -Si $pkg | grep -q ": $pkg$" && compile_pkg $pkg ||:
 		done
-
-		compile_pkg git-crypt
-		compile_pkg myrepos
-		compile_pkg ec2-api-tools
-		compile_pkg ec2-metadata
-		compile_pkg programmers-dvorak
-		compile_pkg mutt-sidebar
-
-		compile_pkg keepassx2
-		compile_pkg xiphos
-		compile_pkg google-talkplugin
-		#compile_pkg google-chrome
-		compile_pkg gnome-defaults-list
-		compile_pkg lua-oocairo
-		compile_pkg awesome-gnome
-		compile_pkg ssh-askpass-fullscreen
-		compile_pkg pasystray
-		compile_pkg paman
-		compile_pkg fasd
-		compile_pkg teamocil
-		compile_pkg zathura-epub-git
-
-		distro_pkg syslog-ng ''
 
 		remove_pkg mr
 		;;
