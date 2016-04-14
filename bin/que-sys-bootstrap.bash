@@ -20,8 +20,8 @@ done
 set -e
 
 # Setup stuff
-BASEPACKAGES=(zsh git ctags pcre-tools tmux sudo mosh etckeeper ruby zip unzip myrepos vcsh wget unrar lsof htop gdisk strace ntp programmers-dvorak rsync cyrus-sasl mutt fzf fasd cron vim git-crypt git-annex gnupg entr)
-DESKTOPPACKAGES=(awesome parcellite chromium google-talkplugin owncloud-client gnome rdesktop libreoffice smplayer gimp scribus inkscape xiphos transmission-gtk cups gnome-packagekit networkmanager gvfs keepassx2 ttf-fonts ssh-askpass-fullscreen termite pulseaudio slock xautolock compton firefox zathura)
+BASEPACKAGES=(base base-devel linux-headers zsh git ctags pcre-tools tmux sudo mosh etckeeper ruby zip unzip myrepos vcsh wget unrar lsof htop gdisk strace ntp programmers-dvorak rsync cyrus-sasl mutt fzf fasd cron vim git-crypt git-annex gnupg entr)
+DESKTOPPACKAGES=(awesome parcellite chromium google-talkplugin owncloud-client gnome rdesktop libreoffice smplayer gimp scribus inkscape xiphos transmission-gtk cups gnome-packagekit networkmanager gvfs keepassx2 ttf-fonts termite pulseaudio slock xautolock compton firefox zathura)
 REMOVEPACKAGES=(python-powerline-git powerline-fonts aura dropbox chromium-libpdf firefox-adblock-plus)
 COMPILEBASEPACKAGES=()
 COMPILEDESKTOPPACKAGES=()
@@ -74,7 +74,7 @@ function remote_source () {
 	if [ -f "$DIR/$1" ]; then
 		source "$DIR/$1"
 	else
-		source <(curl -s -L https://raw.github.com/alerque/que/master/bin/$1)
+		source <(curl -s -L $STRAP_URL/$1)
 	fi
 }
 
@@ -100,6 +100,9 @@ ISEC2=$(uname -r | grep -iq ec2; echo $?)
 if is_opt $ISEC2; then
 	add_pkg ec2-api-tools ec2-metadata
 fi
+if is_opt $ISVBOX; then
+    #add_pkg xf86-video-vesa
+fi
 
 WHEEL=wheel
 
@@ -119,13 +122,14 @@ case $DISTRO in
 		distro_pkg cron cronie
 		distro_pkg pcre-tools pcre
 		distro_pkg gnome lightdm gnome gnome-{extra,tweak-tool,defaults-list} cbatticon notification-daemon
+		distro_pkg lightdm lightdm{,-greeter-gtk{,-settings}}
 		distro_pkg pulseaudio pa{systray,man,vucontrol,prefs,mixer,-applet-git}
 		distro_pkg libreoffice libreoffice-fresh{,-tr} unoconv
 		distro_pkg cups cups cups-filters system-config-printer cups-pk-helper gsfonts gutenprint foomatic-{filters,db{,-engine,-nonfree}} hplip splix cups-pdf
 		distro_pkg networkmanager networkmanager network-manager-applet
 		distro_pkg keepassx keepassx2
 		distro_pkg gvfs gvfs-{mtp,smb,goa}
-		distro_pkg ttf-fonts ttf-{cheapskate,freefont,gentium-{basic,plus},liberation,hack,amiri,montserrat,sbl-{hebrew,greek},sil-{abyssinica,lateef},google-fonts-git} otf-{libertinus,bravura,crimson-text}
+		distro_pkg ttf-fonts ttf-{cheapskate,freefont,gentium-{basic,plus},liberation,hack,amiri,montserrat,sil-{ezra,abyssinica,lateef}} otf-{libertinus,bravura,crimson-text}
 		distro_pkg vcsh vcsh-git
 		distro_pkg awesome awesome awesome-revelation-git vicious
 		distro_pkg urxvt rxvt-unicode{,-terminfo}
@@ -193,7 +197,6 @@ case $DISTRO in
 		distro_pkg gvfs ''
 		distro_pkg keepassx ''
 		distro_pkg ttf-fonts ''
-		distro_pkg x11-ssh-askpass ''
 
 		distro_pkg vim neovim
 		distro_pkg gvim macvim
