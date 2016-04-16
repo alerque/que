@@ -100,9 +100,6 @@ ISEC2=$(uname -r | grep -iq ec2; echo $?)
 if is_opt $ISEC2; then
 	add_pkg ec2-api-tools ec2-metadata
 fi
-if is_opt $ISVBOX; then
-    #add_pkg xf86-video-vesa
-fi
 
 WHEEL=wheel
 
@@ -143,8 +140,10 @@ case $DISTRO in
 		distro_pkg vim {,python{,2}-}neovim
 
         for pkg in $(pacman -Si ${BASEPACKAGES[@]} ${DESKTOPPACKAGES[@]} 2>&1 |
+            sed 's/^.*error: /error: /' |
             grep -x 'error: package .* was not found' |
-            awk -F\' '{print $2}'); do
+            awk -F\' '{print $2}'|
+            grep -vx '\(base\|base-devel\|gnome\|gnome-extra\)'); do
                 compile_pkg $pkg
             done
 

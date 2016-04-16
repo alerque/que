@@ -102,6 +102,9 @@ fi
 
 if is_opt $ISEC2; then
 	remote_source que-sys-config-ec2.bash
-
 	hostnamectl set-hostname $HOSTNAME.alerque.com
+fi
+
+if is_opt $ISVBOX; then
+    systemctl enable vboxservice
 fi
