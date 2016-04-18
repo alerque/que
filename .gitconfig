@@ -78,3 +78,26 @@
 	clean = git-lfs clean %f
 	smudge = git-lfs smudge %f
 	required = true
+[pager]
+	diff = diff-so-fancy | less --tabs=4 -RFX
+	show = diff-so-fancy | less --tabs=4 -RFX
+[color "diff"]
+	meta = yellow
+	commit = yellow
+	frag = magenta
+	old = red
+	new = green
+	whitespace = red reverse
+[color "diff-highlight"]
+	oldNormal = red
+	oldHighlight = "red 52"
+	newNormal = "green"
+	newHighlight = "green 22"
+[color "branch"]
+	current = yellow reverse
+	local = yellow
+	remote = blue
+[color "status"]
+	added = green
+	changed = yellow
+	untracked = cyan
