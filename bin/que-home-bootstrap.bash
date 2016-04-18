@@ -11,7 +11,7 @@ cd $HOME
 
 # If we don't have these tools, we should be running que-sys-bootstrap.bash instead
 which git mr curl gpg-agent > /dev/null ||
-    echo "Necessary tools not available, run que-sys-bootstrap.bash instead"
+    { echo "Necessary tools not available, run que-sys-bootstrap.bash instead" && exit; }
 
 # If everything isn't just right with SSH keys and config for the next step, manually fetch them
 test -d .ssh || mkdir .ssh ; chmod 750 .ssh
@@ -24,6 +24,7 @@ test -d .ssh || mkdir .ssh ; chmod 750 .ssh
 			-o .ssh/known_hosts 'http://git.alerque.com/?p=caleb-private.git;a=blob_plain;f=.ssh/known_hosts;hb=HEAD' \
 			-o .ssh/config 'http://git.alerque.com/?p=caleb-private.git;a=blob_plain;f=.ssh/config;hb=HEAD'
 	)
+    grep -q github.com .ssh/config || { echo "Invalid creds, got garbage files" && exit; }
 	test -f .ssh/authorized_keys || cp .ssh/{id_rsa.pub,authorized_keys}
 )
 
