@@ -39,16 +39,16 @@ which vcsh && grep -q 'hook pre-merge' $(which vcsh) || {
 	export PATH="~/projects/vcsh:$PATH"
 }
 
-# Get hooks we want to use on the initial clone (even though these will
-# get pulled down later as part of the actual clone)
-mkdir -p .config/vcsh/hooks-enabled
-test -f .config/vcsh/hooks-enabled/pre-merge-unclobber ||
-    curl -L -o .config/vcsh/hooks-enabled/pre-merge-unclobber $STRAP_URL/.config/vcsh/hooks-enabled/pre-merge-unclobber
-test -f .config/vcsh/hooks-enabled/post-merge-unclobber ||
-    curl -L -o .config/vcsh/hooks-enabled/post-merge-unclobber $STRAP_URL/.config/vcsh/hooks-enabled/post-merge-unclobber
-chmod +x .config/vcsh/hooks-enabled/{pre,post}-merge-unclobber
+test -d .config/vcsh/repo.d/que.git || vcsh clone git@github.com:alerque/que.git
 
-# If we don't have a config file for me, clone it manually so we have starting point
-test -f .mrconfig || vcsh clone git@github.com:alerque/que.git
+# For the sake of un-updated que repos, get hooks we want to use on mr's initial clones
+if test -d .config/vcsh; then
+    mkdir -p .config/vcsh/hooks-enabled
+    test -f .config/vcsh/hooks-enabled/pre-merge-unclobber ||
+        curl -L -o .config/vcsh/hooks-enabled/pre-merge-unclobber $STRAP_URL/.config/vcsh/hooks-enabled/pre-merge-unclobber
+    test -f .config/vcsh/hooks-enabled/post-merge-unclobber ||
+        curl -L -o .config/vcsh/hooks-enabled/post-merge-unclobber $STRAP_URL/.config/vcsh/hooks-enabled/post-merge-unclobber
+    chmod +x .config/vcsh/hooks-enabled/{pre,post}-merge-unclobber
+fi
 
 mr up
