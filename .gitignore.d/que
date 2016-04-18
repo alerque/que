@@ -1,5 +1,9 @@
 *
 !/bin
+!/bin/git-autofixup
+!/bin/git-related
+!/bin/git-sync
+!/bin/nvim-tmux-scratch
 !/bin/que
 !/bin/que-home-bootstrap.bash
 !/bin/que-sys-bootstrap.bash
@@ -83,6 +87,7 @@
 !/.config/mr/config.d-jaguar/tprk.mr
 !/.config/mr/config.d-jaguar/userscripts.mr
 !/.config/mr/config.d-jaguar/vcsh.git
+!/.config/mr/config.d-jaguar/viachristus.mr
 !/.config/mr/config.d-jaguar/websites.mr
 !/.config/mr/config.d-karabatak
 !/.config/mr/config.d-karabatak/ipk.mr
