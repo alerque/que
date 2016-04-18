@@ -10,7 +10,7 @@ test $UID -eq 0 && exit
 cd $HOME
 
 # If we don't have these tools, we should be running que-sys-bootstrap.bash instead
-which git mr curl ssh-agent > /dev/null ||
+which git mr curl gpg-agent > /dev/null ||
     echo "Necessary tools not available, run que-sys-bootstrap.bash instead"
 
 # If everything isn't just right with SSH keys and config for the next step, manually fetch them
@@ -28,9 +28,7 @@ test -d .ssh || mkdir .ssh ; chmod 750 .ssh
 )
 
 # Now that we have keys, setup an agent so we don't keep getting prompted
-eval $(ssh-agent)
-ssh-add .ssh/id_rsa
-ssh-add .ssh/github
+env | grep -q SSH_AGENT || eval $(gpg-agent --daemon --enable-ssh-support)
 
 # Make sure our vcsh has the hooks necessary for my anti-clobber hack,
 # otherwise checkout and use a local one for this operation
