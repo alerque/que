@@ -1,4 +1,6 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
+: ${STRAP_URL:=https://raw.github.com/alerque/que/master}
 
 # Error out of script if _anything_ goes wrong
 set -e
@@ -7,8 +9,9 @@ set -e
 test $UID -eq 0 && exit
 cd $HOME
 
-# If we don't have these tools, we shoudl be running que-sys-bootstrap.bash instead
-which git mr curl ssh-agent > /dev/null
+# If we don't have these tools, we should be running que-sys-bootstrap.bash instead
+which git mr curl ssh-agent > /dev/null ||
+    echo "Necessary tools not available, run que-sys-bootstrap.bash instead"
 
 # If everything isn't just right with SSH keys and config for the next step, manually fetch them
 test -d .ssh || mkdir .ssh ; chmod 750 .ssh
@@ -32,16 +35,18 @@ ssh-add .ssh/github
 # Make sure our vcsh has the hooks necessary for my anti-clobber hack,
 # otherwise checkout and use a local one for this operation
 which vcsh && grep -q 'hook pre-merge' $(which vcsh) || {
-	mkdir -p ~/projects ;
-	test -f ~/projects/vcsh/vcsh || git clone git@github.com:alerque/vcsh.git ~/projects/vcsh ;
-	export PATH="~/projects/vcsh:$PATH" ;
+	mkdir -p ~/projects
+	test -f ~/projects/vcsh/vcsh || git clone git@github.com:alerque/vcsh.git ~/projects/vcsh
+	export PATH="~/projects/vcsh:$PATH"
 }
 
 # Get hooks we want to use on the initial clone (even though these will
 # get pulled down later as part of the actual clone)
 mkdir -p .config/vcsh/hooks-enabled
-test -f .config/vcsh/hooks-enabled/pre-merge-unclobber || curl -L -o .config/vcsh/hooks-enabled/pre-merge-unclobber https://raw.github.com/alerque/que/master/.config/vcsh/hooks-enabled/pre-merge-unclobber
-test -f .config/vcsh/hooks-enabled/post-merge-unclobber || curl -L -o .config/vcsh/hooks-enabled/post-merge-unclobber https://raw.github.com/alerque/que/master/.config/vcsh/hooks-enabled/post-merge-unclobber
+test -f .config/vcsh/hooks-enabled/pre-merge-unclobber ||
+    curl -L -o .config/vcsh/hooks-enabled/pre-merge-unclobber $STRAP_URL/.config/vcsh/hooks-enabled/pre-merge-unclobber
+test -f .config/vcsh/hooks-enabled/post-merge-unclobber ||
+    curl -L -o .config/vcsh/hooks-enabled/post-merge-unclobber $STRAP_URL/.config/vcsh/hooks-enabled/post-merge-unclobber
 chmod +x .config/vcsh/hooks-enabled/{pre,post}-merge-unclobber
 
 # If we don't have a config file for me, clone it manually so we have starting point
