@@ -34,11 +34,11 @@ checkout = git clone gitlab@gitlab.alerque.com:viachristus/ligonier.git
 [$HOME/projects/viachristus/logo]
 checkout = git clone gitlab@gitlab.alerque.com:viachristus/logo.git
 
-[$HOME/projects/viachristus/mk_kitapciklar]
-checkout = git clone gitlab@gitlab.alerque.com:viachristus/mk_kitapciklar.git
+[$HOME/projects/viachristus/mk_kitapciklari]
+checkout = git clone gitlab@gitlab.alerque.com:viachristus/mk_kitapciklari.git
 
-[$HOME/projects/viachristus/mujdeyi_korumak]
-checkout = git clone gitlab@gitlab.alerque.com:viachristus/mujdeyi_korumak.git
+[$HOME/projects/viachristus/mujdeyi_kurtarmak]
+checkout = git clone gitlab@gitlab.alerque.com:viachristus/mujdeyi_kurtarmak.git
 
 [$HOME/projects/viachristus/sapel_kutuphanesi]
 checkout = git clone gitlab@gitlab.alerque.com:viachristus/sapel_kutuphanesi.git
