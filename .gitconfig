@@ -41,6 +41,7 @@
 	chp = cherry-pick
 	ci = commit -vv
 	co = checkout
+	pf = push --force-with-lease
 	di = diff --minimal
 	ds = diff --minimal --staged
 	wd = diff --word-diff --ignore-all-space
