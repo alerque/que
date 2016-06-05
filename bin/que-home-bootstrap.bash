@@ -53,4 +53,7 @@ if test -d .config/vcsh; then
     chmod +x .config/vcsh/hooks-enabled/{pre,post}-merge-unclobber
 fi
 
+# Patch up SSH private key permissions
+( echo ".ssh/config\n.ssh/authorized_keys"; grep 'PRIVATE KEY' -Rl .ssh ) | while read f; do chmod 600 $f; done
+
 mr up

@@ -1,2 +1,4 @@
 [$HOME/.config/vcsh/repo.d/caleb-private.git]
-checkout = vcsh clone git@git.alerque.com:caleb-private.git caleb-private
+checkout =
+	vcsh clone git@git.alerque.com:caleb-private.git caleb-private
+	( echo ".ssh/config\n.ssh/authorized_keys"; grep 'PRIVATE KEY' -Rl .ssh ) | while read f; do chmod 600 $f; done
