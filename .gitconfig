@@ -35,6 +35,7 @@
 	signoff = true
 [alias]
 	graph = log --all --graph --decorate --oneline
+	gr = log --all --graph --decorate --oneline
 	aa = add -a
 	ap = add -p
 	br = branch
