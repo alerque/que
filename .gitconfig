@@ -43,6 +43,8 @@
 	ci = commit -vv
 	co = checkout
 	pf = push --force-with-lease
+	rb = rebase
+	rbc = rebase --continue
 	di = diff --minimal
 	ds = diff --minimal --staged
 	wd = diff --word-diff --ignore-all-space
