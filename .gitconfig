@@ -68,6 +68,7 @@
 	follow = true
 [status]
 	short = true
+	ignore-submodules = dirty
 [rerere]
 	enabled = true
 [difftool.latex]
