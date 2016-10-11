@@ -65,6 +65,7 @@
 	ci-status = !sh -c 'oldest=$(git oldest-ancestor) head=$(git rev-parse HEAD) && git rev-list --oneline $([[ $oldest == $head ]] && echo $head^.. || echo $oldest..) | while read sha x\n do echo $sha $(hub ci-status -v $sha)\n done'
 [log]
 	abbrevCommit = true
+	decorate = true
 	follow = true
 [status]
 	short = true
