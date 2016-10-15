@@ -1,0 +1,8 @@
+[$HOME/projects/tsv/avadanlik]
+checkout = git clone gitlab@gitlab.alerque.com:tsv/avadanlik.git
+
+[$HOME/projects/tsv/bibledit]
+checkout = git clone gitlab@gitlab.alerque.com:tsv/bibledit.git
+
+[$HOME/projects/tsv/tsv]
+checkout = git clone gitlab@gitlab.alerque.com:tsv/tsv.git
