@@ -1,8 +1,17 @@
 [$HOME/projects/viachristus/avadanlik]
 checkout = git clone gitlab@gitlab.alerque.com:viachristus/avadanlik.git
 
+[$HOME/projects/viachristus/clc_yayincilik]
+checkout = git clone gitlab@gitlab.alerque.com:viachristus/clc_yayincilik.git
+
 [$HOME/projects/viachristus/dg_kitapciklar]
 checkout = git clone gitlab@gitlab.alerque.com:viachristus/dg_kitapciklar.git
+
+[$HOME/projects/viachristus/eerdmans_yayincilik]
+checkout = git clone gitlab@gitlab.alerque.com:viachristus/eerdmans_yayincilik.git
+
+[$HOME/projects/viachristus/ep_kitaplar]
+checkout = git clone gitlab@gitlab.alerque.com:viachristus/ep_kitaplar.git
 
 [$HOME/projects/viachristus/incil.info]
 checkout = git clone gitlab@gitlab.alerque.com:viachristus/incil.info.git
@@ -25,6 +34,9 @@ checkout = git clone gitlab@gitlab.alerque.com:viachristus/incil_lists.git
 [$HOME/projects/viachristus/incil_parallels]
 checkout = git clone gitlab@gitlab.alerque.com:viachristus/incil_parallels.git
 
+[$HOME/projects/viachristus/kamu_mali]
+checkout = git clone gitlab@gitlab.alerque.com:viachristus/kamu_mali.git
+
 [$HOME/projects/viachristus/kkt.incil.info]
 checkout = git clone gitlab@gitlab.alerque.com:viachristus/kkt.incil.info.git
 
@@ -39,6 +51,9 @@ checkout = git clone gitlab@gitlab.alerque.com:viachristus/mk_kitapciklari.git
 
 [$HOME/projects/viachristus/mujdeyi_kurtarmak]
 checkout = git clone gitlab@gitlab.alerque.com:viachristus/mujdeyi_kurtarmak.git
+
+[$HOME/projects/viachristus/pr_yanyincilik]
+checkout = git clone gitlab@gitlab.alerque.com:viachristus/pr_yanyincilik.git
 
 [$HOME/projects/viachristus/sapel_kutuphanesi]
 checkout = git clone gitlab@gitlab.alerque.com:viachristus/sapel_kutuphanesi.git
