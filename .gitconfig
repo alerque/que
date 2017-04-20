@@ -48,11 +48,12 @@
 	rbc = rebase --continue
 	di = diff --minimal
 	ds = diff --minimal --staged
-	wd = diff --word-diff --ignore-all-space
+	wd = diff --word-diff=color --ignore-all-space
 	wds = diff --staged --word-diff --ignore-all-space
 	cd = diff --word-diff=color --word-diff-regex=. --ignore-all-space
 	cds = diff --staged --word-diff=color --word-diff-regex=. --ignore-all-space
-	scd = show --word-diff=color --word-diff-regex=. --ignore-all-space
+	ws = show --minimal --word-diff=color --ignore-all-space
+	cs = show --minimal --word-diff=color --word-diff-regex=. --ignore-all-space
 	difftex = difftool -y -t latex
 	st = status
 	lg = log --oneline --reverse
