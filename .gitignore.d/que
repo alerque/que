@@ -44,6 +44,7 @@
 !/.config/mr/available.d/que-zsh.vcsh
 !/.config/mr/available.d/systems.mr
 !/.config/mr/available.d/tprk.mr
+!/.config/mr/available.d/tsv.mr
 !/.config/mr/available.d/userscripts.mr
 !/.config/mr/available.d/vcsh.git
 !/.config/mr/available.d/viachristus.mr
@@ -84,6 +85,7 @@
 !/.config/mr/config.d-emircik/que-zsh.vcsh
 !/.config/mr/config.d-emircik/systems.mr
 !/.config/mr/config.d-emircik/tprk.mr
+!/.config/mr/config.d-emircik/tsv.mr
 !/.config/mr/config.d-emircik/userscripts.mr
 !/.config/mr/config.d-emircik/vcsh.git
 !/.config/mr/config.d-emircik/viachristus.mr
@@ -115,6 +117,7 @@
 !/.config/mr/config.d-jaguar/que-zathura.vcsh
 !/.config/mr/config.d-jaguar/systems.mr
 !/.config/mr/config.d-jaguar/tprk.mr
+!/.config/mr/config.d-jaguar/tsv.mr
 !/.config/mr/config.d-jaguar/userscripts.mr
 !/.config/mr/config.d-jaguar/vcsh.git
 !/.config/mr/config.d-jaguar/viachristus.mr
