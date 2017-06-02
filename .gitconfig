@@ -1,17 +1,17 @@
 [core]
-	excludesfile = ~/.gitignore
-	quotepath = off
+	excludesFile = ~/.gitignore
+	quotePath = off
 [user]
 	email = caleb@alerque.com
 	name = Caleb Maclennan
-	signingkey = 75267693!
+	signingKey = 75267693!
 [github]
 	user = alerque
 [pld]
 	user = caleb@pld-linux.org
 [push]
 	default = simple
-	gpgsign = if-asked
+	gpgSign = if-asked
 	recurseSubmodules = check
 	followTags = true
 [color]
@@ -19,15 +19,15 @@
 [merge]
 	ff = false
 [branch]
-	autosetuprebase = always
+	autoSetupRebase = always
 	rebase = preserve
 [pull]
 	rebase = true
 [apply]
 	;whitespace = fix
 [rebase]
-	autosquash = true
-	autostash = true
+	autoSquash = true
+	autoStash = true
 	preserve = true
 	stat = true
 [commit]
@@ -84,9 +84,9 @@
 [stash]
 	showPatch = true
 [transfer]
-	fsckobjects = true
+	fsckObjects = true
 [receive]
-	fsckobjects = true
+	fsckObjects = true
 [filter "lfs"]
 	clean = git-lfs clean %f
 	smudge = git-lfs smudge %f
