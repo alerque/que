@@ -71,11 +71,12 @@
 	follow = true
 [status]
 	short = true
-	ignore-submodules = dirty
+	submoduleSummary = true
 [rerere]
 	enabled = true
 [diff]
 	indentHeuristic = true
+	ignoreSubmodules = dirty
 [difftool.latex]
 	cmd = latexdiff "$LOCAL" "$REMOTE"
 [fetch]
