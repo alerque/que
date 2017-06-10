@@ -20,7 +20,7 @@ done
 set -e
 
 # Setup stuff
-BASEPACKAGES=(base base-devel linux-headers zsh git ctags pcre-tools tmux sudo mosh etckeeper ruby zip unzip myrepos vcsh wget unrar lsof htop gdisk strace ntp programmers-dvorak rsync cyrus-sasl mutt fzf fasd cron vim git-crypt git-annex gnupg entr markdown2ctags)
+BASEPACKAGES=(base base-devel linux-headers zsh git ctags pcre-tools tmux sudo mosh etckeeper ruby zip unzip myrepos vcsh wget unrar lsof htop gdisk strace ntp programmers-dvorak rsync cyrus-sasl mutt fzf fasd cron neovim git-crypt git-annex gnupg entr markdown2ctags)
 DESKTOPPACKAGES=(awesome gpaste chromium google-talkplugin owncloud-client gnome rdesktop libreoffice smplayer gimp scribus inkscape xiphos transmission-gtk cups gnome-packagekit networkmanager gvfs keepassx2 ttf-fonts ttf-symbola emojione-color-font termite pulseaudio slock xautolock compton firefox zathura)
 REMOVEPACKAGES=(parcellite python-powerline-git powerline-fonts aura dropbox chromium-libpdf firefox-adblock-plus)
 COMPILEBASEPACKAGES=()
@@ -97,8 +97,13 @@ test -n "$DISTRO" || flunk "unrecognized distro"
 # Detect virtual environments
 ISVBOX=$(command -v lspci && lspci | grep -iq virtualbox; echo $?)
 ISEC2=$(uname -r | grep -iq ec2; echo $?)
+ISDO=$(dmesg | grep -q KVM; echo $?)
 if is_opt $ISEC2; then
 	add_pkg ec2-api-tools ec2-metadata
+fi
+
+if is_opt $ISDO; then
+    compile_pkg digitalocean-synchronize
 fi
 
 WHEEL=wheel
