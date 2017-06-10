@@ -137,7 +137,7 @@ case $DISTRO in
 		distro_pkg zsh zsh zsh-completions
 		distro_pkg firefox firefox{,-firebug,-i18n-tr}
 		distro_pkg mutt mutt-sidebar goobook-git
-		distro_pkg tmux tmux-git teamocil
+		distro_pkg tmux tmux teamocil
 		distro_pkg zathura zathura{,-pdf-mupdf,-epub-git}
 
 		# gvim and vim conflict, so if we are going to get the former don't try to install the latter
