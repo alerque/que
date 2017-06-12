@@ -11,7 +11,7 @@ function fail () {
 set -e
 
 # This is meant to be a user space utility, bail if we are root
-test $UID -neq 0 || fail "Don't be root!"
+test $UID -eq 0 && fail "Don't be root!"
 cd $HOME
 
 # If we don't have these tools, we should be running que-sys-bootstrap.bash instead
