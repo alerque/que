@@ -3,7 +3,6 @@
 !/bin/git-autofixup
 !/bin/git-related
 !/bin/git-sync
-!/bin/nvim-tmux-scratch
 !/bin/que
 !/bin/que-home-bootstrap.bash
 !/bin/que-sys-bootstrap.bash
