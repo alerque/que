@@ -35,6 +35,7 @@
 [format]
 	signoff = true
 [alias]
+	af = autofixup
 	graph = log --all --graph --decorate --oneline
 	gr = log --all --graph --decorate --oneline
 	aa = add -a
@@ -45,6 +46,7 @@
 	co = checkout
 	pf = push --force-with-lease
 	rb = rebase
+	rbi = rebase -i
 	rbc = rebase --continue
 	di = diff --minimal
 	ds = diff --minimal --staged
