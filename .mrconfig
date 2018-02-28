@@ -1,9 +1,13 @@
 [DEFAULT]
 jobs = 5
 include =
-	cat $HOME/.config/mr/config.d/*
+	for conf in $HOME/.config/mr/config.d/*; do
+		test -x $conf && $conf || cat $conf
+	done
 	if [ -d $HOME/.config/mr/config.d-$HOSTNAME ]; then
-		cat $HOME/.config/mr/config.d-$HOSTNAME/*
+		for conf in $HOME/.config/mr/config.d-$HOSTNAME/*; do
+			test -x $conf && $conf || cat $conf
+		done
 	fi
 
 [ALIAS]
