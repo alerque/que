@@ -7,7 +7,24 @@ yaourt -Ss --maintainer caleb |
 		otf-libertinus
 		otf-libertinus-git
 		otf-montserrat
+		rescuetime
 		sile
+		ttf-blackout
+		ttf-chunk
+		ttf-fanwood
+		ttf-goudy-bookletter-1911
+		ttf-junction
+		ttf-knewave
+		ttf-league-gothic
+		ttf-league-mono
+		ttf-league-spartan
+		ttf-linden-hill
+		ttf-orbitron
+		ttf-ostrich-sans
+		ttf-prociono
+		ttf-raleway
+		ttf-sniglet
+		ttf-sorts-mill-goudy
 	" |
 	sed -e '/^[[:space:]]*$/d' |
 	while read pkg; do
