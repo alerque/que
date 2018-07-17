@@ -64,6 +64,7 @@
 !/.config/mr/config.d-emircik
 !/.config/mr/config.d-emircik/aur.mr
 !/.config/mr/config.d-emircik/caleb-private.vcsh
+!/.config/mr/config.d-emircik/ccm.mr
 !/.config/mr/config.d-emircik/homebrew.mr
 !/.config/mr/config.d-emircik/ipk.mr
 !/.config/mr/config.d-emircik/lyricue.mr
@@ -101,6 +102,7 @@
 !/.config/mr/config.d-iguana/tprk.mr
 !/.config/mr/config.d-jaguar
 !/.config/mr/config.d-jaguar/aur.mr
+!/.config/mr/config.d-jaguar/ccm.mr
 !/.config/mr/config.d-jaguar/freecheck.git
 !/.config/mr/config.d-jaguar/grandpa.mr
 !/.config/mr/config.d-jaguar/incil.mr
