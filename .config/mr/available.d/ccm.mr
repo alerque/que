@@ -1,0 +1,12 @@
+#!/usr/bin/env zsh
+
+host=gitlab.alerque.com
+group=ccm
+
+lab project list ${group} |
+	while read project; do
+		cat <<- EOF
+			[$HOME/projects/${project}]
+			checkout = git clone --recursive gitlab@${host}:${project}.git
+		EOF
+	done

@@ -18,6 +18,7 @@
 !/.config/mr/available.d
 !/.config/mr/available.d/aur.mr
 !/.config/mr/available.d/caleb-private.vcsh
+!/.config/mr/available.d/ccm.mr
 !/.config/mr/available.d/freecheck.git
 !/.config/mr/available.d/grandpa.mr
 !/.config/mr/available.d/homebrew.mr
