@@ -117,3 +117,5 @@
 	added = green
 	changed = yellow
 	untracked = cyan
+[include]
+	path = ~/.private/gitlab.config
