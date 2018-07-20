@@ -3,6 +3,7 @@
 yaourt -Ss --maintainer caleb |
 	sed -n -e '/^aur/{s#.*/##;s# .*##;p}' |
 	cat <<< "
+		lab
 		mattermost
 		otf-libertinus
 		otf-libertinus-git
