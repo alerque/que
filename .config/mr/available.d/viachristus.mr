@@ -1,74 +1,15 @@
-[$HOME/projects/viachristus/avadanlik]
-checkout = git clone gitlab@gitlab.alerque.com:viachristus/avadanlik.git
+#!/usr/bin/env zsh
 
-[$HOME/projects/viachristus/clc_yayincilik]
-checkout = git clone gitlab@gitlab.alerque.com:viachristus/clc_yayincilik.git
+host=gitlab.alerque.com
+group=viachristus
 
-[$HOME/projects/viachristus/dg_kitapciklar]
-checkout = git clone gitlab@gitlab.alerque.com:viachristus/dg_kitapciklar.git
-
-[$HOME/projects/viachristus/eerdmans_yayincilik]
-checkout = git clone gitlab@gitlab.alerque.com:viachristus/eerdmans_yayincilik.git
-
-[$HOME/projects/viachristus/ep_kitaplar]
-checkout = git clone gitlab@gitlab.alerque.com:viachristus/ep_kitaplar.git
-
-[$HOME/projects/viachristus/incil.info]
-checkout = git clone gitlab@gitlab.alerque.com:viachristus/incil.info.git
-
-[$HOME/projects/viachristus/incil_cizimler]
-checkout = git clone gitlab@gitlab.alerque.com:viachristus/incil_cizimler.git
-
-[$HOME/projects/viachristus/incil_data]
-checkout = git clone gitlab@gitlab.alerque.com:viachristus/incil_data.git
-
-[$HOME/projects/viachristus/incil_eklentisi]
-checkout = git clone gitlab@gitlab.alerque.com:viachristus/incil_eklentisi.git
-
-[$HOME/projects/viachristus/incil_imports]
-checkout = git clone gitlab@gitlab.alerque.com:viachristus/incil_imports.git
-
-[$HOME/projects/viachristus/incil_lists]
-checkout = git clone gitlab@gitlab.alerque.com:viachristus/incil_lists.git
-
-[$HOME/projects/viachristus/incil_parallels]
-checkout = git clone gitlab@gitlab.alerque.com:viachristus/incil_parallels.git
-
-[$HOME/projects/viachristus/kamu_mali]
-checkout = git clone gitlab@gitlab.alerque.com:viachristus/kamu_mali.git
-
-[$HOME/projects/viachristus/kkt.incil.info]
-checkout = git clone gitlab@gitlab.alerque.com:viachristus/kkt.incil.info.git
-
-[$HOME/projects/viachristus/ligonier]
-checkout = git clone gitlab@gitlab.alerque.com:viachristus/ligonier.git
-
-[$HOME/projects/viachristus/logo]
-checkout = git clone gitlab@gitlab.alerque.com:viachristus/logo.git
-
-[$HOME/projects/viachristus/mk_kitapciklari]
-checkout = git clone gitlab@gitlab.alerque.com:viachristus/mk_kitapciklari.git
-
-[$HOME/projects/viachristus/mujdeyi_kurtarmak]
-checkout = git clone gitlab@gitlab.alerque.com:viachristus/mujdeyi_kurtarmak.git
-
-[$HOME/projects/viachristus/pr_yanyincilik]
-checkout = git clone gitlab@gitlab.alerque.com:viachristus/pr_yanyincilik.git
-
-[$HOME/projects/viachristus/sapel_kutuphanesi]
-checkout = git clone gitlab@gitlab.alerque.com:viachristus/sapel_kutuphanesi.git
-
-[$HOME/projects/viachristus/teolojiye_giris]
-checkout = git clone gitlab@gitlab.alerque.com:viachristus/teolojiye_giris.git
-
-[$HOME/projects/viachristus/kum_huvuzu]
-checkout = git clone gitlab@gitlab.alerque.com:viachristus/kum_huvuzu.git
-
-[projects/viachristus/yayinlar.viachristus.com]
-checkout = git clone 'gitlab@gitlab.alerque.com:viachristus/yayinlar.viachristus.com.git' 'yayinlar.viachristus.com'
-
-[$HOME/projects/viachristus/vahiy]
-checkout = git clone gitlab@gitlab.alerque.com:viachristus/vahiy.git
-
-[projects/viachristus/viachristus.com]
-checkout = git clone 'gitlab@gitlab.alerque.com:viachristus/viachristus.com.git' 'viachristus.com'
+lab project list |
+	grep -e "^${group}/" |
+	cat - <(echo ${group}/avadanlik.wiki) |
+	sort -u |
+	while read project; do
+		cat <<- EOF
+			[$HOME/projects/${project}]
+			checkout = git clone --recursive gitlab@${host}:${project}.git
+		EOF
+	done
