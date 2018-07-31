@@ -1,37 +1,18 @@
 #!/usr/bin/env zsh
 
+mktemp aur-co-maintain.XXXXX | read comaintain
+trap 'rm -f "$comaintain"' EXIT
+
+curl -s 'https://aur.archlinux.org/packages/?SeB=c&K=caleb' |
+	 hxselect 'tr > td:first-child > a' -c -s'\n' > $comaintain
+
 yaourt -Ss --maintainer caleb |
 	sed -n -e '/^aur/{s#.*/##;s# .*##;p}' |
-	cat <<< "
-		lab
-		mattermost
-		otf-libertinus
-		otf-libertinus-git
-		otf-montserrat
-		rescuetime
-		sile
-		ttf-blackout
-		ttf-chunk
-		ttf-fanwood
-		ttf-goudy-bookletter-1911
-		ttf-junction
-		ttf-knewave
-		ttf-league-gothic
-		ttf-league-mono
-		ttf-league-spartan
-		ttf-linden-hill
-		ttf-orbitron
-		ttf-ostrich-sans
-		ttf-prociono
-		ttf-raleway
-		ttf-sniglet
-		ttf-sorts-mill-goudy
-	" |
-	sed -e '/^[[:space:]]*$/d' |
+	cat - $comaintain |
+	sort |
 	while read pkg; do
 		cat <<- EOF
 			[/home/caleb/projects/aur/${pkg}]
 			checkout = git clone ssh://aur@aur.archlinux.org/${pkg}.git
 		EOF
 	done
-
