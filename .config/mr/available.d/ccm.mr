@@ -3,7 +3,14 @@
 host=gitlab.alerque.com
 group=ccm
 
-lab project list ${group} |
+{
+lab project list ccm
+lab project list bts
+lab project list iiim
+} |
+	grep -e "^${group}/" |
+	cat - <(echo ccm/tr_ccm.wiki) |
+	sort -u |
 	while read project; do
 		cat <<- EOF
 			[$HOME/projects/${project}]
