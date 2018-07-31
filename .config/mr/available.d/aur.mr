@@ -11,8 +11,17 @@ yaourt -Ss --maintainer caleb |
 	cat - $comaintain |
 	sort |
 	while read pkg; do
+		aur="ssh://aur@aur.archlinux.org/${pkg}.git"
+		github="git@github.com:alerque/aur-${pkg}.git"
 		cat <<- EOF
+
 			[/home/caleb/projects/aur/${pkg}]
-			checkout = git clone ssh://aur@aur.archlinux.org/${pkg}.git
+			checkout = git clone ${aur}
+			aurremotes =
+			    git remote add origin ${aur} || git remote set-url origin ${aur}
+			    git remote add github ${github} || git remote set-url github ${github}
+			    git remote show | grep -vE '(origin|github)' | xargs -n1 git remote remove
+			    git config branch.master.remote origin
+			    git config branch.master.merge ref/heads/master
 		EOF
 	done
