@@ -76,7 +76,6 @@
 !/.config/mr/config.d-emircik/que-gnome.vcsh
 !/.config/mr/config.d-emircik/que-inkscape.vcsh
 !/.config/mr/config.d-emircik/que-mutt.vcsh
-!/.config/mr/config.d-emircik/que-sublime.vcsh
 !/.config/mr/config.d-emircik/que-tmux.vcsh
 !/.config/mr/config.d-emircik/que-utils.vcsh
 !/.config/mr/config.d-emircik/que.vcsh
@@ -209,6 +208,8 @@
 !/.config/vcsh/hooks-enabled
 !/.config/vcsh/hooks-enabled/post-merge-unclobber
 !/.config/vcsh/hooks-enabled/pre-merge-unclobber
+!/.config/yay
+!/.config/yay/config.json
 !/.gitconfig
 !/.gitignore
 !/.gitignore.d
