@@ -30,5 +30,6 @@ aur_list |
 			    git remote show | grep -vE '(origin|github)' | xargs -n1 git remote remove
 			    git config branch.master.remote origin
 			    git config branch.master.merge ref/heads/master
+			vote = aurvote -v ${pkg}
 		EOF
 	done
