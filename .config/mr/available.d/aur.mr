@@ -1,15 +1,23 @@
 #!/usr/bin/env zsh
 
-mktemp aur-co-maintain.XXXXX | read comaintain
-trap 'rm -f "$comaintain"' EXIT
+aurcache=/tmp/mr-aur-list
 
-curl -s 'https://aur.archlinux.org/packages/?SeB=c&K=caleb' |
-	 hxselect 'tr > td:first-child > a' -c -s'\n' > $comaintain
+function aur_list_cache () (
+	set -e
+	test -s ${aurcache}
+	test $(date +%s -r ${aurcache}) -ge $(date +%s --date "10 min ago")
+	cat ${aurcache}
+)
 
-yaourt -Ss --maintainer caleb |
-	sed -n -e '/^aur/{s#.*/##;s# .*##;p}' |
-	cat - $comaintain |
-	sort |
+function aur_list () {
+	aur_list_cache ||
+		curl -s 'https://aur.archlinux.org/packages/?SeB=M&K=caleb&PP=250' |
+			hxselect 'tr > td:first-child > a' -c -s'\n' |
+			sort |
+			tee ${aurcache}
+}
+
+aur_list |
 	while read pkg; do
 		aur="ssh://aur@aur.archlinux.org/${pkg}.git"
 		github="git@github.com:alerque/aur-${pkg}.git"
