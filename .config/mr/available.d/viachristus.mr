@@ -3,7 +3,20 @@
 host=gitlab.alerque.com
 group=viachristus
 
-lab project list |
+labcache=/tmp/lab-project-list-a
+
+function project_list_cache () (
+	set -e
+	test -s ${labcache}
+	test $(date +%s -r ${labcache}) -ge $(date +%s --date "10 min ago")
+	cat ${labcache}
+)
+
+function project_list () {
+	project_list_cache || lab project list -a | tee ${labcache}
+}
+
+project_list |
 	grep -e "^${group}/" |
 	cat - <(echo ${group}/avadanlik.wiki) |
 	sort -u |
