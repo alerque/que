@@ -20,9 +20,9 @@ done
 set -e
 
 # Setup stuff
-BASEPACKAGES=(base base-devel linux-headers zsh git ctags pcre-tools tmux mosh etckeeper ruby zip unzip myrepos vcsh wget unrar lsof htop gdisk strace ntp programmers-dvorak rsync cyrus-sasl neomutt fzf fasd cron vim git-crypt git-annex gnupg entr markdown2ctags html-xml-utils lab-git)
-DESKTOPPACKAGES=(awesome gpaste chromium google-talkplugin owncloud-client gnome rdesktop libreoffice smplayer gimp scribus inkscape xiphos transmission-gtk cups gnome-packagekit networkmanager gvfs keepass ttf-fonts ttf-symbola emojione-color-font termite pulseaudio slock xautolock compton firefox zathura)
-REMOVEPACKAGES=(parcellite python-powerline-git powerline-fonts aura dropbox chromium-libpdf firefox-adblock-plus yaourt gvim customizepkg)
+BASEPACKAGES=(base base-devel cron ctags cyrus-sasl entr etckeeper fasd fzf gdisk git git-annex git-crypt gnupg html-xml-utils htop lab linux-headers lsof markdown2ctags mosh neomutt neovim ntp pcregrep programmers-dvorak rsync ruby strace termite-terminfo tmux unrar unzip vcsh wget zip zsh)
+DESKTOPPACKAGES=(awesome chromium compton cups emojione-color-font firefox gimp gnome gnome-packagekit google-talkplugin gpaste gvfs inkscape keepassxc libreoffice neovim-gtk networkmanager nextcloud-client pulseaudio rdesktop scribus slock smplayer termite transmission ttf-fonts ttf-symbola xautolock xiphos zathura)
+REMOVEPACKAGES=(aura chromium-libpdf customizepkg dropbox firefox-adblock-plus gnome-packagekit gvim keepass keepassx owncloud-client parcellite powerline-fonts python-powerline-git yaourt)
 
 function flunk() {
 	echo "Fatal Error: $*"
@@ -106,81 +106,71 @@ case $DISTRO in
 		pacman -Q awesome 2>&- >&- && ISDESKTOP=0
 
 		add_pkg pkgstats aurvote
-		add_pkg termite-terminfo
 
 		# Distro specific package names
-		distro_pkg cron cronie
-		distro_pkg pcre-tools pcre
-		distro_pkg gnome lightdm gnome gnome-{extra,tweak-tool,defaults-list} cbatticon notification-daemon
-		distro_pkg lightdm lightdm{,-greeter-gtk{,-settings}}
-		distro_pkg pulseaudio pa{systray,man,vucontrol,prefs,mixer,-applet-git}
-		distro_pkg libreoffice libreoffice-fresh{,-tr} unoconv
-		distro_pkg cups cups cups-filters system-config-printer cups-pk-helper gsfonts gutenprint foomatic-{filters,db{,-engine,-nonfree}} hplip splix cups-pdf
-		distro_pkg networkmanager networkmanager network-manager-applet
-		distro_pkg keepass keepassxc
-		distro_pkg gvfs gvfs-{mtp,smb,goa}
-		distro_pkg ttf-fonts ttf-{cheapskate,freefont,gentium-{basic,plus},liberation,hack,amiri,montserrat,sil-{ezra,abyssinica,lateef}} otf-{libertinus,bravura,crimson-text}
-		distro_pkg vcsh vcsh-git
 		distro_pkg awesome awesome awesome-revelation-git vicious
-		distro_pkg urxvt rxvt-unicode{,-terminfo}
-		distro_pkg zsh zsh zsh-completions
+		distro_pkg cron cronie
+		distro_pkg cups cups cups-filters system-config-printer cups-pk-helper gsfonts gutenprint foomatic-{filters,db{,-engine,-nonfree}} hplip splix cups-pdf
 		distro_pkg firefox firefox{,-firebug,-i18n-tr}
-		distro_pkg mutt mutt-sidebar goobook-git
+		distro_pkg gnome gnome gnome-{extra,tweak-tool,defaults-list} lightdm cbatticon notification-daemon
+		distro_pkg gvfs gvfs-{mtp,smb,goa}
+		distro_pkg libreoffice libreoffice-fresh{,-tr} unoconv
+		distro_pkg lightdm lightdm{,-greeter-gtk{,-settings}}
+		distro_pkg neomutt neomutt goobook-git
+		distro_pkg neovim {,python{,2}-}neovim
+		distro_pkg networkmanager networkmanager network-manager-applet
+		distro_pkg pcregrep pcre
+		distro_pkg pulseaudio pa{systray,man,vucontrol,prefs,mixer,-applet-git}
 		distro_pkg tmux tmux teamocil
+		distro_pkg transmission transmission-sequential-gtk
+		distro_pkg ttf-fonts ttf-{cheapskate,freefont,gentium-{basic,plus},liberation,hack,amiri,montserrat,sil-{ezra,abyssinica,lateef}} otf-{libertinus,bravura,crimson-text}
 		distro_pkg zathura zathura{,-pdf-mupdf,-epub-git}
-
-		distro_pkg vim {,python{,2}-}neovim
+		distro_pkg zsh zsh zsh-completions
+        distro_pkg
         ;;
 	fedora)
 		:
 	;;
 	pld)
-		distro_pkg zsh zsh-completions
 		distro_pkg git git-core
-		distro_pkg pcre-tools pcregrep
-		distro_pkg ruby ruby-modules
 		distro_pkg gnome metapackages-gnome
+		distro_pkg ruby ruby-modules
+		distro_pkg zsh zsh-completions
 		;;
 	ubuntu)
 		WHEEL=adm
-		distro_pkg pcre-tools pcregrep
 		;;
 	osx)
 		add_pkg rename
-		distro_pkg myrepos mr
-		distro_pkg pcre-tools pcre
-		distro_pkg sudo ''
-		distro_pkg etckeeper ''
-		distro_pkg unzip ''
-		distro_pkg unrar ''
-		distro_pkg zip ''
-		distro_pkg syslog-ng ''
-		distro_pkg gdisk ''
-		distro_pkg strace ''
-		distro_pkg ntp ''
-
 		distro_pkg awesome ''
-		distro_pkg gpaste ''
 		distro_pkg chromium ''
-		distro_pkg google-talkplugin ''
-		distro_pkg owncloud-client ''
-		distro_pkg gnome-packagekit ''
-		distro_pkg gnome ''
-		distro_pkg rdesktop ''
-		distro_pkg libreoffice ''
-		distro_pkg smplayer ''
-		distro_pkg gimp ''
-		distro_pkg xiphos ''
-		distro_pkg transmission-gtk ''
-		distro_pkg rhythmbox ''
 		distro_pkg cups ''
-		distro_pkg networkmanager ''
+		distro_pkg etckeeper ''
+		distro_pkg gdisk ''
+		distro_pkg gimp ''
+		distro_pkg gnome ''
+		distro_pkg gnome-packagekit ''
+		distro_pkg google-talkplugin ''
+		distro_pkg gpaste ''
 		distro_pkg gvfs ''
 		distro_pkg keepassx ''
+		distro_pkg libreoffice ''
+		distro_pkg myrepos mr
+		distro_pkg networkmanager ''
+		distro_pkg ntp ''
+		distro_pkg owncloud-client ''
+		distro_pkg rdesktop ''
+		distro_pkg rhythmbox ''
+		distro_pkg smplayer ''
+		distro_pkg strace ''
+		distro_pkg sudo ''
+		distro_pkg syslog-ng ''
+		distro_pkg transmission-gtk ''
 		distro_pkg ttf-fonts ''
-
-		distro_pkg vim neovim
-		distro_pkg gvim macvim
+		distro_pkg unrar ''
+		distro_pkg unzip ''
+		distro_pkg xiphos ''
+		distro_pkg zip ''
 		;;
 	*)
 		flunk "Unknown system"
