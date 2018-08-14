@@ -20,9 +20,9 @@ done
 set -e
 
 # Setup stuff
-BASEPACKAGES=(base base-devel linux-headers zsh git ctags pcre-tools tmux mosh etckeeper ruby zip unzip myrepos vcsh wget unrar lsof htop gdisk strace ntp programmers-dvorak rsync cyrus-sasl neomutt fzf fasd cron neovim git-crypt git-annex gnupg entr markdown2ctags html-xml-utils lab-git)
+BASEPACKAGES=(base base-devel linux-headers zsh git ctags pcre-tools tmux mosh etckeeper ruby zip unzip myrepos vcsh wget unrar lsof htop gdisk strace ntp programmers-dvorak rsync cyrus-sasl neomutt fzf fasd cron vim git-crypt git-annex gnupg entr markdown2ctags html-xml-utils lab-git)
 DESKTOPPACKAGES=(awesome gpaste chromium google-talkplugin owncloud-client gnome rdesktop libreoffice smplayer gimp scribus inkscape xiphos transmission-gtk cups gnome-packagekit networkmanager gvfs keepass ttf-fonts ttf-symbola emojione-color-font termite pulseaudio slock xautolock compton firefox zathura)
-REMOVEPACKAGES=(parcellite python-powerline-git powerline-fonts aura dropbox chromium-libpdf firefox-adblock-plus)
+REMOVEPACKAGES=(parcellite python-powerline-git powerline-fonts aura dropbox chromium-libpdf firefox-adblock-plus gvim)
 COMPILEBASEPACKAGES=()
 COMPILEDESKTOPPACKAGES=()
 
@@ -140,7 +140,6 @@ case $DISTRO in
 		distro_pkg tmux tmux teamocil
 		distro_pkg zathura zathura{,-pdf-mupdf,-epub-git}
 
-		# gvim and vim conflict, so if we are going to get the former don't try to install the latter
 		distro_pkg vim {,python{,2}-}neovim
 
         for pkg in $(pacman -Si ${BASEPACKAGES[@]} ${DESKTOPPACKAGES[@]} 2>&1 |
