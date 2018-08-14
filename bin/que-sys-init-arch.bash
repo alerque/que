@@ -47,10 +47,10 @@ lspci | grep -iq virtualbox && (
 # Arch folks disabled building packages as root in makepkg. As this is required
 # for this script, patch it to work again. See Github issue for details:
 #	https://github.com/archlinuxfr/yaourt/issues/67
-grep -q asroot /usr/bin/makepkg || (cd / && patch -b -p0) <<"EndOfPatch"
+grep -q asroot /usr/bin/makepkg || (cd / && $DEBUG patch -b -p0) <<"EndOfPatch"
 --- /usr/bin/makepkg~
 +++ /usr/bin/makepkg
-@@ -1917,7 +1917,7 @@
+@@ -1239,7 +1239,7 @@ OPT_LONG=('allsource' 'check' 'clean' 'cleanbuild' 'config:' 'force' 'geninteg'
            'help' 'holdver' 'ignorearch' 'install' 'key:' 'log' 'noarchive' 'nobuild'
            'nocolor' 'nocheck' 'nodeps' 'noextract' 'noprepare' 'nosign' 'packagelist'
            'printsrcinfo' 'repackage' 'rmdeps' 'sign' 'skipchecksums' 'skipinteg'
@@ -59,19 +59,19 @@ grep -q asroot /usr/bin/makepkg || (cd / && patch -b -p0) <<"EndOfPatch"
  
  # Pacman Options
  OPT_LONG+=('asdeps' 'noconfirm' 'needed' 'noprogressbar')
-@@ -2113,11 +2113,7 @@
- CARCH=${_CARCH:-$CARCH}
+@@ -1410,11 +1410,7 @@ if (( LOGGING )) && ! ensure_writable_dir "LOGDEST" "$LOGDEST"; then
+ fi
  
  if (( ! INFAKEROOT )); then
 -	if (( EUID == 0 )); then
 -		error "$(gettext "Running %s as root is not allowed as it can cause permanent,\n\
 -catastrophic damage to your system.")" "makepkg"
--		exit 1 # $E_USER_ABORT
+-		exit $E_ROOT
 -	fi
 +	:
  else
  	if [[ -z $FAKEROOTKEY ]]; then
- 		error "$(gettext "Do not use the %s option. This option is only for use by %s.")" "'-F'" "makepkg"
+ 		error "$(gettext "Do not use the %s option. This option is only for internal use by %s.")" "'-F'" "makepkg"
 EndOfPatch
 
 # Compile and install things not coming out of the distro main tree
