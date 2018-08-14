@@ -27,8 +27,8 @@ $DEBUG pacman -Rns --noconfirm ${REMOVEPACKAGES[@]} $(pacman -Qtdq) ||:
 # Get AUR going
 $DEBUG pacman -S --needed --noconfirm base-devel
 
-grep -q archlinuxfr /etc/pacman.conf || (
-	sed -i 's#^\[extra\]$#[archlinuxfr]\nSigLevel = Never\nServer = http://repo.archlinux.fr/$arch\n\n[extra]#g' /etc/pacman.conf
+grep archlinuxfr /etc/pacman.conf && (
+    $DEBUG sed -i -e '/\[archlinuxfr\]/,/^$/{d;//b' -e '/./d;}' /etc/pacman.conf
 )
 which yaourt || $DEBUG pacman -Sy --needed --noconfirm yaourt aurvote customizepkg
 
