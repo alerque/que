@@ -24,10 +24,6 @@ $DEBUG pacman -Syu --needed --noconfirm
 # Remove anything that needs cleaning up first
 $DEBUG pacman -Rns --noconfirm ${REMOVEPACKAGES[@]} $(pacman -Qtdq) ||:
 
-# Arch won't install gvim if vim is around, so to make the transition between
-# package sets easier:
-is_opt $ISDESKTOP && $DEBUG pacman -R --noconfirm vim ||:
-
 # Get AUR going
 $DEBUG pacman -S --needed --noconfirm base-devel
 
