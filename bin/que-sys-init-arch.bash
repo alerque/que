@@ -25,16 +25,18 @@ $DEBUG pacman -Syu --needed --noconfirm
 $DEBUG pacman -Rns --noconfirm ${REMOVEPACKAGES[@]} $(pacman -Qtdq) ||:
 
 # Get AUR going
-$DEBUG pacman -S --needed --noconfirm base-devel
+$DEBUG pacman -S --needed --noconfirm base-devel pacman-contrib
 
 # Kill off archlinuxfr formerly used to install yaourt
 grep archlinuxfr /etc/pacman.conf && (
     $DEBUG sed -i -e '/\[archlinuxfr\]/,/^$/{d;//b' -e '/./d;}' /etc/pacman.conf
 )
 
-# Make sure the basics every system is going to need are installed and updated
-$DEBUG pacman -S --needed --noconfirm ${BASEPACKAGES[@]}
-is_opt $ISDESKTOP && $DEBUG pacman -S --needed --noconfirm ${DESKTOPPACKAGES[@]} ||:
+# Install everything that comes from the official repositories
+cut -d' ' -f1 \
+    <(paclist core) <(paclist extra) <(paclist community) <(pacman -Sg) |
+    grep -xho -E "($(IFS='|' eval 'echo "${BASEPACKAGES[*]}"'))" |
+    $DEBUG xargs pacman -S --needed --noconfirm
 
 # Detect VirtualBox guest and configure accordingly
 lspci | grep -iq virtualbox && (
@@ -86,9 +88,6 @@ which yay || (
 # Compile and install things not coming out of the distro main tree
 for PKG in ${COMPILEBASEPACKAGES[@]} ; do
     $DEBUG yay --noconfirm -S --needed $PKG ||:
-done
-for PKG in ${COMPILEDESKTOPPACKAGES[@]} ; do
-    is_opt $ISDESKTOP && $DEBUG yay --noconfirm -S --needed $PKG ||:
 done
 
 # TODO: Need to set root login and password auth options

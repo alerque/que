@@ -23,8 +23,6 @@ set -e
 BASEPACKAGES=(base base-devel linux-headers zsh git ctags pcre-tools tmux mosh etckeeper ruby zip unzip myrepos vcsh wget unrar lsof htop gdisk strace ntp programmers-dvorak rsync cyrus-sasl neomutt fzf fasd cron vim git-crypt git-annex gnupg entr markdown2ctags html-xml-utils lab-git)
 DESKTOPPACKAGES=(awesome gpaste chromium google-talkplugin owncloud-client gnome rdesktop libreoffice smplayer gimp scribus inkscape xiphos transmission-gtk cups gnome-packagekit networkmanager gvfs keepass ttf-fonts ttf-symbola emojione-color-font termite pulseaudio slock xautolock compton firefox zathura)
 REMOVEPACKAGES=(parcellite python-powerline-git powerline-fonts aura dropbox chromium-libpdf firefox-adblock-plus yaourt gvim customizepkg)
-COMPILEBASEPACKAGES=()
-COMPILEDESKTOPPACKAGES=()
 
 function flunk() {
 	echo "Fatal Error: $*"
@@ -48,25 +46,17 @@ function skip_pkg () {
 	if [[ "${BASEPACKAGES[@]}" =~ "$1" ]]; then
 		BASEPACKAGES=(${BASEPACKAGES[@]/%$1/})
 	fi
-	if [[ "${COMPILEBASEPACKAGES[@]}" =~ "$1" ]]; then
-		COMPILEBASEPACKAGES=(${COMPILEBASEPACKAGES[@]/%$1/})
-	fi
 	if [[ "${DESKTOPPACKAGES[@]}" =~ "$1" ]]; then
 		DESKTOPPACKAGES=(${DESKTOPPACKAGES[@]/%$1/})
-	fi
-	if [[ "${COMPILEDESKTOPPACKAGES[@]}" =~ "$1" ]]; then
-		COMPILEDESKTOPPACKAGES=(${COMPILEDESKTOPPACKAGES[@]/%$1/})
 	fi
 }
 
 function compile_pkg () {
 	if [[ "${BASEPACKAGES[@]}" =~ "$1" ]]; then
 		BASEPACKAGES=(${BASEPACKAGES[@]/%$1/})
-		COMPILEBASEPACKAGES=(${COMPILEBASEPACKAGES[@]} $1)
 	fi
 	if [[ "${DESKTOPPACKAGES[@]}" =~ "$1" ]]; then
 		DESKTOPPACKAGES=(${DESKTOPPACKAGES[@]/%$1/})
-		COMPILEDESKTOPPACKAGES=(${COMPILEDESKTOPPACKAGES[@]} $1)
 	fi
 }
 
@@ -102,7 +92,7 @@ if is_opt $ISEC2; then
 	add_pkg ec2-api-tools ec2-metadata
 fi
 if is_opt $ISDO; then
-    compile_pkg digitalocean-synchronize
+    add_pkg digitalocean-synchronize
 fi
 
 WHEEL=wheel
@@ -140,17 +130,7 @@ case $DISTRO in
 		distro_pkg zathura zathura{,-pdf-mupdf,-epub-git}
 
 		distro_pkg vim {,python{,2}-}neovim
-
-        for pkg in $(pacman -Si ${BASEPACKAGES[@]} ${DESKTOPPACKAGES[@]} 2>&1 |
-            sed 's/^.*error: /error: /' |
-            grep -x 'error: package .* was not found' |
-            awk -F\' '{print $2}'|
-            grep -vx '\(base\|base-devel\|gnome\|gnome-extra\)'); do
-                compile_pkg $pkg
-            done
-
-		remove_pkg mr
-		;;
+        ;;
 	fedora)
 		:
 	;;
@@ -213,6 +193,11 @@ case $(uname -s) in
 		test $UID -eq 0 || flunk "Must be root for system bootstrap"
 		;;
 esac
+
+# Merge desktop package list into base set if this is a desktop
+if is_opt $ISDESKTOP; then
+    BASEPACKAGES=(${BASEPACKAGES[@]} ${DESKTOPPACKAGES[@]})
+fi
 
 # Import and run init script for this OS
 INITSCRIPT="que-sys-init-${DISTRO}.bash"
