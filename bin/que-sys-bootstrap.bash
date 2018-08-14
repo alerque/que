@@ -22,7 +22,7 @@ set -e
 # Setup stuff
 BASEPACKAGES=(base base-devel linux-headers zsh git ctags pcre-tools tmux mosh etckeeper ruby zip unzip myrepos vcsh wget unrar lsof htop gdisk strace ntp programmers-dvorak rsync cyrus-sasl neomutt fzf fasd cron vim git-crypt git-annex gnupg entr markdown2ctags html-xml-utils lab-git)
 DESKTOPPACKAGES=(awesome gpaste chromium google-talkplugin owncloud-client gnome rdesktop libreoffice smplayer gimp scribus inkscape xiphos transmission-gtk cups gnome-packagekit networkmanager gvfs keepass ttf-fonts ttf-symbola emojione-color-font termite pulseaudio slock xautolock compton firefox zathura)
-REMOVEPACKAGES=(parcellite python-powerline-git powerline-fonts aura dropbox chromium-libpdf firefox-adblock-plus gvim customizepkg)
+REMOVEPACKAGES=(parcellite python-powerline-git powerline-fonts aura dropbox chromium-libpdf firefox-adblock-plus yaourt gvim customizepkg)
 COMPILEBASEPACKAGES=()
 COMPILEDESKTOPPACKAGES=()
 

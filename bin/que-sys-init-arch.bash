@@ -27,21 +27,21 @@ $DEBUG pacman -Rns --noconfirm ${REMOVEPACKAGES[@]} $(pacman -Qtdq) ||:
 # Get AUR going
 $DEBUG pacman -S --needed --noconfirm base-devel
 
+# Kill off archlinuxfr formerly used to install yaourt
 grep archlinuxfr /etc/pacman.conf && (
     $DEBUG sed -i -e '/\[archlinuxfr\]/,/^$/{d;//b' -e '/./d;}' /etc/pacman.conf
 )
-which yaourt || $DEBUG pacman -Sy --needed --noconfirm yaourt aurvote customizepkg
 
 # Make sure the basics every system is going to need are installed and updated
-$DEBUG yaourt -S --needed --noconfirm ${BASEPACKAGES[@]}
-is_opt $ISDESKTOP && $DEBUG yaourt -S --needed --noconfirm ${DESKTOPPACKAGES[@]} ||:
+$DEBUG pacman -S --needed --noconfirm ${BASEPACKAGES[@]}
+is_opt $ISDESKTOP && $DEBUG pacman -S --needed --noconfirm ${DESKTOPPACKAGES[@]} ||:
 
 # Detect VirtualBox guest and configure accordingly
 lspci | grep -iq virtualbox && (
-	$DEBUG yaourt -S --needed --noconfirm virtualbox-guest-utils
+	$DEBUG pacman -S --needed --noconfirm virtualbox-guest-utils
 	echo -e "vboxguest\nvboxsf\nvboxvideo" > /etc/modules-load.d/virtualbox.conf
 	systemctl enable vboxservice.service
-	# $DEBUG yaourt -S --needed --noconfirm xf86-video-vbox
+	# $DEBUG pacman -S --needed --noconfirm xf86-video-vbox
 ) ||:
 
 # Arch folks disabled building packages as root in makepkg. As this is required
@@ -74,12 +74,21 @@ grep -q asroot /usr/bin/makepkg || (cd / && $DEBUG patch -b -p0) <<"EndOfPatch"
  		error "$(gettext "Do not use the %s option. This option is only for internal use by %s.")" "'-F'" "makepkg"
 EndOfPatch
 
+# Install yay
+which yay || (
+    $DEBUG cd /root
+    which git || $DEBUG pacman -S git
+    $DEBUG git clone https://aur.archlinux.org/yay.git
+    $DEBUG cd yay
+    $DEBUG makepkg -si
+)
+
 # Compile and install things not coming out of the distro main tree
 for PKG in ${COMPILEBASEPACKAGES[@]} ; do
-    $DEBUG yaourt --noconfirm -S --needed $PKG ||:
+    $DEBUG yay --noconfirm -S --needed $PKG ||:
 done
 for PKG in ${COMPILEDESKTOPPACKAGES[@]} ; do
-    is_opt $ISDESKTOP && $DEBUG yaourt --noconfirm -S --needed $PKG ||:
+    is_opt $ISDESKTOP && $DEBUG yay --noconfirm -S --needed $PKG ||:
 done
 
 # TODO: Need to set root login and password auth options
