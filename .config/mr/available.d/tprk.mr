@@ -1,59 +1,31 @@
-[$HOME/projects/latex_kumhavuzu]
-checkout =
-	git clone gitlab@gitlab.alerque.com:ipk/latex_kumhavuzu.git
+#!/usr/bin/env zsh
 
-[$HOME/projects/tprk/aletler]
-checkout =
-	git clone --recursive gitlab@gitlab.alerque.com:tprk/aletler.git
-update =
-	git pull
-	git submodule update --init --remote
-	git submodule foreach -q --recursive 'branch="$(git config -f $toplevel/.gitmodules submodule.$name.branch)"; git checkout $branch'
+host=gitlab.alerque.com
+group=tprk
 
-[$HOME/projects/tprk/derlemeler]
-checkout =
-	git clone --recursive gitlab@gitlab.alerque.com:tprk/derlemeler.git
-update =
-	git pull
-	git submodule update --init --remote
-	git submodule foreach -q --recursive 'branch="$(git config -f $toplevel/.gitmodules submodule.$name.branch)"; git checkout $branch'
+labcache=/tmp/lab-project-list-a
 
-[$HOME/projects/tprk/iktibaslar]
-checkout =
-	git clone --recursive gitlab@gitlab.alerque.com:tprk/iktibaslar.git
-update =
-	git pull
-	git submodule update --init --remote
-	git submodule foreach -q --recursive 'branch="$(git config -f $toplevel/.gitmodules submodule.$name.branch)"; git checkout $branch'
+function project_list_cache () (
+	test -s ${labcache} || exit 1
+	test $(date +%s -r ${labcache}) -ge $(date +%s --date "10 min ago") || exit 1
+	cat ${labcache}
+)
 
-[$HOME/projects/tprk/ilahiler]
-checkout =
-	git clone --recursive gitlab@gitlab.alerque.com:tprk/ilahiler.git
-update =
-	git pull
-	git submodule update --init --remote
-	git submodule foreach -q --recursive 'branch="$(git config -f $toplevel/.gitmodules submodule.$name.branch)"; git checkout $branch'
+function project_list () {
+	project_list_cache || lab project list -a | tee ${labcache}
+}
 
-[$HOME/projects/tprk/liturjiler_antalya]
-checkout =
-	git clone --recursive gitlab@gitlab.alerque.com:tprk/liturjiler_antalya.git
-update =
-	git pull
-	git submodule update --init --remote
-	git submodule foreach -q --recursive 'branch="$(git config -f $toplevel/.gitmodules submodule.$name.branch)"; git checkout $branch'
-
-[$HOME/projects/tprk/liturjiler_izmir]
-checkout =
-	git clone --recursive gitlab@gitlab.alerque.com:tprk/liturjiler_izmir.git
-update =
-	git pull
-	git submodule update --init --remote
-	git submodule foreach -q --recursive 'branch="$(git config -f $toplevel/.gitmodules submodule.$name.branch)"; git checkout $branch'
-
-[$HOME/projects/tprk/liturjiler_balcova]
-checkout =
-	git clone --recursive gitlab@gitlab.alerque.com:tprk/liturjiler_balcova.git
-update =
-	git pull
-	git submodule update --init --remote
-	git submodule foreach -q --recursive 'branch="$(git config -f $toplevel/.gitmodules submodule.$name.branch)"; git checkout $branch'
+project_list |
+	grep -e "^${group}/" |
+	sort -u |
+	while read project; do
+		cat <<- EOF
+			[$HOME/projects/${project}]
+			checkout =
+			    git clone --recursive gitlab@${host}:${project}.git
+			update =
+			    git pull
+			    git submodule update --init --remote
+			    git submodule foreach -q --recursive 'branch="$(git config -f $toplevel/.gitmodules submodule.$name.branch)"; git checkout $branch'
+		EOF
+	done
