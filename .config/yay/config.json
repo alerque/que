@@ -11,7 +11,7 @@
 	"rebuild": "no",
 	"answerclean": "n",
 	"answerdiff": "n",
-	"answeredit": "",
+	"answeredit": "n",
 	"answerupgrade": "",
 	"gitbin": "git",
 	"gpgbin": "gpg",
