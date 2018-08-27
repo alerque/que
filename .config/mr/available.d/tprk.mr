@@ -12,7 +12,10 @@ function project_list_cache () (
 )
 
 function project_list () {
-	project_list_cache || lab project list -a | tee ${labcache}
+	project_list_cache ||
+		lab project list -a |
+		sort |
+		tee ${labcache}
 }
 
 project_list |
