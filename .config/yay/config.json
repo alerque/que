@@ -20,7 +20,7 @@
 	"sortby": "name",
 	"gitflags": "",
 	"removemake": "ask",
-	"requestsplitn": 500,
+	"requestsplitn": 150,
 	"sortmode": 1,
 	"completionrefreshtime": 7,
 	"sudoloop": true,
