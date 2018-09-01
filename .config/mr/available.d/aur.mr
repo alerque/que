@@ -31,6 +31,9 @@ aur_list |
 			    git config branch.master.remote origin
 			    git config branch.master.merge ref/heads/master
 			vote = aurvote -v ${pkg}
+			togithub =
+			    hub create aur-${pkg}
+			    git push github master
 			fixsrcinfo =
 			    git diff-index --quiet --cached HEAD
 			    makepkg --printsrcinfo > .SRCINFO
