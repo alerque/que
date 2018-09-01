@@ -33,6 +33,9 @@ aur_list |
 			auroutofdate =
 			    aur-out-of-date -pkg ${pkg}
 			vote = aurvote -v ${pkg}
+			sums =
+			    git diff-files --quiet -- PKGBUILD
+			    updpkgsums
 			togithub =
 			    hub create aur-${pkg}
 			    git push github master
