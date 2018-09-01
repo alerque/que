@@ -35,13 +35,13 @@ aur_list |
 			    git diff-index --quiet --cached HEAD
 			    makepkg --printsrcinfo > .SRCINFO
 			    git add .SRCINFO
-			    git ci -m 'Regenerate obsolete meta data using \`makepkg --printsrcinfo\`'
+			    git ci -m 'Regenerate obsolete meta data using \`makepkg --printsrcinfo\`' ||:
 			fixignores =
 			    git diff-index --quiet --cached HEAD
 			    echo '*' > .gitignore
 			    git add .gitignore
 			    git ls-files | sed -e 's#^#!./#' >> .gitignore
 			    git add .gitignore
-			    git ci -m 'Update .gitignore file for easy bulk repository management'
+			    git ci -m 'Update .gitignore file for easy bulk repository management' ||:
 		EOF
 	done
