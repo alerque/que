@@ -31,6 +31,11 @@ aur_list |
 			    git config branch.master.remote origin
 			    git config branch.master.merge ref/heads/master
 			vote = aurvote -v ${pkg}
+			fixsrcinfo =
+			    git diff-index --quiet --cached HEAD
+			    makepkg --printsrcinfo > .SRCINFO
+			    git add .SRCINFO
+			    git ci -m 'Regenerate obsolete meta data using \`makepkg --printsrcinfo\`'
 			fixignores =
 			    git diff-index --quiet --cached HEAD
 			    echo '*' > .gitignore
