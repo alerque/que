@@ -4,7 +4,7 @@ aurcache=/tmp/mr-aur-list
 
 function aur_list_cache () (
 	test -s ${aurcache} || exit 1
-	test $(date +%s -r ${aurcache}) -ge $(date +%s --date "10 min ago") || exit 1
+	test $(date +%s -r ${aurcache}) -ge $(date +%s --date "60 min ago") || exit 1
 	cat ${aurcache}
 )
 

@@ -7,7 +7,7 @@ labcache=/tmp/lab-project-list-a
 
 function project_list_cache () (
 	test -s ${labcache} || exit 1
-	test $(date +%s -r ${labcache}) -ge $(date +%s --date "10 min ago") || exit 1
+	test $(date +%s -r ${labcache}) -ge $(date +%s --date "60 min ago") || exit 1
 	cat ${labcache}
 )
 
