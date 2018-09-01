@@ -30,6 +30,8 @@ aur_list |
 			    git remote show | grep -vE '(origin|github)' | xargs -n1 git remote remove
 			    git config branch.master.remote origin
 			    git config branch.master.merge ref/heads/master
+			auroutofdate =
+			    aur-out-of-date -pkg ${pkg}
 			vote = aurvote -v ${pkg}
 			togithub =
 			    hub create aur-${pkg}
