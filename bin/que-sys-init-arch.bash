@@ -1,7 +1,11 @@
 #!/bin/bash
 
 # Enable sudo access to wheel group
-sed -i 's/^# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/g' /etc/sudoers
+sed -i -e 's/^# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/g' /etc/sudoers
+
+# Setup special priviledged user for compiling AUR packages
+useradd -r -m -U -G wheel -k /dev/null que-bootstrap ||:
+sed -i -e '/que-bootstrap/d' -e '/^%wheel ALL=(ALL) ALL$/a que-bootstrap ALL=(ALL) NOPASSWD: ALL' /etc/sudoers
 
 # If run in debug mode prefix anything that changes the system with a debug function
 is_opt $ISDEBUG && DEBUG='debug'
@@ -73,7 +77,6 @@ which yay || (
 )
 
 # Compile and install things not coming out of the distro main tree
-useradd -r -m -U -G wheel -k /dev/null que-bootstrap ||:
 $DEBUG su que-bootstrap -c "yay --needed --noconfirm -S ${BASEPACKAGES[@]}" ||:
 
 # TODO: Need to set root login and password auth options
