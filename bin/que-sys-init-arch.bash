@@ -78,7 +78,7 @@ which yay || (
 )
 
 # Compile and install things not coming out of the distro main tree
-$DEBUG su que-bootstrap -c "yay --needed --noconfirm -S ${BASEPACKAGES[@]}" ||:
+$DEBUG su que-bootstrap -c "yay --needed --noconfirm -S ${BASEPACKAGES[*]}" ||:
 
 # TODO: Need to set root login and password auth options
 systemctl --now enable sshd ntpd cronie
