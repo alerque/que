@@ -51,15 +51,6 @@ function skip_pkg () {
 	fi
 }
 
-function compile_pkg () {
-	if [[ "${BASEPACKAGES[@]}" =~ "$1" ]]; then
-		BASEPACKAGES=(${BASEPACKAGES[@]/%$1/})
-	fi
-	if [[ "${DESKTOPPACKAGES[@]}" =~ "$1" ]]; then
-		DESKTOPPACKAGES=(${DESKTOPPACKAGES[@]/%$1/})
-	fi
-}
-
 function remote_source () {
 	if [ -f "$DIR/$1" ]; then
 		source "$DIR/$1"

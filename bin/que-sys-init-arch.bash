@@ -85,7 +85,7 @@ which yay || (
 )
 
 # Compile and install things not coming out of the distro main tree
-for PKG in ${COMPILEBASEPACKAGES[@]} ; do
+for PKG in ${BASEPACKAGES[@]} ; do
     $DEBUG yay --needed --noconfirm -S $PKG ||:
 done
 
