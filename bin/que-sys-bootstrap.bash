@@ -105,16 +105,16 @@ case $DISTRO in
 		# If we have ever installed desktop stuff, assume it again
 		pacman -Q awesome 2>&- >&- && ISDESKTOP=0
 
-		add_pkg pkgstats aurvote
+		add_pkg pkgstats
 
 		# Distro specific package names
 		distro_pkg awesome awesome awesome-revelation-git vicious
 		distro_pkg cron cronie
 		distro_pkg cups cups cups-filters system-config-printer cups-pk-helper gsfonts gutenprint foomatic-{filters,db{,-engine,-nonfree}} hplip splix cups-pdf
-		distro_pkg firefox firefox{,-firebug,-i18n-tr}
+		distro_pkg firefox firefox{,-i18n-{tr,ru}}
 		distro_pkg gnome gnome gnome-{extra,tweak-tool,defaults-list} lightdm cbatticon notification-daemon
 		distro_pkg gvfs gvfs-{mtp,smb,goa}
-		distro_pkg libreoffice libreoffice-fresh{,-tr} unoconv
+		distro_pkg libreoffice libreoffice-fresh{,-tr,-ru} unoconv
 		distro_pkg lightdm lightdm{,-greeter-gtk{,-settings}}
 		distro_pkg neomutt neomutt goobook-git
 		distro_pkg neovim {,python{,2}-}neovim
@@ -124,9 +124,8 @@ case $DISTRO in
 		distro_pkg tmux tmux teamocil
 		distro_pkg transmission transmission-sequential-gtk
 		distro_pkg ttf-fonts ttf-{cheapskate,freefont,gentium-{basic,plus},liberation,hack,amiri,montserrat,sil-{ezra,abyssinica,lateef}} otf-{libertinus,bravura,crimson-text}
-		distro_pkg zathura zathura{,-pdf-mupdf,-epub-git}
+		distro_pkg zathura zathura{,-pdf-mupdf}
 		distro_pkg zsh zsh zsh-completions
-        distro_pkg
         ;;
 	fedora)
 		:
@@ -208,6 +207,8 @@ if command -v etckeeper; then
 	(
 	cd /etc 
 	etckeeper vcs status || etckeeper init
+	etckeeper vcsh remote add origin gitlab@gitlab.alerque.com:hosts/$HOSTNAME.git
+	# TODO: set default push remote
 	etckeeper commit "End of que-sys-bootstrap.bash run"
 	)
 fi
