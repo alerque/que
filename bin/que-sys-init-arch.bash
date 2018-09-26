@@ -78,7 +78,7 @@ EndOfPatch
 # Install yay
 which yay || (
     $DEBUG cd /root
-    which git || $DEBUG pacman -S git
+    which git || $DEBUG pacman --needed --noconfirm -S git
     $DEBUG git clone https://aur.archlinux.org/yay.git
     $DEBUG cd yay
     $DEBUG makepkg -si
@@ -86,7 +86,7 @@ which yay || (
 
 # Compile and install things not coming out of the distro main tree
 for PKG in ${COMPILEBASEPACKAGES[@]} ; do
-    $DEBUG yay --noconfirm -S --needed $PKG ||:
+    $DEBUG yay --needed --noconfirm -S $PKG ||:
 done
 
 # TODO: Need to set root login and password auth options
