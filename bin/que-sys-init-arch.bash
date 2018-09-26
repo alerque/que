@@ -92,9 +92,9 @@ if is_opt $ISEC2; then
 	hostnamectl set-hostname $HOSTNAME.alerque.com
 fi
 
-if is_opt $ISVBOX && (
+if is_opt $ISVBOX; then
 	$DEBUG pacman --needed --noconfirm -S virtualbox-guest-utils
 	echo -e "vboxguest\nvboxsf\nvboxvideo" > /etc/modules-load.d/virtualbox.conf
 	systemctl --now enable vboxservice
 	# $DEBUG pacman --needed --noconfirm -S xf86-video-vbox
-) ||:
+fi
