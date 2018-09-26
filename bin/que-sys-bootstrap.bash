@@ -198,7 +198,7 @@ if command -v etckeeper; then
 	(
 	cd /etc 
 	etckeeper vcs status || etckeeper init
-	etckeeper vcsh remote add origin gitlab@gitlab.alerque.com:hosts/$HOSTNAME.git
+	etckeeper vcs remote add origin gitlab@gitlab.alerque.com:hosts/$HOSTNAME.git
 	# TODO: set default push remote
 	etckeeper commit "End of que-sys-bootstrap.bash run"
 	)

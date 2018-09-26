@@ -34,14 +34,6 @@ cut -d' ' -f1 \
     grep -xho -E "($(IFS='|' eval 'echo "${BASEPACKAGES[*]}"'))" |
     $DEBUG xargs pacman --needed --noconfirm -S
 
-# Detect VirtualBox guest and configure accordingly
-lspci | grep -iq virtualbox && (
-	$DEBUG pacman --needed --noconfirm -S virtualbox-guest-utils
-	echo -e "vboxguest\nvboxsf\nvboxvideo" > /etc/modules-load.d/virtualbox.conf
-	systemctl --now enable vboxservice.service
-	# $DEBUG pacman --needed --noconfirm -S xf86-video-vbox
-) ||:
-
 # Arch folks disabled building packages as root in makepkg. As this is required
 # for this script, patch it to work again. See Github issue for details:
 #	https://github.com/archlinuxfr/yaourt/issues/67
@@ -86,17 +78,13 @@ for PKG in ${BASEPACKAGES[@]} ; do
 done
 
 # TODO: Need to set root login and password auth options
-systemctl --now enable sshd
-systemctl --now enable ntpd
-systemctl --now enable cronie
+systemctl --now enable sshd ntpd cronie
 
 echo 'kernel.sysrq = 1' > /etc/sysctl.d/99-sysctl.conf
 
 if is_opt $ISDESKTOP; then
 	# $DEBUG pacman -S --needed --noconfirm xf86-video-nouveau nouveau-dri
-	systemctl enable lightdm
-	systemctl enable org.cups.cupsd
-	systemctl enable NetworkManager
+	systemctl enable lightdm org.cups.cupsd NetworkManager
 fi
 
 if is_opt $ISEC2; then
@@ -104,6 +92,9 @@ if is_opt $ISEC2; then
 	hostnamectl set-hostname $HOSTNAME.alerque.com
 fi
 
-if is_opt $ISVBOX; then
-    systemctl enable vboxservice
-fi
+if is_opt $ISVBOX && (
+	$DEBUG pacman --needed --noconfirm -S virtualbox-guest-utils
+	echo -e "vboxguest\nvboxsf\nvboxvideo" > /etc/modules-load.d/virtualbox.conf
+	systemctl --now enable vboxservice
+	# $DEBUG pacman --needed --noconfirm -S xf86-video-vbox
+) ||:
