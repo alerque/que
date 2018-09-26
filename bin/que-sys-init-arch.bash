@@ -10,7 +10,7 @@ function debug () {
 }
 
 # Make sure we're off on the right foot before we get to adding  keys
-$DEBUG pacman -Syu --needed --noconfirm haveged
+$DEBUG pacman --needed --noconfirm -S haveged
 systemctl --now enable haveged
 # If system has old GPG keys clear them before signing new ones...
 # rm -rf /etc/pacman.d/gnupg
@@ -18,13 +18,10 @@ $DEBUG pacman-key --init
 $DEBUG pacman-key --populate archlinux
 
 # Freshen everything up
-$DEBUG pacman -Syu --needed --noconfirm
+$DEBUG pacman --needed --noconfirm -Syu
 
 # Remove anything that needs cleaning up first
 $DEBUG pacman -Rns --noconfirm ${REMOVEPACKAGES[@]} $(pacman -Qtdq) ||:
-
-# Get AUR going
-$DEBUG pacman -S --needed --noconfirm base-devel pacman-contrib
 
 # Kill off archlinuxfr formerly used to install yaourt
 grep archlinuxfr /etc/pacman.conf && (
@@ -35,14 +32,14 @@ grep archlinuxfr /etc/pacman.conf && (
 cut -d' ' -f1 \
     <(paclist core) <(paclist extra) <(paclist community) <(pacman -Sg) |
     grep -xho -E "($(IFS='|' eval 'echo "${BASEPACKAGES[*]}"'))" |
-    $DEBUG xargs pacman -S --needed --noconfirm
+    $DEBUG xargs pacman --needed --noconfirm -S
 
 # Detect VirtualBox guest and configure accordingly
 lspci | grep -iq virtualbox && (
-	$DEBUG pacman -S --needed --noconfirm virtualbox-guest-utils
+	$DEBUG pacman --needed --noconfirm -S virtualbox-guest-utils
 	echo -e "vboxguest\nvboxsf\nvboxvideo" > /etc/modules-load.d/virtualbox.conf
 	systemctl --now enable vboxservice.service
-	# $DEBUG pacman -S --needed --noconfirm xf86-video-vbox
+	# $DEBUG pacman --needed --noconfirm -S xf86-video-vbox
 ) ||:
 
 # Arch folks disabled building packages as root in makepkg. As this is required
@@ -78,7 +75,6 @@ EndOfPatch
 # Install yay
 which yay || (
     $DEBUG cd /root
-    which git || $DEBUG pacman --needed --noconfirm -S git
     $DEBUG git clone https://aur.archlinux.org/yay.git
     $DEBUG cd yay
     $DEBUG makepkg -si
