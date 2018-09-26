@@ -76,7 +76,7 @@ uname -s | grep -q Darwin && DISTRO=osx
 test -n "$DISTRO" || flunk "unrecognized distro"
 
 # Detect virtual environments
-ISVBOX=$(command -v lspci && lspci | grep -iq virtualbox; echo $?)
+ISVBOX=$(command -v lspci > /dev/null && lspci | grep -iq virtualbox; echo $?)
 ISEC2=$(uname -r | grep -iq ec2; echo $?)
 ISDO=$(dmesg | grep -q KVM; echo $?)
 if is_opt $ISEC2; then
