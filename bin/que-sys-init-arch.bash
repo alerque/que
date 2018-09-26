@@ -73,9 +73,7 @@ which yay || (
 )
 
 # Compile and install things not coming out of the distro main tree
-for PKG in ${BASEPACKAGES[@]} ; do
-    $DEBUG yay --needed --noconfirm -S $PKG ||:
-done
+$DEBUG yay --needed --noconfirm -S ${BASEPACKAGES[@]} ||:
 
 # TODO: Need to set root login and password auth options
 systemctl --now enable sshd ntpd cronie
