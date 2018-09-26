@@ -11,8 +11,7 @@ function debug () {
 
 # Make sure we're off on the right foot before we get to adding  keys
 $DEBUG pacman -Syu --needed --noconfirm haveged
-systemctl start haveged
-systemctl enable haveged
+systemctl --now enable haveged
 # If system has old GPG keys clear them before signing new ones...
 # rm -rf /etc/pacman.d/gnupg
 $DEBUG pacman-key --init
@@ -42,7 +41,7 @@ cut -d' ' -f1 \
 lspci | grep -iq virtualbox && (
 	$DEBUG pacman -S --needed --noconfirm virtualbox-guest-utils
 	echo -e "vboxguest\nvboxsf\nvboxvideo" > /etc/modules-load.d/virtualbox.conf
-	systemctl enable vboxservice.service
+	systemctl --now enable vboxservice.service
 	# $DEBUG pacman -S --needed --noconfirm xf86-video-vbox
 ) ||:
 
@@ -91,9 +90,9 @@ for PKG in ${COMPILEBASEPACKAGES[@]} ; do
 done
 
 # TODO: Need to set root login and password auth options
-systemctl enable sshd
-systemctl enable ntpd
-systemctl enable cronie
+systemctl --now enable sshd
+systemctl --now enable ntpd
+systemctl --now enable cronie
 
 echo 'kernel.sysrq = 1' > /etc/sysctl.d/99-sysctl.conf
 
