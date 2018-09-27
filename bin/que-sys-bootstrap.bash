@@ -20,7 +20,7 @@ done
 set -e
 
 # Setup stuff
-BASEPACKAGES=(base base-devel openssh cron ntp ctags cyrus-sasl entr etckeeper fasd fzf gdisk git git-annex git-crypt gnupg html-xml-utils htop lab linux-headers lsof markdown2ctags mosh neomutt neovim pcregrep programmers-dvorak rsync ruby strace termite-terminfo tmux unrar unzip myrepos vcsh wget zip zsh)
+BASEPACKAGES=(base base-devel openssh cron ntp ctags cyrus-sasl entr etckeeper fasd fzf gdisk git git-annex git-crypt gnupg html-xml-utils htop lab linux-headers lsof markdown2ctags mosh neomutt neovim pcregrep programmers-dvorak rsync ruby strace termite-terminfo tmux unrar unzip myrepos vcsh wget zip zsh ripgrep diff-so-fancy)
 DESKTOPPACKAGES=(awesome chromium compton cups firefox gimp gnome gnome-packagekit google-talkplugin gpaste gvfs inkscape keepassxc libreoffice neovim-gtk networkmanager nextcloud-client pulseaudio rdesktop scribus slock smplayer termite transmission ttf-fonts ttf-symbola ttf-emojione xautolock xiphos zathura)
 REMOVEPACKAGES=(aura chromium-libpdf customizepkg dropbox firefox-adblock-plus gnome-packagekit gvim keepass keepassx owncloud-client parcellite powerline-fonts python-powerline-git yaourt emojione-color-font)
 
@@ -100,6 +100,7 @@ case $DISTRO in
 
 		# Distro specific package names
 		distro_pkg awesome awesome awesome-revelation-git vicious
+		distro_pkg etckeeper etckeeper{,-packages}
 		distro_pkg cron cronie
 		distro_pkg cups cups cups-filters system-config-printer cups-pk-helper gsfonts gutenprint foomatic-db{,-engine,-nonfree,{,-nonfree,-gutenprint}-ppds} hplip splix cups-pdf
 		distro_pkg firefox firefox{,-i18n-{tr,ru}}
