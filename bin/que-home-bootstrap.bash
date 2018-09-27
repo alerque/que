@@ -54,6 +54,6 @@ if test -d .config/vcsh; then
 fi
 
 # Patch up SSH private key permissions
-chmod 600 .ssh/config .ssh/authorized_keys $(grep 'PRIVATE KEY' -Rl .ssh)
+chmod 600 .ssh/{config,authorized_keys} $(grep 'PRIVATE KEY' -Rl .ssh)
 
 mr up
