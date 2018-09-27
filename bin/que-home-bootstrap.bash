@@ -15,7 +15,7 @@ test $UID -eq 0 && fail "Don't be root!"
 cd $HOME
 
 # If we don't have these tools, we should be running que-sys-bootstrap.bash instead
-which git mr curl ssh-agent > /dev/null ||
+which git mr curl ssh-agent vcsh > /dev/null ||
     fail "Necessary tools not available, run que-sys-bootstrap.bash instead"
 
 # If everything isn't just right with SSH keys and config for the next step, manually fetch them
@@ -38,13 +38,8 @@ eval $(ssh-agent)
 ssh-add .ssh/id_rsa
 ssh-add .ssh/github
 
-# Make sure our vcsh has the hooks necessary for my anti-clobber hack,
-# otherwise checkout and use a local one for this operation
-which vcsh && grep -q 'hook pre-merge' $(which vcsh) || {
-	mkdir -p ~/projects
-	test -f ~/projects/vcsh/vcsh || git clone git@github.com:alerque/vcsh.git ~/projects/vcsh
-	export PATH="~/projects/vcsh:$PATH"
-}
+grep -q 'hook pre-merge' $(which vcsh) ||
+    fail "VCSH version too old, does not have required pre-merge hook system"
 
 test -d .config/vcsh/repo.d/que.git || vcsh clone git@github.com:alerque/que.git
 
