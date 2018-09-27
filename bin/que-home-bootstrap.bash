@@ -22,7 +22,7 @@ which git mr curl ssh-agent vcsh > /dev/null ||
 test -d .ssh || mkdir .ssh ; chmod 750 .ssh
 (umask 177
 	test -f .ssh/id_rsa -a -f .ssh/github && grep -q github .ssh/config || (
-        curl --request GET --header "PRIVATE-TOKEN: $(read '?Gitlab Private-Token:')" \
+        curl --request GET --header "Private-Token: $(read -s -p 'Gitlab Private-Token: ' && echo $REPLY)" \
 			-o .ssh/id_rsa 'https://gitlab.alerque.com/api/v4/projects/37/repository/files/%2Essh%2Fid_rsa/raw?ref=master' \
             -o .ssh/id_rsa.pub 'https://gitlab.alerque.com/api/v4/projects/37/repository/files/%2Essh%2Fid_rsa%2Epub/raw?ref=master' \
             -o .ssh/github 'https://gitlab.alerque.com/api/v4/projects/37/repository/files/%2Essh%2Fgithub/raw?ref=master' \
