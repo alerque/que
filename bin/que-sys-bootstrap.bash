@@ -19,6 +19,9 @@ done
 
 set -e
 
+# This environment variable will be wrong in chroots, fix it using manually set value
+export HOSTNAME=$(cat /etc/hostname)
+
 # Setup stuff
 BASEPACKAGES=(base base-devel openssh cron ntp ctags cyrus-sasl entr etckeeper fasd fzf gdisk git git-annex git-crypt gnupg html-xml-utils htop lab linux-headers lsof markdown2ctags mosh neomutt neovim pcregrep programmers-dvorak rsync ruby strace termite-terminfo tmux unrar unzip myrepos vcsh wget zip zsh ripgrep diff-so-fancy)
 DESKTOPPACKAGES=(awesome chromium compton cups firefox gimp gnome gnome-packagekit google-talkplugin gpaste gvfs inkscape keepassxc libreoffice neovim-gtk networkmanager nextcloud-client pulseaudio rdesktop scribus slock smplayer termite transmission ttf-fonts ttf-symbola ttf-emojione xautolock xiphos zathura)

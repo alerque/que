@@ -18,8 +18,8 @@ function debug () {
 }
 
 # Setup root git user so etckeeper doesn't bork on first run
-git config --global user.email root@$(cat /etc/hostname).alerque.com
-git config --global user.name $(cat /etc/hostname)
+git config --global user.email root@$HOSTNAME.alerque.com
+git config --global user.name $HOSTNAME
 
 # Setup systemctl argument to start services if not in chroot
 [[ "$(stat -c %d:%i /)" != "$(stat -c %d:%i /proc/1/root/.)" ]] || export NOW="--now"
@@ -72,8 +72,8 @@ if is_opt $ISDESKTOP; then
 fi
 
 if is_opt $ISEC2; then
-	remote_source que-sys-config-ec2.bash
-	hostnamectl set-hostname $HOSTNAME.alerque.com
+    remote_source que-sys-config-ec2.bash
+    hostnamectl set-hostname $HOSTNAME.alerque.com
 fi
 
 if is_opt $ISVBOX; then
