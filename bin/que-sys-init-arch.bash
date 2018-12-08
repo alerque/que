@@ -42,42 +42,10 @@ cut -d' ' -f1 \
     grep -xho -E "($(IFS='|' eval 'echo "${BASEPACKAGES[*]}"'))" |
     $DEBUG xargs pacman --needed --noconfirm -S
 
-# Arch folks disabled building packages as root in makepkg. As this is required
-# for this script, patch it to work again. See Github issue for details:
-#	https://github.com/archlinuxfr/yaourt/issues/67
-grep -q asroot /usr/bin/makepkg || (cd / && $DEBUG patch -b -p0) <<"EndOfPatch"
---- /usr/bin/makepkg~
-+++ /usr/bin/makepkg
-@@ -1239,7 +1239,7 @@ OPT_LONG=('allsource' 'check' 'clean' 'cleanbuild' 'config:' 'force' 'geninteg'
-           'help' 'holdver' 'ignorearch' 'install' 'key:' 'log' 'noarchive' 'nobuild'
-           'nocolor' 'nocheck' 'nodeps' 'noextract' 'noprepare' 'nosign' 'packagelist'
-           'printsrcinfo' 'repackage' 'rmdeps' 'sign' 'skipchecksums' 'skipinteg'
--          'skippgpcheck' 'source' 'syncdeps' 'verifysource' 'version')
-+          'skippgpcheck' 'source' 'syncdeps' 'verifysource' 'version' 'asroot')
- 
- # Pacman Options
- OPT_LONG+=('asdeps' 'noconfirm' 'needed' 'noprogressbar')
-@@ -1410,11 +1410,7 @@ if (( LOGGING )) && ! ensure_writable_dir "LOGDEST" "$LOGDEST"; then
- fi
- 
- if (( ! INFAKEROOT )); then
--	if (( EUID == 0 )); then
--		error "$(gettext "Running %s as root is not allowed as it can cause permanent,\n\
--catastrophic damage to your system.")" "makepkg"
--		exit $E_ROOT
--	fi
-+	:
- else
- 	if [[ -z $FAKEROOTKEY ]]; then
- 		error "$(gettext "Do not use the %s option. This option is only for internal use by %s.")" "'-F'" "makepkg"
-EndOfPatch
-
 # Install yay
 which yay || (
-    $DEBUG cd /root
-    $DEBUG git clone https://aur.archlinux.org/yay.git
-    $DEBUG cd yay
-    $DEBUG makepkg -si
+    $DEBUG su -l que-bootstrap -c "git clone https://aur.archlinux.org/yay.git"
+    $DEBUG su -l que-bootstrap -c "cd yay && makepkg --noconfirm --needed -si"
 )
 
 # Compile and install things not coming out of the distro main tree
