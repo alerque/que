@@ -100,6 +100,7 @@ case $DISTRO in
 		pacman -Q awesome 2>&- >&- && ISDESKTOP=0
 
 		add_pkg pkgstats pacman-contrib
+		add_pkg mkinitcpio-{utils,netconf,dropbear}
 
 		# Distro specific package names
 		distro_pkg awesome awesome awesome-revelation-git vicious
