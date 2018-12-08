@@ -17,6 +17,10 @@ function debug () {
 	echo DEBUG: "$@"
 }
 
+# Setup root git user so etckeeper doesn't bork on first run
+git config --global user.email root@$(cat /etc/hostname).alerque.com
+git config --global user.name $(cat /etc/hostname)
+
 # Setup systemctl argument to start services if not in chroot
 [[ "$(stat -c %d:%i /)" != "$(stat -c %d:%i /proc/1/root/.)" ]] || export NOW="--now"
 
