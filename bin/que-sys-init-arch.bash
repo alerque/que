@@ -1,5 +1,8 @@
 #!/bin/bash
 
+echo 'en_US.UTF-8 UTF-8\nru_RU.UTF-8 UTF-8\ntr_TR.UTF-8 UTF-8' > /etc/locale.gen
+locale-gen
+
 # Enable sudo access to wheel group
 sed -i -e 's/^# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/g' /etc/sudoers
 
