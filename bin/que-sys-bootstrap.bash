@@ -23,7 +23,7 @@ set -e
 export HOSTNAME=$(cat /etc/hostname)
 
 # Setup stuff
-BASEPACKAGES=(base base-devel openssh cron ntp ctags cyrus-sasl entr etckeeper fasd fzf gdisk git git-annex git-crypt gnupg html-xml-utils htop lab linux-headers lsof markdown2ctags mosh neomutt neovim pcregrep programmers-dvorak rsync ruby strace termite-terminfo tmux unrar unzip myrepos vcsh wget zip zsh ripgrep diff-so-fancy)
+BASEPACKAGES=(base base-devel openssh cron ntp ctags cyrus-sasl entr etckeeper fasd fzf gdisk git git-annex git-crypt gnupg html-xml-utils htop lab linux-headers lsof markdown2ctags mosh neomutt neovim pcregrep programmers-dvorak rsync ruby strace termite-terminfo tmux unrar unzip myrepos vcsh wget zip zsh ripgrep diff-so-fancy exim)
 DESKTOPPACKAGES=(awesome chromium compton cups firefox gimp gnome gnome-packagekit google-talkplugin gpaste gvfs inkscape keepassxc libreoffice neovim-gtk networkmanager nextcloud-client pulseaudio rdesktop scribus slock smplayer termite transmission ttf-fonts ttf-symbola ttf-emojione xautolock xiphos zathura)
 REMOVEPACKAGES=(aura chromium-libpdf customizepkg dropbox firefox-adblock-plus gnome-packagekit gvim keepass keepassx owncloud-client parcellite powerline-fonts python-powerline-git yaourt emojione-color-font)
 
@@ -189,12 +189,6 @@ fi
 git config --global user.email root@$HOSTNAME.alerque.com
 git config --global user.name $HOSTNAME
 
-# Setup root SSH
-test -f /root/.ssh/id_rsa || (
-	ssh-keygen -f /root/.ssh/id_rsa -N ""
-	cat /root/.ssh/id_rsa.pub | mailx -s "New root SSH key for $HOSTNAME" caleb@alerque.com
-)
-
 # Import and run init script for this OS
 INITSCRIPT="que-sys-init-${DISTRO}.bash"
 if [ -f "$DIR/$INITSCRIPT" ]; then
@@ -202,6 +196,12 @@ if [ -f "$DIR/$INITSCRIPT" ]; then
 else
 	source <(curl -s -L $STRAP_URL/$INITSCRIPT)
 fi
+
+# Setup root SSH
+test -f /root/.ssh/id_rsa || (
+	ssh-keygen -f /root/.ssh/id_rsa -N ""
+	cat /root/.ssh/id_rsa.pub | mailx -s "New root SSH key for $HOSTNAME" caleb@alerque.com
+)
 
 # Setup my user
 useradd -s $(which zsh) -m -k /dev/null -c "Caleb Maclennan" caleb ||:
