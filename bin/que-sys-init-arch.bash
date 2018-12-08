@@ -17,6 +17,10 @@ function debug () {
 	echo DEBUG: "$@"
 }
 
+function update_mirrors () {
+    reflector --verbose --protocol https --score 50 --fastest 25 --latest 10 --save /etc/pacman.d/mirrorlist ||:
+}
+
 # Setup systemctl argument to start services if not in chroot
 [[ "$(stat -c %d:%i /)" != "$(stat -c %d:%i /proc/1/root/.)" ]] || export NOW="--now"
 
@@ -27,6 +31,8 @@ systemctl $NOW enable haveged
 # rm -rf /etc/pacman.d/gnupg
 $DEBUG pacman-key --init
 $DEBUG pacman-key --populate archlinux
+
+update_mirrors
 
 # Freshen everything up
 $DEBUG pacman --needed --noconfirm -Syu
@@ -83,8 +89,7 @@ fi
 # Setup etckeeper
 sed -i -e 's/^HIGHLEVEL_PACKAGE_MANAGER=.*$/HIGHLEVEL_PACKAGE_MANAGER=yay/g' /etc/etckeeper/etckeeper.conf
 
-# Setup pacman mirrors
-reflector --verbose --protocol https --score 50 --fastest 25 --latest 10 --save /etc/pacman.d/mirrorlist
+update_mirrors
 
 # Force nameserver and domain
 echo -e "nameserver 1.1.1.1\nsearch alerque.com" > /etc/resolv.conf
