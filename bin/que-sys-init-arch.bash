@@ -8,7 +8,7 @@ sed -i -e 's/^# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/g' /etc/sudoers
 
 # Setup special priviledged user for compiling AUR packages
 useradd -r -m -U -G wheel -k /dev/null que-bootstrap ||:
-grep -q que-bootstrap /etc/suders ||
+grep -q que-bootstrap /etc/sudoers ||
 	sed -i -e '/^%wheel ALL=(ALL) ALL$/a que-bootstrap ALL=(ALL) NOPASSWD: ALL' /etc/sudoers
 
 # If run in debug mode prefix anything that changes the system with a debug function
