@@ -51,15 +51,13 @@ grep archlinuxfr /etc/pacman.conf && (
 # Save time parsing AUR packages by only installing, not updating them
 # We already freshed all native packages before starting, freshening AUR packages
 # can be left as an excercise for the reader
-shopt -s extglob
-UNINSTALLEDPACKAGES=("${BASEPACKAGES[*]//*($(pacman -Qqe | tr '\n' '|'))}")
-shopt -u extglob
+UNINSTALLEDPACKAGES=(base $(echo ${BASEPACKAGES[*]} | tr ' ' '\n' | grep -xvhE "($(echo -n $(pacman -Qqe) | tr ' ' '|'))"))
 
 # Install everything that comes from the official repositories
 cut -d' ' -f1 \
     <(paclist core) <(paclist extra) <(paclist community) <(pacman -Sg) |
     grep -xho -E "($(IFS='|' eval 'echo "${UNINSTALLEDPACKAGES[*]}"'))" |
-    $DEBUG xargs pacman --needed --noconfirm -S base
+    $DEBUG xargs pacman --needed --noconfirm -S
 
 # Install yay
 which yay || (
@@ -68,7 +66,7 @@ which yay || (
 )
 
 # Compile and install things not coming out of the distro main tree
-$DEBUG su que-bootstrap -c "yay --needed --noconfirm -S base ${UNINSTALLEDPACKAGES[*]}" ||:
+$DEBUG su que-bootstrap -c "yay --needed --noconfirm -S ${UNINSTALLEDPACKAGES[*]}" ||:
 
 # TODO: Need to set root login and password auth options
 systemctl $NOW enable sshd ntpd cronie
