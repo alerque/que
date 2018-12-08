@@ -17,9 +17,12 @@ function debug () {
 	echo DEBUG: "$@"
 }
 
+# Setup systemctl argument to start services if not in chroot
+[[ "$(stat -c %d:%i /)" != "$(stat -c %d:%i /proc/1/root/.)" ]] || export NOW="--now"
+
 # Make sure we're off on the right foot before we get to adding  keys
 $DEBUG pacman --needed --noconfirm -S haveged
-systemctl --now enable haveged
+systemctl $NOW enable haveged
 # If system has old GPG keys clear them before signing new ones...
 # rm -rf /etc/pacman.d/gnupg
 $DEBUG pacman-key --init
@@ -52,14 +55,14 @@ which yay || (
 $DEBUG su que-bootstrap -c "yay --needed --noconfirm -S ${BASEPACKAGES[*]}" ||:
 
 # TODO: Need to set root login and password auth options
-systemctl --now enable sshd ntpd cronie
+systemctl $NOW enable sshd ntpd cronie
 
 echo 'kernel.sysrq = 1' > /etc/sysctl.d/99-sysctl.conf
 
 if is_opt $ISDESKTOP; then
 	# $DEBUG pacman -S --needed --noconfirm xf86-video-nouveau nouveau-dri
-	systemctl status gdm || systemctl --now enable lightdm
-	systemctl --now enable org.cups.cupsd NetworkManager
+	systemctl status gdm || systemctl $NOW enable lightdm
+	systemctl $NOW enable org.cups.cupsd NetworkManager
 	# Upstream doesn't include this by default to not conflict with other fonts
 	ln -sf ../conf.avail/75-emojione.conf /etc/fonts/conf.d/75-emojione.conf
 fi
@@ -72,6 +75,6 @@ fi
 if is_opt $ISVBOX; then
 	$DEBUG pacman --needed --noconfirm -S virtualbox-guest-utils
 	echo -e "vboxguest\nvboxsf\nvboxvideo" > /etc/modules-load.d/virtualbox.conf
-	systemctl --now enable vboxservice
+	systemctl $NOW enable vboxservice
 	# $DEBUG pacman --needed --noconfirm -S xf86-video-vbox
 fi
