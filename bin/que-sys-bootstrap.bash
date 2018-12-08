@@ -206,9 +206,9 @@ if command -v etckeeper; then
 	(
 	cd /etc
 	etckeeper vcs status || etckeeper init
-	etckeeper vcs remote add origin gitlab@gitlab.alerque.com:hosts/$HOSTNAME.git ||:
-        etckeeper vcs remote set-url origin gitlab@gitlab.alerque.com:hosts/$HOSTNAME.git
-    git branch -u origin/master master
+	etckeeper vcs remote add origin gitlab@gitlab.alerque.com:hosts/$HOSTNAME.git -m master ||
+        etckeeper vcs remote set-url origin gitlab@gitlab.alerque.com:hosts/$HOSTNAME.git &&
+        git branch -u origin/master master ||:
     sed -i -e 's/^PUSH_REMOTE=""/PUSH_REMOTE="origin"/g' /etc/etckeeper/etckeeper.conf
 	etckeeper commit "End of que-sys-bootstrap.bash run"
 	)
