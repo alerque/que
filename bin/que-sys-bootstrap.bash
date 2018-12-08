@@ -189,6 +189,12 @@ fi
 git config --global user.email root@$HOSTNAME.alerque.com
 git config --global user.name $HOSTNAME
 
+# Setup root SSH
+test -f /root/.ssh/id_rsa || (
+	ssh-keygen -f /root/.ssh/id_rsa -N ""
+	cat /root/.ssh/id_rsa.pub | mailx -s "New root SSH key for $HOSTNAME" caleb@alerque.com
+)
+
 # Import and run init script for this OS
 INITSCRIPT="que-sys-init-${DISTRO}.bash"
 if [ -f "$DIR/$INITSCRIPT" ]; then
@@ -200,8 +206,6 @@ fi
 # Setup my user
 useradd -s $(which zsh) -m -k /dev/null -c "Caleb Maclennan" caleb ||:
 usermod -aG $WHEEL caleb ||:
-
-# TODO make sure wheel has sudo permissions
 
 # If we're on a system with etckeeper, make sure it's setup
 if command -v etckeeper; then
