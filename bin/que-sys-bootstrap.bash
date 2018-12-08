@@ -183,6 +183,10 @@ if is_opt $ISDESKTOP; then
     BASEPACKAGES=(${BASEPACKAGES[@]} ${DESKTOPPACKAGES[@]})
 fi
 
+# Setup root git user
+git config --global user.email root@$HOSTNAME.alerque.com
+git config --global user.name $HOSTNAME
+
 # Import and run init script for this OS
 INITSCRIPT="que-sys-init-${DISTRO}.bash"
 if [ -f "$DIR/$INITSCRIPT" ]; then
@@ -202,8 +206,9 @@ if command -v etckeeper; then
 	(
 	cd /etc 
 	etckeeper vcs status || etckeeper init
-	etckeeper vcs remote add origin gitlab@gitlab.alerque.com:hosts/$HOSTNAME.git ||:
-	# TODO: set default push remote
+	etckeeper vcs remote add origin gitlab@gitlab.alerque.com:hosts/$HOSTNAME.git -m master ||:
+        etckeeper vcs remote set-url origin gitlab@gitlab.alerque.com:hosts/$HOSTNAME.git
+    sed -i -e 's/^PUSH_REMOTE=""/PUSH_REMOTE="origin"/g' /etc/etckeeper/etckeeper.conf
 	etckeeper commit "End of que-sys-bootstrap.bash run"
 	)
 fi
