@@ -86,3 +86,5 @@ sed -i -e 's/^HIGHLEVEL_PACKAGE_MANAGER=.*$/HIGHLEVEL_PACKAGE_MANAGER=yay/g' /et
 # Setup pacman mirrors
 reflector --verbose --protocol https --score 50 --fastest 25 --latest 10 --save /etc/pacman.d/mirrorlist
 
+# Force nameserver and domain
+echo -e "nameserver 1.1.1.1\nsearch alerque.com" > /etc/resolv.conf
