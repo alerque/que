@@ -51,6 +51,7 @@ which yay || (
     $DEBUG su -l que-bootstrap -c "cd yay && makepkg --noconfirm -si"
 )
 
+# TODO: remove installed packages from this list to save time downloading AUR
 # Compile and install things not coming out of the distro main tree
 $DEBUG su que-bootstrap -c "yay --needed --noconfirm -S ${BASEPACKAGES[*]}" ||:
 
@@ -81,3 +82,7 @@ fi
 
 # Setup etckeeper
 sed -i -e 's/^HIGHLEVEL_PACKAGE_MANAGER=.*$/HIGHLEVEL_PACKAGE_MANAGER=yay/g' /etc/etckeeper/etckeeper.conf
+
+# Setup pacman mirrors
+reflector --verbose --protocol https --score 50 --fastest 25 --latest 10 --save /etc/pacman.d/mirrorlist
+

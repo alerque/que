@@ -101,6 +101,7 @@ case $DISTRO in
 
 		add_pkg pkgstats pacman-contrib
 		add_pkg mkinitcpio-{utils,netconf,dropbear}
+		add_pkg reflector
 
 		# Distro specific package names
 		distro_pkg awesome awesome awesome-revelation-git vicious
