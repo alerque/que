@@ -52,7 +52,7 @@ cut -d' ' -f1 \
 # Install yay
 which yay || (
     $DEBUG su -l que-bootstrap -c "git clone https://aur.archlinux.org/yay.git"
-    $DEBUG su -l que-bootstrap -c "cd yay && makepkg --noconfirm --needed -si"
+    $DEBUG su -l que-bootstrap -c "cd yay && makepkg --noconfirm -si"
 )
 
 # Compile and install things not coming out of the distro main tree
