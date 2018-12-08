@@ -52,7 +52,7 @@ grep archlinuxfr /etc/pacman.conf && (
 # We already freshed all native packages before starting, freshening AUR packages
 # can be left as an excercise for the reader
 shopt -s extglob
-UNINSTALLEDPACKAGES=("${BASEPACKAGES[*]//*($(pacman -Qqe | tr '\n' '|'))}")
+UNINSTALLEDPACKAGES=(base "${BASEPACKAGES[*]//*($(pacman -Qqe | tr '\n' '|'))}")
 shopt -u extglob
 
 # Install everything that comes from the official repositories
