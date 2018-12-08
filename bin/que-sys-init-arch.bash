@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo 'en_US.UTF-8 UTF-8\nru_RU.UTF-8 UTF-8\ntr_TR.UTF-8 UTF-8' > /etc/locale.gen
+echo -e 'en_US.UTF-8 UTF-8\nru_RU.UTF-8 UTF-8\ntr_TR.UTF-8 UTF-8' > /etc/locale.gen
 locale-gen
 
 # Enable sudo access to wheel group
