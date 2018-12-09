@@ -17,11 +17,13 @@
 !/.config/mr
 !/.config/mr/available.d
 !/.config/mr/available.d/aur.mr
+!/.config/mr/available.d/caleb-finances.vcsh
 !/.config/mr/available.d/caleb-private.vcsh
 !/.config/mr/available.d/ccm.mr
 !/.config/mr/available.d/freecheck.git
 !/.config/mr/available.d/grandpa.mr
 !/.config/mr/available.d/homebrew.mr
+!/.config/mr/available.d/hosts.mr
 !/.config/mr/available.d/incil.mr
 !/.config/mr/available.d/ipk.mr
 !/.config/mr/available.d/lyricue.mr
@@ -63,9 +65,11 @@
 !/.config/mr/config.d/caleb-private.vcsh
 !/.config/mr/config.d-emircik
 !/.config/mr/config.d-emircik/aur.mr
+!/.config/mr/config.d-emircik/caleb-finances.vcsh
 !/.config/mr/config.d-emircik/caleb-private.vcsh
 !/.config/mr/config.d-emircik/ccm.mr
 !/.config/mr/config.d-emircik/homebrew.mr
+!/.config/mr/config.d-emircik/hosts.mr
 !/.config/mr/config.d-emircik/ipk.mr
 !/.config/mr/config.d-emircik/lyricue.mr
 !/.config/mr/config.d-emircik/pictures.annex
@@ -101,6 +105,7 @@
 !/.config/mr/config.d-iguana/tprk.mr
 !/.config/mr/config.d-jaguar
 !/.config/mr/config.d-jaguar/aur.mr
+!/.config/mr/config.d-jaguar/caleb-finances.vcsh
 !/.config/mr/config.d-jaguar/ccm.mr
 !/.config/mr/config.d-jaguar/freecheck.git
 !/.config/mr/config.d-jaguar/grandpa.mr
