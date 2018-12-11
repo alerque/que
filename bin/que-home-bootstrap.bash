@@ -23,11 +23,11 @@ test -d .ssh || mkdir .ssh ; chmod 750 .ssh
 (umask 177
 	test -f .ssh/id_rsa -a -f .ssh/github && grep -q github .ssh/config || (
         curl --request GET --header "Private-Token: $(read -s -p 'Gitlab Private-Token: ' && echo $REPLY)" \
-			-o .ssh/id_rsa 'https://gitlab.alerque.com/api/v4/projects/37/repository/files/%2Essh%2Fid_rsa/raw?ref=master' \
-            -o .ssh/id_rsa.pub 'https://gitlab.alerque.com/api/v4/projects/37/repository/files/%2Essh%2Fid_rsa%2Epub/raw?ref=master' \
-            -o .ssh/github 'https://gitlab.alerque.com/api/v4/projects/37/repository/files/%2Essh%2Fgithub/raw?ref=master' \
-            -o .ssh/known_hosts 'https://gitlab.alerque.com/api/v4/projects/37/repository/files/%2Essh%2Fknown_hosts/raw?ref=master' \
-            -o .ssh/config 'https://gitlab.alerque.com/api/v4/projects/37/repository/files/%2Essh%2Fconfig/raw?ref=master'
+            -o .ssh/id_rsa      'https://gitlab.alerque.com/caleb/que-secure/raw/master/.ssh%2Fid_rsa' \
+            -o .ssh/id_rsa.pub  'https://gitlab.alerque.com/caleb/que-secure/raw/master/.ssh%2Fid_rsa.pub' \
+            -o .ssh/github      'https://gitlab.alerque.com/caleb/que-secure/raw/master/.ssh%2Fgithub' \
+            -o .ssh/known_hosts 'https://gitlab.alerque.com/caleb/que-secure/raw/master/.ssh%2Fknown_hosts' \
+            -o .ssh/config      'https://gitlab.alerque.com/caleb/que-secure/raw/master/.ssh%2Fconfig'
 	)
     grep -q github.com .ssh/config || fail "Invalid creds, got garbage files"
 	test -f .ssh/authorized_keys || cp .ssh/{id_rsa.pub,authorized_keys}
