@@ -30,7 +30,7 @@ test -d .ssh || mkdir .ssh ; chmod 750 .ssh
 (umask 177
 	test -f .ssh/id_rsa -a -f .ssh/github && grep -q github .ssh/config || (
         curl --request GET --header "Private-Token: $(read -s -p 'Gitlab Private-Token: ' && echo $REPLY)" \
-            -o .ssh/gitlab      'https://gitlab.alerque.com/caleb/que-secure/raw/master/.ssh%2Fgitlab' \
+            -o .ssh/id_rsa      'https://gitlab.alerque.com/caleb/que-secure/raw/master/.ssh%2Fid_rsa' \
             -o .ssh/known_hosts 'https://gitlab.alerque.com/caleb/que-secure/raw/master/.ssh%2Fknown_hosts' \
             -o .ssh/config      'https://gitlab.alerque.com/caleb/que-secure/raw/master/.ssh%2Fconfig'
 	)
@@ -39,7 +39,7 @@ test -d .ssh || mkdir .ssh ; chmod 750 .ssh
 )
 
 eval $(ssh-agent)
-ssh-add .ssh/gitlab
+ssh-add .ssh/id_rsa
 
 # Rename repository if it exists under old name
 test -d .config/vcsh/repo.d/caleb-private.git &&
@@ -51,7 +51,6 @@ test -d .config/vcsh/repo.d/que-secure.git &&
     vcsh clone gitlab@gitlab.alerque.com:caleb/que-secure.git que-secure
 chmod 600 .ssh/{config,authorized_keys} $(grep 'PRIVATE KEY' -Rl .ssh)
 
-ssh-add .ssh/id_rsa
 ssh-add .ssh/github
 ssh-add .ssh/aur
 
