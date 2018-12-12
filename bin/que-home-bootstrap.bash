@@ -57,7 +57,7 @@ chmod +x .config/vcsh/hooks-enabled/{pre,post}-merge-unclobber
 
 # mr would clone this, but it needs this to clone other things and this needs manual care on first setup
 test -d .config/vcsh/repo.d/que-secure.git &&
-    vcsh que-secure pull ||
+    vcsh run que-secure git pull ||
     vcsh clone gitlab@gitlab.alerque.com:caleb/que-secure.git que-secure
 
 ssh-add .ssh/github
