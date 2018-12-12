@@ -59,6 +59,7 @@ chmod +x .config/vcsh/hooks-enabled/{pre,post}-merge-unclobber
 test -d .config/vcsh/repo.d/que-secure.git &&
     vcsh run que-secure git pull ||
     vcsh clone gitlab@gitlab.alerque.com:caleb/que-secure.git que-secure
+vcsh run que-secure git config core.attributesfile .gitattributes/que-secure
 chmod 700 ~/.gnupg{,/private-keys*}
 chmod 600 ~/.ssh/{config,authorized_keys} $(grep 'PRIVATE KEY' -Rl ~/.ssh) ~/.gnupg/private-keys*/*
 
