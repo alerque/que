@@ -1,4 +1,0 @@
-[$HOME/.config/vcsh/repo.d/caleb-private.git]
-checkout =
-	vcsh clone git@gitlab.alerque.com:caleb/que-secure.git caleb-private
-	chmod 600 .ssh/{config,authorized_keys} $(grep 'PRIVATE KEY' -Rl .ssh)
