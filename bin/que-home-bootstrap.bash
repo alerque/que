@@ -46,14 +46,12 @@ test -d .config/vcsh/repo.d/caleb-private.git &&
     mv .config/vcsh/repo.d/{caleb-private,que-secure}.git ||:
 
 # For the sake of un-updated que repos, get hooks to handle existing files
-if test -d .config/vcsh; then
-    mkdir -p .config/vcsh/hooks-enabled
-    test -f .config/vcsh/hooks-enabled/pre-merge-unclobber ||
-        curl -L -o .config/vcsh/hooks-enabled/pre-merge-unclobber $STRAP_URL/.config/vcsh/hooks-enabled/pre-merge-unclobber
-    test -f .config/vcsh/hooks-enabled/post-merge-unclobber ||
-        curl -L -o .config/vcsh/hooks-enabled/post-merge-unclobber $STRAP_URL/.config/vcsh/hooks-enabled/post-merge-unclobber
-    chmod +x .config/vcsh/hooks-enabled/{pre,post}-merge-unclobber
-fi
+mkdir -p .config/vcsh/hooks-enabled
+test -f .config/vcsh/hooks-enabled/pre-merge-unclobber ||
+    curl -L -o .config/vcsh/hooks-enabled/pre-merge-unclobber $STRAP_URL/.config/vcsh/hooks-enabled/pre-merge-unclobber
+test -f .config/vcsh/hooks-enabled/post-merge-unclobber ||
+    curl -L -o .config/vcsh/hooks-enabled/post-merge-unclobber $STRAP_URL/.config/vcsh/hooks-enabled/post-merge-unclobber
+chmod +x .config/vcsh/hooks-enabled/{pre,post}-merge-unclobber
 
 # mr would clone this, but it needs this to clone other things and this needs manual care on first setup
 test -d .config/vcsh/repo.d/que-secure.git &&
