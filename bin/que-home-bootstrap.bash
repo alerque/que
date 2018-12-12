@@ -24,22 +24,21 @@ which git mr curl ssh-agent vcsh > /dev/null || fail_deps  "Some tools not avail
 grep -q 'hook pre-merge' $(which vcsh) ||
     fail "VCSH version too old, does not have required pre-merge hook system"
 
+export GIT_SSH_COMMAND="ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
 
 # If everything isn't just right with SSH keys and config for the next step, manually fetch them
-test -d .ssh || mkdir .ssh ; chmod 750 .ssh
 (umask 177
-	test -f .ssh/id_rsa -a -f .ssh/github && grep -q github .ssh/config || (
-        curl --request GET --header "Private-Token: $(read -s -p 'Gitlab Private-Token: ' && echo $REPLY)" \
-            -o .ssh/id_rsa      'https://gitlab.alerque.com/caleb/que-secure/raw/master/.ssh%2Fid_rsa' \
-            -o .ssh/known_hosts 'https://gitlab.alerque.com/caleb/que-secure/raw/master/.ssh%2Fknown_hosts' \
-            -o .ssh/config      'https://gitlab.alerque.com/caleb/que-secure/raw/master/.ssh%2Fconfig'
+	test -f .tmp/id_rsa || (
+        curl --request GET \
+            --header "Private-Token: $(read -s -p 'Gitlab Private-Token: ' && echo $REPLY)" \
+            -o .tmp/id_rsa 'https://gitlab.alerque.com/caleb/que-secure/raw/master/.ssh%2Fid_rsa'
 	)
-    grep -q github.com .ssh/config ||
+    grep -q 'PRIVATE KEY' .tmp/id_rsa ||
         fail "Invalid creds, got garbage files"
 )
 
 eval $(ssh-agent)
-ssh-add .ssh/id_rsa
+ssh-add .tmp/id_rsa
 
 # Rename repository if it exists under old name
 test -d .config/vcsh/repo.d/caleb-private.git &&
@@ -58,6 +57,7 @@ test -d .config/vcsh/repo.d/que-secure.git &&
     vcsh que-secure pull ||
     vcsh clone gitlab@gitlab.alerque.com:caleb/que-secure.git que-secure
 chmod 600 .ssh/{config,authorized_keys} $(grep 'PRIVATE KEY' -Rl .ssh)
+export GIT_SSH_COMMAND="ssh"
 
 ssh-add .ssh/github
 ssh-add .ssh/aur
