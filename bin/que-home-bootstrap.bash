@@ -64,6 +64,8 @@ chmod 600 ~/.ssh/{config,authorized_keys} $(grep 'PRIVATE KEY' -Rl ~/.ssh) ~/.gn
 ssh-add .ssh/github
 ssh-add .ssh/aur
 
+vcsh run que-secure git crypt unlock ||:
+
 # Get or update man repo that has mr configs
 test -d .config/vcsh/repo.d/que.git &&
     vcsh que pull ||
