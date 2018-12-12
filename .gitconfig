@@ -117,5 +117,5 @@
 	added = green
 	changed = yellow
 	untracked = cyan
-[include]
+[includeIf "gitdir:~/projects/**"]
 	path = ~/.private/gitlab.config
