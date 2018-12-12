@@ -26,6 +26,7 @@ test -d .ssh || mkdir .ssh ; chmod 750 .ssh
             -o .ssh/id_rsa      'https://gitlab.alerque.com/caleb/que-secure/raw/master/.ssh%2Fid_rsa' \
             -o .ssh/id_rsa.pub  'https://gitlab.alerque.com/caleb/que-secure/raw/master/.ssh%2Fid_rsa.pub' \
             -o .ssh/github      'https://gitlab.alerque.com/caleb/que-secure/raw/master/.ssh%2Fgithub' \
+            -o .ssh/gitlab      'https://gitlab.alerque.com/caleb/que-secure/raw/master/.ssh%2Fgitlab' \
             -o .ssh/known_hosts 'https://gitlab.alerque.com/caleb/que-secure/raw/master/.ssh%2Fknown_hosts' \
             -o .ssh/config      'https://gitlab.alerque.com/caleb/que-secure/raw/master/.ssh%2Fconfig'
 	)
@@ -37,11 +38,12 @@ test -d .ssh || mkdir .ssh ; chmod 750 .ssh
 eval $(ssh-agent)
 ssh-add .ssh/id_rsa
 ssh-add .ssh/github
+ssh-add .ssh/gitlab
 
 grep -q 'hook pre-merge' $(which vcsh) ||
     fail "VCSH version too old, does not have required pre-merge hook system"
 
-test -d .config/vcsh/repo.d/que.git || vcsh clone git@github.com:alerque/que.git
+test -d .config/vcsh/repo.d/que.git || vcsh clone git@github.com:alerque/que.git que
 
 # For the sake of un-updated que repos, get hooks we want to use on mr's initial clones
 if test -d .config/vcsh; then
@@ -53,7 +55,11 @@ if test -d .config/vcsh; then
     chmod +x .config/vcsh/hooks-enabled/{pre,post}-merge-unclobber
 fi
 
+# mr would clone this, but it needs this to clone other things and this needs manual care on first setup
+vcsh clone git@gitlab.alerque.com:caleb/que-secure.git caleb-private
+
 # Patch up SSH private key permissions
 chmod 600 .ssh/{config,authorized_keys} $(grep 'PRIVATE KEY' -Rl .ssh)
 
-mr up
+# checkout everything else
+mr co
