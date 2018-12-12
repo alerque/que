@@ -12,13 +12,12 @@ function project_list_cache () (
 )
 
 function project_list () {
+	git config --file ~/.private/gitlab.config gitlab.url || return
 	project_list_cache ||
 		lab project list -a |
 		sort |
 		tee ${labcache}
 }
-
-git config --file ~/.private/gitlab.config gitlab.url || exit 1
 
 project_list |
 	grep -e "^${group}/" |
