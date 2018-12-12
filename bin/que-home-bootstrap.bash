@@ -27,18 +27,17 @@ grep -q 'hook pre-merge' $(which vcsh) ||
 export GIT_SSH_COMMAND="ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
 
 # If everything isn't just right with SSH keys and config for the next step, manually fetch them
-(umask 177
-	test -f .tmp/id_rsa || (
-        curl --request GET \
-            --header "Private-Token: $(read -s -p 'Gitlab Private-Token: ' && echo $REPLY)" \
-            -o .tmp/id_rsa 'https://gitlab.alerque.com/caleb/que-secure/raw/master/.ssh%2Fid_rsa'
-	)
-    grep -q 'PRIVATE KEY' .tmp/id_rsa ||
+test -f /tmp/id_rsa || (
+    umask 177
+    curl --request GET \
+        --header "Private-Token: $(read -s -p 'Gitlab Private-Token: ' && echo $REPLY)" \
+        -o /tmp/id_rsa 'https://gitlab.alerque.com/caleb/que-secure/raw/master/.ssh%2Fid_rsa'
+    grep -q 'PRIVATE KEY' /tmp/id_rsa ||
         fail "Invalid creds, got garbage files"
 )
 
 eval $(ssh-agent)
-ssh-add .tmp/id_rsa
+ssh-add /tmp/id_rsa
 
 # Rename repository if it exists under old name
 test -d .config/vcsh/repo.d/caleb-private.git &&
