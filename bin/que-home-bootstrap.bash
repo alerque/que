@@ -7,6 +7,10 @@ function fail () {
     exit 1
 }
 
+function fail_deps () {
+    fail "$1\n\nRun que-sys-bootstrap.bash as root instead.\n\nbash <(curl -s -L $STRAP_URL/bin/que-sys-bootstrap.bash)"
+}
+
 # Error out of script if _anything_ goes wrong
 set -e
 
@@ -15,8 +19,11 @@ test $UID -eq 0 && fail "Don't be root!"
 cd $HOME
 
 # If we don't have these tools, we should be running que-sys-bootstrap.bash instead
-which git mr curl ssh-agent vcsh > /dev/null ||
-    fail "Necessary tools not available, run que-sys-bootstrap.bash as root instead.\n\nbash <(curl -s -L $STRAP_URL/bin/que-sys-bootstrap.bash)"
+which git mr curl ssh-agent vcsh > /dev/null || fail_deps  "Some tools not available"
+
+grep -q 'hook pre-merge' $(which vcsh) ||
+    fail "VCSH version too old, does not have required pre-merge hook system"
+
 
 # If everything isn't just right with SSH keys and config for the next step, manually fetch them
 test -d .ssh || mkdir .ssh ; chmod 750 .ssh
@@ -36,7 +43,7 @@ ssh-add .ssh/gitlab
 
 # Rename repository if it exists under old name
 test -d .config/vcsh/repo.d/caleb-private.git &&
-    mv .config/vcsh/repo.d/{caleb-private,que-secure}.git
+    mv .config/vcsh/repo.d/{caleb-private,que-secure}.git ||:
 
 # mr would clone this, but it needs this to clone other things and this needs manual care on first setup
 test -d .config/vcsh/repo.d/que-secure.git &&
@@ -47,9 +54,6 @@ chmod 600 .ssh/{config,authorized_keys} $(grep 'PRIVATE KEY' -Rl .ssh)
 ssh-add .ssh/id_rsa
 ssh-add .ssh/github
 ssh-add .ssh/aur
-
-grep -q 'hook pre-merge' $(which vcsh) ||
-    fail "VCSH version too old, does not have required pre-merge hook system"
 
 # Get or update man repo that has mr configs
 test -d .config/vcsh/repo.d/que.git &&
