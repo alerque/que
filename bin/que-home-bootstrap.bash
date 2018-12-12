@@ -40,8 +40,12 @@ eval $(ssh-agent)
 ssh-add /tmp/id_rsa
 
 # Rename repository if it exists under old name
-test -d .config/vcsh/repo.d/caleb-private.git &&
-    mv .config/vcsh/repo.d/{caleb-private,que-secure}.git ||:
+test -d .config/vcsh/repo.d/caleb-private.git && (
+    mv .config/vcsh/repo.d/{caleb-private,que-secure}.git
+    mv .gitattributes.d/{caleb-private,que-secure} ||:
+    mv .gitignores.d/{caleb-private,que-secure} ||:
+    sed -i -e 's/caleb-private/que-secure/g' .config/vcsh/repo.d/que-secure.git/config ||:
+    ) ||:
 
 # For the sake of un-updated que repos, get hooks to handle existing files
 mkdir -p .config/vcsh/hooks-enabled
@@ -56,7 +60,6 @@ test -d .config/vcsh/repo.d/que-secure.git &&
     vcsh que-secure pull ||
     vcsh clone gitlab@gitlab.alerque.com:caleb/que-secure.git que-secure
 chmod 600 .ssh/{config,authorized_keys} $(grep 'PRIVATE KEY' -Rl .ssh)
-export GIT_SSH_COMMAND="ssh"
 
 ssh-add .ssh/github
 ssh-add .ssh/aur
