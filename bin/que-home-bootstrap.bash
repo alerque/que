@@ -41,7 +41,7 @@ test -d .config/vcsh/repo.d/caleb-private.git &&
 # mr would clone this, but it needs this to clone other things and this needs manual care on first setup
 test -d .config/vcsh/repo.d/que-secure.git &&
     vcsh que-secure pull ||
-    vcsh clone git@gitlab.alerque.com:caleb/que-secure.git que-secure
+    vcsh clone gitlab@gitlab.alerque.com:caleb/que-secure.git que-secure
 chmod 600 .ssh/{config,authorized_keys} $(grep 'PRIVATE KEY' -Rl .ssh)
 
 ssh-add .ssh/id_rsa
