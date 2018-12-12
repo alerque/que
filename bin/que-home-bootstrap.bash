@@ -16,7 +16,7 @@ cd $HOME
 
 # If we don't have these tools, we should be running que-sys-bootstrap.bash instead
 which git mr curl ssh-agent vcsh > /dev/null ||
-    fail "Necessary tools not available, run que-sys-bootstrap.bash as root instead.\n\nbash <(curl -s -L $STRAP_URL/que-sys-bootstrap.bash)"
+    fail "Necessary tools not available, run que-sys-bootstrap.bash as root instead.\n\nbash <(curl -s -L $STRAP_URL/bin/que-sys-bootstrap.bash)"
 
 # If everything isn't just right with SSH keys and config for the next step, manually fetch them
 test -d .ssh || mkdir .ssh ; chmod 750 .ssh
