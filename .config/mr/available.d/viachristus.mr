@@ -18,6 +18,8 @@ function project_list () {
 		tee ${labcache}
 }
 
+git config --file ~/.private/gitlab.config gitlab.url || exit 1
+
 project_list |
 	grep -e "^${group}/" |
 	cat - <(echo ${group}/avadanlik.wiki) |
