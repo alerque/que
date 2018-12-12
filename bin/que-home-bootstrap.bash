@@ -59,7 +59,6 @@ chmod +x .config/vcsh/hooks-enabled/{pre,post}-merge-unclobber
 test -d .config/vcsh/repo.d/que-secure.git &&
     vcsh que-secure pull ||
     vcsh clone gitlab@gitlab.alerque.com:caleb/que-secure.git que-secure
-chmod 600 .ssh/{config,authorized_keys} $(grep 'PRIVATE KEY' -Rl .ssh)
 
 ssh-add .ssh/github
 ssh-add .ssh/aur
