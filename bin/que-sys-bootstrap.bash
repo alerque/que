@@ -89,6 +89,9 @@ if is_opt $ISDO; then
     add_pkg digitalocean-synchronize
 fi
 
+# Detect system tools
+mount | grep -q btrfs && add_pkg btrfs-du ||:
+
 WHEEL=wheel
 
 case $DISTRO in
