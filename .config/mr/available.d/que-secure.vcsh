@@ -1,8 +1,8 @@
 [$HOME/.config/vcsh/repo.d/que-secure.git]
 checkout =
 	vcsh clone gitlab@gitlab.alerque.com:caleb/que-secure.git que-secure
-	chmod 600 ~/.ssh/{config,authorized_keys} $(grep 'PRIVATE KEY' -Rl ~/.ssh) ~/.gnupg/private-keys*/*
+	chmod 600 ~/.ssh/{config,authorized_keys} $(grep 'PRIVATE KEY' -Rl ~/.ssh) ~/.gnupg{,/private-keys*{,/*}}
 	git crypt unlock
 update =
 	vcsh run "$MR_REPO" git pull "$@"
-	chmod 600 ~/.ssh/{config,authorized_keys} $(grep 'PRIVATE KEY' -Rl ~/.ssh) ~/.gnupg/private-keys*/*
+	chmod 600 ~/.ssh/{config,authorized_keys} $(grep 'PRIVATE KEY' -Rl ~/.ssh) ~/.gnupg{,/private-keys*{,/*}}
