@@ -126,6 +126,9 @@ case $DISTRO in
 		distro_pkg ttf-fonts ttf-{cheapskate,freefont,gentium-{basic,plus},liberation,hack,amiri,montserrat,sil-{ezra,abyssinica,lateef}} otf-{libertinus,bravura,crimson-text}
 		distro_pkg zathura zathura{,-pdf-mupdf}
 		distro_pkg zsh zsh zsh-completions
+
+        # Temporarily broken packages
+        remove_pkg gnome-defaults-list
         ;;
 	fedora)
 		:

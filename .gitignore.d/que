@@ -18,7 +18,6 @@
 !/.config/mr/available.d
 !/.config/mr/available.d/aur.mr
 !/.config/mr/available.d/caleb-finances.vcsh
-!/.config/mr/available.d/caleb-private.vcsh
 !/.config/mr/available.d/ccm.mr
 !/.config/mr/available.d/freecheck.git
 !/.config/mr/available.d/grandpa.mr
@@ -37,6 +36,7 @@
 !/.config/mr/available.d/que-inkscape.vcsh
 !/.config/mr/available.d/que-musescore.vcsh
 !/.config/mr/available.d/que-mutt.vcsh
+!/.config/mr/available.d/que-secure.vcsh
 !/.config/mr/available.d/que-tmux.vcsh
 !/.config/mr/available.d/que-utils.vcsh
 !/.config/mr/available.d/que.vcsh
@@ -62,11 +62,9 @@
 !/.config/mr/config.d-armadillo/tprk.mr
 !/.config/mr/config.d-basilisk
 !/.config/mr/config.d-basilisk/systems.mr
-!/.config/mr/config.d/caleb-private.vcsh
 !/.config/mr/config.d-emircik
 !/.config/mr/config.d-emircik/aur.mr
 !/.config/mr/config.d-emircik/caleb-finances.vcsh
-!/.config/mr/config.d-emircik/caleb-private.vcsh
 !/.config/mr/config.d-emircik/ccm.mr
 !/.config/mr/config.d-emircik/homebrew.mr
 !/.config/mr/config.d-emircik/hosts.mr
@@ -109,14 +107,15 @@
 !/.config/mr/config.d-jaguar/ccm.mr
 !/.config/mr/config.d-jaguar/freecheck.git
 !/.config/mr/config.d-jaguar/grandpa.mr
+!/.config/mr/config.d-jaguar/hosts.mr
 !/.config/mr/config.d-jaguar/incil.mr
 !/.config/mr/config.d-jaguar/ipk.mr
-!/.config/mr/config.d-jaguar/lyricue.mr
-!/.config/mr/config.d-jaguar/paperwalking.git
 !/.config/mr/config.d-jaguar/pictures.annex
 !/.config/mr/config.d-jaguar/que-atom.vcsh
+!/.config/mr/config.d-jaguar/que-awesome.vcsh
 !/.config/mr/config.d-jaguar/que-fonts.vcsh
 !/.config/mr/config.d-jaguar/que-gimp.vcsh
+!/.config/mr/config.d-jaguar/que-gnome.vcsh
 !/.config/mr/config.d-jaguar/que-inkscape.vcsh
 !/.config/mr/config.d-jaguar/que-mutt.vcsh
 !/.config/mr/config.d-jaguar/que-xorg.vcsh
@@ -185,6 +184,7 @@
 !/.config/mr/config.d-pars/pictures.annex
 !/.config/mr/config.d-pars/que-awesome.vcsh
 !/.config/mr/config.d-pars/que-xorg.vcsh
+!/.config/mr/config.d/que-secure.vcsh
 !/.config/mr/config.d/que-tmux.vcsh
 !/.config/mr/config.d/que-utils.vcsh
 !/.config/mr/config.d/que.vcsh
