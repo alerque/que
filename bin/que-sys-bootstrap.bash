@@ -128,7 +128,7 @@ case $DISTRO in
 		distro_pkg zsh zsh zsh-completions
 
         # Temporarily broken packages
-        remove_pkg gnome-defaults-list
+        skip_pkg gnome-defaults-list
         ;;
 	fedora)
 		:
