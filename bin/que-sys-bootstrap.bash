@@ -129,6 +129,7 @@ case $DISTRO in
 
         # Temporarily broken packages
         skip_pkg gnome-defaults-list
+        skip_pkg xiphos
         ;;
 	fedora)
 		:
