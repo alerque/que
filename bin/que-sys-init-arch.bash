@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo -e 'en_US.UTF-8 UTF-8\nru_RU.UTF-8 UTF-8\ntr_TR.UTF-8 UTF-8' > /etc/locale.gen
-locale-gen
+localectl list-locales | grep -vq -e US -e TR -e RU && locale-gen
 
 # Enable sudo access to wheel group
 sed -i -e 's/^# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/g' /etc/sudoers
@@ -100,3 +100,5 @@ update_mirrors
 
 # Force nameserver and domain
 echo -e "nameserver 1.1.1.1\nsearch alerque.com" > /etc/resolv.conf
+
+localectl list-keymaps | grep -q dvp && localectl --no-convert set-keymap dvp ||:
