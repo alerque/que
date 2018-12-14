@@ -4,3 +4,6 @@ skip = true
 
 [$HOME/projects/systems/dns]
 checkout = git clone gitlab@gitlab.alerque.com:systems/dns.git
+
+[$HOME/projects/systems/support.wiki]
+checkout = git clone gitlab@gitlab.alerque.com:systems/support.wiki.git
