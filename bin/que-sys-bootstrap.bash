@@ -119,6 +119,7 @@ case $DISTRO in
 		distro_pkg neomutt neomutt goobook-git
 		distro_pkg neovim {,python{,2}-}neovim
 		distro_pkg networkmanager networkmanager network-manager-applet
+		distro_pkg nextcloud-client nextcloud-client python-nautilus
 		distro_pkg pcregrep pcre
 		distro_pkg pulseaudio pa{systray,man,vucontrol,prefs,mixer,-applet-git}
 		distro_pkg tmux tmux teamocil
