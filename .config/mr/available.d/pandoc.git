@@ -1,2 +1,5 @@
 [$HOME/projects/pandoc]
-checkout = git clone git@github.com:jgm/pandoc.git
+checkout =
+	git clone git@github.com:alerque/pandoc.git
+	cd pandoc
+	git remote add upstream git@github.com:jgm/pandoc.git
