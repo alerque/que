@@ -26,6 +26,7 @@
 !/.config/mr/available.d/incil.mr
 !/.config/mr/available.d/ipk.mr
 !/.config/mr/available.d/lyricue.mr
+!/.config/mr/available.d/pandoc.git
 !/.config/mr/available.d/paperwalking.git
 !/.config/mr/available.d/pictures.annex
 !/.config/mr/available.d/que-atom.vcsh
@@ -70,6 +71,7 @@
 !/.config/mr/config.d-emircik/hosts.mr
 !/.config/mr/config.d-emircik/ipk.mr
 !/.config/mr/config.d-emircik/lyricue.mr
+!/.config/mr/config.d-emircik/pandoc.git
 !/.config/mr/config.d-emircik/pictures.annex
 !/.config/mr/config.d-emircik/que-atom.vcsh
 !/.config/mr/config.d-emircik/que-awesome.vcsh
@@ -99,6 +101,7 @@
 !/.config/mr/config.d-iguana
 !/.config/mr/config.d-iguana/aur.mr
 !/.config/mr/config.d-iguana/ipk.mr
+!/.config/mr/config.d-iguana/pandoc.git
 !/.config/mr/config.d-iguana/systems.mr
 !/.config/mr/config.d-iguana/tprk.mr
 !/.config/mr/config.d-jaguar
@@ -110,6 +113,7 @@
 !/.config/mr/config.d-jaguar/hosts.mr
 !/.config/mr/config.d-jaguar/incil.mr
 !/.config/mr/config.d-jaguar/ipk.mr
+!/.config/mr/config.d-jaguar/pandoc.git
 !/.config/mr/config.d-jaguar/pictures.annex
 !/.config/mr/config.d-jaguar/que-atom.vcsh
 !/.config/mr/config.d-jaguar/que-awesome.vcsh
@@ -181,6 +185,7 @@
 !/.config/mr/config.d-oyster/que-gnome.vcsh
 !/.config/mr/config.d-oyster/que-xorg.vcsh
 !/.config/mr/config.d-pars
+!/.config/mr/config.d-pars/pandoc.git
 !/.config/mr/config.d-pars/pictures.annex
 !/.config/mr/config.d-pars/que-awesome.vcsh
 !/.config/mr/config.d-pars/que-xorg.vcsh

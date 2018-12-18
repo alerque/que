@@ -1,0 +1,2 @@
+[$HOME/projects/pandoc]
+checkout = git clone git@github.com:jgm/pandoc.git
