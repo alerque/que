@@ -1,0 +1,14 @@
+[$HOME/projects/casile]
+checkout = git clone git@github.com:alerque/casile.git
+
+[$HOME/projects/sile]
+checkout =
+	git clone git@github.com:alerque/sile.git
+	cd sile
+	git remote add upstream git@github.com:simoncozens/sile.git
+
+[$HOME/projects/pandoc]
+checkout =
+	git clone git@github.com:alerque/pandoc.git
+	cd pandoc
+	git remote add upstream git@github.com:jgm/pandoc.git

@@ -26,7 +26,6 @@
 !/.config/mr/available.d/incil.mr
 !/.config/mr/available.d/ipk.mr
 !/.config/mr/available.d/lyricue.mr
-!/.config/mr/available.d/pandoc.git
 !/.config/mr/available.d/paperwalking.git
 !/.config/mr/available.d/pictures.annex
 !/.config/mr/available.d/que-atom.vcsh
@@ -48,6 +47,7 @@
 !/.config/mr/available.d/systems.mr
 !/.config/mr/available.d/tprk.mr
 !/.config/mr/available.d/tsv.mr
+!/.config/mr/available.d/typesetting.mr
 !/.config/mr/available.d/userscripts.mr
 !/.config/mr/available.d/vcsh.git
 !/.config/mr/available.d/viachristus.mr
@@ -71,7 +71,6 @@
 !/.config/mr/config.d-emircik/hosts.mr
 !/.config/mr/config.d-emircik/ipk.mr
 !/.config/mr/config.d-emircik/lyricue.mr
-!/.config/mr/config.d-emircik/pandoc.git
 !/.config/mr/config.d-emircik/pictures.annex
 !/.config/mr/config.d-emircik/que-atom.vcsh
 !/.config/mr/config.d-emircik/que-awesome.vcsh
@@ -90,6 +89,7 @@
 !/.config/mr/config.d-emircik/systems.mr
 !/.config/mr/config.d-emircik/tprk.mr
 !/.config/mr/config.d-emircik/tsv.mr
+!/.config/mr/config.d-emircik/typesetting.mr
 !/.config/mr/config.d-emircik/userscripts.mr
 !/.config/mr/config.d-emircik/vcsh.git
 !/.config/mr/config.d-emircik/viachristus.mr
@@ -101,9 +101,9 @@
 !/.config/mr/config.d-iguana
 !/.config/mr/config.d-iguana/aur.mr
 !/.config/mr/config.d-iguana/ipk.mr
-!/.config/mr/config.d-iguana/pandoc.git
 !/.config/mr/config.d-iguana/systems.mr
 !/.config/mr/config.d-iguana/tprk.mr
+!/.config/mr/config.d-iguana/typesetting.mr
 !/.config/mr/config.d-jaguar
 !/.config/mr/config.d-jaguar/aur.mr
 !/.config/mr/config.d-jaguar/caleb-finances.vcsh
@@ -113,7 +113,6 @@
 !/.config/mr/config.d-jaguar/hosts.mr
 !/.config/mr/config.d-jaguar/incil.mr
 !/.config/mr/config.d-jaguar/ipk.mr
-!/.config/mr/config.d-jaguar/pandoc.git
 !/.config/mr/config.d-jaguar/pictures.annex
 !/.config/mr/config.d-jaguar/que-atom.vcsh
 !/.config/mr/config.d-jaguar/que-awesome.vcsh
@@ -127,6 +126,7 @@
 !/.config/mr/config.d-jaguar/systems.mr
 !/.config/mr/config.d-jaguar/tprk.mr
 !/.config/mr/config.d-jaguar/tsv.mr
+!/.config/mr/config.d-jaguar/typesetting.mr
 !/.config/mr/config.d-jaguar/userscripts.mr
 !/.config/mr/config.d-jaguar/vcsh.git
 !/.config/mr/config.d-jaguar/viachristus.mr
@@ -191,7 +191,6 @@
 !/.config/mr/config.d-pars/hosts.mr
 !/.config/mr/config.d-pars/incil.mr
 !/.config/mr/config.d-pars/ipk.mr
-!/.config/mr/config.d-pars/pandoc.git
 !/.config/mr/config.d-pars/pictures.annex
 !/.config/mr/config.d-pars/que-atom.vcsh
 !/.config/mr/config.d-pars/que-awesome.vcsh
@@ -204,6 +203,7 @@
 !/.config/mr/config.d-pars/systems.mr
 !/.config/mr/config.d-pars/tprk.mr
 !/.config/mr/config.d-pars/tsv.mr
+!/.config/mr/config.d-pars/typesetting.mr
 !/.config/mr/config.d-pars/viachristus.mr
 !/.config/mr/config.d/que-secure.vcsh
 !/.config/mr/config.d/que-tmux.vcsh
