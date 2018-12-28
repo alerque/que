@@ -17,3 +17,7 @@ checkout =
 [$HOME/projects/ipk/ceviriler.wiki]
 checkout =
 	git clone gitlab@gitlab.alerque.com:ipk/ceviriler.wiki.git
+
+[$HOME/projects/ipk/gorevler]
+checkout =
+	git clone gitlab@gitlab.alerque.com:ipk/gorevler.git
