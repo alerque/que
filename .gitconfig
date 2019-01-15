@@ -43,6 +43,7 @@
 	br = branch
 	chp = cherry-pick
 	ci = commit -vv
+	cia = commit -vv --amend --no-edit
 	co = checkout
 	pf = push --force-with-lease
 	rb = rebase
