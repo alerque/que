@@ -19,9 +19,10 @@ function debug () {
 
 # Update mirror list reflector installed but never run
 function update_mirrors () {
-    command -v reflector &&
+    command -v reflector && {
         grep -q reflector /etc/pacman.d/mirrorlist ||
         reflector --verbose --protocol https --score 50 --fastest 25 --latest 10 --save /etc/pacman.d/mirrorlist
+    }
 }
 
 # Setup systemctl argument to start services if not in chroot
