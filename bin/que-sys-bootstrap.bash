@@ -126,6 +126,7 @@ case $DISTRO in
 		distro_pkg tmux tmux teamocil
 		distro_pkg transmission transmission-sequential-gtk
 		distro_pkg ttf-fonts ttf-{cheapskate,freefont,gentium-{basic,plus},liberation,hack,amiri,montserrat,sil-{ezra,abyssinica,lateef}} otf-{libertinus,bravura,crimson-text}
+		distro_pkg wireguard wireguard-{tools,dkms}
 		distro_pkg zathura zathura{,-pdf-mupdf}
 		distro_pkg zsh zsh zsh-completions
 
@@ -173,7 +174,6 @@ case $DISTRO in
 		distro_pkg ttf-fonts ''
 		distro_pkg unrar ''
 		distro_pkg unzip ''
-		distro_pkg wireguard wireguard-{tools,dkms}
 		distro_pkg xiphos ''
 		distro_pkg zip ''
 		;;
