@@ -131,6 +131,7 @@ case $DISTRO in
 		distro_pkg zsh zsh zsh-completions
 
         # Temporarily broken packages
+        skip_pkg gnome-defaults-list
         skip_pkg xiphos
         ;;
 	fedora)
