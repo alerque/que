@@ -36,7 +36,7 @@ systemctl $NOW enable haveged
 $DEBUG pacman-key --init
 $DEBUG pacman-key --populate archlinux
 
-update_mirrors
+update_mirrors ||:
 
 # Freshen everything up
 $DEBUG pacman --needed --noconfirm -Syu
