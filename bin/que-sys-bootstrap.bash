@@ -24,7 +24,7 @@ export HOSTNAME=$(cat /etc/hostname)
 
 # Setup stuff
 BASEPACKAGES=(base base-devel openssh cron ntp keychain ctags cyrus-sasl entr etckeeper fasd fzf gdisk git git-annex git-crypt gnupg html-xml-utils htop lab linux-headers lsof markdown2ctags mosh neomutt neovim pcregrep programmers-dvorak rsync ruby strace termite-terminfo tmux unrar unzip myrepos vcsh wget zip zsh ripgrep diff-so-fancy exim gnu-netcat rlwrap wireguard mlocate ncdu)
-DESKTOPPACKAGES=(awesome chromium compton cups firefox gimp gnome gnome-shell gnome-packagekit google-talkplugin gpaste gvfs inkscape keepassxc libreoffice neovim-gtk networkmanager nextcloud-client pulseaudio rdesktop scribus slock smplayer termite transmission ttf-fonts ttf-symbola ttf-emojione xautolock xiphos zathura xdotool xss-lock xsel xorg-apps geeqie flameshot)
+DESKTOPPACKAGES=(awesome chromium compton cups firefox gimp gnome gnome-shell gnome-packagekit google-talkplugin gpaste gvfs inkscape keepassxc libreoffice neovim-gtk networkmanager nextcloud-client pulseaudio rdesktop scribus slock smplayer termite transmission ttf-fonts ttf-symbola ttf-emojione xautolock xiphos zathura xdotool xss-lock xsel xorg-apps geeqie flameshot atom)
 REMOVEPACKAGES=(aura chromium-libpdf customizepkg dropbox firefox-adblock-plus gnome-packagekit gvim keepass keepassx owncloud-client parcellite powerline-fonts python-powerline-git yaourt emojione-color-font)
 
 function flunk() {
