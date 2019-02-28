@@ -4,12 +4,19 @@ echo -e 'en_US.UTF-8 UTF-8\nru_RU.UTF-8 UTF-8\ntr_TR.UTF-8 UTF-8' > /etc/locale.
 localectl list-locales | grep -vq -e US -e TR -e RU && locale-gen
 
 # Enable sudo access to wheel group
-sed -i -e 's/^# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/g' /etc/sudoers
+echo -e '%wheel ALL=(ALL) ALL' > /etc/sudoers.d/70-wheel
+
+# Setup my prefered sudo user settings
+echo -e 'Defaults:caleb timestamp_timeout=90,passwd_timeout=0,!tty_tickets,insults,requiretty,passwd_tries=5,env_keep+="TMUX"' > /etc/sudoers.d/99-caleb
 
 # Setup special priviledged user for compiling AUR packages
 useradd -r -m -U -G wheel -k /dev/null que-bootstrap ||:
-grep -q que-bootstrap /etc/sudoers ||
-	sed -i -e '/^%wheel ALL=(ALL) ALL$/a que-bootstrap ALL=(ALL) NOPASSWD: ALL' /etc/sudoers
+echo -e 'Defaults:que-bootstrap !authenticate' > /etc/sudoers.d/99-que-bootstrap
+
+chmod 600 /etc/sudoers.d/*
+
+# Cleanup old way of adding bootstrap priviledges
+grep -q que-bootstrap /etc/sudoers && sed -i -e '/^que-bootstrap/d' /etc/sudoers ||:
 
 # If run in debug mode prefix anything that changes the system with a debug function
 is_opt $ISDEBUG && DEBUG='debug'
