@@ -27,5 +27,8 @@ project_list |
 		cat <<- EOF
 			[$HOME/projects/${project}]
 			checkout = git clone --recursive gitlab@${host}:${project}.git
+			update =
+			    git pull origin
+			    git submodule update --init --remote --recursive
 		EOF
 	done
