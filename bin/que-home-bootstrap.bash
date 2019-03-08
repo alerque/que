@@ -65,10 +65,21 @@ chmod 600 ~/.ssh/{config,authorized_keys} $(grep 'PRIVATE KEY' -Rl ~/.ssh) ~/.gn
 
 vcsh run que-secure git crypt unlock ||:
 
-# Get or update man repo that has mr configs
-test -d .config/vcsh/repo.d/que.git &&
-    vcsh que pull ||
-    vcsh clone git@github.com:alerque/que.git que
+function vcsh_get () {
+    test -d .config/vcsh/repo.d/$1.git &&
+    vcsh $1 pull ||
+    vcsh clone git@github.com:alerque/$1.git $1
+}
+
+# Get repo that has mr configs
+vcsh_get que
+
+# Get repo that has GPG unlock stuff
+vcsh_get que-secure
+
+# Unlock repo with private keys
+eval $(~/bin/que-auth.zsh)
+vcsh que-secure git crypt unlock
 
 # checkout everything else
 mr co
