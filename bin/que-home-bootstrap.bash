@@ -63,9 +63,6 @@ vcsh run que-secure git config core.attributesfile .gitattributes.d/que-secure
 chmod 700 ~/.gnupg{,/private-keys*}
 chmod 600 ~/.ssh/{config,authorized_keys} $(grep 'PRIVATE KEY' -Rl ~/.ssh) ~/.gnupg/private-keys*/*
 
-ssh-add .ssh/github
-ssh-add .ssh/aur
-
 vcsh run que-secure git crypt unlock ||:
 
 # Get or update man repo that has mr configs
