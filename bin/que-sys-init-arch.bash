@@ -83,7 +83,7 @@ echo 'kernel.sysrq = 1' > /etc/sysctl.d/99-sysctl.conf
 
 if is_opt $ISDESKTOP; then
 	# $DEBUG pacman -S --needed --noconfirm xf86-video-nouveau nouveau-dri
-	systemctl status gdm || systemctl $NOW enable lightdm
+	systemctl status gdm || systemctl enable lightdm
 	systemctl $NOW enable org.cups.cupsd NetworkManager
 	# Upstream doesn't include this by default to not conflict with other fonts
 	ln -sf ../conf.avail/75-emojione.conf /etc/fonts/conf.d/75-emojione.conf
