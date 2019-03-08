@@ -77,8 +77,7 @@ which yay || (
 $DEBUG su que-bootstrap -c "yay --needed --noconfirm -S ${UNINSTALLEDPACKAGES[*]}" ||:
 
 # TODO: Need to set root login and password auth options
-systemctl $NOW enable sshd cronie
-timedatectl set-ntp on
+systemctl $NOW enable sshd cronie systemd-timesyncd
 
 echo 'kernel.sysrq = 1' > /etc/sysctl.d/99-sysctl.conf
 
