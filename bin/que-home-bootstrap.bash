@@ -33,17 +33,21 @@ grep -q 'hook pre-merge' $(which vcsh) ||
 export GIT_SSH_COMMAND="ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
 
 # If everything isn't just right with SSH keys and config for the next step, manually fetch them
-test -f /tmp/id_rsa || (
-    umask 177
-    curl --request GET \
-        --header "Private-Token: $(read -s -p 'Gitlab Private-Token: ' && echo $REPLY)" \
-        -o /tmp/id_rsa 'https://gitlab.alerque.com/api/v4/projects/37/repository/files/.ssh%2Fid_rsa/raw?ref=master'
-)
-grep -q 'PRIVATE KEY' /tmp/id_rsa ||
-    fail "Invalid creds, got garbage files, fix /tmp/id_rsa or remove and try again"
+if ! grep -q 'PRIVATE KEY' ~/.ssh/id_rsa; then
+    test -f /tmp/id_rsa || (
+        umask 177
+        curl --request GET \
+            --header "Private-Token: $(read -s -p 'Gitlab Private-Token: ' && echo $REPLY)" \
+            -o /tmp/id_rsa 'https://gitlab.alerque.com/api/v4/projects/37/repository/files/.ssh%2Fid_rsa/raw?ref=master'
+    )
+    grep -q 'PRIVATE KEY' /tmp/id_rsa ||
+        fail "Invalid creds, got garbage files, fix /tmp/id_rsa or remove and try again"
 
-eval $(ssh-agent)
-ssh-add /tmp/id_rsa
+    eval $(ssh-agent)
+    ssh-add /tmp/id_rsa
+else
+    ssh -add ~/.ssh/id_rsa
+fi
 
 # Rename repository if it exists under old name
 test -d .config/vcsh/repo.d/caleb-private.git && (
