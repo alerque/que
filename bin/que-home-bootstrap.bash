@@ -11,6 +11,12 @@ function fail_deps () {
     fail "$1\n\nRun que-sys-bootstrap.bash as root instead.\n\nbash <(curl -s -L $STRAP_URL/bin/que-sys-bootstrap.bash)"
 }
 
+function vcsh_get () {
+    test -d .config/vcsh/repo.d/$1.git &&
+    vcsh $1 pull ||
+    vcsh clone git@github.com:alerque/$1.git $1
+}
+
 # Error out of script if _anything_ goes wrong
 set -e
 
@@ -55,31 +61,19 @@ test -f .config/vcsh/hooks-enabled/post-merge-unclobber ||
     curl -L -o .config/vcsh/hooks-enabled/post-merge-unclobber $STRAP_URL/.config/vcsh/hooks-enabled/post-merge-unclobber
 chmod +x .config/vcsh/hooks-enabled/{pre,post}-merge-unclobber
 
-# mr would clone this, but it needs this to clone other things and this needs manual care on first setup
-test -d .config/vcsh/repo.d/que-secure.git &&
-    vcsh run que-secure git pull ||
-    vcsh clone gitlab@gitlab.alerque.com:caleb/que-secure.git que-secure
+# Get repo that has GPG unlock stuff
+vcsh_get que-secure
 vcsh run que-secure git config core.attributesfile .gitattributes.d/que-secure
 chmod 700 ~/.gnupg{,/private-keys*}
 chmod 600 ~/.ssh/{config,authorized_keys} $(grep 'PRIVATE KEY' -Rl ~/.ssh) ~/.gnupg/private-keys*/*
 
-vcsh run que-secure git crypt unlock ||:
-
-function vcsh_get () {
-    test -d .config/vcsh/repo.d/$1.git &&
-    vcsh $1 pull ||
-    vcsh clone git@github.com:alerque/$1.git $1
-}
+vcsh run que-secure git crypt unlock
 
 # Get repo that has mr configs
 vcsh_get que
 
-# Get repo that has GPG unlock stuff
-vcsh_get que-secure
-
-# Unlock repo with private keys
+# Setup agent(s)
 eval $(~/bin/que-auth.zsh)
-vcsh que-secure git crypt unlock
 
 # checkout everything else
 mr co
