@@ -215,7 +215,7 @@ case $DISTRO in
 		add_pkg reflector
 
 		# Distro specific package names
-		distro_pkg awesome awesome awesome-revelation-git vicious
+		distro_pkg awesome awesome awesome-revelation-git lain-git vicious
 		distro_pkg etckeeper etckeeper{,-packages}
 		distro_pkg cron cronie
 		distro_pkg cups cups cups-filters system-config-printer cups-pk-helper gsfonts gutenprint foomatic-db{,-engine,-nonfree,{,-nonfree,-gutenprint}-ppds} hplip splix cups-pdf
