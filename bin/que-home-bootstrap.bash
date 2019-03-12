@@ -46,7 +46,7 @@ if ! grep -q 'PRIVATE KEY' ~/.ssh/id_rsa; then
     eval $(ssh-agent)
     ssh-add /tmp/id_rsa
 else
-    ssh -add ~/.ssh/id_rsa
+    ssh-add ~/.ssh/id_rsa
 fi
 
 # Rename repository if it exists under old name
