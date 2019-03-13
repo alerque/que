@@ -31,6 +31,7 @@ aur_list |
 			    git config branch.master.remote origin
 			    git config branch.master.merge ref/heads/master
 			auroutofdate =
+			    eval $(grep export ~/.private/aur-out-of-date.tokens)
 			    aur-out-of-date -pkg ${pkg}
 			vote = aurvote -v ${pkg}
 			sums =
