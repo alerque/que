@@ -1,4 +1,5 @@
 [$HOME/.config/vcsh/repo.d/que-secure.git]
+order = 2
 checkout =
 	vcsh clone gitlab@gitlab.alerque.com:caleb/que-secure.git que-secure
 	vcsh run que-secure git config core.attributesfile .gitattributes.d/que-secure
