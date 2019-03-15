@@ -79,6 +79,7 @@ BASEPACKAGES=(
 DESKTOPPACKAGES=(
 		atom
         awesome
+        bluez-toos
 		chromium
 		compton
 		cups
@@ -104,6 +105,7 @@ DESKTOPPACKAGES=(
 		slock
 		smplayer
 		termite
+        mplayer
 		transmission
 		ttf-emojione
 		ttf-fonts
