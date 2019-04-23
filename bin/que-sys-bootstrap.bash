@@ -229,7 +229,7 @@ case $DISTRO in
 		distro_pkg libreoffice libreoffice-fresh{,-tr,-ru} unoconv
 		distro_pkg lightdm lightdm{,-gtk-greeter{,-settings}}
 		distro_pkg neomutt neomutt goobook-git
-		distro_pkg neovim {,python{,2}-}neovim
+		distro_pkg neovim {,{python{,2},nodejs}-}neovim
 		distro_pkg networkmanager networkmanager network-manager-applet
 		distro_pkg nextcloud-client nextcloud-client python-nautilus
 		distro_pkg pcregrep pcre
