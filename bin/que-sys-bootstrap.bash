@@ -77,6 +77,7 @@ BASEPACKAGES=(
 )
 
 DESKTOPPACKAGES=(
+		alacritty
 		atom
 		awesome
 		bluez-toos
@@ -236,7 +237,7 @@ case $DISTRO in
 		distro_pkg pulseaudio pa{systray,man,vucontrol,prefs,mixer,-applet-git}
 		distro_pkg tmux tmux teamocil
 		distro_pkg transmission transmission-sequential-gtk
-		distro_pkg ttf-fonts ttf-{cheapskate,freefont,gentium-{basic,plus},liberation,hack,amiri,montserrat,sil-{ezra,abyssinica,lateef}} otf-{libertinus,bravura,crimson-text}
+		distro_pkg ttf-fonts ttf-{cheapskate,freefont,gentium-{basic,plus},liberation,hack,amiri,montserrat,sil-{ezra,abyssinica,lateef}} otf-{libertinus,bravura,crimson-text} awesome-terminal-fonts
 		distro_pkg wireguard wireguard-{tools,dkms}
 		distro_pkg zathura zathura{,-pdf-mupdf}
 		distro_pkg zsh zsh zsh-completions
