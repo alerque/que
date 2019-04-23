@@ -24,7 +24,7 @@ export HOSTNAME=$(cat /etc/hostname)
 
 # Setup stuff
 BASEPACKAGES=(
-        base
+		base
 		base-devel
 		cron
 		ctags
@@ -78,8 +78,8 @@ BASEPACKAGES=(
 
 DESKTOPPACKAGES=(
 		atom
-        awesome
-        bluez-toos
+		awesome
+		bluez-toos
 		chromium
 		compton
 		cups
@@ -96,6 +96,7 @@ DESKTOPPACKAGES=(
 		inkscape
 		keepassxc
 		libreoffice
+		mplayer
 		neovim-gtk
 		networkmanager
 		nextcloud-client
@@ -105,7 +106,6 @@ DESKTOPPACKAGES=(
 		slock
 		smplayer
 		termite
-        mplayer
 		transmission
 		ttf-emojione
 		ttf-fonts
@@ -120,7 +120,7 @@ DESKTOPPACKAGES=(
 )
 
 REMOVEPACKAGES=(
-        aura
+		aura
 		chromium-libpdf
 		customizepkg
 		dropbox
