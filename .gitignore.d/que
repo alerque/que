@@ -17,6 +17,7 @@
 !/.config/mr
 !/.config/mr/available.d
 !/.config/mr/available.d/aur.mr
+!/.config/mr/available.d/brkt.mr
 !/.config/mr/available.d/caleb-finances.vcsh
 !/.config/mr/available.d/ccm.mr
 !/.config/mr/available.d/freecheck.git
@@ -106,6 +107,7 @@
 !/.config/mr/config.d-iguana/typesetting.mr
 !/.config/mr/config.d-jaguar
 !/.config/mr/config.d-jaguar/aur.mr
+!/.config/mr/config.d-jaguar/brkt.mr
 !/.config/mr/config.d-jaguar/caleb-finances.vcsh
 !/.config/mr/config.d-jaguar/ccm.mr
 !/.config/mr/config.d-jaguar/freecheck.git
