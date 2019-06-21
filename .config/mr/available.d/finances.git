@@ -1,0 +1,2 @@
+[$HOME/projects/finances]
+checkout = git clone gitlab@gitlab.alerque.com:caleb/finances.git

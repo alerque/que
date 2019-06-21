@@ -1,2 +1,0 @@
-[$HOME/.config/vcsh/repo.d/caleb-finances.git]
-checkout = vcsh clone gitlab@gitlab.alerque.com:caleb/caleb-finances.git caleb-finances
