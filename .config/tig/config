@@ -1,0 +1,25 @@
+source ~/.config/tig/molokai-like-theme.tigrc
+
+set mouse = yes
+set commit-order = topo
+set git-colors = no
+set editor-line-number = yes
+
+set tab-size = 4
+set line-graphics = utf-8
+set truncation-delimiter = utf-8
+
+set main-view-commit-title-overflow = 62
+set main-view-date-display = relative-compact
+set main-view-date-local = true
+set main-view-date-format = "%Y-%m-%d %H:%M"
+
+#set diff-options = --ignore-all-space
+#set diff-highlight = true
+set ignore-space = all
+
+bind generic g none
+bind generic gg :0
+bind main G view-grep
+
+#bind generic S :source ~/.config/tig/config
