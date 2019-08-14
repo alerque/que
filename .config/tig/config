@@ -9,10 +9,11 @@ set tab-size = 4
 set line-graphics = utf-8
 set truncation-delimiter = utf-8
 
-set main-view-commit-title-overflow = 62
+set main-view-id-display = true
 set main-view-date-display = relative-compact
 set main-view-date-local = true
 set main-view-date-format = "%Y-%m-%d %H:%M"
+set main-view-commit-title-overflow = 62
 
 #set diff-options = --ignore-all-space
 #set diff-highlight = true
