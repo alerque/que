@@ -20,15 +20,15 @@
 	ff = false
 [branch]
 	autoSetupRebase = always
-	rebase = preserve
+	rebase = merges
 [pull]
-	rebase = true
+	rebase = merges
 [apply]
 	;whitespace = fix
 [rebase]
 	autoSquash = true
 	autoStash = true
-	preserve = true
+	merges = true
 	stat = true
 [commit]
 	gpgsign = true
@@ -51,12 +51,12 @@
 	diff = diff --minimal  --word-diff=color
 	d = diff
 	dc = diff --word-diff-regex=. --ignore-all-space
-	dcs = dc --staged
+	dsc = dc --staged
 	difftex = difftool -y -t latex
 	dls = diff-tree --no-commit-id --name-status -r
 	ds = diff --staged
 	dw = diff --word-diff=color --ignore-all-space
-	dws = diff --staged --word-diff --ignore-all-space
+	dsw = diff --staged --word-diff --ignore-all-space
 	graph = log --all --graph --decorate --oneline
 	log = log
 	g = graph
@@ -65,7 +65,7 @@
 	pf = p --force-with-lease
 	r = rebase
 	rc = rebase --continue
-	ri = rebase -i
+	ri = rebase --interactive
 	show = show --minimal --word-diff=color
 	s = show
 	sc = show --word-diff-regex=. --ignore-all-space
@@ -102,12 +102,12 @@
 [receive]
 	fsckObjects = true
 [filter "lfs"]
-	clean = git-lfs clean %f
-	smudge = git-lfs smudge %f
-	required = true
+	; clean = git-lfs clean --  %f
+	; smudge = git-lfs smudge -- %f
+	required = false
 [pager]
-	diff = diff-so-fancy | less --tabs=4 -RFX
-	show = diff-so-fancy | less --tabs=4 -RFX
+	; diff = diff-so-fancy | less --tabs=4 -RFX
+	; show = diff-so-fancy | less --tabs=4 -RFX
 [color "diff"]
 	meta = yellow
 	commit = yellow
