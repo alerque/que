@@ -33,30 +33,30 @@ aur_list |
 			auroutofdate =
 			    eval $(grep export ~/.private/aur-out-of-date.tokens)
 			    aur-out-of-date -pkg ${pkg}
-			vote = aurvote -v ${pkg}
-			sums =
+			aurvote = aurvote -v ${pkg}
+			aursums =
 			    git diff-files --quiet -- PKGBUILD
 			    updpkgsums
-			togithub =
+			aurtogithub =
 			    hub create aur-${pkg}
 			    git push github master
-			fixsrcinfo =
+			aurfixsrcinfo =
 			    git diff-index --quiet --cached HEAD
 			    makepkg --printsrcinfo > .SRCINFO
 			    git add .SRCINFO
-			    git ci -m 'Regenerate obsolete meta data using \`makepkg --printsrcinfo\`' ||:
-			fixignores =
+			    git commit -m 'Regenerate obsolete meta data using \`makepkg --printsrcinfo\`' ||:
+			aurfixignores =
 			    git diff-index --quiet --cached HEAD
 			    echo '*' > .gitignore
 			    git add -f .gitignore
 			    git ls-files | sed -e 's#^#!./#' >> .gitignore
 			    git add .gitignore
-			    git ci -m 'Update .gitignore file for easy bulk repository management' ||:
-			fixshell =
+			    git commit -m 'Update .gitignore file for easy bulk repository management' ||:
+			aurfixshell =
 			    git diff-index --quiet --cached HEAD
 			    git diff-files --quiet -- PKGBUILD
 			    shellharden --replace PKGBUILD
 			    git add PKGBUILD
-			    git ci -m 'Cleanup bash shell quoting using shellharden' ||:
+			    git commit -m 'Cleanup bash shell quoting using shellharden' ||:
 		EOF
 	done
