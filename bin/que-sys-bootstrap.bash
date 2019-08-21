@@ -39,6 +39,7 @@ BASEPACKAGES=(
 		git
 		git-annex
 		git-crypt
+		git-revise
 		gnu-netcat
 		gnupg
 		html-xml-utils
