@@ -30,6 +30,8 @@
 	autoStash = true
 	merges = true
 	stat = true
+[revise]
+	autoSquash = true
 [commit]
 	gpgsign = true
 [format]

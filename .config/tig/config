@@ -4,6 +4,7 @@ set mouse = yes
 set commit-order = topo
 set git-colors = no
 set editor-line-number = yes
+set refresh-mode = auto
 
 set tab-size = 4
 set line-graphics = utf-8
@@ -22,5 +23,6 @@ set ignore-space = all
 bind generic g none
 bind generic gg :0
 bind main G view-grep
+bind main c !git checkout %(commit)
 
 #bind generic S :source ~/.config/tig/config
