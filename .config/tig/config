@@ -26,6 +26,6 @@ set ignore-space = all
 bind generic g none
 bind generic gg :0
 bind main G view-grep
-bind main c !git checkout %(commit)
+bind main c @sh -c "git name-rev --name-only --always %(commit) | xargs git checkout"
 
 #bind generic S :source ~/.config/tig/config
