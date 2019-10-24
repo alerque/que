@@ -132,3 +132,5 @@
 	untracked = cyan
 [includeIf "gitdir:~/projects/**"]
 	path = ~/.private/gitlab.config
+[advice]
+	detachedHead = false
