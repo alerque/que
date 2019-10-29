@@ -31,6 +31,7 @@
 !/.config/mr/available.d/pictures.annex
 !/.config/mr/available.d/que-atom.vcsh
 !/.config/mr/available.d/que-awesome.vcsh
+!/.config/mr/available.d/que-firefox.vcsh
 !/.config/mr/available.d/que-fonts.vcsh
 !/.config/mr/available.d/que-gimp.vcsh
 !/.config/mr/available.d/que-gnome.vcsh
@@ -75,6 +76,7 @@
 !/.config/mr/config.d-emircik/pictures.annex
 !/.config/mr/config.d-emircik/que-atom.vcsh
 !/.config/mr/config.d-emircik/que-awesome.vcsh
+!/.config/mr/config.d-emircik/que-firefox.vcsh
 !/.config/mr/config.d-emircik/que-fonts.vcsh
 !/.config/mr/config.d-emircik/que-gimp.vcsh
 !/.config/mr/config.d-emircik/que-gnome.vcsh
@@ -118,6 +120,7 @@
 !/.config/mr/config.d-jaguar/pictures.annex
 !/.config/mr/config.d-jaguar/que-atom.vcsh
 !/.config/mr/config.d-jaguar/que-awesome.vcsh
+!/.config/mr/config.d-jaguar/que-firefox.vcsh
 !/.config/mr/config.d-jaguar/que-fonts.vcsh
 !/.config/mr/config.d-jaguar/que-gimp.vcsh
 !/.config/mr/config.d-jaguar/que-gnome.vcsh

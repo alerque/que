@@ -1,0 +1,2 @@
+[$HOME/.config/vcsh/repo.d/que-firefox.git]
+checkout = vcsh clone git@github.com:alerque/que-firefox.git
