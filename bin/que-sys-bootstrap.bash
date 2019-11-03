@@ -26,6 +26,7 @@ export HOSTNAME=$(cat /etc/hostname)
 BASEPACKAGES=(
 		base
 		base-devel
+		bat
 		cron
 		ctags
 		cyrus-sasl
@@ -34,6 +35,7 @@ BASEPACKAGES=(
 		etckeeper
 		exim
 		fasd
+		fd
 		fzf
 		gdisk
 		git
@@ -67,6 +69,8 @@ BASEPACKAGES=(
 		ruby
 		strace
 		termite-terminfo
+		tig
+		tldr
 		tmux
 		unrar
 		unzip
@@ -223,7 +227,7 @@ case $DISTRO in
 		distro_pkg etckeeper etckeeper{,-packages}
 		distro_pkg cron cronie
 		distro_pkg cups cups cups-filters system-config-printer cups-pk-helper gsfonts gutenprint foomatic-db{,-engine,-nonfree,{,-nonfree,-gutenprint}-ppds} hplip splix cups-pdf
-		distro_pkg firefox firefox{,-i18n-{tr,ru}}
+		distro_pkg firefox firefox{,-i18n-{tr,ru}} firefox-tridactyl{,-native}
 		distro_pkg geeqie geeqie-git
 		distro_pkg gnome gnome gnome-{extra,tweak-tool,defaults-list} lightdm cbatticon notification-daemon
 		distro_pkg gnome-shell gnome-shell chrome-gnome-shell gnome-shell-extension-{topicons-redux,no-title-bar}
