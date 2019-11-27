@@ -87,7 +87,7 @@ DESKTOPPACKAGES=(
 		awesome
 		bluez-toos
 		chromium
-		compton
+		picom
 		cups
 		firefox
 		flameshot
