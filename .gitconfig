@@ -50,7 +50,7 @@
 	co = checkout
 	cb = co -b
 	cp = cherry-pick
-	diff = diff --minimal  --word-diff=color
+	diff = diff --minimal --word-diff=color
 	d = diff
 	dc = diff --word-diff-regex=. --ignore-all-space
 	dsc = dc --staged
@@ -58,7 +58,7 @@
 	dls = diff-tree --no-commit-id --name-status -r
 	ds = diff --staged
 	dw = diff --word-diff=color --ignore-all-space
-	dsw = diff --staged --word-diff --ignore-all-space
+	dsw = diff --staged --word-diff=color --ignore-all-space
 	graph = log --all --graph --decorate --oneline
 	log = log
 	g = graph
@@ -70,7 +70,7 @@
 	ri = rebase --interactive
 	show = show --minimal --word-diff=color
 	s = show
-	sc = show --word-diff-regex=. --ignore-all-space
+	sc = show --word-diff=color --word-diff-regex=. --ignore-all-space
 	sw = show --ignore-all-space
 	st = status
 	getroot = !pwd
@@ -92,6 +92,8 @@
 [diff]
 	indentHeuristic = true
 	ignoreSubmodules = dirty
+	colorMoved = zebra
+	colorMovedWS = ignore-all-space
 [difftool.latex]
 	cmd = latexdiff "$LOCAL" "$REMOTE"
 [fetch]
