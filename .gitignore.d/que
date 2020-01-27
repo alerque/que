@@ -43,6 +43,7 @@
 !/.config/mr/available.d/que-utils.vcsh
 !/.config/mr/available.d/que.vcsh
 !/.config/mr/available.d/que-vim.vcsh
+!/.config/mr/available.d/que-weechat.vcsh
 !/.config/mr/available.d/que-xorg.vcsh
 !/.config/mr/available.d/que-zathura.vcsh
 !/.config/mr/available.d/que-zsh.vcsh
@@ -86,6 +87,7 @@
 !/.config/mr/config.d-emircik/que-utils.vcsh
 !/.config/mr/config.d-emircik/que.vcsh
 !/.config/mr/config.d-emircik/que-vim.vcsh
+!/.config/mr/config.d-emircik/que-weechat.vcsh
 !/.config/mr/config.d-emircik/que-xorg.vcsh
 !/.config/mr/config.d-emircik/que-zathura.vcsh
 !/.config/mr/config.d-emircik/que-zsh.vcsh
@@ -126,6 +128,7 @@
 !/.config/mr/config.d-jaguar/que-gnome.vcsh
 !/.config/mr/config.d-jaguar/que-inkscape.vcsh
 !/.config/mr/config.d-jaguar/que-mutt.vcsh
+!/.config/mr/config.d-jaguar/que-weechat.vcsh
 !/.config/mr/config.d-jaguar/que-xorg.vcsh
 !/.config/mr/config.d-jaguar/que-zathura.vcsh
 !/.config/mr/config.d-jaguar/systems.mr
