@@ -250,6 +250,11 @@ case $DISTRO in
         # Temporarily broken packages
         skip_pkg gnome-defaults-list
         skip_pkg xiphos
+
+        # Arh Linux upstream deprecations
+        remove_pkg libdmx
+        remove_pkg libxxf86dga
+        remove_pkg libxxf86misc
         ;;
 	fedora)
 		:
