@@ -1,0 +1,17 @@
+[$HOME/projects/distro-packaging/homebrew]
+checkout =
+	git clone git@github.com:alerque/homebrew-core.git homebrew
+	cd homebrew
+	git remote add upstream git@github.com:Homebrew/homebrew-core.git
+
+[$HOME/projects/distro-packaging/nix]
+checkout =
+	git clone git@github.com:alerque/nixpkgs.git nix
+	cd nix
+	git remote add upstream git@github.com:NixOS/nixpkgs.git
+
+[$HOME/projects/distro-packaging/void]
+checkout =
+	git clone git@github.com:alerque/void-packages.git void
+	cd void
+	git remote add upstream git@github.com:void-linux/void-packages.git
