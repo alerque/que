@@ -1,0 +1,45 @@
+[$HOME/projects/sile-typesetter/casile]
+checkout =
+	git clone git@github.com:alerque/casile.git
+	cd casile
+	git remote add upstream git@github.com:sile-typesetter/casile.git
+
+[$HOME/projects/sile-typesetter/casile-demos]
+checkout =
+	git clone git@github.com:alerque/casile-demos.git
+	cd casile-demos
+	git remote add upstream git@github.com:sile-typesetter/casile-demos.git
+
+[$HOME/projects/sile-typesetter/cassowary.lua]
+checkout =
+	git clone git@github.com:alerque/cassowary.lua.git
+	cd cassowary.lua
+	git remote add upstream git@github.com:sile-typesetter/cassowary.lua.git
+
+[$HOME/projects/sile-typesetter/libtexpdf]
+checkout =
+	git clone git@github.com:alerque/libtexpdf.git
+	cd libtexpdf
+	git remote add upstream git@github.com:sile-typesetter/libtexpdf.git
+
+[$HOME/projects/sile-typesetter/sile]
+checkout =
+	git clone git@github.com:alerque/sile.git
+	cd sile
+	git remote add upstream git@github.com:sile-typesetter/sile.git
+
+[$HOME/projects/sile-typesetter/sile-packages]
+checkout =
+	git clone git@github.com:alerque/sile-packages.git
+	cd sile-packages
+	git remote add upstream git@github.com:sile-typesetter/sile-packages.git
+
+[$HOME/projects/sile-typesetter/sile-typesetter.github.io]
+checkout =
+	git clone git@github.com:sile-typesetter/sile-typesetter.github.io.git
+
+[$HOME/projects/sile-typesetter/vim-sile]
+checkout =
+	git clone git@github.com:alerque/vim-sile.git
+	cd vim-sile
+	git remote add upstream git@github.com:sile-typesetter/vim-sile.git
