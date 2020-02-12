@@ -13,6 +13,7 @@ function aur_list () {
 		curl -s 'https://aur.archlinux.org/packages/?SeB=M&K=caleb&PP=250' |
 			hxselect 'tr > td:first-child > a' -c -s'\n' |
 			sort |
+			grep -v '^lua5[12]-' |
 			tee ${aurcache}
 }
 
@@ -30,7 +31,7 @@ aur_list |
 			    git remote show | grep -vE '(origin|github)' | xargs -n1 git remote remove
 			    git config branch.master.remote origin
 			    git config branch.master.merge ref/heads/master
-			auroutofdate =
+			aurood =
 			    eval $(grep export ~/.private/aur-out-of-date.tokens)
 			    aur-out-of-date -pkg ${pkg}
 			aurvote = aurvote -v ${pkg}
