@@ -24,6 +24,7 @@ export HOSTNAME=$(cat /etc/hostname)
 
 # Setup stuff
 BASEPACKAGES=(
+		anything-sync-daemon
 		base
 		base-devel
 		bat
@@ -108,6 +109,7 @@ DESKTOPPACKAGES=(
 		networkmanager
 		nextcloud-client
 		pulseaudio
+		profile-sync-daemon
 		rdesktop
 		scribus
 		slock
