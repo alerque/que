@@ -116,6 +116,7 @@
 !/.config/mr/config.d-jaguar/aur.mr
 !/.config/mr/config.d-jaguar/brkt.mr
 !/.config/mr/config.d-jaguar/ccm.mr
+!/.config/mr/config.d-jaguar/distro-packaging.mr
 !/.config/mr/config.d-jaguar/finances.git
 !/.config/mr/config.d-jaguar/freecheck.git
 !/.config/mr/config.d-jaguar/grandpa.mr
