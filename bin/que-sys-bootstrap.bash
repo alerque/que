@@ -93,6 +93,7 @@ DESKTOPPACKAGES=(
 		flameshot
 		geeqie
 		gimp
+		github-cli
 		gnome
 		gnome-packagekit
 		gnome-shell
