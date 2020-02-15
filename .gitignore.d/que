@@ -3,6 +3,7 @@
 !/bin/git-autofixup
 !/bin/git-related
 !/bin/git-sync
+!/bin/patch-firefox.sh
 !/bin/que
 !/bin/que-home-bootstrap.bash
 !/bin/que-sys-bootstrap.bash
@@ -19,6 +20,7 @@
 !/.config/mr/available.d/aur.mr
 !/.config/mr/available.d/brkt.mr
 !/.config/mr/available.d/ccm.mr
+!/.config/mr/available.d/distro-packaging.mr
 !/.config/mr/available.d/finances.git
 !/.config/mr/available.d/freecheck.git
 !/.config/mr/available.d/grandpa.mr
@@ -47,6 +49,7 @@
 !/.config/mr/available.d/que-xorg.vcsh
 !/.config/mr/available.d/que-zathura.vcsh
 !/.config/mr/available.d/que-zsh.vcsh
+!/.config/mr/available.d/sile.mr
 !/.config/mr/available.d/systems.mr
 !/.config/mr/available.d/tprk.mr
 !/.config/mr/available.d/tsv.mr
@@ -195,6 +198,7 @@
 !/.config/mr/config.d-pars
 !/.config/mr/config.d-pars/aur.mr
 !/.config/mr/config.d-pars/ccm.mr
+!/.config/mr/config.d-pars/distro-packaging.mr
 !/.config/mr/config.d-pars/finances.git
 !/.config/mr/config.d-pars/hosts.mr
 !/.config/mr/config.d-pars/incil.mr
@@ -202,12 +206,15 @@
 !/.config/mr/config.d-pars/pictures.annex
 !/.config/mr/config.d-pars/que-atom.vcsh
 !/.config/mr/config.d-pars/que-awesome.vcsh
+!/.config/mr/config.d-pars/que-firefox.vcsh
 !/.config/mr/config.d-pars/que-fonts.vcsh
 !/.config/mr/config.d-pars/que-gnome.vcsh
 !/.config/mr/config.d-pars/que-inkscape.vcsh
 !/.config/mr/config.d-pars/que-mutt.vcsh
+!/.config/mr/config.d-pars/que-weechat.vcsh
 !/.config/mr/config.d-pars/que-xorg.vcsh
 !/.config/mr/config.d-pars/que-zathura.vcsh
+!/.config/mr/config.d-pars/sile.mr
 !/.config/mr/config.d-pars/systems.mr
 !/.config/mr/config.d-pars/tprk.mr
 !/.config/mr/config.d-pars/tsv.mr
