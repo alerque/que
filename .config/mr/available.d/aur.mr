@@ -20,44 +20,48 @@ function aur_list () {
 aur_list |
 	while read pkg; do
 		aur="ssh://aur@aur.archlinux.org/${pkg}.git"
-		github="git@github.com:alerque/aur-${pkg}.git"
 		cat <<- EOF
 
 			[/home/caleb/projects/aur/${pkg}]
 			checkout = git clone ${aur}
-			aurremotes =
-			    git remote add origin ${aur} || git remote set-url origin ${aur}
-			    git remote add github ${github} || git remote set-url github ${github}
-			    git remote show | grep -vE '(origin|github)' | xargs -n1 git remote remove
+			init =
+			    git remote show | grep -vE '(origin|github)' | xargs -rn1 git remote remove
+			    git remote set-url origin ${aur} || git remote add --fetch origin ${aur}
 			    git config branch.master.remote origin
 			    git config branch.master.merge ref/heads/master
-			aurood =
-			    eval $(grep export ~/.private/aur-out-of-date.tokens)
-			    aur-out-of-date -pkg ${pkg}
-			aurvote = aurvote -v ${pkg}
-			aursums =
-			    git diff-files --quiet -- PKGBUILD
-			    updpkgsums
-			aurtogithub =
-			    hub create aur-${pkg}
-			    git push github master
-			aurfixsrcinfo =
+			    hub create --remote-name github aur-${pkg}
+			push =
 			    git diff-index --quiet --cached HEAD
+			    git push origin master:master
+			    git push github master:master
+			vote = aurvote -v ${pkg}
+			ood =
+			    eval $(grep export ~/.private/aur-out-of-date.tokens)
+			    aur-out-of-date -local .SRCINFO ||:
+			bump =
+			    git diff-index --quiet --cached HEAD
+			    git diff-files --quiet -- PKGBUILD .SRCINFO
+			    eval $(grep export ~/.private/aur-out-of-date.tokens)
+			    upstream=\$(aur-out-of-date -json -local .SRCINFO | jq -M -e -r '.upstream')
+			    yes | aur-out-of-date -update -local .SRCINFO ||:
+			    updpkgsums
+			    makepkg --printsrcinfo > .SRCINFO
+			    git add PKGBUILD .SRCINFO
+			    git diff-index --quiet --cached HEAD || git commit -m "Bump pkgver to \$upstream"
+			normalize =
+			    git rev-parse --abbrev-ref HEAD | grep -Fqx master
+			    git diff-index --quiet --cached HEAD
+			    git diff-files --quiet -- PKGBUILD
+			    shellharden --replace -- PKGBUILD
+			    git add PKGBUILD
+			    git diff-index --quiet --cached HEAD || git commit -m 'Normalize shell quoting using \`shellharden\`'
 			    makepkg --printsrcinfo > .SRCINFO
 			    git add .SRCINFO
-			    git commit -m 'Regenerate obsolete meta data using \`makepkg --printsrcinfo\`' ||:
-			aurfixignores =
-			    git diff-index --quiet --cached HEAD
+			    git diff-index --quiet --cached HEAD || git commit -m 'Normalize meta data using \`makepkg --printsrcinfo\`'
 			    echo '*' > .gitignore
 			    git add -f .gitignore
 			    git ls-files | sed -e 's#^#!./#' >> .gitignore
 			    git add .gitignore
-			    git commit -m 'Update .gitignore file for easy bulk repository management' ||:
-			aurfixshell =
-			    git diff-index --quiet --cached HEAD
-			    git diff-files --quiet -- PKGBUILD
-			    shellharden --replace PKGBUILD
-			    git add PKGBUILD
-			    git commit -m 'Cleanup bash shell quoting using shellharden' ||:
+			    git diff-index --quiet --cached HEAD || git commit -m 'Normalize .gitignore file'
 		EOF
 	done
