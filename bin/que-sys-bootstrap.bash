@@ -238,14 +238,14 @@ case $DISTRO in
 		distro_pkg libreoffice libreoffice-fresh{,-tr,-ru} unoconv
 		distro_pkg lightdm lightdm{,-gtk-greeter{,-settings}}
 		distro_pkg neomutt neomutt goobook-git
-		distro_pkg neovim {,{python{,2},nodejs}-}neovim
+		distro_pkg neovim neovim python2-pynvim nodejs-neovim
 		distro_pkg networkmanager networkmanager network-manager-applet
 		distro_pkg nextcloud-client nextcloud-client python-nautilus
 		distro_pkg pcregrep pcre
 		distro_pkg pulseaudio pa{systray,man,vucontrol,prefs,mixer,-applet-git}
 		distro_pkg tmux tmux teamocil
 		distro_pkg transmission transmission-sequential-gtk
-		distro_pkg ttf-fonts ttf-{cheapskate,freefont,gentium-{basic,plus},liberation,hack,amiri,montserrat,sil-{ezra,abyssinica,lateef}} otf-{libertinus,bravura,crimson-text} awesome-terminal-fonts
+		distro_pkg ttf-fonts gentium-plus-font ttf-{cheapskate,freefont,gentium-basic},liberation,hack,amiri,montserrat,sil-fonts,crimson-pro{,-variable}} otf-{libertinus,bravura,crimson-text} awesome-terminal-fonts
 		distro_pkg wireguard wireguard-{tools,dkms}
 		distro_pkg zathura zathura{,-pdf-mupdf}
 		distro_pkg zsh zsh zsh-completions
