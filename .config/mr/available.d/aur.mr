@@ -34,6 +34,11 @@ aur_list |
 			    git diff-index --quiet --cached HEAD
 			    git push origin master:master
 			    git push github master:master
+			publish =
+			    base=\$(awk '/pkg(ver|rel) = / { print \$3 }' .SRCINFO | xargs echo ${pkg} | tr ' ' -)
+			    for arch in \$(awk '/arch = / { print \$3 }' .SRCINFO); do
+			        scp \$base-\$arch.pkg.tar.zst{,.sig} arch@iguana.alerque.com:\$arch
+			    done
 			vote = aurvote -v ${pkg}
 			ood =
 			    eval $(grep export ~/.private/aur-out-of-date.tokens)
