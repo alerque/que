@@ -40,9 +40,11 @@ aur_list |
 			    git push github master:master
 			publish =
 			    makepkg ||:
-			    base=\$(awk '/pkg(ver|rel) = / { print \$3 }' .SRCINFO | xargs echo ${pkg} | tr ' ' -)
+			    buildver=\$(awk '/pkg(ver|rel) = / { print \$3 }' .SRCINFO | xargs | tr ' ' -)
 			    for arch in \$(awk '/arch = / { print \$3 }' .SRCINFO | grep -Fxe any -e x86_64); do
-			        scp \$base-\$arch.pkg.tar.zst{,.sig} arch.alerque.com:\$arch
+			        for pkgname in \$(awk '/^pkgname/ { print \$3 }' .SRCINFO); do
+			            scp \$pkgname-\$buildver-\$arch.pkg.tar.zst{,.sig} arch.alerque.com:\$arch
+			        done
 			    done
 			vote = aurvote -v ${pkg}
 			ood =
