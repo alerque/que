@@ -36,7 +36,7 @@ aur_list |
 			    git push github master:master
 			publish =
 			    base=\$(awk '/pkg(ver|rel) = / { print \$3 }' .SRCINFO | xargs echo ${pkg} | tr ' ' -)
-			    for arch in \$(awk '/arch = / { print \$3 }' .SRCINFO); do
+			    for arch in \$(awk '/arch = / { print \$3 }' .SRCINFO | grep -Fxe any -e x86_64); do
 			        scp \$base-\$arch.pkg.tar.zst{,.sig} arch.alerque.com:\$arch
 			    done
 			vote = aurvote -v ${pkg}
