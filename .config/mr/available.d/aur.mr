@@ -48,7 +48,7 @@ aur_list |
 			    buildver+=\$(awk '/arch = (any|x86_64)/ { print \$3 }' .SRCINFO)
 			    for pkgname in \$(awk '/pkgname = / { print \$3 }' .SRCINFO); do
 			        local pkgfile=\$pkgname-\$buildver.pkg.tar.zst
-			        scp "./\$pkgfile"{,.sig} arch.alerque.com:
+			        scp "./\$pkgfile"{,.sig} arch.alerque.com:x86_64
 			    done
 			vote = aurvote -v ${pkg}
 			ood =
