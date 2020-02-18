@@ -32,12 +32,19 @@ function update_mirrors () {
     }
 }
 
+# Add my own Arch package repository
+$DEBUG pacman-key --recv-keys 63CC496475267693
+$DEBUG pacman-key --lsign-key 63CC496475267693
+$DEBUG grep -q alerque /etc/pacman.conf ||
+    sed -i -e '/^.community/{n;n;s!^!\n\[alerque\]\nServer = https://arch.alerque.com/$arch\n!}' /etc/pacman.conf
+
 # Setup systemctl argument to start services if not in chroot
 [[ "$(stat -c %d:%i /)" != "$(stat -c %d:%i /proc/1/root/.)" ]] || export NOW="--now"
 
 # Make sure we're off on the right foot before we get to adding  keys
 $DEBUG pacman --needed --noconfirm -S haveged
 systemctl $NOW enable haveged
+
 # If system has old GPG keys clear them before signing new ones...
 # rm -rf /etc/pacman.d/gnupg
 $DEBUG pacman-key --init
