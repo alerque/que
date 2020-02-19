@@ -4,6 +4,7 @@ aurcache=/tmp/mr-aur-list
 
 extras=(ttf-charis-sil ttf-sil-ezra ttf-sil-scheherazade)
 extras+=(lua51-penlight lua51-metalua-parser lua51-metalua-compiler lua51-formatter lua51-checks)
+extras+=(yay cpdf camlpdf epubcheck kindlegen perl-hash-merge-simple)
 
 function aur_list_cache () (
 	test -s ${aurcache} || exit 1
@@ -12,16 +13,14 @@ function aur_list_cache () (
 )
 
 function aur_list () {
-	aur_list_cache ||
-		{
-			curl -s 'https://aur.archlinux.org/packages/?SeB=m&K=caleb&PP=250'
-			curl -s 'https://aur.archlinux.org/packages/?SeB=c&K=caleb&PP=250'
-		}|
+	( aur_list_cache ||
+			{ curl -s 'https://aur.archlinux.org/packages/?SeB=m&K=caleb&PP=250'
+			  curl -s 'https://aur.archlinux.org/packages/?SeB=c&K=caleb&PP=250' } |
 			hxselect 'tr > td:first-child > a' -c -s'\n' |
 			grep -v '^lua5[12]-' |
-			cat - <(xargs -n1 echo <<< $extras) |
-			sort |
-			tee ${aurcache}
+			tee ${aurcache} ) |
+		cat - <(xargs -n1 echo <<< $extras) |
+		sort -u
 }
 
 aur_list |
