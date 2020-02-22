@@ -4,7 +4,7 @@ aurcache=/tmp/mr-aur-list
 
 extras=(ttf-charis-sil ttf-sil-ezra ttf-sil-scheherazade)
 extras+=(lua51-penlight lua51-metalua-parser lua51-metalua-compiler lua51-formatter lua51-checks lua-bit32)
-extras+=(yay cpdf camlpdf kindlegen perl-hash-merge-simple)
+extras+=(yay cpdf camlpdf kindlegen perl-hash-merge-simple perl-test-most asterisk)
 
 function aur_list_cache () (
 	test -s ${aurcache} || exit 1
