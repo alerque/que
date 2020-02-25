@@ -6,12 +6,28 @@ aurcache=/tmp/mr-aur-list
 extras=(
 	camlpdf
 	cpdf
-	cvskit
+	csvkit
+	firefox-tridactyl-native
+	github-cli
+	gnome-defaults-list
 	kindlegen
+	lab
+	nodejs-neovim
 	perl-test-most
+	python-agate
+	python-agate-dbf
+	python-agate-excel
+	python-agate-sql
+	python-dbfread
+	python-leather
+	python-pytimeparse
+	ttf-amiri
 	ttf-charis-sil
+	ttf-cheapskate
 	ttf-sil-ezra
 	ttf-sil-scheherazade
+	ttf-symbola
+	xiphos
 	yay
 )
 # Extra stuff with pkgbase names that don't match the packages
