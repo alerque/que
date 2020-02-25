@@ -6,6 +6,7 @@ aurcache=/tmp/mr-aur-list
 extras=(
 	camlpdf
 	cpdf
+	cvskit
 	kindlegen
 	perl-test-most
 	ttf-charis-sil
