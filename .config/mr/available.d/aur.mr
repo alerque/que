@@ -2,9 +2,27 @@
 
 aurcache=/tmp/mr-aur-list
 
-extras=(ttf-charis-sil ttf-sil-ezra ttf-sil-scheherazade)
-extras+=(lua51-penlight lua51-metalua-parser lua51-metalua-compiler lua51-formatter lua51-checks lua-bit32)
-extras+=(yay cpdf camlpdf kindlegen perl-test-most)
+# Extra stuff I want to build / host but don't maintain in AUR
+extras=(
+	camlpdf
+	cpdf
+	kindlegen
+	perl-test-most
+	ttf-charis-sil
+	ttf-sil-ezra
+	ttf-sil-scheherazade
+	yay
+)
+# Extra stuff with pkgbase names that don't match the packages
+extras+=(
+	lua-bit32
+	lua51-checks
+	lua51-formatter
+	lua51-metalua-compiler
+	lua51-metalua-parser
+	lua51-penlight
+	montserrat-font
+)
 
 function aur_list_cache () (
 	test -s ${aurcache} || exit 1
