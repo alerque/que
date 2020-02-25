@@ -101,6 +101,7 @@ DESKTOPPACKAGES=(
 		google-talkplugin
 		gpaste
 		gvfs
+        hub
 		inkscape
 		keepassxc
 		libreoffice
@@ -116,9 +117,7 @@ DESKTOPPACKAGES=(
 		smplayer
 		termite
 		transmission
-		ttf-emojione
 		ttf-fonts
-		ttf-symbola
 		xautolock
 		xdotool
 		xiphos
@@ -245,7 +244,7 @@ case $DISTRO in
 		distro_pkg pulseaudio pa{systray,man,vucontrol,prefs,mixer,-applet-git}
 		distro_pkg tmux tmux teamocil
 		distro_pkg transmission transmission-sequential-gtk
-		distro_pkg ttf-fonts gentium-plus-font ttf-{cheapskate,freefont,gentium-basic},liberation,hack,amiri,montserrat,sil-fonts,crimson-pro{,-variable}} otf-{libertinus,bravura,crimson-text} awesome-terminal-fonts
+		distro_pkg ttf-fonts gentium-plus-font ttf-{cheapskate,freefont,gentium-basic,liberation,hack,amiri,sil-fonts,crimson-pro{,-variable},symbola,joypixels} otf-{libertinus,bravura,crimson-text} montserrat-font-ttf awesome-terminal-fonts
 		distro_pkg wireguard wireguard-{tools,dkms}
 		distro_pkg zathura zathura{,-pdf-mupdf}
 		distro_pkg zsh zsh zsh-completions
@@ -254,7 +253,7 @@ case $DISTRO in
         skip_pkg gnome-defaults-list
         skip_pkg xiphos
 
-        # Arh Linux upstream deprecations
+        # Arch Linux upstream deprecations
         remove_pkg libdmx
         remove_pkg libxxf86dga
         remove_pkg libxxf86misc

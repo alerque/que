@@ -43,14 +43,14 @@ $DEBUG grep -q alerque /etc/pacman.conf ||
 
 # Make sure we're off on the right foot before we get to adding  keys
 $DEBUG pacman --needed --noconfirm -S haveged
-systemctl $NOW enable haveged
+$DEBUG systemctl $NOW enable haveged
 
 # If system has old GPG keys clear them before signing new ones...
 # rm -rf /etc/pacman.d/gnupg
 $DEBUG pacman-key --init
 $DEBUG pacman-key --populate archlinux
 
-update_mirrors ||:
+$DEBUG update_mirrors ||:
 
 # Freshen everything up
 $DEBUG pacman --needed --noconfirm -Syu
@@ -68,13 +68,13 @@ grep archlinuxfr /etc/pacman.conf && (
 # can be left as an excercise for the reader
 UNINSTALLEDPACKAGES=(base $(echo ${BASEPACKAGES[*]} | tr ' ' '\n' | grep -xvhE "($(echo -n $(pacman -Qqe) | tr ' ' '|'))"))
 
-# Install everything that comes from the official repositories
+# Install everything that comes from the package repositories
 cut -d' ' -f1 \
-    <(paclist core) <(paclist extra) <(paclist community) <(pacman -Sg) |
+    <(paclist core) <(paclist extra) <(paclist community) <(paclist alerque) <(pacman -Sg) |
     grep -xho -E "($(IFS='|' eval 'echo "${UNINSTALLEDPACKAGES[*]}"'))" |
     $DEBUG xargs pacman --needed --noconfirm -S
 
-# Install yay
+# Install yay (mostly obsolete because is in [alerque] repository, but in case...)
 which yay || (
     $DEBUG su -l que-bootstrap -c "git clone https://aur.archlinux.org/yay.git"
     $DEBUG su -l que-bootstrap -c "cd yay && makepkg --noconfirm -si"
@@ -84,27 +84,26 @@ which yay || (
 $DEBUG su que-bootstrap -c "yay --needed --noconfirm -S ${UNINSTALLEDPACKAGES[*]}" ||:
 
 # TODO: Need to set root login and password auth options
-systemctl $NOW enable sshd cronie systemd-timesyncd
+$DEBUG systemctl $NOW enable sshd cronie systemd-timesyncd
 
 echo 'kernel.sysrq = 1' > /etc/sysctl.d/99-sysctl.conf
 
 if is_opt $ISDESKTOP; then
 	# $DEBUG pacman -S --needed --noconfirm xf86-video-nouveau nouveau-dri
-	systemctl status gdm || systemctl enable lightdm
-	systemctl $NOW enable org.cups.cupsd NetworkManager
-	# Upstream doesn't include this by default to not conflict with other fonts
-	ln -sf ../conf.avail/75-emojione.conf /etc/fonts/conf.d/75-emojione.conf
+	$DEBUG systemctl status gdm || systemctl enable lightdm
+	$DEBUG systemctl $NOW enable org.cups.cupsd NetworkManager
+	$DEBUG rf -f /etc/fonts/conf.d/75-{emojione,joypixels}.conf
 fi
 
 if is_opt $ISEC2; then
-    remote_source que-sys-config-ec2.bash
-    hostnamectl set-hostname $HOSTNAME.alerque.com
+    $DEBUG remote_source que-sys-config-ec2.bash
+    $DEBUG hostnamectl set-hostname $HOSTNAME.alerque.com
 fi
 
 if is_opt $ISVBOX; then
 	$DEBUG pacman --needed --noconfirm -S virtualbox-guest-utils
 	echo -e "vboxguest\nvboxsf\nvboxvideo" > /etc/modules-load.d/virtualbox.conf
-	systemctl $NOW enable vboxservice
+	$DEBUG systemctl $NOW enable vboxservice
 	# $DEBUG pacman --needed --noconfirm -S xf86-video-vbox
 fi
 

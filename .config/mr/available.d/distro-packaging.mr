@@ -15,3 +15,7 @@ checkout =
 	git clone git@github.com:alerque/void-packages.git void
 	cd void
 	git remote add upstream git@github.com:void-linux/void-packages.git
+
+[$HOME/projects/distro-packaging/archlinux]
+checkout =
+	git svn clone svn://svn.archlinux.org/community archlinux
