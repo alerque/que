@@ -6,7 +6,6 @@ aurcache=/tmp/mr-aur-list
 extras=(
 	camlpdf
 	cpdf
-	csvkit
 	firefox-tridactyl-native
 	github-cli
 	gnome-defaults-list
@@ -14,13 +13,19 @@ extras=(
 	lab
 	nodejs-neovim
 	perl-test-most
-	python-agate
-	python-agate-dbf
-	python-agate-excel
-	python-agate-sql
-	python-dbfread
-	python-leather
+	psautohint
+	python-booleanoperations
+	python-cu2qu
+	python-fontmath
+	python-fontparts
+	python-fontpens
+	python-defcon
+	python-mutatormath
+	python-pyclipper
 	python-pytimeparse
+	python-ufonormalizer
+	python-ufoprocessor
+	python-unicodedata2
 	ttf-amiri
 	ttf-charis-sil
 	ttf-cheapskate
@@ -30,6 +35,7 @@ extras=(
 	xiphos
 	yay
 )
+
 # Extra stuff with pkgbase names that don't match the packages
 extras+=(
 	lua-bit32
@@ -53,6 +59,7 @@ function aur_list () {
 			  curl -s 'https://aur.archlinux.org/packages/?SeB=c&K=caleb&PP=250' } |
 			hxselect 'tr > td:first-child > a' -c -s'\n' |
 			grep -v '^lua5[12]-' |
+			grep -v '^python-pjproject' |
 			tee ${aurcache} ) |
 		cat - <(xargs -n1 echo <<< $extras) |
 		sort -u
