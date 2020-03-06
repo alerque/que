@@ -244,19 +244,21 @@ case $DISTRO in
 		distro_pkg pulseaudio pa{systray,man,vucontrol,prefs,mixer,-applet-git}
 		distro_pkg tmux tmux teamocil
 		distro_pkg transmission transmission-sequential-gtk
-		distro_pkg ttf-fonts gentium-plus-font ttf-{cheapskate,freefont,gentium-basic,liberation,hack,amiri,sil-fonts,crimson-pro{,-variable},symbola,joypixels} otf-{libertinus,bravura,crimson-text} montserrat-font-ttf awesome-terminal-fonts
+		distro_pkg ttf-fonts gentium-plus-font ttf-{cheapskate,freefont,liberation,hack,amiri,sil-fonts,crimson-pro{,-variable},symbola,joypixels} otf-{libertinus,bravura,crimson-text} montserrat-font-ttf awesome-terminal-fonts
 		distro_pkg wireguard wireguard-{tools,dkms}
 		distro_pkg zathura zathura{,-pdf-mupdf}
 		distro_pkg zsh zsh zsh-completions
 
         # Temporarily broken packages
-        skip_pkg gnome-defaults-list
-        skip_pkg xiphos
+        # skip_pkg ...
 
         # Arch Linux upstream deprecations
         remove_pkg libdmx
         remove_pkg libxxf86dga
         remove_pkg libxxf86misc
+
+        # Renamed packages that didn't properly conflict with their replacements
+        remove_pkg ttf-gentium-plus
         ;;
 	fedora)
 		:
