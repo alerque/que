@@ -4,11 +4,13 @@ aurcache=/tmp/mr-aur-list
 
 # Extra stuff I want to build / host but don't maintain in AUR
 extras=(
+	biblesync
 	camlpdf
 	cpdf
 	firefox-tridactyl-native
 	github-cli
 	gnome-defaults-list
+	gtkhtml4
 	kindlegen
 	lab
 	nodejs-neovim
