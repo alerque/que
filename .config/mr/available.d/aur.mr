@@ -4,6 +4,8 @@ aurcache=/tmp/mr-aur-list
 
 # Extra stuff I want to build / host but don't maintain in AUR
 extras=(
+	age
+	age-git
 	biblesync
 	camlpdf
 	cpdf
