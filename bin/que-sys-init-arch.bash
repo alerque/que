@@ -68,9 +68,9 @@ grep archlinuxfr /etc/pacman.conf && (
 # can be left as an excercise for the reader
 UNINSTALLEDPACKAGES=(base $(echo ${BASEPACKAGES[*]} | tr ' ' '\n' | grep -xvhE "($(echo -n $(pacman -Qqe) | tr ' ' '|'))"))
 
-# Install everything that comes from the package repositories
-cut -d' ' -f1 \
-    <(paclist core) <(paclist extra) <(paclist community) <(paclist alerque) <(pacman -Sg) |
+# Install everything not already installed that can come from repositories
+pacman -Ssq |
+    grep -xvf <(pacman -Qsq) |
     grep -xho -E "($(IFS='|' eval 'echo "${UNINSTALLEDPACKAGES[*]}"'))" |
     $DEBUG xargs pacman --needed --noconfirm -S
 
