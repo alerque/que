@@ -8,12 +8,18 @@ extras=(
 	camlpdf
 	cpdf
 	firefox-tridactyl-native
+	git-revise
 	github-cli
 	gnome-defaults-list
 	gtkhtml4
 	kindlegen
 	lab
+	node-prune
+	nodejs-mocha
+	nodejs-nan
 	nodejs-neovim
+	nodejs-node-pre-gyp
+	nodejs-pug-cli
 	perl-test-most
 	psautohint
 	python-booleanoperations
@@ -34,8 +40,10 @@ extras=(
 	ttf-sil-ezra
 	ttf-sil-scheherazade
 	ttf-symbola
+	ttf-webhostinghub-glyphs
 	xiphos
 	yay
+	zettlr
 )
 
 # Extra stuff with pkgbase names that don't match the packages
