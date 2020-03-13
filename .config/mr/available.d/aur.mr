@@ -39,6 +39,7 @@ extras=(
 	ttf-amiri
 	ttf-charis-sil
 	ttf-cheapskate
+	ttf-droid-family-ib
 	ttf-sil-ezra
 	ttf-sil-scheherazade
 	ttf-symbola
@@ -72,6 +73,7 @@ function aur_list () {
 			hxselect 'tr > td:first-child > a' -c -s'\n' |
 			grep -v '^lua5[12]-' |
 			grep -v '^python-pjproject' |
+			grep -v '^ttf-droid{,nonlatin}-ib' |
 			tee ${aurcache} ) |
 		cat - <(xargs -n1 echo <<< $extras) |
 		sort -u
