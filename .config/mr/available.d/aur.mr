@@ -89,9 +89,13 @@ aur_list |
 			init =
 			    git remote show | grep -vE '(origin|github)' | xargs -rn1 git remote remove
 			    git remote set-url origin ${aur} || git remote add --fetch origin ${aur}
-			    git config branch.master.remote origin
-			    git config branch.master.merge ref/heads/master
+			    git branch -u origin/master
 			    hub create --remote-name github aur-${pkg}
+			update =
+			    git diff-index --quiet --cached HEAD
+			    git diff-files --quiet
+			    git fetch --all
+			    git rebase origin/master
 			push =
 			    git diff-index --quiet --cached HEAD
 			    git push origin master:master
