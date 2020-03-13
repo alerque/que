@@ -6,6 +6,7 @@ aurcache=/tmp/mr-aur-list
 extras=(
 	age
 	age-git
+	aur-out-of-date
 	biblesync
 	camlpdf
 	cpdf
