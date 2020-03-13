@@ -17,6 +17,8 @@ extras=(
 	gtkhtml4
 	kindlegen
 	lab
+	mattermost-desktop
+	mattermost-git
 	node-prune
 	nodejs-mocha
 	nodejs-nan
@@ -39,8 +41,6 @@ extras=(
 	python-unicodedata2
 	ttf-amiri
 	ttf-charis-sil
-	ttf-cheapskate
-	ttf-droid-family-ib
 	ttf-sil-ezra
 	ttf-sil-scheherazade
 	ttf-symbola
