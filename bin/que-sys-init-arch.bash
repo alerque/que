@@ -32,7 +32,7 @@ function update_mirrors () {
     }
 }
 
-# Add my own Arch package repository
+# Add my own Arch package repository, after community
 $DEBUG pacman-key --recv-keys 63CC496475267693
 $DEBUG pacman-key --lsign-key 63CC496475267693
 $DEBUG grep -q alerque /etc/pacman.conf ||
@@ -58,14 +58,14 @@ $DEBUG pacman --needed --noconfirm -Syu
 # Remove anything that needs cleaning up first
 $DEBUG pacman -Rns --noconfirm ${REMOVEPACKAGES[@]} $(pacman -Qtdq) ||:
 
-# Kill off archlinuxfr formerly used to install yaourt
+# Kill off archlinuxfr repository, formerly used to install yaourt
 grep archlinuxfr /etc/pacman.conf && (
     $DEBUG sed -i -e '/\[archlinuxfr\]/,/^$/{d;//b' -e '/./d;}' /etc/pacman.conf
 )
 
-# Save time parsing AUR packages by only installing, not updating them
-# We already freshed all native packages before starting, freshening AUR packages
-# can be left as an excercise for the reader
+# Save time parsing AUR packages by only installing, not updating them. We
+# already freshed all repositoy packages before starting, freshening AUR
+# packages can be left as an excercise for the reader.
 UNINSTALLEDPACKAGES=(base $(echo ${BASEPACKAGES[*]} | tr ' ' '\n' | grep -xvhE "($(echo -n $(pacman -Qqe) | tr ' ' '|'))"))
 
 # Install everything not already installed that can come from repositories
@@ -74,7 +74,8 @@ pacman -Ssq |
     grep -xho -E "($(IFS='|' eval 'echo "${UNINSTALLEDPACKAGES[*]}"'))" |
     $DEBUG xargs pacman --needed --noconfirm -S
 
-# Install yay (mostly obsolete because is in [alerque] repository, but in case...)
+# Install yay (mostly obsolete because it is in the [alerque] repository,
+# but just in case we'e trying to get up and running when that is down...)
 which yay || (
     $DEBUG su -l que-bootstrap -c "git clone https://aur.archlinux.org/yay.git"
     $DEBUG su -l que-bootstrap -c "cd yay && makepkg --noconfirm -si"
