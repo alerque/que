@@ -7,7 +7,6 @@ extras=(
 	age
 	age-git
 	aur-out-of-date
-	biblesync
 	camlpdf
 	cpdf
 	firefox-tridactyl-native
@@ -17,6 +16,7 @@ extras=(
 	gtkhtml4
 	kindlegen
 	lab
+	latex3
 	mattermost-desktop
 	mattermost-git
 	node-prune
