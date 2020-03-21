@@ -16,7 +16,8 @@ extras=(
 	gtkhtml4
 	kindlegen
 	lab
-	latex3
+	lazydocker
+	lazygit
 	mattermost-desktop
 	mattermost-git
 	node-prune
@@ -39,13 +40,13 @@ extras=(
 	python-ufonormalizer
 	python-ufoprocessor
 	python-unicodedata2
+	syncplay
+	syncplay-git
 	ttf-amiri
 	ttf-charis-sil
-	ttf-sil-ezra
 	ttf-sil-scheherazade
 	ttf-symbola
 	ttf-webhostinghub-glyphs
-	xiphos
 	yay
 	zettlr
 )
@@ -59,6 +60,7 @@ extras+=(
 	lua51-metalua-parser
 	lua51-penlight
 	montserrat-font
+	league-gothic-font
 )
 
 function aur_list_cache () (
