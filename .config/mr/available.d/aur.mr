@@ -72,6 +72,7 @@ function aur_list_cache () (
 function aur_list () {
 	( aur_list_cache ||
 			{ curl -s 'https://aur.archlinux.org/packages/?SeB=m&K=caleb&PP=250'
+			  curl -s 'https://aur.archlinux.org/packages/?SeB=m&K=caleb&PP=250&O=250'
 			  curl -s 'https://aur.archlinux.org/packages/?SeB=c&K=caleb&PP=250' } |
 			hxselect 'tr > td:first-child > a' -c -s'\n' |
 			grep -v '^lua5[12]-' |
