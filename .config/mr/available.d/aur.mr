@@ -30,10 +30,10 @@ extras=(
 	psautohint
 	python-booleanoperations
 	python-cu2qu
+	python-defcon
 	python-fontmath
 	python-fontparts
 	python-fontpens
-	python-defcon
 	python-mutatormath
 	python-pyclipper
 	python-pytimeparse
@@ -51,18 +51,6 @@ extras=(
 	zettlr
 )
 
-# Extra stuff with pkgbase names that don't match the packages
-extras+=(
-	lua-bit32
-	lua51-checks
-	lua51-formatter
-	lua51-metalua-compiler
-	lua51-metalua-parser
-	lua51-penlight
-	montserrat-font
-	league-gothic-font
-)
-
 function aur_list_cache () (
 	test -s ${aurcache} || exit 1
 	test $(date +%s -r ${aurcache}) -ge $(date +%s --date "60 min ago") || exit 1
@@ -73,14 +61,24 @@ function aur_list () {
 	( aur_list_cache ||
 			{ curl -s 'https://aur.archlinux.org/packages/?SeB=m&K=caleb&PP=250'
 			  curl -s 'https://aur.archlinux.org/packages/?SeB=m&K=caleb&PP=250&O=250'
-			  curl -s 'https://aur.archlinux.org/packages/?SeB=c&K=caleb&PP=250' } |
+			  curl -s 'https://aur.archlinux.org/packages/?SeB=c&K=caleb&PP=250'
+			} |
 			hxselect 'tr > td:first-child > a' -c -s'\n' |
-			grep -v '^lua5[12]-' |
-			grep -v '^python-pjproject' |
-			grep -v '^ttf-droid{,nonlatin}-ib' |
-			tee ${aurcache} ) |
+			aur_basename |
+			tee ${aurcache}
+		) |
 		cat - <(xargs -n1 echo <<< $extras) |
 		sort -u
+}
+
+function aur_basename () {
+	local pkgname=($(cat -))
+    echo ${pkgname[@]/#/&arg[]=} |
+        sed 's/ //g' |
+        read args
+    curl -s "https://aur.archlinux.org/rpc/?v=5&type=info$args" |
+        jq -r ".results[].PackageBase" |
+        sort -u
 }
 
 aur_list |
