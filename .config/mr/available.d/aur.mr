@@ -21,12 +21,15 @@ extras=(
 	mattermost-desktop
 	mattermost-git
 	node-prune
+	nodejs-hexo
 	nodejs-mocha
 	nodejs-nan
 	nodejs-neovim
 	nodejs-node-pre-gyp
 	nodejs-pug-cli
+	pacman-cleanup-hook
 	perl-test-most
+	php-pear
 	psautohint
 	python-booleanoperations
 	python-cu2qu
@@ -40,6 +43,7 @@ extras=(
 	python-ufonormalizer
 	python-ufoprocessor
 	python-unicodedata2
+	python-weasyprint
 	syncplay
 	syncplay-git
 	ttf-amiri
@@ -47,6 +51,7 @@ extras=(
 	ttf-sil-scheherazade
 	ttf-symbola
 	ttf-webhostinghub-glyphs
+	wp-cli
 	yay
 	zettlr
 )
