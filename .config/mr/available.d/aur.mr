@@ -44,12 +44,12 @@ extras=(
 	python-ufoprocessor
 	python-unicodedata2
 	python-weasyprint
+	starship
 	syncplay
 	syncplay-git
 	ttf-amiri
 	ttf-charis-sil
 	ttf-sil-scheherazade
-	ttf-symbola
 	ttf-webhostinghub-glyphs
 	wp-cli
 	yay
