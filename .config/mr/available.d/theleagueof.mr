@@ -1,0 +1,47 @@
+[$HOME/projects/theleagueof/blackout]
+checkout = git clone git@github.com:theleagueof/blackout.git
+
+[$HOME/projects/theleagueof/chunk]
+checkout = git clone git@github.com:theleagueof/chunk.git
+
+[$HOME/projects/theleagueof/fanwood]
+checkout = git clone git@github.com:theleagueof/fanwood.git
+
+[$HOME/projects/theleagueof/goudy-bookletter-1911]
+checkout = git clone git@github.com:theleagueof/goudy-bookletter-1911.git
+
+[$HOME/projects/theleagueof/junction]
+checkout = git clone git@github.com:theleagueof/junction.git
+
+[$HOME/projects/theleagueof/kneewave]
+checkout = git clone git@github.com:theleagueof/kneewave.git
+
+[$HOME/projects/theleagueof/league-gothic]
+checkout = git clone git@github.com:theleagueof/league-gothic.git
+
+[$HOME/projects/theleagueof/league-script-number-one]
+checkout = git clone git@github.com:theleagueof/league-script-number-one.git
+
+[$HOME/projects/theleagueof/league-spartan]
+checkout = git clone git@github.com:theleagueof/league-spartan.git
+
+[$HOME/projects/theleagueof/linden-hill]
+checkout = git clone git@github.com:theleagueof/linden-hill.git
+
+[$HOME/projects/theleagueof/orbitron]
+checkout = git clone git@github.com:theleagueof/orbitron.git
+
+[$HOME/projects/theleagueof/ostrich-sans]
+checkout = git clone git@github.com:theleagueof/ostrich-sans.git
+
+[$HOME/projects/theleagueof/prociono]
+checkout = git clone git@github.com:theleagueof/prociono.git
+
+[$HOME/projects/theleagueof/raleway]
+checkout = git clone git@github.com:theleagueof/raleway.git
+
+[$HOME/projects/theleagueof/sniglet]
+checkout = git clone git@github.com:theleagueof/sniglet.git
+
+[$HOME/projects/theleagueof/sorts-mill-goudy]
+checkout = git clone git@github.com:theleagueof/sorts-mill-goudy.git
