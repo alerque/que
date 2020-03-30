@@ -18,6 +18,7 @@ extras=(
 	lab
 	lazydocker
 	lazygit
+	libxmlbird
 	mattermost-desktop
 	mattermost-git
 	node-prune
@@ -32,18 +33,26 @@ extras=(
 	php-pear
 	psautohint
 	python-booleanoperations
+	python-compreffor
 	python-cu2qu
 	python-defcon
+	python-fontmake
 	python-fontmath
 	python-fontparts
 	python-fontpens
+	python-glyphslib
+	python-hsluv
 	python-mutatormath
 	python-pyclipper
+	python-pytest-cython
 	python-pytimeparse
+	python-skia-pathops
+	python-ufo2ft
+	python-ufolib2
 	python-ufonormalizer
 	python-ufoprocessor
-	python-unicodedata2
 	python-weasyprint
+	python-xmldiff
 	starship
 	syncplay
 	syncplay-git
