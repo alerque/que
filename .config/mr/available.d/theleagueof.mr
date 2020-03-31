@@ -1,3 +1,6 @@
+[$HOME/projects/theleagueof/fontship]
+checkout = git clone git@github.com:theleagueof/fontship.git
+
 [$HOME/projects/theleagueof/blackout]
 checkout = git clone git@github.com:theleagueof/blackout.git
 
