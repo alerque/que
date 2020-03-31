@@ -58,6 +58,7 @@ extras=(
 	syncplay-git
 	ttf-amiri
 	ttf-charis-sil
+	ttf-nerd-fonts-hack-complete-git
 	ttf-sil-scheherazade
 	ttf-webhostinghub-glyphs
 	wp-cli
