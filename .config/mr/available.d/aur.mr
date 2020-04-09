@@ -19,8 +19,6 @@ extras=(
 	lazydocker
 	lazygit
 	libxmlbird
-	mattermost-desktop
-	mattermost-git
 	node-prune
 	nodejs-hexo
 	nodejs-mocha
@@ -29,7 +27,6 @@ extras=(
 	nodejs-node-pre-gyp
 	nodejs-pug-cli
 	pacman-cleanup-hook
-	perl-test-most
 	php-pear
 	psautohint
 	python-booleanoperations
