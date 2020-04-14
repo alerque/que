@@ -15,6 +15,8 @@
 !/bin/que-sys-init-pld.bash
 !/bin/que-sys-init-ubuntu.bash
 !/.config
+!/.config/git
+!/.config/git/attributes
 !/.config/mr
 !/.config/mr/available.d
 !/.config/mr/available.d/aur.mr

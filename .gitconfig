@@ -54,7 +54,6 @@
 	d = diff
 	dc = diff --word-diff-regex=. --ignore-all-space
 	dsc = dc --staged
-	difftex = difftool -y -t latex
 	dls = diff-tree --no-commit-id --name-status -r
 	ds = diff --staged
 	dw = diff --word-diff=color --ignore-all-space
@@ -94,13 +93,13 @@
 	ignoreSubmodules = dirty
 	colorMoved = zebra
 	colorMovedWS = ignore-all-space
-[difftool.latex]
+[difftool]
+	prompt = false
+[difftool "fdiff"]
+	cmd = fdiff "$LOCAL" "$REMOTE"
+[difftool "latexdiff"]
 	cmd = latexdiff "$LOCAL" "$REMOTE"
-[difftool.otf]
-	cmd = fdiff "$LOCAL" "$REMOTE"
-[difftool.ttf]
-	cmd = fdiff "$LOCAL" "$REMOTE"
-[difftool.ufo]
+[difftool "ufodiff"]
 	cmd = ufodiff "$LOCAL" "$REMOTE"
 [fetch]
 	prune = true

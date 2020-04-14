@@ -1,0 +1,4 @@
+*.otf	diff=fdiff
+*.tex	diff=difftex
+*.ttf	diff=fdiff
+*.ufo	diff=ufodiff
