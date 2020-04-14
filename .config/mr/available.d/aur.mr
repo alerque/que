@@ -16,9 +16,15 @@ extras=(
 	gtkhtml4
 	kindlegen
 	lab
+	lua-copas
+	lua-coxpcall
 	lazydocker
 	lazygit
 	libxmlbird
+	marktext-bin
+	marktext-git
+	mdbook
+	mdbook-git
 	node-prune
 	nodejs-hexo
 	nodejs-mocha
