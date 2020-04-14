@@ -4,6 +4,7 @@
 !/bin/git-related
 !/bin/git-sync
 !/bin/patch-firefox.sh
+!/bin/pkg-list-linked-libraries
 !/bin/que
 !/bin/que-home-bootstrap.bash
 !/bin/que-sys-bootstrap.bash
@@ -53,6 +54,7 @@
 !/.config/mr/available.d/que-zsh.vcsh
 !/.config/mr/available.d/sile.mr
 !/.config/mr/available.d/systems.mr
+!/.config/mr/available.d/theleagueof.mr
 !/.config/mr/available.d/tprk.mr
 !/.config/mr/available.d/tsv.mr
 !/.config/mr/available.d/typesetting.mr
@@ -97,6 +99,7 @@
 !/.config/mr/config.d-emircik/que-zathura.vcsh
 !/.config/mr/config.d-emircik/que-zsh.vcsh
 !/.config/mr/config.d-emircik/systems.mr
+!/.config/mr/config.d-emircik/theleagueof.mr
 !/.config/mr/config.d-emircik/tprk.mr
 !/.config/mr/config.d-emircik/tsv.mr
 !/.config/mr/config.d-emircik/typesetting.mr
@@ -219,6 +222,7 @@
 !/.config/mr/config.d-pars/que-zathura.vcsh
 !/.config/mr/config.d-pars/sile.mr
 !/.config/mr/config.d-pars/systems.mr
+!/.config/mr/config.d-pars/theleagueof.mr
 !/.config/mr/config.d-pars/tprk.mr
 !/.config/mr/config.d-pars/tsv.mr
 !/.config/mr/config.d-pars/typesetting.mr
