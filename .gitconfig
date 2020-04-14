@@ -96,6 +96,12 @@
 	colorMovedWS = ignore-all-space
 [difftool.latex]
 	cmd = latexdiff "$LOCAL" "$REMOTE"
+[difftool.otf]
+	cmd = fdiff "$LOCAL" "$REMOTE"
+[difftool.ttf]
+	cmd = fdiff "$LOCAL" "$REMOTE"
+[difftool.ufo]
+	cmd = ufodiff "$LOCAL" "$REMOTE"
 [fetch]
 	prune = true
 	fsckobjects = true
