@@ -59,6 +59,7 @@ extras=(
 	starship
 	syncplay
 	syncplay-git
+	ttfautohint
 	ttf-amiri
 	ttf-charis-sil
 	ttf-nerd-fonts-hack-complete-git
