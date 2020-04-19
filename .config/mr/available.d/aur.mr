@@ -59,6 +59,7 @@ extras=(
 	starship
 	syncplay
 	syncplay-git
+	sword-svn
 	ttfautohint
 	ttf-amiri
 	ttf-charis-sil
