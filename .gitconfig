@@ -93,10 +93,10 @@
 	ignoreSubmodules = dirty
 	colorMoved = zebra
 	colorMovedWS = ignore-all-space
+[diff "fdiff"]
+	command = fdiff -c --git
 [difftool]
 	prompt = false
-[difftool "fdiff"]
-	cmd = fdiff "$LOCAL" "$REMOTE"
 [difftool "latexdiff"]
 	cmd = latexdiff "$LOCAL" "$REMOTE"
 [difftool "ufodiff"]
