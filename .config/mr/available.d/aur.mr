@@ -135,12 +135,12 @@ aur_list |
 			    done
 			vote = aurvote -v ${pkg}
 			ood =
-			    eval $(grep export ~/.private/aur-out-of-date.tokens)
+			    eval \$(grep export ~/.private/aur-out-of-date.tokens)
 			    aur-out-of-date -local .SRCINFO ||:
 			bump =
 			    git diff-index --quiet --cached HEAD
 			    git diff-files --quiet -- PKGBUILD .SRCINFO
-			    eval $(grep export ~/.private/aur-out-of-date.tokens)
+			    eval \$(grep export ~/.private/aur-out-of-date.tokens)
 			    upstream=\$(aur-out-of-date -json -local .SRCINFO | jq -M -e -r '.upstream')
 			    yes | aur-out-of-date -update -local .SRCINFO ||:
 			    updpkgsums
