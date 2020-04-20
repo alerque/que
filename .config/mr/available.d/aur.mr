@@ -6,6 +6,7 @@ aurcache=/tmp/mr-aur-list
 extras=(
 	age
 	age-git
+	apostrophe
 	aur-out-of-date
 	camlpdf
 	cpdf
@@ -16,11 +17,10 @@ extras=(
 	gtkhtml4
 	kindlegen
 	lab
-	lua-copas
-	lua-coxpcall
 	lazydocker
 	lazygit
 	libxmlbird
+	luacheck
 	marktext-bin
 	marktext-git
 	mdbook
@@ -37,7 +37,6 @@ extras=(
 	psautohint
 	python-booleanoperations
 	python-compreffor
-	python-cu2qu
 	python-defcon
 	python-fontmake
 	python-fontmath
