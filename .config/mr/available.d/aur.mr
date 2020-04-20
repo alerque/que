@@ -1,139 +1,21 @@
 #!/usr/bin/env zsh
 
-aurcache=/tmp/mr-aur-list
-
-# Extra stuff I want to build / host but don't maintain in AUR
-extras=(
-	age
-	age-git
-	apostrophe
-	aur-out-of-date
-	camlpdf
-	cpdf
-	firefox-tridactyl-native
-	git-revise
-	github-cli
-	gnome-defaults-list
-	gtkhtml4
-	kindlegen
-	lab
-	lazydocker
-	lazygit
-	libxmlbird
-	luacheck
-	marktext-bin
-	marktext-git
-	mdbook
-	mdbook-git
-	node-prune
-	nodejs-hexo
-	nodejs-mocha
-	nodejs-nan
-	nodejs-neovim
-	nodejs-node-pre-gyp
-	nodejs-pug-cli
-	pacman-cleanup-hook
-	php-pear
-	psautohint
-	python-booleanoperations
-	python-compreffor
-	python-defcon
-	python-fontmake
-	python-fontmath
-	python-fontparts
-	python-fontpens
-	python-glyphslib
-	python-hsluv
-	python-mutatormath
-	python-pyclipper
-	python-pytest-cython
-	python-pytimeparse
-	python-skia-pathops
-	python-ufo2ft
-	python-ufolib2
-	python-ufonormalizer
-	python-ufoprocessor
-	python-weasyprint
-	python-xmldiff
-	starship
-	syncplay
-	syncplay-git
-	sword-svn
-	ttfautohint
-	ttf-amiri
-	ttf-charis-sil
-	ttf-nerd-fonts-hack-complete-git
-	ttf-sil-scheherazade
-	ttf-webhostinghub-glyphs
-	wp-cli
-	yay
-	zettlr
-)
-
-function aur_list_cache () (
-	test -s ${aurcache} || exit 1
-	test $(date +%s -r ${aurcache}) -ge $(date +%s --date "60 min ago") || exit 1
-	cat ${aurcache}
-)
-
 function aur_list () {
-	( aur_list_cache ||
-			{ curl -s 'https://aur.archlinux.org/packages/?SeB=m&K=caleb&PP=250'
-			  curl -s 'https://aur.archlinux.org/packages/?SeB=m&K=caleb&PP=250&O=250'
-			  curl -s 'https://aur.archlinux.org/packages/?SeB=c&K=caleb&PP=250'
-			} |
-			hxselect 'tr > td:first-child > a' -c -s'\n' |
-			aur_basename |
-			tee ${aurcache}
-		) |
-		cat - <(xargs -n1 echo <<< $extras) |
-		sort -u
-}
-
-function aur_basename () {
-	local pkgname=($(cat -))
-    echo ${pkgname[@]/#/&arg[]=} |
-        sed 's/ //g' |
-        read args
-    curl -s "https://aur.archlinux.org/rpc/?v=5&type=info$args" |
-        jq -r ".results[].PackageBase" |
-        sort -u
+	find ./ -maxdepth 1 -type d |
+		sed -e 's#^./##'
 }
 
 aur_list |
 	while read pkg; do
-		aur="ssh://aur@aur.archlinux.org/${pkg}.git"
 		cat <<- EOF
-
-			[/home/caleb/projects/aur/${pkg}]
-			checkout = git clone ${aur}
-			init =
-			    git remote show | grep -vE '(origin|github)' | xargs -rn1 git remote remove
-			    git remote set-url origin ${aur} || git remote add --fetch origin ${aur}
-			    git branch -u origin/master
-			    hub create --remote-name github aur-${pkg}
-			update =
-			    git diff-index --quiet --cached HEAD
-			    git diff-files --quiet
-			    git fetch --all
-			    git rebase origin/master
-			push =
-			    git diff-index --quiet --cached HEAD
-			    git push origin master:master
-			    git push github master:master
-			publish =
-			    git diff-index --quiet --cached HEAD
-			    git diff-files --quiet -- PKGBUILD .SRCINFO
-			    makepkg ||:
-			    local buildver=\$(awk '/epoch = / { print \$3 ":" }' .SRCINFO)
-			    buildver+=\$(awk '/pkgver = / { print \$3 "-" }' .SRCINFO)
-			    buildver+=\$(awk '/pkgrel = / { print \$3 "-" }' .SRCINFO)
-			    buildver+=\$(awk '/arch = (any|x86_64)/ { print \$3 }' .SRCINFO)
-			    for pkgname in \$(awk '/pkgname = / { print \$3 }' .SRCINFO); do
-			        local pkgfile=\$pkgname-\$buildver.pkg.tar.zst
-			        scp "./\$pkgfile"{,.sig} arch.alerque.com:x86_64
-			    done
-			vote = aurvote -v ${pkg}
+			[/home/caleb/projects/aur/$pkg]
+			log = aurpublish log $pkg
+			checkout = false
+			init = false
+			update = false
+			push = false
+			publish = false
+			vote = aurvote -v $pkg
 			ood =
 			    eval \$(grep export ~/.private/aur-out-of-date.tokens)
 			    aur-out-of-date -local .SRCINFO ||:
