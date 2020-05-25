@@ -1,3 +1,1 @@
-[$HOME/pictures]
-checkout = git clone caleb@camelion.alerque.com:pictures/.git
-skip = true
+../available.d/pictures.annex

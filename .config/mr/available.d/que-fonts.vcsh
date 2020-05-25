@@ -1,3 +1,0 @@
-[$HOME/.config/vcsh/repo.d/que-fonts.git]
-order = 5
-checkout = vcsh clone gitlab@gitlab.alerque.com:caleb/que-fonts.git

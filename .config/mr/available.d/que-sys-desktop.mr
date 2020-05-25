@@ -1,0 +1,31 @@
+[$HOME/.config/vcsh/repo.d/que-atom.git]
+order = 5
+checkout = vcsh clone git@github.com:alerque/que-atom.git
+
+[$HOME/.config/vcsh/repo.d/que-awesome.git]
+checkout = vcsh clone git@github.com:alerque/que-awesome.git
+
+[$HOME/.config/vcsh/repo.d/que-firefox.git]
+checkout = vcsh clone git@github.com:alerque/que-firefox.git
+
+[$HOME/.config/vcsh/repo.d/que-fonts.git]
+order = 5
+checkout = vcsh clone gitlab@gitlab.alerque.com:caleb/que-fonts.git
+
+[$HOME/.config/vcsh/repo.d/que-gimp.git]
+order = 5
+checkout = vcsh clone git@github.com:alerque/que-gimp.git
+
+[$HOME/.config/vcsh/repo.d/que-gnome.git]
+checkout = vcsh clone git@github.com:alerque/que-gnome.git
+
+[$HOME/.config/vcsh/repo.d/que-inkscape.git]
+order = 5
+checkout = vcsh clone git@github.com:alerque/que-inkscape.git
+
+[$HOME/.config/vcsh/repo.d/que-xorg.git]
+checkout = vcsh clone git@github.com:alerque/que-xorg.git
+
+[$HOME/.config/vcsh/repo.d/que-zathura.git]
+order = 5
+checkout = vcsh clone git@github.com:alerque/que-zathura.git

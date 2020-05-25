@@ -1,3 +1,0 @@
-[$HOME/.config/vcsh/repo.d/que-gimp.git]
-order = 5
-checkout = vcsh clone git@github.com:alerque/que-gimp.git

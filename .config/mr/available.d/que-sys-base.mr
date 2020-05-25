@@ -1,0 +1,62 @@
+[$HOME/.config/vcsh/repo.d/que-mutt.git]
+order = 5
+checkout = vcsh clone git@github.com:alerque/que-mutt.git
+
+[$HOME/.config/vcsh/repo.d/que-secure.git]
+order = 2
+checkout =
+	vcsh clone gitlab@gitlab.alerque.com:caleb/que-secure.git que-secure
+update =
+	vcsh run "$MR_REPO" git pull "$@"
+fixups =
+	chmod 700 ~/.gnupg{,/private-keys*}
+	chmod 600 ~/.ssh/{config,authorized_keys} $(grep 'PRIVATE KEY' -Rl ~/.ssh) ~/.gnupg/private-keys*/*
+post_checkout =
+	vcsh run "$MR_REPO" git config core.attributesfile .gitattributes.d/que-secure
+	vcsh run "$MR_REPO" git crypt unlock
+
+[$HOME/.config/vcsh/repo.d/que-tmux.git]
+order = 5
+checkout = vcsh clone git@github.com:alerque/que-tmux.git
+
+[$HOME/.config/vcsh/repo.d/que-utils.git]
+order = 5
+checkout = vcsh clone git@github.com:alerque/que-utils.git
+
+[$HOME/.config/vcsh/repo.d/que.git]
+order = 1
+checkout = vcsh clone git@github.com:alerque/que.git
+
+[$HOME/.config/vcsh/repo.d/que-vim.git]
+order = 5
+checkout =
+	vcsh clone git@github.com:alerque/que-vim.git
+	cd $HOME
+	nvim +PlugInstall +UpdateRemotePlugins +all +qa
+	nvim -u NONE "+mkspell! $HOME/.config/nvim/spell/tr.utf-8.add" +qa
+	nvim -u NONE "+mkspell! $HOME/.config/nvim/spell/en.utf-8.add" +qa
+update =
+	vcsh run que-vim git pull
+	rm -rf $HOME/.vim/bundle
+	git pull
+	cd $HOME
+	nvim +PlugUpgrade +PlugClean! +PlugUpdate +UpdateRemotePlugins +all +qa
+	nvim -u NONE "+mkspell! $HOME/.config/nvim/spell/tr.utf-8.add" +qa
+	nvim -u NONE "+mkspell! $HOME/.config/nvim/spell/en.utf-8.add" +qa
+
+[$HOME/.config/vcsh/repo.d/que-weechat.git]
+order = 5
+checkout = vcsh clone git@github.com:alerque/que-weechat.git
+
+[$HOME/.config/vcsh/repo.d/que-zsh.git]
+order = 5
+checkout = vcsh clone git@github.com:alerque/que-zsh.git
+
+[$HOME/.zprezto]
+checkout =
+	git clone --recursive git@github.com:alerque/prezto.git .zprezto
+update =
+	git pull
+	git submodule update --init --recursive
+
+

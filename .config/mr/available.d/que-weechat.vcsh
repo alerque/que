@@ -1,3 +1,0 @@
-[$HOME/.config/vcsh/repo.d/que-weechat.git]
-order = 5
-checkout = vcsh clone git@github.com:alerque/que-weechat.git
