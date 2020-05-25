@@ -34,6 +34,7 @@ BASEPACKAGES=(
 		diff-so-fancy
 		entr
 		etckeeper
+        exa
 		exim
 		fasd
 		fd
@@ -43,6 +44,8 @@ BASEPACKAGES=(
 		git-annex
 		git-crypt
 		git-revise
+        git-extras
+        git-filter-repo
 		gnu-netcat
 		gnupg
 		html-xml-utils
