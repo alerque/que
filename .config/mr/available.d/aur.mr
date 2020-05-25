@@ -1,14 +1,16 @@
 #!/usr/bin/env zsh
 
+_aurdir="$HOME/projects/aur"
+
 function aur_list () {
-	find ./ -maxdepth 1 -type d |
-		sed -e 's#^./##'
+	find "$_aurdir" -maxdepth 1 -type d |
+		sed -e "s#^$_aurdir/##"
 }
 
 aur_list |
 	while read pkg; do
 		cat <<- EOF
-			[/home/caleb/projects/aur/$pkg]
+			[$_aurdir/$pkg]
 			log = aurpublish log $pkg
 			checkout = false
 			init = false
