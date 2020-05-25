@@ -1,0 +1,4 @@
+[$HOME/.config/vcsh/repo.d/que.git]
+order = 1
+checkout = vcsh clone git@github.com:alerque/que.git
+

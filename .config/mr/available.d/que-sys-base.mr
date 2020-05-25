@@ -23,10 +23,6 @@ checkout = vcsh clone git@github.com:alerque/que-tmux.git
 order = 5
 checkout = vcsh clone git@github.com:alerque/que-utils.git
 
-[$HOME/.config/vcsh/repo.d/que.git]
-order = 1
-checkout = vcsh clone git@github.com:alerque/que.git
-
 [$HOME/.config/vcsh/repo.d/que-vim.git]
 order = 5
 checkout =

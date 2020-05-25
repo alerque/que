@@ -1,9 +1,7 @@
 [DEFAULT]
 jobs = 5
 include =
-	for conf in $HOME/.config/mr/config.d/*; do
-		test -x $conf && $conf || cat $conf
-	done
+	cat $HOME/.config/mr/available.d/que.vcsh
 	if [ -d $HOME/.config/mr/config.d-$HOSTNAME ]; then
 		for conf in $HOME/.config/mr/config.d-$HOSTNAME/*; do
 			test -x $conf && $conf || cat $conf
@@ -12,4 +10,4 @@ include =
 
 [ALIAS]
 
-#vim: syntax=sh
+# vim: ft=ini syntax=sh
