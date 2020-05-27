@@ -34,7 +34,6 @@ BASEPACKAGES=(
 		diff-so-fancy
 		entr
 		etckeeper
-        exa
 		exim
 		fasd
 		fd
@@ -44,8 +43,6 @@ BASEPACKAGES=(
 		git-annex
 		git-crypt
 		git-revise
-        git-extras
-        git-filter-repo
 		gnu-netcat
 		gnupg
 		html-xml-utils
@@ -83,13 +80,17 @@ BASEPACKAGES=(
 		wireguard
 		zip
 		zsh
+		exa
+		git-extras
+		git-filter-repo
+		ytop
 )
 
 DESKTOPPACKAGES=(
 		alacritty
 		atom
 		awesome
-		bluez-toos
+		bluez-tools
 		chromium
 		picom
 		cups
@@ -110,11 +111,10 @@ DESKTOPPACKAGES=(
 		libreoffice
 		mplayer
 		neovim-gtk
-		networkmanager
+		netctl
 		nextcloud-client
 		pulseaudio
 		profile-sync-daemon
-		rdesktop
 		scribus
 		slock
 		smplayer
@@ -241,14 +241,13 @@ case $DISTRO in
 		distro_pkg lightdm lightdm{,-gtk-greeter{,-settings}}
 		distro_pkg neomutt neomutt goobook-git
 		distro_pkg neovim neovim python2-pynvim nodejs-neovim
-		distro_pkg networkmanager networkmanager network-manager-applet
 		distro_pkg nextcloud-client nextcloud-client python-nautilus
 		distro_pkg pcregrep pcre
 		distro_pkg pulseaudio pa{systray,man,vucontrol,prefs,mixer,-applet-git}
 		distro_pkg tmux tmux teamocil
 		distro_pkg transmission transmission-sequential-gtk
 		distro_pkg ttf-fonts gentium-plus-font ttf-{cheapskate,freefont,liberation,hack,amiri,sil-fonts,crimson-pro{,-variable},symbola,joypixels} otf-{libertinus,bravura,crimson-text} montserrat-font-ttf awesome-terminal-fonts
-		distro_pkg wireguard wireguard-{tools,dkms}
+		distro_pkg wireguard wireguard-tools
 		distro_pkg zathura zathura{,-pdf-mupdf}
 		distro_pkg zsh zsh zsh-completions
 
@@ -291,10 +290,8 @@ case $DISTRO in
 		distro_pkg keepassx ''
 		distro_pkg libreoffice ''
 		distro_pkg myrepos mr
-		distro_pkg networkmanager ''
 		distro_pkg ntp ''
 		distro_pkg owncloud-client ''
-		distro_pkg rdesktop ''
 		distro_pkg rhythmbox ''
 		distro_pkg smplayer ''
 		distro_pkg strace ''
