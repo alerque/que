@@ -48,6 +48,7 @@ BASEPACKAGES=(
 		html-xml-utils
 		htop
 		iftop
+		ifplugd
 		keychain
 		lab
 		linux-headers
@@ -60,6 +61,7 @@ BASEPACKAGES=(
 		neomutt
 		neovim
 		net-tools
+		netctl
 		ntp
 		openssh
 		pcregrep
@@ -111,7 +113,6 @@ DESKTOPPACKAGES=(
 		libreoffice
 		mplayer
 		neovim-gtk
-		netctl
 		nextcloud-client
 		pulseaudio
 		profile-sync-daemon
