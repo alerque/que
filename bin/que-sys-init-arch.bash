@@ -32,12 +32,6 @@ function update_mirrors () {
     }
 }
 
-# Add my own Arch package repository, after community
-$DEBUG pacman-key --recv-keys 63CC496475267693
-$DEBUG pacman-key --lsign-key 63CC496475267693
-$DEBUG grep -q alerque /etc/pacman.conf ||
-    sed -i -e '/^.community/{n;n;s!^!\n\[alerque\]\nServer = https://arch.alerque.com/$arch\n!}' /etc/pacman.conf
-
 # Setup systemctl argument to start services if not in chroot
 [[ "$(stat -c %d:%i /)" != "$(stat -c %d:%i /proc/1/root/.)" ]] || export NOW="--now"
 
@@ -51,6 +45,12 @@ $DEBUG pacman-key --init
 $DEBUG pacman-key --populate archlinux
 
 $DEBUG update_mirrors ||:
+
+# Add my own Arch package repository, after community
+$DEBUG pacman-key --recv-keys 63CC496475267693
+$DEBUG pacman-key --lsign-key 63CC496475267693
+$DEBUG grep -q alerque /etc/pacman.conf ||
+    sed -i -e '/^.community/{n;n;s!^!\n\[alerque\]\nServer = https://arch.alerque.com/$arch\n!}' /etc/pacman.conf
 
 # Freshen everything up
 $DEBUG pacman --needed --noconfirm -Syu
