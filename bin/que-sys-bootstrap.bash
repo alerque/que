@@ -57,6 +57,7 @@ BASEPACKAGES=(
 		lsof
 		markdown2ctags
 		mlocate
+		moreutils
 		mosh
 		myrepos
 		ncdu
@@ -359,10 +360,14 @@ if command -v etckeeper; then
 	(
 	cd /etc
 	etckeeper vcs status || etckeeper init
-    # TODO: setup ssh host id plus ssh keys and make sure remote pushes have right branch
-	etckeeper vcs remote add origin gitlab@gitlab.alerque.com:hosts/$HOSTNAME.git -m master ||
-        etckeeper vcs remote set-url origin gitlab@gitlab.alerque.com:hosts/$HOSTNAME.git
-    sed -i -e 's/^PUSH_REMOTE=""/PUSH_REMOTE="origin"/g' /etc/etckeeper/etckeeper.conf
+	# TODO: setup ssh plus ssh keys and make sure remote pushes have right branch
+	hostsfile=~/.ssh/known_hosts
+	gitlab=gitlab.alerque.com
+	[[ -s $hostsfile ]] || install -Dm644 /dev/null $hostsfile
+	cat $hostsfile <(ssh-keyscan $gitlab) | sort -u | sponge $hostsfile
+	etckeeper vcs remote add origin gitlab@$gitlab:hosts/$HOSTNAME.git -m master ||
+		etckeeper vcs remote set-url origin gitlab@$gitlab:hosts/$HOSTNAME.git
+	sed -i -e 's/^PUSH_REMOTE=""/PUSH_REMOTE="origin"/g' /etc/etckeeper/etckeeper.conf
 	etckeeper vcs config --local branch.master.remote origin
 	etckeeper vcs config --local branch.master.merge refs/heads/master
 	etckeeper vcs config --local branch.master.rebase true
