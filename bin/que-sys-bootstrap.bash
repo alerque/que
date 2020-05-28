@@ -107,7 +107,7 @@ DESKTOPPACKAGES=(
 		google-talkplugin
 		gpaste
 		gvfs
-        hub
+		hub
 		inkscape
 		keepassxc
 		libreoffice
@@ -121,6 +121,7 @@ DESKTOPPACKAGES=(
 		smplayer
 		termite
 		transmission
+		tridactyl
 		ttf-fonts
 		xautolock
 		xdotool
@@ -230,10 +231,10 @@ case $DISTRO in
 
 		# Distro specific package names
 		distro_pkg awesome awesome{,-revelation-git,-themes-git} lain-git vicious
-		distro_pkg etckeeper etckeeper{,-packages}
 		distro_pkg cron cronie
 		distro_pkg cups cups cups-filters system-config-printer cups-pk-helper gsfonts gutenprint foomatic-db{,-engine,-nonfree,{,-nonfree,-gutenprint}-ppds} hplip splix cups-pdf
-		distro_pkg firefox firefox{,-i18n-{tr,ru}} firefox-tridactyl{,-native}
+		distro_pkg etckeeper etckeeper{,-packages}
+		distro_pkg firefox firefox{,-i18n-{tr,ru}}
 		distro_pkg geeqie geeqie-git
 		distro_pkg gnome gnome gnome-{extra,tweak-tool,defaults-list} lightdm cbatticon notification-daemon
 		distro_pkg gnome-shell gnome-shell chrome-gnome-shell gnome-shell-extension-{topicons-redux,no-title-bar}
@@ -247,21 +248,22 @@ case $DISTRO in
 		distro_pkg pulseaudio pa{systray,man,vucontrol,prefs,mixer,-applet-git}
 		distro_pkg tmux tmux teamocil
 		distro_pkg transmission transmission-sequential-gtk
-		distro_pkg ttf-fonts gentium-plus-font ttf-{cheapskate,freefont,liberation,hack,amiri,sil-fonts,crimson-pro{,-variable},symbola,joypixels} otf-{libertinus,bravura,crimson-text} montserrat-font-ttf awesome-terminal-fonts
+		distro_pkg tridactyl firefox-tridactyl{,-native}
+		distro_pkg ttf-fonts gentium-plus-font ttf-{cheapskate,freefont,liberation,hack,amiri,sil-fonts,crimson-pro{,-variable},symbola,joypixels} otf-{libertinus,bravura,crimson-text} montserrat-font-ttf awesome-terminal-fonts nerd-fonts-hack
 		distro_pkg wireguard wireguard-tools
 		distro_pkg zathura zathura{,-pdf-mupdf}
 		distro_pkg zsh zsh zsh-completions
 
-        # Temporarily broken packages
-        # skip_pkg ...
+		# Temporarily broken packages
+		# skip_pkg ...
 
-        # Arch Linux upstream deprecations
-        remove_pkg libdmx
-        remove_pkg libxxf86dga
-        remove_pkg libxxf86misc
+		# Arch Linux upstream deprecations
+		remove_pkg libdmx
+		remove_pkg libxxf86dga
+		remove_pkg libxxf86misc
 
-        # Renamed packages that didn't properly conflict with their replacements
-        remove_pkg ttf-gentium-plus
+		# Renamed packages that didn't properly conflict with their replacements
+		remove_pkg ttf-gentium-plus
         ;;
 	fedora)
 		:
