@@ -34,6 +34,7 @@ BASEPACKAGES=(
 		diff-so-fancy
 		entr
 		etckeeper
+		exa
 		exim
 		fasd
 		fd
@@ -41,13 +42,15 @@ BASEPACKAGES=(
 		git
 		git-annex
 		git-crypt
+		git-extras
+		git-filter-repo
 		git-revise
 		gnu-netcat
 		gnupg
 		html-xml-utils
 		htop
-		iftop
 		ifplugd
+		iftop
 		keychain
 		lab
 		linux-headers
@@ -70,6 +73,7 @@ BASEPACKAGES=(
 		rlwrap
 		rsync
 		ruby
+		s-nail
 		strace
 		termite-terminfo
 		tig
@@ -80,12 +84,9 @@ BASEPACKAGES=(
 		vcsh
 		wget
 		wireguard
+		ytop
 		zip
 		zsh
-		exa
-		git-extras
-		git-filter-repo
-		ytop
 )
 
 DESKTOPPACKAGES=(
@@ -94,7 +95,6 @@ DESKTOPPACKAGES=(
 		awesome
 		bluez-tools
 		chromium
-		picom
 		cups
 		firefox
 		flameshot
@@ -114,8 +114,9 @@ DESKTOPPACKAGES=(
 		mplayer
 		neovim-gtk
 		nextcloud-client
-		pulseaudio
+		picom
 		profile-sync-daemon
+		pulseaudio
 		scribus
 		slock
 		smplayer
