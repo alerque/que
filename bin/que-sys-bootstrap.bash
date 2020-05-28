@@ -62,6 +62,7 @@ BASEPACKAGES=(
 		neovim
 		net-tools
 		netctl
+		nodejs
 		ntp
 		openssh
 		pcregrep
@@ -204,7 +205,7 @@ test -n "$DISTRO" || flunk "unrecognized distro"
 # Detect virtual environments
 ISVBOX=$(command -v lspci > /dev/null && lspci | grep -iq virtualbox; echo $?)
 ISEC2=$(uname -r | grep -iq ec2; echo $?)
-ISDO=$(dmesg | grep -q KVM; echo $?)
+ISDO=$(dmesg 2> /dev/null | grep -q KVM; echo $?)
 if is_opt $ISEC2; then
 	add_pkg ec2-api-tools ec2-metadata
 fi
@@ -243,6 +244,7 @@ case $DISTRO in
 		distro_pkg lightdm lightdm{,-gtk-greeter{,-settings}}
 		distro_pkg neomutt neomutt goobook-git
 		distro_pkg neovim neovim python2-pynvim nodejs-neovim
+		distro_pkg nodejs{,-lts-erbium}
 		distro_pkg nextcloud-client nextcloud-client python-nautilus
 		distro_pkg pcregrep pcre
 		distro_pkg pulseaudio pa{systray,man,vucontrol,prefs,mixer,-applet-git}
