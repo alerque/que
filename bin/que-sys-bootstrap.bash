@@ -363,6 +363,9 @@ if command -v etckeeper; then
 	etckeeper vcs remote add origin gitlab@gitlab.alerque.com:hosts/$HOSTNAME.git -m master ||
         etckeeper vcs remote set-url origin gitlab@gitlab.alerque.com:hosts/$HOSTNAME.git
     sed -i -e 's/^PUSH_REMOTE=""/PUSH_REMOTE="origin"/g' /etc/etckeeper/etckeeper.conf
+	etckeeper vcs config --local branch.master.remote origin
+	etckeeper vcs config --local branch.master.merge refs/heads/master
+	etckeeper vcs config --local branch.master.rebase true
 	etckeeper commit "End of que-sys-bootstrap.bash run"
 	)
 fi
