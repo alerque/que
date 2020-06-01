@@ -56,7 +56,7 @@ $DEBUG grep -q alerque /etc/pacman.conf ||
 $DEBUG pacman --needed --noconfirm -Syu
 
 # Remove anything that needs cleaning up first
-$DEBUG pacman -Rns --noconfirm ${REMOVEPACKAGES[@]} $(pacman -Qtdq) ||:
+$DEBUG pacman --noconfirm -Rns ${REMOVEPACKAGES[@]} $(pacman -Qtdq) ||:
 
 # Kill off archlinuxfr repository, formerly used to install yaourt
 grep archlinuxfr /etc/pacman.conf && (
