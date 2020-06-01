@@ -72,7 +72,7 @@ UNINSTALLEDPACKAGES=(base $(echo ${BASEPACKAGES[*]} | tr ' ' '\n' | grep -xvhE "
 pacman -Ssq |
     grep -xvf <(pacman -Qsq) |
     grep -xho -E "($(IFS='|' eval 'echo "${UNINSTALLEDPACKAGES[*]}"'))" |
-    $DEBUG xargs pacman --needed --noconfirm -S
+    $DEBUG xargs pacman --needed --noconfirm -S ||:
 
 # Install yay (mostly obsolete because it is in the [alerque] repository,
 # but just in case we'e trying to get up and running when that is down...)
