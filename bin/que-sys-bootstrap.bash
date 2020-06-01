@@ -347,12 +347,12 @@ remote_source $INITSCRIPT
 
 # Setup root SSH
 test -f /root/.ssh/id_rsa || (
-	ssh-keygen -f /root/.ssh/id_rsa -N ""
+	ssh-keygen -f /root/.ssh/id_rsa -N ''
 	cat /root/.ssh/id_rsa.pub | mailx -s "New root SSH key for $HOSTNAME" caleb@alerque.com
 )
 
 # Setup my user
-useradd -s $(which zsh) -m -k /dev/null -c "Caleb Maclennan" caleb ||:
+useradd -s $(which zsh) -m -k /dev/null -c 'Caleb Maclennan' caleb ||:
 usermod -aG $WHEEL caleb ||:
 
 # If we're on a system with etckeeper, make sure it's setup
@@ -372,7 +372,7 @@ if command -v etckeeper; then
 	etckeeper vcs config --local branch.master.merge refs/heads/master
 	etckeeper vcs config --local branch.master.rebase true
 	grep -Fx .updated .gitignore || echo .updated > .gitignore
-	etckeeper commit "End of que-sys-bootstrap.bash run" ||:
+	etckeeper commit 'End of que-sys-bootstrap.bash run' ||:
 	)
 fi
 
@@ -380,5 +380,5 @@ fi
 echo -e "Perhaps you want home stuff too?\n    passwd caleb\n    su - caleb\n    bash <(curl -s -L $STRAP_URL/bin/que-home-bootstrap.bash)"
 
 if is_opt $ISDESKTOP; then
-	echo "Need to manually install appropriate video driver"
+	echo 'Need to manually install appropriate video driver'
 fi

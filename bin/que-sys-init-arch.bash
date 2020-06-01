@@ -77,8 +77,8 @@ pacman -Ssq |
 # Install yay (mostly obsolete because it is in the [alerque] repository,
 # but just in case we'e trying to get up and running when that is down...)
 which yay || (
-    $DEBUG su -l que-bootstrap -c "git clone https://aur.archlinux.org/yay.git"
-    $DEBUG su -l que-bootstrap -c "cd yay && makepkg --noconfirm -si"
+    $DEBUG su -l que-bootstrap -c 'git clone https://aur.archlinux.org/yay.git'
+    $DEBUG su -l que-bootstrap -c 'cd yay && makepkg --noconfirm -si'
 )
 
 # Compile and install things not coming out of the distro main tree
@@ -103,7 +103,7 @@ fi
 
 if is_opt $ISVBOX; then
 	$DEBUG pacman --needed --noconfirm -S virtualbox-guest-utils
-	echo -e "vboxguest\nvboxsf\nvboxvideo" > /etc/modules-load.d/virtualbox.conf
+	echo -e 'vboxguest\nvboxsf\nvboxvideo' > /etc/modules-load.d/virtualbox.conf
 	$DEBUG systemctl $NOW enable vboxservice
 	# $DEBUG pacman --needed --noconfirm -S xf86-video-vbox
 fi
@@ -114,6 +114,6 @@ sed -i -e 's/^HIGHLEVEL_PACKAGE_MANAGER=.*$/HIGHLEVEL_PACKAGE_MANAGER=yay/g' /et
 update_mirrors
 
 # Force nameserver and domain
-echo -e "nameserver 1.1.1.1\nsearch alerque.com" > /etc/resolv.conf
+echo -e 'nameserver 1.1.1.1\nsearch alerque.com' > /etc/resolv.conf
 
 localectl list-keymaps | grep -q dvp && localectl --no-convert set-keymap dvp ||:
