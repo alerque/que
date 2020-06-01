@@ -372,7 +372,7 @@ if command -v etckeeper; then
 	etckeeper vcs config --local branch.master.merge refs/heads/master
 	etckeeper vcs config --local branch.master.rebase true
 	grep -Fx .updated .gitignore || echo .updated > .gitignore
-	etckeeper commit "End of que-sys-bootstrap.bash run"
+	etckeeper commit "End of que-sys-bootstrap.bash run" ||:
 	)
 fi
 
