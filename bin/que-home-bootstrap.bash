@@ -80,6 +80,10 @@ chmod 600 ~/.ssh/{config,authorized_keys} $(grep 'PRIVATE KEY' -Rl ~/.ssh) ~/.gn
 
 vcsh run que-secure git crypt unlock
 
+# TODO: Test in que-secure actually got unlocked
+
+# TODO: Fix find in AUR repo dir before it exists
+
 # Get repo that has mr configs
 vcsh_get que
 
