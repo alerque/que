@@ -7,7 +7,7 @@ localectl list-locales | grep -vq -e US -e TR -e RU && locale-gen
 echo -e '%wheel ALL=(ALL) ALL' > /etc/sudoers.d/70-wheel
 
 # Setup my prefered sudo user settings
-echo -e 'Defaults:caleb timestamp_timeout=90,passwd_timeout=0,!tty_tickets,insults,requiretty,passwd_tries=5,env_keep+="TMUX"' > /etc/sudoers.d/99-caleb
+echo -e 'Defaults:caleb timestamp_timeout=90,passwd_timeout=0,!tty_tickets,insults,!requiretty,passwd_tries=5,env_keep+="TMUX"' > /etc/sudoers.d/99-caleb
 
 # Setup special priviledged user for compiling AUR packages
 useradd -r -m -U -G wheel -k /dev/null que-bootstrap ||:
