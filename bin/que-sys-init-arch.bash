@@ -92,7 +92,7 @@ echo 'kernel.sysrq = 1' > /etc/sysctl.d/99-sysctl.conf
 if is_opt $ISDESKTOP; then
 	# $DEBUG pacman -S --needed --noconfirm xf86-video-nouveau nouveau-dri
 	$DEBUG systemctl status gdm || systemctl enable lightdm
-	$DEBUG systemctl $NOW enable org.cups.cupsd NetworkManager
+	$DEBUG systemctl $NOW enable org.cups.cupsd
 	$DEBUG rm -f /etc/fonts/conf.d/75-{emojione,joypixels}.conf
 fi
 
