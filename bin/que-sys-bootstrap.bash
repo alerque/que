@@ -258,9 +258,9 @@ case $DISTRO in
 		distro_pkg nodejs{,-lts-erbium}
 		distro_pkg nextcloud-client nextcloud-client python-nautilus
 		distro_pkg pcregrep pcre
-		distro_pkg pulseaudio pa{systray,man,vucontrol,prefs,mixer,-applet-git}
+		distro_pkg pulseaudio pa{systray,vucontrol,prefs,mixer,-applet-git}
 		distro_pkg tmux tmux teamocil
-		distro_pkg transmission transmission-sequential-gtk
+		distro_pkg transmission{,-gtk,-cli}
 		distro_pkg tridactyl firefox-tridactyl{,-native}
 		distro_pkg ttf-fonts gentium-plus-font ttf-{cheapskate,freefont,liberation,hack,amiri,sil-fonts,crimson-pro{,-variable},symbola,joypixels} otf-{libertinus,bravura,crimson-text} montserrat-font-ttf awesome-terminal-fonts nerd-fonts-hack
 		distro_pkg wireguard wireguard-tools
