@@ -14,7 +14,14 @@ function fail_deps () {
 function vcsh_get () {
     test -d .config/vcsh/repo.d/$1.git &&
     vcsh $1 pull ||
-    vcsh clone git@github.com:alerque/$1.git $1
+    case $2 in
+        gitlab)
+            vcsh clone gitlab@gitlab.alerque.com:caleb/$1.git $1
+            ;;
+        github|*)
+            vcsh clone git@github.com:alerque/$1.git $1
+            ;;
+    esac
 }
 
 # Error out of script if _anything_ goes wrong
@@ -66,7 +73,7 @@ test -f .config/vcsh/hooks-enabled/post-merge-unclobber ||
 chmod +x .config/vcsh/hooks-enabled/{pre,post}-merge-unclobber
 
 # Get repo that has GPG unlock stuff
-vcsh_get que-secure
+vcsh_get que-secure gitlab
 vcsh run que-secure git config core.attributesfile .gitattributes.d/que-secure
 chmod 700 ~/.gnupg{,/private-keys*}
 chmod 600 ~/.ssh/{config,authorized_keys} $(grep 'PRIVATE KEY' -Rl ~/.ssh) ~/.gnupg/private-keys*/*
