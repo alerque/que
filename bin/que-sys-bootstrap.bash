@@ -274,6 +274,7 @@ case $DISTRO in
 		remove_pkg libdmx
 		remove_pkg libxxf86dga
 		remove_pkg libxxf86misc
+		remove_pkg transmission-sequential-{gtk,cli}
 
 		# Renamed packages that didn't properly conflict with their replacements
 		remove_pkg ttf-gentium-plus
