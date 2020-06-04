@@ -55,6 +55,7 @@ BASEPACKAGES=(
 		lab
 		linux-headers
 		lsof
+		man-db
 		markdown2ctags
 		mlocate
 		moreutils
