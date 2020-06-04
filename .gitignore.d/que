@@ -148,6 +148,8 @@
 !/.config/mr/config.d-sincap/tprk.mr
 !/.config/mr/config.d-sincap/userscripts.mr
 !/.config/mr/config.d-sincap/viachristus.mr
+!/.config/pacman
+!/.config/pacman/makepkg.conf
 !/.config/tig
 !/.config/tig/config
 !/.config/tig/molokai-like-theme.tigrc
