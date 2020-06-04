@@ -84,6 +84,7 @@ BASEPACKAGES=(
 		unrar
 		unzip
 		vcsh
+		weechat
 		wget
 		wireguard
 		ytop
