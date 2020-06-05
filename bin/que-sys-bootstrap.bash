@@ -128,6 +128,7 @@ DESKTOPPACKAGES=(
 		transmission
 		tridactyl
 		ttf-fonts
+		uim
 		xautolock
 		xdotool
 		xiphos
