@@ -55,7 +55,7 @@ BASEPACKAGES=(
 		lab
 		linux-headers
 		lsof
-		man-db
+		man
 		markdown2ctags
 		mlocate
 		moreutils
@@ -257,6 +257,7 @@ case $DISTRO in
 		distro_pkg gvfs gvfs-{mtp,smb,goa}
 		distro_pkg libreoffice libreoffice-fresh{,-tr,-ru} unoconv
 		distro_pkg lightdm lightdm{,-gtk-greeter{,-settings}}
+        distro_pkg man{,-db,-pages}
 		distro_pkg neomutt neomutt goobook-git
 		distro_pkg neovim neovim nodejs-neovim python-pynvim
 		distro_pkg nodejs{,-lts-erbium}
