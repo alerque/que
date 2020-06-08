@@ -1,0 +1,10 @@
+[$HOME/projects/github/runebender]
+checkout =
+	git clone git@github.com:alerque/runebender.git
+	cd runebender
+	git remote add upstream git@github.com:linebender/runebender.git
+zap =
+	git checkout master
+	git pull upstream master
+	git push origin master
+skip = lazy

@@ -26,6 +26,7 @@
 !/.config/mr/available.d/distro-packaging.mr
 !/.config/mr/available.d/finances.git
 !/.config/mr/available.d/freecheck.git
+!/.config/mr/available.d/github.mr
 !/.config/mr/available.d/grandpa.mr
 !/.config/mr/available.d/homebrew.mr
 !/.config/mr/available.d/hosts.mr
@@ -59,6 +60,7 @@
 !/.config/mr/config.d-aslan/brkt.mr
 !/.config/mr/config.d-aslan/ccm.mr
 !/.config/mr/config.d-aslan/finances.git
+!/.config/mr/config.d-aslan/github.mr
 !/.config/mr/config.d-aslan/hosts.mr
 !/.config/mr/config.d-aslan/incil.mr
 !/.config/mr/config.d-aslan/ipk.mr
