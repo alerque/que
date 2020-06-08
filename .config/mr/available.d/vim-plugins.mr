@@ -1,0 +1,65 @@
+[$HOME/projects/vim-plugins/nerdtree]
+checkout = git clone git@github.com:preservim/nerdtree.git
+
+[$HOME/projects/vim-plugins/nerdcommenter]
+checkout = git clone git@github.com:preservim/nerdcommenter.git
+
+[$HOME/projects/vim-plugins/vim-sile]
+checkout = git clone git@github.com:sile-typesetter/vim-sile.git
+
+[$HOME/projects/vim-plugins/vim-ledger]
+checkout = git clone git@github.com:ledger/vim-ledger.git
+
+[$HOME/projects/vim-plugins/vim-snakemake]
+checkout = git clone git@github.com:ibab/vim-snakemake.git
+
+[$HOME/projects/vim-plugins/vim-commonmark]
+checkout = git clone git@github.com:alerque/vim-commonmark.git
+
+[$HOME/projects/vim-plugins/vim-pandoc]
+checkout = git clone git@github.com:vim-pandoc/vim-pandoc.git
+
+[$HOME/projects/vim-plugins/vim-pandoc-syntax]
+checkout = git clone git@github.com:vim-pandoc/vim-pandoc-syntax.git
+
+[$HOME/projects/vim-plugins/vim-pandoc-after]
+checkout = git clone git@github.com:vim-pandoc/vim-pandoc-after.git
+
+[$HOME/projects/vim-plugins/vim-criticmarkup]
+checkout = git clone git@github.com:vim-pandoc/vim-criticmarkup.git
+
+[$HOME/projects/vim-plugins/vim-rmarkdown]
+checkout = git clone git@github.com:vim-pandoc/vim-rmarkdown.git
+
+[$HOME/projects/vim-plugins/vim-markdownfootnotes]
+checkout = git clone git@github.com:vim-pandoc/vim-markdownfootnotes.git
+
+[$HOME/projects/vim-plugins/vim-colors-pencil]
+checkout = git clone git@github.com:reedes/vim-colors-pencil.git
+
+[$HOME/projects/vim-plugins/vim-textobj-sentence]
+checkout = git clone git@github.com:reedes/vim-textobj-sentence.git
+
+[$HOME/projects/vim-plugins/vim-litecorrect]
+checkout = git clone git@github.com:reedes/vim-litecorrect.git
+
+[$HOME/projects/vim-plugins/vim-wheel]
+checkout = git clone git@github.com:reedes/vim-wheel.git
+
+[$HOME/projects/vim-plugins/vim-wordchipper]
+checkout = git clone git@github.com:reedes/vim-wordchipper.git
+
+[$HOME/projects/vim-plugins/vim-pencil]
+checkout = git clone git@github.com:reedes/vim-pencil.git
+
+[$HOME/projects/vim-plugins/vim-lexical]
+checkout = git clone git@github.com:reedes/vim-lexical.git
+
+[$HOME/projects/vim-plugins/vim-thematic]
+checkout = git clone git@github.com:reedes/vim-thematic.git
+
+[$HOME/projects/vim-plugins/vim-textobj-quote]
+checkout = git clone git@github.com:reedes/vim-textobj-quote.git
+
+[$HOME/projects/vim-plugins/vim-wordy]
+checkout = git clone git@github.com:reedes/vim-wordy.git

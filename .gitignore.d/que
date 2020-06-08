@@ -48,6 +48,7 @@
 !/.config/mr/available.d/userscripts.mr
 !/.config/mr/available.d/vcsh.git
 !/.config/mr/available.d/viachristus.mr
+!/.config/mr/available.d/vim-plugins.mr
 !/.config/mr/available.d/websites.mr
 !/.config/mr/config.d-armadillo
 !/.config/mr/config.d-armadillo/incil.mr
@@ -77,6 +78,7 @@
 !/.config/mr/config.d-aslan/userscripts.mr
 !/.config/mr/config.d-aslan/vcsh.git
 !/.config/mr/config.d-aslan/viachristus.mr
+!/.config/mr/config.d-aslan/vim-plugins.mr
 !/.config/mr/config.d-basilisk
 !/.config/mr/config.d-basilisk/que-sys-base.mr
 !/.config/mr/config.d-basilisk/systems.mr
