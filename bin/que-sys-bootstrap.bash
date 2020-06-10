@@ -386,6 +386,6 @@ fi
 echo -e "Perhaps you want home stuff too?\n    passwd caleb\n    su - caleb\n    bash <(curl -s -L $STRAP_URL/bin/que-home-bootstrap.bash)"
 
 if is_opt $ISDESKTOP; then
-	ln -sf /usr/lib/openssh/ssh-askpass-fullscreen ~/bin/ssh-askpass
+	ln -sf /usr/lib/openssh/ssh-askpass-fullscreen ~caleb/bin/ssh-askpass
 	echo 'Need to manually install appropriate video driver'
 fi
