@@ -16,11 +16,14 @@ checkout = git clone git@github.com:theleagueof/goudy-bookletter-1911.git
 [$HOME/projects/theleagueof/junction]
 checkout = git clone git@github.com:theleagueof/junction.git
 
-[$HOME/projects/theleagueof/kneewave]
-checkout = git clone git@github.com:theleagueof/kneewave.git
+[$HOME/projects/theleagueof/knewave]
+checkout = git clone git@github.com:theleagueof/knewave.git
 
 [$HOME/projects/theleagueof/league-gothic]
 checkout = git clone git@github.com:theleagueof/league-gothic.git
+
+[$HOME/projects/theleagueof/league-mono]
+checkout = git clone git@github.com:theleagueof/league-mono.git
 
 [$HOME/projects/theleagueof/league-script-number-one]
 checkout = git clone git@github.com:theleagueof/league-script-number-one.git
