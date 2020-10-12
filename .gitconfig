@@ -13,7 +13,6 @@
 	default = simple
 	gpgSign = if-asked
 	recurseSubmodules = check
-	followTags = true
 [color]
 	ui = true
 [merge]
