@@ -43,3 +43,9 @@ checkout =
 	git clone git@github.com:alerque/vim-sile.git
 	cd vim-sile
 	git remote add upstream git@github.com:sile-typesetter/vim-sile.git
+
+[$HOME/projects/sile-typesetter/fontproof]
+checkout =
+	git clone git@github.com:alerque/fontproof.git
+	cd fontproof
+	git remote add upstream git@github.com:sile-typesetter/fontproof.git
