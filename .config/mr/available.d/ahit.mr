@@ -1,0 +1,33 @@
+#!/usr/bin/env zsh
+
+host=gitlab.alerque.com
+group=ahit
+
+labcache=/tmp/lab-project-list-ahit
+
+function project_list_cache () (
+	test -s ${labcache} || exit 1
+	test $(date +%s -r ${labcache}) -ge $(date +%s --date "60 min ago") || exit 1
+	cat ${labcache}
+)
+
+function project_list () {
+	git config --file ~/.private/gitlab.config gitlab.url || return
+	project_list_cache ||
+		lab project list -a |
+		sort |
+		tee ${labcache}
+}
+
+project_list |
+	grep -e "^${group}/" |
+	sort -u |
+	while read project; do
+		cat <<- EOF
+			[$HOME/projects/${project}]
+			checkout = git clone --recursive gitlab@${host}:${project}.git
+			update =
+			    git pull origin
+			    git submodule foreach git pull origin master
+		EOF
+	done
