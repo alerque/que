@@ -10,6 +10,12 @@ checkout =
 	cd casile-demos
 	git remote add upstream git@github.com:sile-typesetter/casile-demos.git
 
+[$HOME/projects/sile-typesetter/casile-template]
+checkout =
+	git clone git@github.com:alerque/casile-template.git
+	cd casile-template
+	git remote add upstream git@github.com:sile-typesetter/casile-template.git
+
 [$HOME/projects/sile-typesetter/cassowary.lua]
 checkout =
 	git clone git@github.com:alerque/cassowary.lua.git
