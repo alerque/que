@@ -20,6 +20,7 @@
 !/.config/git/attributes
 !/.config/mr
 !/.config/mr/available.d
+!/.config/mr/available.d/ahit.mr
 !/.config/mr/available.d/aur.mr
 !/.config/mr/available.d/brkt.mr
 !/.config/mr/available.d/ccm.mr
@@ -57,6 +58,7 @@
 !/.config/mr/config.d-armadillo/que-sys-desktop.mr
 !/.config/mr/config.d-armadillo/tprk.mr
 !/.config/mr/config.d-aslan
+!/.config/mr/config.d-aslan/ahit.mr
 !/.config/mr/config.d-aslan/aur.mr
 !/.config/mr/config.d-aslan/brkt.mr
 !/.config/mr/config.d-aslan/ccm.mr
@@ -83,6 +85,7 @@
 !/.config/mr/config.d-basilisk/que-sys-base.mr
 !/.config/mr/config.d-basilisk/systems.mr
 !/.config/mr/config.d-emircik
+!/.config/mr/config.d-emircik/ahit.mr
 !/.config/mr/config.d-emircik/aur.mr
 !/.config/mr/config.d-emircik/ccm.mr
 !/.config/mr/config.d-emircik/finances.git
