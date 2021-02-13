@@ -4,6 +4,12 @@ checkout = git clone git@github.com:preservim/nerdtree.git
 [$HOME/projects/vim-plugins/nerdcommenter]
 checkout = git clone git@github.com:preservim/nerdcommenter.git
 
+[$HOME/projects/vim-plugins/tagbar]
+checkout = git clone git@github.com:preservim/tagbar.git
+
+[$HOME/projects/vim-plugins/vimux]
+checkout = git clone git@github.com:preservim/vimux.git
+
 [$HOME/projects/vim-plugins/vim-sile]
 checkout = git clone git@github.com:sile-typesetter/vim-sile.git
 
