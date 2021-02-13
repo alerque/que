@@ -104,6 +104,7 @@
 !/.config/mr/config.d-emircik/userscripts.mr
 !/.config/mr/config.d-emircik/vcsh.git
 !/.config/mr/config.d-emircik/viachristus.mr
+!/.config/mr/config.d-emircik/vim-plugins.mr
 !/.config/mr/config.d-emircik/websites.mr
 !/.config/mr/config.d-iguana
 !/.config/mr/config.d-iguana/aur.mr
