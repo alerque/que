@@ -1,6 +1,9 @@
 [core]
 	excludesFile = ~/.gitignore
 	quotePath = off
+	pager = delta
+[interactive]
+	diffFilter = delta --color-only
 [user]
 	email = caleb@alerque.com
 	name = Caleb Maclennan
@@ -113,9 +116,6 @@
 	; clean = git-lfs clean --  %f
 	; smudge = git-lfs smudge -- %f
 	required = false
-[pager]
-	; diff = diff-so-fancy | less --tabs=4 -RFX
-	; show = diff-so-fancy | less --tabs=4 -RFX
 [color "diff"]
 	meta = yellow
 	commit = yellow
@@ -140,3 +140,12 @@
 	path = ~/.private/gitlab.config
 [advice]
 	detachedHead = false
+[delta]
+    features = side-by-side line-numbers decorations
+    ; features = side-by-side line-numbers decorations
+    whitespace-error-style = 22 reverse
+	syntax-theme = Monokai Extended
+[delta "decorations"]
+    commit-decoration-style = bold yellow box ul
+    file-style = bold yellow ul
+    file-decoration-style = none
