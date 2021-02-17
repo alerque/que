@@ -114,6 +114,7 @@
 !/.config/mr/config.d-iguana/tprk.mr
 !/.config/mr/config.d-iguana/typesetting.mr
 !/.config/mr/config.d-jaguar
+!/.config/mr/config.d-jaguar/ahit.mr
 !/.config/mr/config.d-jaguar/aur.mr
 !/.config/mr/config.d-jaguar/brkt.mr
 !/.config/mr/config.d-jaguar/ccm.mr
@@ -127,6 +128,7 @@
 !/.config/mr/config.d-jaguar/pictures.annex
 !/.config/mr/config.d-jaguar/que-sys-base.mr
 !/.config/mr/config.d-jaguar/que-sys-desktop.mr
+!/.config/mr/config.d-jaguar/sile.mr
 !/.config/mr/config.d-jaguar/systems.mr
 !/.config/mr/config.d-jaguar/theleagueof.mr
 !/.config/mr/config.d-jaguar/tprk.mr
@@ -135,6 +137,7 @@
 !/.config/mr/config.d-jaguar/userscripts.mr
 !/.config/mr/config.d-jaguar/vcsh.git
 !/.config/mr/config.d-jaguar/viachristus.mr
+!/.config/mr/config.d-jaguar/vim-plugins.mr
 !/.config/mr/config.d-jaguar/websites.mr
 !/.config/mr/config.d-karabatak
 !/.config/mr/config.d-karabatak/ipk.mr
