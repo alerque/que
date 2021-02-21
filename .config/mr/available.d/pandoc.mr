@@ -1,0 +1,18 @@
+[$HOME/projects/jgm/pandoc]
+checkout = gh repo fork --clone git@github.com:jgm/pandoc.git
+
+[$HOME/projects/pandoc/ast-migrator]
+checkout = gh repo fork --clone git@github.com:pandoc/ast-migrator.git
+
+[$HOME/projects/pandoc/dockerfiles]
+checkout = gh repo fork --clone git@github.com:pandoc/dockerfiles.git
+
+[$HOME/projects/pandoc/lua-filters]
+checkout = gh repo fork --clone git@github.com:pandoc/lua-filters.git
+
+[$HOME/projects/pandoc/pandoc-action-example]
+checkout = gh repo fork --clone git@github.com:pandoc/pandoc-action-example.git
+
+[$HOME/projects/pandoc/scholarly-metadata]
+checkout = gh repo fork --clone git@github.com:pandoc/scholarly-metadata.git
+
