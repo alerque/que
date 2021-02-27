@@ -21,3 +21,7 @@ checkout =
 [$HOME/projects/ipk/gorevler]
 checkout =
 	git clone gitlab@gitlab.alerque.com:ipk/gorevler.git
+
+[$HOME/projects/ipk/izmirprotestan.org]
+checkout =
+	GITLAB_HOST=gitlab.alerque.com glab repo clone ipk/izmirprotestan.org
