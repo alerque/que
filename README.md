@@ -5,7 +5,7 @@ Caleb Maclennan's personal computing environment, including but not limited to:
 
 * system initialization and configuration tools
 * home directory managment via
-  * [myropos][myrepos] for repositories
+  * [myrepos][myrepos] for repositories
   * [vcsh][vcsh] for dotfiles
   * [git-annex][git-annex] for storing stuff™
 * misc other scripts and paraphanalia
@@ -15,7 +15,7 @@ system setup
 
 Requires:
 
-* bash, curl
+* bash, curl, git
 * working network connection
 * booted and logged in as root
 
