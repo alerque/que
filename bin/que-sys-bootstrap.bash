@@ -344,13 +344,13 @@ if is_opt $ISDESKTOP; then
     BASEPACKAGES=(${BASEPACKAGES[@]} ${DESKTOPPACKAGES[@]})
 fi
 
-# Setup root git user
-git config --global user.email root@$HOSTNAME.alerque.com
-git config --global user.name $HOSTNAME
-
 # Import and run init script for this OS
 INITSCRIPT="que-sys-init-${DISTRO}.bash"
 remote_source $INITSCRIPT
+
+# Setup root git user
+git config --global user.email root@$HOSTNAME.alerque.com
+git config --global user.name $HOSTNAME
 
 # Setup root SSH
 test -f /root/.ssh/id_rsa || (
