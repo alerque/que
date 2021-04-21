@@ -31,7 +31,6 @@ BASEPACKAGES=(
 		cron
 		ctags
 		cyrus-sasl
-		diff-so-fancy
 		entr
 		etckeeper
 		exa
@@ -42,6 +41,7 @@ BASEPACKAGES=(
 		git
 		git-annex
 		git-crypt
+		git-delta
 		git-extras
 		git-filter-repo
 		git-revise
@@ -142,6 +142,7 @@ REMOVEPACKAGES=(
 		aura
 		chromium-libpdf
 		customizepkg
+		diff-so-fancy
 		dropbox
 		emojione-color-font
 		firefox-adblock-plus
