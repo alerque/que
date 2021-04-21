@@ -244,7 +244,7 @@ case $DISTRO in
 		add_pkg pkgstats pacman-contrib
 		add_pkg mkinitcpio-{utils,netconf,dropbear}
 		add_pkg reflector
-		add_pkg yay
+		add_pkg yay paru
 
 		# Distro specific package names
 		distro_pkg awesome awesome{,-revelation-git,-themes-git} lain-git vicious
