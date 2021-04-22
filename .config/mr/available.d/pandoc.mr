@@ -15,4 +15,3 @@ checkout = gh repo fork --clone git@github.com:pandoc/pandoc-action-example.git
 
 [$HOME/projects/pandoc/scholarly-metadata]
 checkout = gh repo fork --clone git@github.com:pandoc/scholarly-metadata.git
-

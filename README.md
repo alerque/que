@@ -15,7 +15,7 @@ system setup
 
 Requires:
 
-* bash, curl, git
+* bash, curl
 * working network connection
 * booted and logged in as root
 
