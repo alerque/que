@@ -74,13 +74,6 @@ pacman -Ssq |
     grep -xho -E "($(IFS='|' eval 'echo "${UNINSTALLEDPACKAGES[*]}"'))" |
     $DEBUG xargs pacman --needed --noconfirm -S ||:
 
-# Install yay (mostly obsolete because it is in the [alerque] repository,
-# but just in case we'e trying to get up and running when that is down...)
-which yay || (
-    $DEBUG su -l que-bootstrap -c 'git clone https://aur.archlinux.org/yay.git'
-    $DEBUG su -l que-bootstrap -c 'cd yay && makepkg --noconfirm -si'
-)
-
 # Compile and install things not coming out of the distro main tree
 $DEBUG su que-bootstrap -c "yay --needed --noconfirm -S ${UNINSTALLEDPACKAGES[*]}" ||:
 
