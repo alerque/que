@@ -25,7 +25,7 @@ function vcsh_get () {
 }
 
 function auth () {
-	eval $(keychain --agents gpg,ssh --ignore-missing --inherit --eval --quick --systemd --quiet id_rsa 63CC496475267693)
+    eval $(keychain --agents gpg,ssh --ignore-missing --inherit --eval --quick --systemd --quiet id_rsa 63CC496475267693)
 }
 
 # Error out of script if _anything_ goes wrong
@@ -45,16 +45,16 @@ export GIT_SSH_COMMAND="ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChec
 
 # If everything isn't just right with SSH keys and config for the next step, manually fetch them
 if ! grep -q 'PRIVATE KEY' ~/.ssh/id_rsa; then
-	until [[ -v BOOTSTRAP_TOKEN ]]; do
-		read -s -p 'Gitlab Private-Token: '
-		[[ -n "$REPLY" ]] && BOOTSTRAP_TOKEN="$REPLY"
-	done
-    (
-        umask 177
-        curl --request GET \
+    until [[ -v BOOTSTRAP_TOKEN ]]; do
+        read -s -p 'Gitlab Private-Token: '
+        [[ -n "$REPLY" ]] && BOOTSTRAP_TOKEN="$REPLY"
+    done
+    mkdir -m700 ~/.ssh
+    curl -o .ssh/id_rsa \
+            --create-file-mode 600 \
+            --request GET \
             --header "Private-Token: $BOOTSTRAP_TOKEN" \
-            -o .ssh/id_rsa 'https://gitlab.alerque.com/api/v4/projects/37/repository/files/.ssh%2Fid_rsa/raw?ref=master'
-    )
+        'https://gitlab.alerque.com/api/v4/projects/37/repository/files/.ssh%2Fid_rsa/raw?ref=master'
     grep -q 'PRIVATE KEY' ~/.ssh/id_rsa ||
         fail "Invalid creds, got garbage files, fix /tmp/id_rsa or remove and try again"
 fi
@@ -80,7 +80,7 @@ chmod +x .config/vcsh/hooks-enabled/{pre,post}-merge-unclobber
 # Get repo that has GPG unlock stuff
 vcsh_get que-secure gitlab
 vcsh run que-secure git config core.attributesfile .gitattributes.d/que-secure
-chmod 700 ~/.gnupg{,/private-keys*}
+chmod 700 ~/.ssh ~/.gnupg{,/private-keys*/}
 chmod 600 ~/.ssh/{config,authorized_keys} $(grep 'PRIVATE KEY' -Rl ~/.ssh) ~/.gnupg/private-keys*/*
 
 auth
