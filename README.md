@@ -30,9 +30,11 @@ home setup
 
 Initialization on a fresh user directory:
 
-	read -s BOOTSTRAP_TOKEN
-	export BOOTSTRAP_TOKEN
+	read -s -p "Gitlab Token: " BOOTSTRAP_TOKEN
+	read -s -p "GPG Passphrase: " BOOTSTRAP_PASSPHRASE
+	export BOOTSTRAP_TOKEN BOOTSTRAP_PASSPHRASE
 	bash <(curl -s -L https://raw.github.com/alerque/que/master/bin/que-home-bootstrap.bash)
+	unset BOOTSTRAP_TOKEN BOOTSTRAP_PASSPHRASE
 
 Otherwise to update:
 
