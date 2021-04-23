@@ -86,6 +86,7 @@ chmod 600 ~/.ssh/{config,authorized_keys} $(grep 'PRIVATE KEY' -Rl ~/.ssh) ~/.gn
 
 auth
 
+vcsh run que-secure git stash
 vcsh run que-secure git-crypt unlock
 
 # TODO: Test in que-secure actually got unlocked
