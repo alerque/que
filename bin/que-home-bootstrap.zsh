@@ -50,8 +50,10 @@ if ! grep -q 'PRIVATE KEY' ~/.ssh/id_rsa; then
         [[ -n "$REPLY" ]] && BOOTSTRAP_TOKEN="$REPLY"
     done
     mkdir -m700 ~/.ssh
-    curl --create-file-mode 600 -sfSLo .ssh/id_rsa -H "Private-Token: $BOOTSTRAP_TOKEN" \
-        'https://gitlab.alerque.com/api/v4/projects/37/repository/files/.ssh%2Fid_rsa/raw?ref=master'
+    (umask 177
+        curl -sfSLo .ssh/id_rsa -H "Private-Token: $BOOTSTRAP_TOKEN" \
+            'https://gitlab.alerque.com/api/v4/projects/37/repository/files/.ssh%2Fid_rsa/raw?ref=master'
+    )
     grep -q 'PRIVATE KEY' ~/.ssh/id_rsa ||
         fail "Invalid creds, got garbage files, fix /tmp/id_rsa or remove and try again"
 fi
