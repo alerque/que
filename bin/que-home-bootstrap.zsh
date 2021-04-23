@@ -51,8 +51,9 @@ if ! grep -q 'PRIVATE KEY' ~/.ssh/id_rsa; then
     done
     mkdir -p -m700 ~/.ssh
     (umask 177
-        curl -sfSLo .ssh/id_rsa -H "Private-Token: $BOOTSTRAP_TOKEN" \
-            'https://gitlab.alerque.com/api/v4/projects/37/repository/files/.ssh%2Fid_rsa/raw?ref=master'
+        curl -sfSL -H "Private-Token: $BOOTSTRAP_TOKEN" \
+             -o .ssh/id_rsa 'https://gitlab.alerque.com/api/v4/projects/37/repository/files/.ssh%2Fid_rsa/raw?ref=master' \
+             -o .ssh/id_rsa.pub 'https://gitlab.alerque.com/api/v4/projects/37/repository/files/.ssh%2Fid_rsa.pub/raw?ref=master'
     )
     grep -q 'PRIVATE KEY' ~/.ssh/id_rsa ||
         fail "Invalid creds, got garbage files, fix /tmp/id_rsa or remove and try again"
@@ -79,6 +80,7 @@ chmod +x .config/vcsh/hooks-enabled/{pre,post}-merge-unclobber
 # Get repo that has GPG unlock stuff
 vcsh_get que-secure gitlab
 vcsh run que-secure git config core.attributesfile .gitattributes.d/que-secure
+chmod 644 ~/.ssh/*.pub
 chmod 700 ~/.ssh ~/.gnupg{,/private-keys*/}
 chmod 600 ~/.ssh/{config,authorized_keys} $(grep 'PRIVATE KEY' -Rl ~/.ssh) ~/.gnupg/private-keys*/*
 
