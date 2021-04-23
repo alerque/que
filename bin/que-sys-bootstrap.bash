@@ -1,6 +1,6 @@
 #!/bin/bash
 
-: ${STRAP_URL:=https://raw.github.com/alerque/que/master/}
+: ${STRAP_URL:=https://raw.github.com/alerque/que/master}
 
 while [[ $# -gt 0 ]]; do
 	case $1 in
@@ -188,7 +188,7 @@ function remote_source () {
 	if [ -f "$DIR/$1" ]; then
 		source "$DIR/$1"
 	else
-		source <(curl -s -L $STRAP_URL/bin/$1)
+		source <(curl -sfSL $STRAP_URL/bin/$1)
 	fi
 }
 
@@ -384,7 +384,7 @@ if command -v etckeeper; then
 fi
 
 # For convenience show how to setup my home directory
-echo -e "Perhaps you want home stuff too?\n    passwd caleb\n    su - caleb\n    bash <(curl -s -L $STRAP_URL/bin/que-home-bootstrap.bash)"
+echo -e "Perhaps you want home stuff too?\n    passwd caleb\n    su - caleb\n    bash <(curl -sfFL $STRAP_URL/bin/que-home-bootstrap.bash)"
 
 if is_opt $ISDESKTOP; then
 	ln -sf /usr/lib/openssh/ssh-askpass-fullscreen ~caleb/bin/ssh-askpass
