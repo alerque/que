@@ -25,7 +25,7 @@ function vcsh_get () {
 }
 
 function auth () {
-    eval $(keychain --agents gpg,ssh --ignore-missing --inherit --eval --quick --systemd --quiet id_rsa 63CC496475267693)
+    eval $(keychain --agents gpg,ssh --ignore-missing --inherit any --eval --quick --systemd --quiet id_rsa 63CC496475267693)
 }
 
 # Error out of script if _anything_ goes wrong
