@@ -85,10 +85,6 @@ chmod 600 ~/.ssh/{config,authorized_keys} $(grep 'PRIVATE KEY' -Rl ~/.ssh) ~/.gn
 export GPG_TTY="$(tty)"
 PATH="$PATH:/usr/lib/gnupg"
 gpg-agent --daemon --allow-preset-passphrase --default-cache-ttl 46000
-function preset_gpg_key () {
-	gpg-preset-passphrase --preset 63CC496475267693
-}
-[[ -v BOOTSTRAP_PASSPHRASE ]] && echo "BOOTSTRAP_PASSPHRASE" | preset_gpg_key || preset_gpg_key
 
 vcsh run que-secure git-crypt unlock
 
