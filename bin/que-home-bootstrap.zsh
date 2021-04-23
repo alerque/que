@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
 : ${STRAP_URL:=https://raw.github.com/alerque/que/master}
 
@@ -36,7 +36,7 @@ test $UID -eq 0 && fail "Don't be root!"
 cd $HOME
 
 # If we don't have these tools, we should be running que-sys-bootstrap.bash instead
-type -P curl git gpg-agent keychain mr ssh-agent vcsh > /dev/null || fail_deps  "Some tools not available"
+whence -p curl git gpg-agent keychain mr ssh-agent vcsh > /dev/null || fail_deps  "Some tools not available"
 
 grep -q 'hook pre-merge' $(which vcsh) ||
     fail "VCSH version too old, does not have required pre-merge hook system"
@@ -46,7 +46,7 @@ export GIT_SSH_COMMAND="ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChec
 # If everything isn't just right with SSH keys and config for the next step, manually fetch them
 if ! grep -q 'PRIVATE KEY' ~/.ssh/id_rsa; then
     until [[ -v BOOTSTRAP_TOKEN ]]; do
-        read -s -p 'Gitlab Private-Token: '
+        read -s 'REPLY?Gitlab Private-Token: '
         [[ -n "$REPLY" ]] && BOOTSTRAP_TOKEN="$REPLY"
     done
     mkdir -m700 ~/.ssh

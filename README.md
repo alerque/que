@@ -37,7 +37,7 @@ Initialization on a fresh user directory:
 
 	read -s "BOOTSTRAP_TOKEN?Bootstrap API Token: "
 	export BOOTSTRAP_TOKEN
-	bash <(curl -sfSL https://raw.github.com/alerque/que/master/bin/que-home-bootstrap.bash)
+	zsh <(curl -sfSL https://raw.github.com/alerque/que/master/bin/que-home-bootstrap.zsh)
 
 Otherwise to update:
 
