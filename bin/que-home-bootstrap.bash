@@ -32,7 +32,7 @@ test $UID -eq 0 && fail "Don't be root!"
 cd $HOME
 
 # If we don't have these tools, we should be running que-sys-bootstrap.bash instead
-which git mr curl ssh-agent vcsh > /dev/null || fail_deps  "Some tools not available"
+type -P curl git gpg-agent mr ssh-agent vcsh > /dev/null || fail_deps  "Some tools not available"
 
 grep -q 'hook pre-merge' $(which vcsh) ||
     fail "VCSH version too old, does not have required pre-merge hook system"
@@ -82,7 +82,12 @@ vcsh run que-secure git config core.attributesfile .gitattributes.d/que-secure
 chmod 700 ~/.gnupg{,/private-keys*}
 chmod 600 ~/.ssh/{config,authorized_keys} $(grep 'PRIVATE KEY' -Rl ~/.ssh) ~/.gnupg/private-keys*/*
 
-vcsh run que-secure git crypt unlock
+export GPG_TTY="$(tty)"
+PATH="$PATH:/usr/lib/gnupg"
+gpg-agent --daemon --allow-preset-passphrase --default-cache-ttl 46000
+gpg-preset-passphrase --preset 63CC496475267693
+
+vcsh run que-secure git-crypt unlock
 
 # TODO: Test in que-secure actually got unlocked
 
@@ -91,7 +96,8 @@ vcsh run que-secure git crypt unlock
 # Get repo that has mr configs
 vcsh_get que
 
-# Setup agent(s)
+# Setup permanent agent(s)
+killall ssh-agent gpg-agent
 eval $(~/bin/que-auth.zsh)
 
 # checkout everything else
