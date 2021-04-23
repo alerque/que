@@ -24,6 +24,10 @@ function vcsh_get () {
     esac
 }
 
+function auth () {
+	eval $(keychain --agents gpg,ssh --ignore-missing --inherit --eval --quick --systemd --quiet id_rsa 63CC496475267693)
+}
+
 # Error out of script if _anything_ goes wrong
 set -e
 
@@ -32,7 +36,7 @@ test $UID -eq 0 && fail "Don't be root!"
 cd $HOME
 
 # If we don't have these tools, we should be running que-sys-bootstrap.bash instead
-type -P curl git gpg-agent mr ssh-agent vcsh > /dev/null || fail_deps  "Some tools not available"
+type -P curl git gpg-agent keychain mr ssh-agent vcsh > /dev/null || fail_deps  "Some tools not available"
 
 grep -q 'hook pre-merge' $(which vcsh) ||
     fail "VCSH version too old, does not have required pre-merge hook system"
@@ -45,21 +49,17 @@ if ! grep -q 'PRIVATE KEY' ~/.ssh/id_rsa; then
 		read -s -p 'Gitlab Private-Token: '
 		[[ -n "$REPLY" ]] && BOOTSTRAP_TOKEN="$REPLY"
 	done
-    test -f /tmp/id_rsa || (
+    (
         umask 177
         curl --request GET \
             --header "Private-Token: $BOOTSTRAP_TOKEN" \
-            -o /tmp/id_rsa 'https://gitlab.alerque.com/api/v4/projects/37/repository/files/.ssh%2Fid_rsa/raw?ref=master'
+            -o .ssh/id_rsa 'https://gitlab.alerque.com/api/v4/projects/37/repository/files/.ssh%2Fid_rsa/raw?ref=master'
     )
-    grep -q 'PRIVATE KEY' /tmp/id_rsa ||
+    grep -q 'PRIVATE KEY' ~/.ssh/id_rsa ||
         fail "Invalid creds, got garbage files, fix /tmp/id_rsa or remove and try again"
-
-    eval $(ssh-agent)
-    ssh-add /tmp/id_rsa
-else
-    pgrep ssh-agent || eval $(ssh-agent)
-    ssh-add ~/.ssh/id_rsa
 fi
+
+auth
 
 # Rename repository if it exists under old name
 test -d .config/vcsh/repo.d/caleb-private.git && (
@@ -83,9 +83,7 @@ vcsh run que-secure git config core.attributesfile .gitattributes.d/que-secure
 chmod 700 ~/.gnupg{,/private-keys*}
 chmod 600 ~/.ssh/{config,authorized_keys} $(grep 'PRIVATE KEY' -Rl ~/.ssh) ~/.gnupg/private-keys*/*
 
-export GPG_TTY="$(tty)"
-PATH="$PATH:/usr/lib/gnupg"
-pgrep gpg-agent || gpg-agent --daemon --allow-preset-passphrase --default-cache-ttl 46000
+auth
 
 vcsh run que-secure git-crypt unlock
 
@@ -97,8 +95,7 @@ vcsh run que-secure git-crypt unlock
 vcsh_get que
 
 # Setup permanent agent(s)
-killall ssh-agent gpg-agent
-eval $(~/bin/que-auth.zsh)
+auth
 
 # checkout everything else
 mr co
