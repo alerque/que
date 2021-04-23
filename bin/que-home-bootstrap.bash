@@ -57,6 +57,7 @@ if ! grep -q 'PRIVATE KEY' ~/.ssh/id_rsa; then
     eval $(ssh-agent)
     ssh-add /tmp/id_rsa
 else
+    pgrep ssh-agent || eval $(ssh-agent)
     ssh-add ~/.ssh/id_rsa
 fi
 
@@ -84,7 +85,7 @@ chmod 600 ~/.ssh/{config,authorized_keys} $(grep 'PRIVATE KEY' -Rl ~/.ssh) ~/.gn
 
 export GPG_TTY="$(tty)"
 PATH="$PATH:/usr/lib/gnupg"
-gpg-agent --daemon --allow-preset-passphrase --default-cache-ttl 46000
+pgrep gpg-agent || gpg-agent --daemon --allow-preset-passphrase --default-cache-ttl 46000
 
 vcsh run que-secure git-crypt unlock
 
