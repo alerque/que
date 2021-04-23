@@ -17,22 +17,27 @@ Requires:
 
 * bash, curl
 * working network connection
-* booted and logged in as root
+* logged in as root
 
 Setup a fresh system from scratch (or update an existing one):
 
-	bash <(curl -s -L https://raw.github.com/alerque/que/master/bin/que-sys-bootstrap.bash)
+	bash <(curl -sfSL https://raw.github.com/alerque/que/master/bin/que-sys-bootstrap.bash)
 
 Optionally add `desktop` as an arugment to install base GUI package set.
 
 home setup
 ----------
 
+Requires:
+
+* Dependencies installed from sys-bootstrap
+* Logged is as user with Zsh (`su - caleb`)
+
 Initialization on a fresh user directory:
 
 	read -s "BOOTSTRAP_TOKEN?Bootstrap API Token: "
 	export BOOTSTRAP_TOKEN
-	bash <(curl -s -L https://raw.github.com/alerque/que/master/bin/que-home-bootstrap.bash)
+	bash <(curl -sfSL https://raw.github.com/alerque/que/master/bin/que-home-bootstrap.bash)
 
 Otherwise to update:
 
