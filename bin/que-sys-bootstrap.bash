@@ -384,7 +384,7 @@ if command -v etckeeper; then
 fi
 
 # For convenience show how to setup my home directory
-echo -e "Perhaps you want home stuff too?\n    passwd caleb\n    su - caleb\n    bash <(curl -sfFL $STRAP_URL/bin/que-home-bootstrap.bash)"
+echo -e "Perhaps you want home stuff too?\n    passwd caleb\n    su - caleb\n    zsh <(curl -sfFL $STRAP_URL/bin/que-home-bootstrap.zsh)"
 
 if is_opt $ISDESKTOP; then
 	ln -sf /usr/lib/openssh/ssh-askpass-fullscreen ~caleb/bin/ssh-askpass
