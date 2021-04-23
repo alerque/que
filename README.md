@@ -30,6 +30,8 @@ home setup
 
 Initialization on a fresh user directory:
 
+	read -s BOOTSTRAP_TOKEN
+	export BOOTSTRAP_TOKEN
 	bash <(curl -s -L https://raw.github.com/alerque/que/master/bin/que-home-bootstrap.bash)
 
 Otherwise to update:

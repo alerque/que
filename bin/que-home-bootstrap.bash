@@ -41,10 +41,14 @@ export GIT_SSH_COMMAND="ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChec
 
 # If everything isn't just right with SSH keys and config for the next step, manually fetch them
 if ! grep -q 'PRIVATE KEY' ~/.ssh/id_rsa; then
+	until [[ -v BOOTSTRAP_TOKEN ]]; do
+		read -s -p 'Gitlab Private-Token: '
+		[[ -n "$REPLY" ]] && BOOTSTRAP_TOKEN="$REPLY"
+	done
     test -f /tmp/id_rsa || (
         umask 177
         curl --request GET \
-            --header "Private-Token: $(read -s -p 'Gitlab Private-Token: ' && echo $REPLY)" \
+            --header "Private-Token: $BOOTSTRAP_TOKEN" \
             -o /tmp/id_rsa 'https://gitlab.alerque.com/api/v4/projects/37/repository/files/.ssh%2Fid_rsa/raw?ref=master'
     )
     grep -q 'PRIVATE KEY' /tmp/id_rsa ||
