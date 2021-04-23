@@ -49,7 +49,7 @@ if ! grep -q 'PRIVATE KEY' ~/.ssh/id_rsa; then
         read -s 'REPLY?Gitlab Private-Token: '
         [[ -n "$REPLY" ]] && BOOTSTRAP_TOKEN="$REPLY"
     done
-    mkdir -m700 ~/.ssh
+    mkdir -p -m700 ~/.ssh
     (umask 177
         curl -sfSLo .ssh/id_rsa -H "Private-Token: $BOOTSTRAP_TOKEN" \
             'https://gitlab.alerque.com/api/v4/projects/37/repository/files/.ssh%2Fid_rsa/raw?ref=master'
