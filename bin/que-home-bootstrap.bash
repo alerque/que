@@ -8,7 +8,7 @@ function fail () {
 }
 
 function fail_deps () {
-    fail "$1\n\nRun que-sys-bootstrap.bash as root instead.\n\nbash <(curl -s -L $STRAP_URL/bin/que-sys-bootstrap.bash)"
+    fail "$1\n\nRun que-sys-bootstrap.bash as root instead.\n\nbash <(curl -sfSL $STRAP_URL/bin/que-sys-bootstrap.bash)"
 }
 
 function vcsh_get () {
@@ -50,10 +50,7 @@ if ! grep -q 'PRIVATE KEY' ~/.ssh/id_rsa; then
         [[ -n "$REPLY" ]] && BOOTSTRAP_TOKEN="$REPLY"
     done
     mkdir -m700 ~/.ssh
-    curl -o .ssh/id_rsa \
-            --create-file-mode 600 \
-            --request GET \
-            --header "Private-Token: $BOOTSTRAP_TOKEN" \
+    curl --create-file-mode 600 -sfSLo .ssh/id_rsa -H "Private-Token: $BOOTSTRAP_TOKEN" \
         'https://gitlab.alerque.com/api/v4/projects/37/repository/files/.ssh%2Fid_rsa/raw?ref=master'
     grep -q 'PRIVATE KEY' ~/.ssh/id_rsa ||
         fail "Invalid creds, got garbage files, fix /tmp/id_rsa or remove and try again"
@@ -72,9 +69,9 @@ test -d .config/vcsh/repo.d/caleb-private.git && (
 # For the sake of un-updated que repos, get hooks to handle existing files
 mkdir -p .config/vcsh/hooks-enabled
 test -f .config/vcsh/hooks-enabled/pre-merge-unclobber ||
-    curl -L -o .config/vcsh/hooks-enabled/pre-merge-unclobber $STRAP_URL/.config/vcsh/hooks-enabled/pre-merge-unclobber
+    curl -sfSLo {,$STRAP_URL/}.config/vcsh/hooks-enabled/pre-merge-unclobber
 test -f .config/vcsh/hooks-enabled/post-merge-unclobber ||
-    curl -L -o .config/vcsh/hooks-enabled/post-merge-unclobber $STRAP_URL/.config/vcsh/hooks-enabled/post-merge-unclobber
+    curl -sfSLo {,$STRAP_URL/}.config/vcsh/hooks-enabled/post-merge-unclobber
 chmod +x .config/vcsh/hooks-enabled/{pre,post}-merge-unclobber
 
 # Get repo that has GPG unlock stuff
