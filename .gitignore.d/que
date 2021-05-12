@@ -18,6 +18,7 @@
 !/.config/mr/available.d/aur.mr
 !/.config/mr/available.d/brkt.mr
 !/.config/mr/available.d/ccm.mr
+!/.config/mr/available.d/darlene.mr
 !/.config/mr/available.d/distro-packaging.mr
 !/.config/mr/available.d/finances.git
 !/.config/mr/available.d/freecheck.git
@@ -55,6 +56,7 @@
 !/.config/mr/config.d-aslan/aur.mr
 !/.config/mr/config.d-aslan/brkt.mr
 !/.config/mr/config.d-aslan/ccm.mr
+!/.config/mr/config.d-aslan/darlene.mr
 !/.config/mr/config.d-aslan/finances.git
 !/.config/mr/config.d-aslan/github.mr
 !/.config/mr/config.d-aslan/hosts.mr
@@ -75,6 +77,7 @@
 !/.config/mr/config.d-aslan/vcsh.git
 !/.config/mr/config.d-aslan/viachristus.mr
 !/.config/mr/config.d-aslan/vim-plugins.mr
+!/.config/mr/config.d-asper/darlene.mr
 !/.config/mr/config.d-asper/que-sys-base.mr
 !/.config/mr/config.d-basilisk/que-sys-base.mr
 !/.config/mr/config.d-basilisk/systems.mr
