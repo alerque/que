@@ -27,6 +27,7 @@ bind generic g none
 bind generic gg :0
 bind main G view-grep
 bind main c @sh -c "git name-rev --name-only --always %(commit) | xargs git checkout"
+bind log c @sh -c "git name-rev --name-only --always %(commit) | xargs git checkout"
 bind main i !git rebase -i %(commit)
 bind main I !git revise -i %(commit)
 
