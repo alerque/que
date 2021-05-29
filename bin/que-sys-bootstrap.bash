@@ -76,6 +76,7 @@ BASEPACKAGES=(
 		rsync
 		ruby
 		s-nail
+		starship
 		strace
 		termite-terminfo
 		tig
