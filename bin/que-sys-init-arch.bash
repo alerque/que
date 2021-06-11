@@ -79,7 +79,7 @@ pacman -Ssq |
     $DEBUG xargs pacman --needed --noconfirm -S ||:
 
 # Compile and install things not coming out of the distro main tree
-$DEBUG su que-bootstrap -c "yay --needed --noconfirm -S ${UNINSTALLEDPACKAGES[*]}" ||:
+$DEBUG su que-bootstrap -c "paru --needed --noconfirm -S ${UNINSTALLEDPACKAGES[*]}" ||:
 
 # TODO: Need to set root login and password auth options
 $DEBUG systemctl $NOW enable sshd cronie systemd-timesyncd
@@ -106,7 +106,7 @@ if is_opt $ISVBOX; then
 fi
 
 # Setup etckeeper
-sed -i -e 's/^HIGHLEVEL_PACKAGE_MANAGER=.*$/HIGHLEVEL_PACKAGE_MANAGER=yay/g' /etc/etckeeper/etckeeper.conf
+sed -i -e 's/^HIGHLEVEL_PACKAGE_MANAGER=.*$/HIGHLEVEL_PACKAGE_MANAGER=paru/g' /etc/etckeeper/etckeeper.conf
 
 update_mirrors
 
