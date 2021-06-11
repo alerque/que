@@ -268,7 +268,6 @@ case $DISTRO in
         distro_pkg man{,-db,-pages}
 		distro_pkg neomutt neomutt goobook-git
 		distro_pkg neovim neovim nodejs-neovim python-pynvim
-		distro_pkg nodejs{,-lts-erbium}
 		distro_pkg nextcloud-client nextcloud-client python-nautilus
 		distro_pkg pcregrep pcre
 		distro_pkg pulseaudio pa{systray,vucontrol,prefs,mixer,-applet-git}
