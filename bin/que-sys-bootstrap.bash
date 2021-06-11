@@ -28,9 +28,12 @@ BASEPACKAGES=(
 		base
 		base-devel
 		bat
+		bottom
+		bpytop
 		cron
 		ctags
 		cyrus-sasl
+		duf
 		entr
 		etckeeper
 		exa
@@ -48,7 +51,6 @@ BASEPACKAGES=(
 		gnu-netcat
 		gnupg
 		html-xml-utils
-		htop
 		ifplugd
 		iftop
 		keychain
@@ -71,11 +73,13 @@ BASEPACKAGES=(
 		openssh
 		pcregrep
 		programmers-dvorak
+		programmers-turkish-f
 		ripgrep
 		rlwrap
 		rsync
 		ruby
 		s-nail
+		sd
 		starship
 		strace
 		termite-terminfo
@@ -88,7 +92,6 @@ BASEPACKAGES=(
 		weechat
 		wget
 		wireguard
-		ytop
 		zip
 		zsh
 )
@@ -157,6 +160,7 @@ REMOVEPACKAGES=(
 		python-powerline-git
 		yaourt
 		yay
+		ytop
 )
 
 function flunk() {
@@ -247,6 +251,7 @@ case $DISTRO in
 		add_pkg mkinitcpio-{utils,netconf,dropbear}
 		add_pkg reflector
 		add_pkg paru
+		add_pkg pacdiffviewer
 
 		# Distro specific package names
 		distro_pkg awesome awesome{,-revelation-git,-themes-git} lain-git vicious
