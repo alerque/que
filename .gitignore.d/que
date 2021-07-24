@@ -15,6 +15,7 @@
 !/bin/que-sys-init-ubuntu.bash
 !/.config/git/attributes
 !/.config/mr/available.d/ahit.mr
+!/.config/mr/available.d/archlinux.mr
 !/.config/mr/available.d/aur.mr
 !/.config/mr/available.d/brkt.mr
 !/.config/mr/available.d/ccm.mr
@@ -53,6 +54,7 @@
 !/.config/mr/config.d-armadillo/que-sys-desktop.mr
 !/.config/mr/config.d-armadillo/tprk.mr
 !/.config/mr/config.d-aslan/ahit.mr
+!/.config/mr/config.d-aslan/archlinux.mr
 !/.config/mr/config.d-aslan/aur.mr
 !/.config/mr/config.d-aslan/brkt.mr
 !/.config/mr/config.d-aslan/ccm.mr

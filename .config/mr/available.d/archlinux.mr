@@ -1,0 +1,5 @@
+[$HOME/projects/archlinux/community]
+checkout =
+	svn checkout -N svn+ssh://svn-community@repos.archlinux.org/srv/repos/svn-community/svn community
+adopt =
+	svn update awesome darktable frescobaldi hugin ldoc matterbridge mattermost otf-cormorant otf-latin-modern otf-latinmodern-math pqiv pstotext python-fonttools scribus ttf-cormorant vicious
