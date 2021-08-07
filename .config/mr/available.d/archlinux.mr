@@ -1,5 +1,34 @@
-[$HOME/projects/archlinux/community]
-checkout =
-	svn checkout -N svn+ssh://svn-community@repos.archlinux.org/srv/repos/svn-community/svn community
-adopt =
-	svn update awesome darktable frescobaldi hugin ldoc matterbridge mattermost otf-cormorant otf-latin-modern otf-latinmodern-math pqiv pstotext python-fonttools scribus ttf-cormorant vicious
+#!/usr/bin/env zsh
+
+cache=/tmp/arch-maintained-list
+
+function fetch_maintained () {
+	curl -Ls 'https://archlinux.org/packages/search/json/?maintainer=alerque' |
+		jq -r '.results[].pkgbase' |
+		sort -u
+}
+
+function dump_maintained_cache () {
+	test -s $cache || return 1
+	test $(date +%s -r $cache) -ge $(date +%s --date "60 min ago") || return 1
+	cat $cache
+}
+
+function list_maintained () {
+	dump_maintained_cache || fetch_maintained | tee $cache
+}
+
+cat <<- EOF
+	[$HOME/projects/archlinux/community]
+	checkout = svn checkout -N svn+ssh://svn-community@repos.archlinux.org/srv/repos/svn-community/svn community
+	adopt = svn update $(list_maintained | xargs)
+	repro = arch-repro-status -m alerque
+EOF
+
+# list_maintained |
+#     while read pkgbase; do
+#         cat <<- EOF
+#             [$HOME/projects/archlinux/community/$pkgbase]
+#             update = svn update
+#         EOF
+#     done
