@@ -18,10 +18,19 @@ function list_maintained () {
 	dump_maintained_cache || fetch_maintained | tee $cache
 }
 
+function list_non_extant () {
+	list_maintained |
+		while read dir; do
+			[[ -d $HOME/projects/archlinux/community/$dir ]] || echo $dir
+		done
+}
+
+non_extants=$(list_non_extant | xargs)
+
 cat <<- EOF
 	[$HOME/projects/archlinux/community]
 	checkout = svn checkout -N svn+ssh://svn-community@repos.archlinux.org/srv/repos/svn-community/svn community
-	adopt = svn update $(list_maintained | xargs)
+	adopt = ${non_extants:+svn update $non_extants} ${non_extants:-:}
 	repro = arch-repro-status -m alerque
 EOF
 
