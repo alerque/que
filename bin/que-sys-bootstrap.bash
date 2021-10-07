@@ -4,6 +4,9 @@
 
 while [[ $# -gt 0 ]]; do
 	case $1 in
+		devel)
+			ISDEVEL=0
+			;;
 		desktop)
 			ISDESKTOP=0
 			;;
@@ -24,23 +27,16 @@ export HOSTNAME=$(cat /etc/hostname)
 
 # Setup stuff
 BASEPACKAGES=(
-		anything-sync-daemon
 		base
-		base-devel
 		bat
-		bottom
-		bpytop
+		btop
 		cron
-		ctags
-		cyrus-sasl
 		duf
-		entr
 		etckeeper
 		exa
 		exim
 		fasd
 		fd
-		fzf
 		git
 		git-annex
 		git-crypt
@@ -48,52 +44,56 @@ BASEPACKAGES=(
 		git-extras
 		git-filter-repo
 		git-revise
-		gnu-netcat
 		gnupg
-		html-xml-utils
 		ifplugd
 		iftop
 		keychain
-		lab
-		linux-headers
 		lsof
 		man
-		markdown2ctags
-		mlocate
 		moreutils
 		mosh
 		myrepos
 		ncdu
-		neomutt
 		neovim
 		net-tools
 		netctl
 		nodejs
-		ntp
 		openssh
 		pcregrep
 		programmers-dvorak
 		programmers-turkish-f
 		ripgrep
 		rlwrap
-		rsync
-		ruby
 		s-nail
-		sd
 		starship
-		strace
 		termite-terminfo
-		tig
 		tldr
 		tmux
+		vcsh
+		wireguard
+		zsh
+)
+
+DEVELPACKAGES=(
+		base-devel
+		ctags
+		cyrus-sasl
+		entr
+		fzf
+		gnu-netcat
+		html-xml-utils
+		lab
+		markdown2ctags
+		mlocate
+		ntp
+		rsync
+		sd
+		strace
+		tig
 		unrar
 		unzip
-		vcsh
-		weechat
 		wget
-		wireguard
 		zip
-		zsh
 )
 
 DESKTOPPACKAGES=(
@@ -158,6 +158,7 @@ REMOVEPACKAGES=(
 		parcellite
 		powerline-fonts
 		python-powerline-git
+		wireguard-dkms
 		yaourt
 		yay
 		ytop
@@ -178,12 +179,16 @@ function remove_pkg () {
 
 function distro_pkg () {
 	BASEPACKAGES=(${BASEPACKAGES[@]/%$1/${*:2}})
+	DEVELPACKAGES=(${DEVELPACKAGES[@]/%$1/${*:2}})
 	DESKTOPPACKAGES=(${DESKTOPPACKAGES[@]/%$1/${*:2}})
 }
 
 function skip_pkg () {
 	if [[ "${BASEPACKAGES[@]}" =~ "$1" ]]; then
 		BASEPACKAGES=(${BASEPACKAGES[@]/%$1/})
+	fi
+	if [[ "${DEVELPACKAGES[@]}" =~ "$1" ]]; then
+		DEVELPACKAGES=(${DEVELPACKAGES[@]/%$1/})
 	fi
 	if [[ "${DESKTOPPACKAGES[@]}" =~ "$1" ]]; then
 		DESKTOPPACKAGES=(${DESKTOPPACKAGES[@]/%$1/})
@@ -344,6 +349,11 @@ case $(uname -s) in
 		test $UID -eq 0 || flunk "Must be root for system bootstrap"
 		;;
 esac
+
+# Merge developer package list into base set if this is a dev box
+if is_opt $ISDEVEL; then
+    BASEPACKAGES=(${BASEPACKAGES[@]} ${DESKTOPPACKAGES[@]})
+fi
 
 # Merge desktop package list into base set if this is a desktop
 if is_opt $ISDESKTOP; then
