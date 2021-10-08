@@ -220,20 +220,20 @@ uname -s | grep -q Darwin && DISTRO=osx
 test -n "$DISTRO" || flunk "unrecognized distro"
 
 # Detect virtual environments
-ISVBOX=$(command -v lspci > /dev/null && lspci | grep -iq virtualbox; echo $?)
-ISDO=$(dmesg 2> /dev/null | grep -q KVM; echo $?)
-if is_opt $ISEC2; then
-	add_pkg ec2-api-tools ec2-metadata
-fi
-if is_opt $ISDO; then
-    add_pkg digitalocean-synchronize
-fi
 case $(systemd-detect-virt) in
     none) ISMETAL=1 ;;
     systemd-nspawn) : ;;
     xen) ISEC2=$(uname -r | grep -iq ec2; echo $?) ;;
+    kvm) ISDO=$(hash digitalocean-synchronize; echo $?) ;;
     *) flunk "Unknown virtual environment" ;;
 esac
+ISVBOX=$(hash lspci && lspci | grep -iq virtualbox; echo $?)
+if is_opt $ISEC2; then
+    add_pkg ec2-api-tools ec2-metadata
+fi
+if is_opt $ISDO; then
+    add_pkg digitalocean-synchronize
+fi
 
 if is_opt $ISMETAL; then
     add_pkg gdisk
