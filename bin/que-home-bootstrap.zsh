@@ -82,7 +82,12 @@ vcsh_get que-secure gitlab
 vcsh run que-secure git config core.attributesfile .gitattributes.d/que-secure
 chmod 644 ~/.ssh/*.pub
 chmod 700 ~/.ssh ~/.gnupg{,/private-keys*/}
-chmod 600 ~/.ssh/{config,authorized_keys} $(grep 'PRIVATE KEY' -Rl ~/.ssh) ~/.gnupg/private-keys*/*
+chmod 600 ~/.ssh/{config,authorized_keys}
+echo
+echo "scp .gnupg/private-keys-v1.d/{02CEA3B5FBD0521F3944535624C6670544B15F69,765C5CFB48FBC1E9038E9BCDA7916E241E9835FE}.key $HOSTNAME:.gnupg/private-keys-v1.d/"
+echo
+read -n "foo?Copy keys from somewhere to this machine, enter to continue when ready"
+chmod 600 $(grep 'PRIVATE KEY' -Rl ~/.ssh) ~/.gnupg/private-keys*/*
 
 auth
 
