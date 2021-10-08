@@ -352,7 +352,7 @@ esac
 
 # Merge developer package list into base set if this is a dev box
 if is_opt $ISDEVEL; then
-    BASEPACKAGES=(${BASEPACKAGES[@]} ${DESKTOPPACKAGES[@]})
+    BASEPACKAGES=(${BASEPACKAGES[@]} ${DEVELPACKAGES[@]})
 fi
 
 # Merge desktop package list into base set if this is a desktop
