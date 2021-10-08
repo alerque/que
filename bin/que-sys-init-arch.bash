@@ -2,6 +2,7 @@
 
 echo -e 'en_US.UTF-8 UTF-8\nru_RU.UTF-8 UTF-8\ntr_TR.UTF-8 UTF-8' > /etc/locale.gen
 localectl list-locales | grep -vq -e US -e TR -e RU && locale-gen
+localectl set-locale en_US.UTF-8
 
 # Key systemd from locking us out when sudo prompts time out
 # See https://bugs.archlinux.org/index.php?do=details&task_id=67644
