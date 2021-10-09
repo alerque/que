@@ -285,7 +285,7 @@ case $DISTRO in
 		distro_pkg zsh zsh zsh-completions
 
 		# Temporarily broken packages
-		# skip_pkg ...
+		skip_pkg starship
 
 		# Arch Linux upstream deprecations
 		remove_pkg libdmx
