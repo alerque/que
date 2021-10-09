@@ -47,7 +47,7 @@ $DEBUG systemctl $NOW enable haveged
 # If system has old GPG keys clear them before signing new ones...
 # rm -rf /etc/pacman.d/gnupg
 $DEBUG pacman-key --init
-$DEBUG pacman-key --populate archlinux
+$DEBUG pacman-key --populate archlinux$(grep -q ARM /etc/os-release && echo arm)
 
 $DEBUG update_mirrors ||:
 
