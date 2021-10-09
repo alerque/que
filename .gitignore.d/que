@@ -83,6 +83,10 @@
 !/.config/mr/config.d-asper/que-sys-base.mr
 !/.config/mr/config.d-basilisk/que-sys-base.mr
 !/.config/mr/config.d-basilisk/systems.mr
+!/.config/mr/config.d-dagu/que-sys-base.mr
+!/.config/mr/config.d-dagu/que.vcsh
+!/.config/mr/config.d-dessie/que-sys-base.mr
+!/.config/mr/config.d-dessie/que.vcsh
 !/.config/mr/config.d-emircik/ahit.mr
 !/.config/mr/config.d-emircik/aur.mr
 !/.config/mr/config.d-emircik/ccm.mr
