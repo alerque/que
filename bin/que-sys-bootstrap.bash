@@ -38,12 +38,7 @@ BASEPACKAGES=(
 		fasd
 		fd
 		git
-		git-annex
 		git-crypt
-		git-delta
-		git-extras
-		git-filter-repo
-		git-revise
 		gnupg
 		ifplugd
 		iftop
@@ -66,7 +61,6 @@ BASEPACKAGES=(
 		rlwrap
 		s-nail
 		starship
-		termite-terminfo
 		tldr
 		tmux
 		vcsh
@@ -80,6 +74,10 @@ DEVELPACKAGES=(
 		cyrus-sasl
 		entr
 		fzf
+		git-delta
+		git-extras
+		git-filter-repo
+		git-revise
 		gnu-netcat
 		html-xml-utils
 		lab
@@ -107,6 +105,7 @@ DESKTOPPACKAGES=(
 		flameshot
 		geeqie
 		gimp
+		git-annex
 		github-cli
 		gnome
 		gnome-packagekit
@@ -128,7 +127,6 @@ DESKTOPPACKAGES=(
 		slock
 		smplayer
 		ssh-askpass-fullscreen
-		termite
 		transmission
 		tridactyl
 		ttf-fonts
@@ -249,14 +247,20 @@ case $DISTRO in
 		:
 		;;
 	arch)
-		# If we have ever installed desktop stuff, assume it again
+		# If we have ever installed devel or desktop stuff, assume them again
+		pacman -Q ctags 2>&- >&- && ISDEVEL=0
 		pacman -Q awesome 2>&- >&- && ISDESKTOP=0
 
+		if grep -q ARM /etc/os-release; then
+			skip_pkg git-annex
+			skip_pkg starship
+		else
+			add_pkg mkinitcpio-{utils,netconf,dropbear}
+			add_pkg reflector
+		fi
+
 		add_pkg pkgstats pacman-contrib
-		add_pkg mkinitcpio-{utils,netconf,dropbear}
-		add_pkg reflector
 		add_pkg paru
-		add_pkg pacdiffviewer
 
 		# Distro specific package names
 		distro_pkg awesome awesome{,-revelation-git,-themes-git} lain-git vicious
@@ -285,7 +289,7 @@ case $DISTRO in
 		distro_pkg zsh zsh zsh-completions
 
 		# Temporarily broken packages
-		skip_pkg starship
+		# skip_pkg ...
 
 		# Arch Linux upstream deprecations
 		remove_pkg libdmx
