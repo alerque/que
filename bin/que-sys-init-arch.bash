@@ -114,4 +114,6 @@ update_mirrors
 # Force nameserver and domain
 echo -e 'nameserver 1.1.1.1\nsearch alerque.com' > /etc/resolv.conf
 
-localectl list-keymaps | grep -q dvp && localectl --no-convert set-keymap dvp ||:
+if is_opt $ISCALEB; then
+	localectl list-keymaps | grep -q dvp && localectl --no-convert set-keymap dvp ||:
+fi

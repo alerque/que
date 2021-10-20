@@ -7,6 +7,9 @@ while [[ $# -gt 0 ]]; do
 		devel)
 			ISDEVEL=0
 			;;
+		caleb)
+			ISCALEB=0
+			;;
 		desktop)
 			ISDESKTOP=0
 			;;
