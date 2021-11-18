@@ -411,5 +411,5 @@ echo -e "Perhaps you want home stuff too?\n    passwd caleb\n    su - caleb\n   
 
 if is_opt $ISDESKTOP; then
 	ln -sf /usr/lib/openssh/ssh-askpass-fullscreen ~caleb/bin/ssh-askpass
-	echo 'Need to manually install appropriate video driver'
+	echo 'Reminder: if this is a manually configured system you need to manually install an appropriate video driver'
 fi
