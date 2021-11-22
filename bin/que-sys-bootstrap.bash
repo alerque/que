@@ -385,7 +385,9 @@ test -f /root/.ssh/id_rsa || (
 )
 
 # Setup my user
-useradd -s $(which zsh) -m -k /dev/null -c 'Caleb Maclennan' caleb ||:
+useradd -m -k /dev/null caleb ||:
+usermod -s $(which zsh) caleb ||:
+usermod -c 'Caleb Maclennan' caleb ||:
 usermod -aG $WHEEL caleb ||:
 
 # If we're on a system with etckeeper, make sure it's setup
