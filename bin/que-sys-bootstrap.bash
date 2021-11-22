@@ -80,6 +80,7 @@ DEVELPACKAGES=(
 		git-delta
 		git-extras
 		git-filter-repo
+		git-lfs
 		git-revise
 		gnu-netcat
 		html-xml-utils
