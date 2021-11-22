@@ -51,8 +51,10 @@ checkout = vcsh clone git@github.com:alerque/que-zsh.git
 [$HOME/.zprezto]
 checkout =
 	git clone --recursive git@github.com:alerque/prezto.git .zprezto
+	cd .zprezto/modules
+	git submodule init --remote
 update =
 	git pull
-	git submodule update --init --recursive
+	git submodule update --init --remote --recursive
 
 
