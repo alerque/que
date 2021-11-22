@@ -103,6 +103,8 @@ DESKTOPPACKAGES=(
 		awesome
 		bluez-tools
 		chromium
+		google-chrome
+		brave
 		cups
 		firefox
 		flameshot
@@ -267,6 +269,7 @@ case $DISTRO in
 
 		# Distro specific package names
 		distro_pkg awesome awesome{,-revelation-git,-themes-git} lain-git vicious
+		distro_pkg brave brave-bin
 		distro_pkg cron cronie
 		distro_pkg cups cups cups-filters system-config-printer cups-pk-helper gsfonts gutenprint foomatic-db{,-engine,-nonfree,{,-nonfree,-gutenprint}-ppds} hplip splix cups-pdf
 		distro_pkg etckeeper etckeeper{,-packages}
