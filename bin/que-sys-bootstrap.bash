@@ -45,6 +45,7 @@ BASEPACKAGES=(
 		gnupg
 		ifplugd
 		iftop
+		innernet
 		keychain
 		lsof
 		man
