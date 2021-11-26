@@ -2,6 +2,11 @@
 
 : ${STRAP_URL:=https://raw.github.com/alerque/que/master}
 
+function flunk() {
+	echo "Fatal Error: $*"
+	exit 0
+}
+
 while [[ $# -gt 0 ]]; do
 	case $1 in
 		devel)
@@ -18,6 +23,9 @@ while [[ $# -gt 0 ]]; do
 			;;
 		echo)
 			set -x
+			;;
+		*)
+			flunk 'Unknown trailing arguments, try (devel|caleb|desktop|debug|echo)'
 			;;
 	esac
 	shift
@@ -168,11 +176,6 @@ REMOVEPACKAGES=(
 		yay
 		ytop
 )
-
-function flunk() {
-	echo "Fatal Error: $*"
-	exit 0
-}
 
 function add_pkg () {
 	BASEPACKAGES=(${BASEPACKAGES[@]} $@)
