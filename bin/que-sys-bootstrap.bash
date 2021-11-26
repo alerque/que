@@ -34,7 +34,9 @@ done
 set -e
 
 # This environment variable will be wrong in chroots, fix it using manually set value
-export HOSTNAME=$(cat /etc/hostname)
+if [[ -f /etc/hostname ]]; then
+	export HOSTNAME=$(cat /etc/hostname)
+fi
 
 # Setup stuff
 BASEPACKAGES=(
@@ -229,13 +231,15 @@ test -d /data/data/com.termux && DISTRO=termux
 test -n "$DISTRO" || flunk "unrecognized distro"
 
 # Detect virtual environments
-case $(systemd-detect-virt) in
-    none) ISMETAL=1 ;;
-    systemd-nspawn) : ;;
-    xen) ISEC2=$(uname -r | grep -iq ec2; echo $?) ;;
-    kvm) ISDO=$(hash digitalocean-synchronize; echo $?) ;;
-    *) flunk "Unknown virtual environment" ;;
-esac
+if hash systemd-detect-virt; then
+	case $(systemd-detect-virt) in
+		none) ISMETAL=1 ;;
+		systemd-nspawn) : ;;
+		xen) ISEC2=$(uname -r | grep -iq ec2; echo $?) ;;
+		kvm) ISDO=$(hash digitalocean-synchronize; echo $?) ;;
+		*) flunk "Unknown virtual environment" ;;
+	esac
+fi
 ISVBOX=$(hash lspci && lspci | grep -iq virtualbox; echo $?)
 if is_opt $ISEC2; then
     add_pkg ec2-api-tools ec2-metadata
@@ -367,8 +371,10 @@ case $DISTRO in
 esac
 
 # Make sure we are root on linux
-case $(uname -s) in
-	Linux)
+case $(uname -o) in
+	Android)
+		;;
+	GNU/Linux)
 		test $UID -eq 0 || flunk "Must be root for system bootstrap"
 		;;
 esac
@@ -387,41 +393,43 @@ fi
 INITSCRIPT="que-sys-init-${DISTRO}.bash"
 remote_source $INITSCRIPT
 
-# Setup root git user
-git config --global user.email root@$HOSTNAME.alerque.com
-git config --global user.name $HOSTNAME
+if [[ ! $DISTRO == Termux ]]; then
+	# Setup root git user
+	git config --global user.email root@$HOSTNAME.alerque.com
+	git config --global user.name $HOSTNAME
 
-# Setup root SSH
-test -f /root/.ssh/id_rsa || (
-	ssh-keygen -f /root/.ssh/id_rsa -N ''
-	cat /root/.ssh/id_rsa.pub | mailx -s "New root SSH key for $HOSTNAME" caleb@alerque.com
-)
-
-# Setup my user
-useradd -m -k /dev/null caleb ||:
-usermod -s $(which zsh) caleb ||:
-usermod -c 'Caleb Maclennan' caleb ||:
-usermod -aG $WHEEL caleb ||:
-
-# If we're on a system with etckeeper, make sure it's setup
-if command -v etckeeper; then
-	(
-	cd /etc
-	etckeeper vcs status || etckeeper init
-	# TODO: setup ssh plus ssh keys and make sure remote pushes have right branch
-	hostsfile=~/.ssh/known_hosts
-	gitlab=gitlab.alerque.com
-	[[ -s $hostsfile ]] || install -Dm644 /dev/null $hostsfile
-	cat $hostsfile <(ssh-keyscan $gitlab) | sort -u | sponge $hostsfile
-	etckeeper vcs remote add origin gitlab@$gitlab:hosts/$HOSTNAME.git -m master ||
-		etckeeper vcs remote set-url origin gitlab@$gitlab:hosts/$HOSTNAME.git
-	sed -i -e 's/^PUSH_REMOTE=""/PUSH_REMOTE="origin"/g' /etc/etckeeper/etckeeper.conf
-	etckeeper vcs config --local branch.master.remote origin
-	etckeeper vcs config --local branch.master.merge refs/heads/master
-	etckeeper vcs config --local branch.master.rebase true
-	grep -Fx .updated .gitignore || echo .updated > .gitignore
-	etckeeper commit 'End of que-sys-bootstrap.bash run' || echo "Backup of system config failed, skipping..."
+	# Setup root SSH
+	test -f /root/.ssh/id_rsa || (
+		ssh-keygen -f /root/.ssh/id_rsa -N ''
+		cat /root/.ssh/id_rsa.pub | mailx -s "New root SSH key for $HOSTNAME" caleb@alerque.com
 	)
+
+	# Setup my user
+	useradd -m -k /dev/null caleb ||:
+	usermod -s $(which zsh) caleb ||:
+	usermod -c 'Caleb Maclennan' caleb ||:
+	usermod -aG $WHEEL caleb ||:
+
+	# If we're on a system with etckeeper, make sure it's setup
+	if command -v etckeeper; then
+		(
+		cd /etc
+		etckeeper vcs status || etckeeper init
+		# TODO: setup ssh plus ssh keys and make sure remote pushes have right branch
+		hostsfile=~/.ssh/known_hosts
+		gitlab=gitlab.alerque.com
+		[[ -s $hostsfile ]] || install -Dm644 /dev/null $hostsfile
+		cat $hostsfile <(ssh-keyscan $gitlab) | sort -u | sponge $hostsfile
+		etckeeper vcs remote add origin gitlab@$gitlab:hosts/$HOSTNAME.git -m master ||
+			etckeeper vcs remote set-url origin gitlab@$gitlab:hosts/$HOSTNAME.git
+		sed -i -e 's/^PUSH_REMOTE=""/PUSH_REMOTE="origin"/g' /etc/etckeeper/etckeeper.conf
+		etckeeper vcs config --local branch.master.remote origin
+		etckeeper vcs config --local branch.master.merge refs/heads/master
+		etckeeper vcs config --local branch.master.rebase true
+		grep -Fx .updated .gitignore || echo .updated > .gitignore
+		etckeeper commit 'End of que-sys-bootstrap.bash run' || echo "Backup of system config failed, skipping..."
+		)
+	fi
 fi
 
 # For convenience show how to setup my home directory
