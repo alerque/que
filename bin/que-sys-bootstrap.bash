@@ -224,6 +224,7 @@ test -f /etc/fedora-release && DISTRO=fedora
 test -f /etc/pld-release && DISTRO=pld
 grep -q -s "Ubuntu" /etc/lsb-release && DISTRO=ubuntu
 uname -s | grep -q Darwin && DISTRO=osx
+test -d /data/data/com.termux && DISTRO=termux
 
 test -n "$DISTRO" || flunk "unrecognized distro"
 
@@ -314,15 +315,18 @@ case $DISTRO in
 	fedora)
 		:
 	;;
+
 	pld)
 		distro_pkg git git-core
 		distro_pkg gnome metapackages-gnome
 		distro_pkg ruby ruby-modules
 		distro_pkg zsh zsh-completions
 		;;
+
 	ubuntu)
 		WHEEL=adm
 		;;
+
 	osx)
 		add_pkg rename
 		distro_pkg awesome ''
@@ -353,6 +357,10 @@ case $DISTRO in
 		distro_pkg xiphos ''
 		distro_pkg zip ''
 		;;
+	
+	termux)
+		;;
+
 	*)
 		flunk "Unknown system"
 		;;
