@@ -234,16 +234,16 @@ test -d /data/data/com.termux && DISTRO=termux
 test -n "$DISTRO" || flunk "unrecognized distro"
 
 # Detect virtual environments
-if hash systemd-detect-virt; then
+if hash systemd-detect-virt 2> /dev/null; then
 	case $(systemd-detect-virt) in
 		none) ISMETAL=1 ;;
 		systemd-nspawn) : ;;
 		xen) ISEC2=$(uname -r | grep -iq ec2; echo $?) ;;
-		kvm) ISDO=$(hash digitalocean-synchronize; echo $?) ;;
+		kvm) ISDO=$(hash digitalocean-synchronize 2> /dev/null; echo $?) ;;
 		*) flunk "Unknown virtual environment" ;;
 	esac
 fi
-ISVBOX=$(hash lspci && lspci | grep -iq virtualbox; echo $?)
+ISVBOX=$(hash lspci 2> /dev/null && lspci | grep -iq virtualbox; echo $?)
 if is_opt $ISEC2; then
     add_pkg ec2-api-tools ec2-metadata
 fi
