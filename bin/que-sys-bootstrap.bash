@@ -404,12 +404,6 @@ if [[ ! $DISTRO == Termux ]]; then
 		cat /root/.ssh/id_rsa.pub | mailx -s "New root SSH key for $HOSTNAME" caleb@alerque.com
 	)
 
-	# Setup my user
-	useradd -m -k /dev/null caleb ||:
-	usermod -s $(which zsh) caleb ||:
-	usermod -c 'Caleb Maclennan' caleb ||:
-	usermod -aG $WHEEL caleb ||:
-
 	# If we're on a system with etckeeper, make sure it's setup
 	if command -v etckeeper; then
 		(
@@ -430,6 +424,14 @@ if [[ ! $DISTRO == Termux ]]; then
 		etckeeper commit 'End of que-sys-bootstrap.bash run' || echo "Backup of system config failed, skipping..."
 		)
 	fi
+fi
+
+# Setup my user
+if is_opt $IS_CALEB; then
+	useradd -m -k /dev/null caleb ||:
+	usermod -s $(which zsh) caleb ||:
+	usermod -c 'Caleb Maclennan' caleb ||:
+	usermod -aG $WHEEL caleb ||:
 fi
 
 # For convenience show how to setup my home directory
