@@ -4,6 +4,9 @@ echo -e 'en_US.UTF-8 UTF-8\nru_RU.UTF-8 UTF-8\ntr_TR.UTF-8 UTF-8' > /etc/locale.
 localectl list-locales | grep -vq -e US -e TR -e RU && locale-gen
 localectl set-locale en_US.UTF-8
 
+# For those rare systems that don't have sudo already at this point (e.g. alarm images)
+mkdir -p /etc/sudoers.d/
+
 # Key systemd from locking us out when sudo prompts time out
 # See https://bugs.archlinux.org/index.php?do=details&task_id=67644
 sed -i -e '/^\(# \)\?deny = [[:digit:]]\+$/s!.*!deny = 0!' /etc/security/faillock.conf
