@@ -427,7 +427,7 @@ if [[ ! $DISTRO == Termux ]]; then
 fi
 
 # Setup my user
-if is_opt $IS_CALEB; then
+if is_opt $ISCALEB; then
 	useradd -m -k /dev/null caleb ||:
 	usermod -s $(which zsh) caleb ||:
 	usermod -c 'Caleb Maclennan' caleb ||:
