@@ -159,6 +159,8 @@ DESKTOPPACKAGES=(
 
 REMOVEPACKAGES=(
 		aura
+		bashtop
+		bpytop
 		chromium-libpdf
 		customizepkg
 		diff-so-fancy
@@ -166,6 +168,7 @@ REMOVEPACKAGES=(
 		emojione-color-font
 		firefox-adblock-plus
 		gnome-packagekit
+		gtop
 		gvim
 		keepass
 		keepassx
