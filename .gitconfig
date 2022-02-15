@@ -160,3 +160,7 @@
     file-decoration-style = none
 [init]
 	defaultBranch = master
+[blame]
+	ignoreRevsFile = .git-blame-ignore-revs
+	markIgnoredLines = true
+	markUnblamableLines = true
