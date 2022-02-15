@@ -151,7 +151,7 @@
 	; features = line-numbers decorations
 	features = side-by-side line-numbers decorations line-wrap
 	hunk-header-style = file line-number syntax
-    whitespace-error-style = 22 reverse
+	whitespace-error-style = 22 reverse
 	syntax-theme = Monokai Extended
 	max-line-length = 0
 [delta "decorations"]
