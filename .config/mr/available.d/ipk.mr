@@ -1,27 +1,33 @@
-[$HOME/projects/latex_kumhavuzu]
-checkout =
-	git clone gitlab@gitlab.alerque.com:ipk/latex_kumhavuzu.git
+#!/usr/bin/env zsh
 
-[$HOME/projects/moab]
-checkout =
-	git clone git@github.com:alerque/moab.git
+host=gitlab.alerque.com
+group=ipk
 
-[$HOME/projects/vaazlarim]
-checkout =
-	git clone gitlab@gitlab.alerque.com:caleb/vaazlarim.git
+labcache=/tmp/lab-project-list-ahit
 
-[$HOME/projects/ipk/ceviriler]
-checkout =
-	git clone gitlab@gitlab.alerque.com:ipk/ceviriler.git
+function project_list_cache () (
+	test -s ${labcache} || exit 1
+	test $(date +%s -r ${labcache}) -ge $(date +%s --date "60 min ago") || exit 1
+	cat ${labcache}
+)
 
-[$HOME/projects/ipk/ceviriler.wiki]
-checkout =
-	git clone gitlab@gitlab.alerque.com:ipk/ceviriler.wiki.git
+function project_list () {
+	git config --file ~/.private/gitlab.config gitlab.url || return
+	project_list_cache ||
+		lab project list -a |
+		sort |
+		tee ${labcache}
+}
 
-[$HOME/projects/ipk/gorevler]
-checkout =
-	git clone gitlab@gitlab.alerque.com:ipk/gorevler.git
-
-[$HOME/projects/ipk/izmirprotestan.org]
-checkout =
-	GITLAB_HOST=gitlab.alerque.com glab repo clone ipk/izmirprotestan.org
+project_list |
+	grep -e "^${group}/" |
+	sort -u |
+	while read project; do
+		cat <<- EOF
+			[$HOME/projects/${project}]
+			checkout = GITLAB_HOST=$host glab repo clone $project
+			update =
+			    git pull origin
+			    git submodule foreach git pull origin master
+		EOF
+	done
