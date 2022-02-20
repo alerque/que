@@ -1,0 +1,31 @@
+#!/usr/bin/env zsh
+
+org=preservim
+
+cache=/tmp/gh-repos-$org
+
+function fetch_cache () (
+	test -s $cache &&
+		test $(date +%s -r $cache) -ge $(date +%s --date "60 min ago") &&
+		cat $cache
+)
+
+function list_repos () {
+	fetch_cache ||
+		gh repo list $org |
+		awk '{ print $1 }' |
+		sort |
+		tee $cache
+}
+
+list_repos |
+	cat |
+	while read repo; do
+		cat <<- EOF
+			[$HOME/projects/$repo]
+			checkout = gh repo clone $repo
+			update =
+			    git pull origin
+			    git submodule update --init --remote --recursive
+		EOF
+	done

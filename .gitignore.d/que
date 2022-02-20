@@ -12,6 +12,7 @@
 !/bin/que-sys-init-fedora.bash
 !/bin/que-sys-init-osx.bash
 !/bin/que-sys-init-pld.bash
+!/bin/que-sys-init-termux.bash
 !/bin/que-sys-init-ubuntu.bash
 !/.config/git/attributes
 !/.config/mr/available.d/ahit.mr
@@ -33,6 +34,7 @@
 !/.config/mr/available.d/pandoc.mr
 !/.config/mr/available.d/paperwalking.git
 !/.config/mr/available.d/pictures.annex
+!/.config/mr/available.d/preservim.gh
 !/.config/mr/available.d/que-sys-archived.mr
 !/.config/mr/available.d/que-sys-base.mr
 !/.config/mr/available.d/que-sys-desktop.mr
@@ -66,6 +68,7 @@
 !/.config/mr/config.d-aslan/ipk.mr
 !/.config/mr/config.d-aslan/pandoc.mr
 !/.config/mr/config.d-aslan/pictures.annex
+!/.config/mr/config.d-aslan/preservim.gh
 !/.config/mr/config.d-aslan/que-sys-base.mr
 !/.config/mr/config.d-aslan/que-sys-desktop.mr
 !/.config/mr/config.d-aslan/que.vcsh
@@ -179,6 +182,12 @@
 !/.config/mr/config.d-sincap/tprk.mr
 !/.config/mr/config.d-sincap/userscripts.mr
 !/.config/mr/config.d-sincap/viachristus.mr
+!/.config/mr/config.d-squid/que-sys-base.mr
+!/.config/mr/config.d-squid/que-sys-desktop.mr
+!/.config/mr/config.d-squid/que.vcsh
+!/.config/mr/config.d-starfish/que-sys-base.mr
+!/.config/mr/config.d-starfish/que-sys-desktop.mr
+!/.config/mr/config.d-starfish/que.vcsh
 !/.config/mr/config.d-turtle/que-sys-base.mr
 !/.config/mr/config.d-turtle/que.vcsh
 !/.config/pacman/makepkg.conf
