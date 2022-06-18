@@ -48,6 +48,8 @@
 	ap = a -p
 	au = a -u
 	af = autofixup
+	ab = absorb
+	abr = absorb -r
 	b = branch
 	commit = commit -vv
 	c = commit
@@ -85,6 +87,7 @@
 	branchdiff = !sh -c 'git diff $(git oldest-ancestor)..'
 	; rebase2fork = !zsh -c 'git rebase -i $(git merge-base --fork-point "${0:-master}")'
 	ci-status = !sh -c 'oldest=$(git oldest-ancestor) head=$(git rev-parse HEAD) && git rev-list --oneline $([[ $oldest == $head ]] && echo $head^.. || echo $oldest..) | while read sha x\n do echo $sha $(hub ci-status -v $sha)\n done'
+	conflicts = diff --name-only --diff-filter=U
 [log]
 	abbrevCommit = true
 	decorate = true
@@ -152,6 +155,7 @@
 	features = side-by-side line-numbers decorations line-wrap
 	hunk-header-style = file line-number syntax
 	whitespace-error-style = 22 reverse
+	wrap-max-lines = unlimited
 	syntax-theme = Monokai Extended
 	max-line-length = 0
 [delta "decorations"]
