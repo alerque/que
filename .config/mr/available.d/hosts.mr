@@ -12,7 +12,7 @@ function project_list_cache () (
 )
 
 function project_list () {
-	git config --file ~/.private/gitlab.config gitlab.url || return
+	git config --file ~/.config/lab/lab.toml core.host || return
 	project_list_cache ||
 		lab project list -a |
 		sort |
