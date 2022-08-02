@@ -397,8 +397,8 @@ fi
 
 # Drop a few things from remote-only hosts
 if is_opt $ISREMOTE; then
-	# prefix matches both dvorak and turkish-f
-	BASEPACKAGES=(${BASEPACKAGES[@]/programmers})
+	BASEPACKAGES=(${BASEPACKAGES[@]/programmers-dvorak})
+	BASEPACKAGES=(${BASEPACKAGES[@]/programmers-turkish-f})
 fi
 
 # Import and run init script for this OS
