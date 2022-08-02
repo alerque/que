@@ -1,3 +1,7 @@
+[$HOME/projects/sile-typesetter/.github]
+checkout =
+	git clone git@github.com:sile-typesetter/.github.git
+
 [$HOME/projects/sile-typesetter/casile]
 checkout =
 	git clone git@github.com:alerque/casile.git
@@ -21,6 +25,12 @@ checkout =
 	git clone git@github.com:alerque/cassowary.lua.git
 	cd cassowary.lua
 	git remote add upstream git@github.com:sile-typesetter/cassowary.lua.git
+
+[$HOME/projects/sile-typesetter/lilypond.sile.git]
+checkout =
+	git clone git@github.com:alerque/lilypond.sile.git
+	cd lilypond.sile
+	git remote add upstream git@github.com:sile-typesetter/lilypond.sile.git
 
 [$HOME/projects/sile-typesetter/libtexpdf]
 checkout =
