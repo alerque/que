@@ -50,6 +50,10 @@
 !/.config/mr/available.d/viachristus.mr
 !/.config/mr/available.d/vim-plugins.mr
 !/.config/mr/available.d/websites.mr
+!/.config/mr/config.d-anole/hosts.mr
+!/.config/mr/config.d-anole/que-sys-base.mr
+!/.config/mr/config.d-anole/que.vcsh
+!/.config/mr/config.d-anole/systems.mr
 !/.config/mr/config.d-armadillo/incil.mr
 !/.config/mr/config.d-armadillo/ipk.mr
 !/.config/mr/config.d-armadillo/que-sys-base.mr
