@@ -3,7 +3,11 @@
 cache=/tmp/arch-maintained-list
 
 function fetch_maintained () {
-	curl -Ls 'https://archlinux.org/packages/search/json/?maintainer=alerque' |
+	{
+		curl -Ls 'https://archlinux.org/packages/search/json/?maintainer=alerque&page=1'
+		curl -Ls 'https://archlinux.org/packages/search/json/?maintainer=alerque&page=2'
+		curl -Ls 'https://archlinux.org/packages/search/json/?maintainer=alerque&page=3'
+	} |
 		jq -r '.results[].pkgbase' |
 		sort -u
 }
