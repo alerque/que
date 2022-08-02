@@ -14,7 +14,7 @@ function project_list_cache () (
 function project_list () {
 	git config --file ~/.config/lab/lab.toml core.host || return
 	project_list_cache ||
-		lab project list -a |
+		lab project list -n 999 |
 		sort |
 		tee ${labcache}
 }
