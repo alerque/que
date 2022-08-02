@@ -12,6 +12,9 @@ while [[ $# -gt 0 ]]; do
 		devel)
 			ISDEVEL=0
 			;;
+		remote)
+			ISREMOTE=0
+			;;
 		caleb)
 			ISCALEB=0
 			;;
@@ -25,7 +28,7 @@ while [[ $# -gt 0 ]]; do
 			set -x
 			;;
 		*)
-			flunk 'Unknown trailing arguments, try (devel|caleb|desktop|debug|echo)'
+			flunk 'Unknown trailing arguments, try (devel|caleb|remote|desktop|debug|echo)'
 			;;
 	esac
 	shift
@@ -390,6 +393,11 @@ fi
 # Merge desktop package list into base set if this is a desktop
 if is_opt $ISDESKTOP; then
     BASEPACKAGES=(${BASEPACKAGES[@]} ${DESKTOPPACKAGES[@]})
+fi
+
+# Drop a few things from remote-only hosts
+if is_opt $ISREMOTE; then
+	BASEPACKAGES=(${BASEPACKAGES[@]/programmers}) # prefix matches both dvorak and turkish-f
 fi
 
 # Import and run init script for this OS
