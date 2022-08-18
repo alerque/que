@@ -30,6 +30,7 @@
 !/.config/mr/available.d/hosts.mr
 !/.config/mr/available.d/incil.mr
 !/.config/mr/available.d/ipk.mr
+!/.config/mr/available.d/lunarmodules.gh
 !/.config/mr/available.d/lyricue.mr
 !/.config/mr/available.d/pandoc.mr
 !/.config/mr/available.d/paperwalking.git
@@ -102,6 +103,7 @@
 !/.config/mr/config.d-emircik/homebrew.mr
 !/.config/mr/config.d-emircik/hosts.mr
 !/.config/mr/config.d-emircik/ipk.mr
+!/.config/mr/config.d-emircik/lunarmodules.gh
 !/.config/mr/config.d-emircik/lyricue.mr
 !/.config/mr/config.d-emircik/pandoc.mr
 !/.config/mr/config.d-emircik/pictures.annex
