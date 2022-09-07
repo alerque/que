@@ -126,6 +126,10 @@
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
+[filter "localssh"]
+	smudge = cat
+	clean = "sed -ne '/BEGIN host local/{p;n;q};p'"
+	required = false
 [color "diff"]
 	meta = yellow
 	commit = yellow
