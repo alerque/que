@@ -88,6 +88,7 @@
 	; rebase2fork = !zsh -c 'git rebase -i $(git merge-base --fork-point "${0:-master}")'
 	ci-status = !sh -c 'oldest=$(git oldest-ancestor) head=$(git rev-parse HEAD) && git rev-list --oneline $([[ $oldest == $head ]] && echo $head^.. || echo $oldest..) | while read sha x\n do echo $sha $(hub ci-status -v $sha)\n done'
 	conflicts = diff --name-only --diff-filter=U
+	commit-scopes = !zsh -c 'git log --pretty=format:"%s" | rg --pcre2 "^\\\\p{Ll}\\+\\\\\\(\\(\\\\p{Ll}\\+\\)\\\\\\)!\\?:" -or "\\$1" | sort | uniq -c | sort -n'
 [log]
 	abbrevCommit = true
 	decorate = true
