@@ -47,6 +47,7 @@ BASEPACKAGES=(
 		bat
 		btop
 		cron
+		difftastic
 		duf
 		etckeeper
 		exa
@@ -91,6 +92,7 @@ DEVELPACKAGES=(
 		cyrus-sasl
 		entr
 		fzf
+		fzy
 		git-delta
 		git-extras
 		git-filter-repo
