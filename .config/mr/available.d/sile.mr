@@ -1,67 +1,32 @@
-[$HOME/projects/sile-typesetter/.github]
-checkout =
-	git clone git@github.com:sile-typesetter/.github.git
+#!/usr/bin/env zsh
 
-[$HOME/projects/sile-typesetter/casile]
-checkout =
-	git clone git@github.com:alerque/casile.git
-	cd casile
-	git remote add upstream git@github.com:sile-typesetter/casile.git
+org=sile-typesetter
 
-[$HOME/projects/sile-typesetter/casile-demos]
-checkout =
-	git clone git@github.com:alerque/casile-demos.git
-	cd casile-demos
-	git remote add upstream git@github.com:sile-typesetter/casile-demos.git
+cache=/tmp/gh-repos-$org
 
-[$HOME/projects/sile-typesetter/casile-template]
-checkout =
-	git clone git@github.com:alerque/casile-template.git
-	cd casile-template
-	git remote add upstream git@github.com:sile-typesetter/casile-template.git
+function fetch_cache () (
+	test -s $cache &&
+		test $(date +%s -r $cache) -ge $(date +%s --date "60 min ago") &&
+		cat $cache
+)
 
-[$HOME/projects/sile-typesetter/cassowary.lua]
-checkout =
-	git clone git@github.com:alerque/cassowary.lua.git
-	cd cassowary.lua
-	git remote add upstream git@github.com:sile-typesetter/cassowary.lua.git
+function list_repos () {
+	fetch_cache ||
+		gh repo list $org |
+		awk '{ print $1 }' |
+		sort |
+		tee $cache
+}
 
-[$HOME/projects/sile-typesetter/lilypond.sile.git]
-checkout =
-	git clone git@github.com:alerque/lilypond.sile.git
-	cd lilypond.sile
-	git remote add upstream git@github.com:sile-typesetter/lilypond.sile.git
-
-[$HOME/projects/sile-typesetter/libtexpdf]
-checkout =
-	git clone git@github.com:alerque/libtexpdf.git
-	cd libtexpdf
-	git remote add upstream git@github.com:sile-typesetter/libtexpdf.git
-
-[$HOME/projects/sile-typesetter/sile]
-checkout =
-	git clone git@github.com:alerque/sile.git
-	cd sile
-	git remote add upstream git@github.com:sile-typesetter/sile.git
-
-[$HOME/projects/sile-typesetter/sile-packages]
-checkout =
-	git clone git@github.com:alerque/sile-packages.git
-	cd sile-packages
-	git remote add upstream git@github.com:sile-typesetter/sile-packages.git
-
-[$HOME/projects/sile-typesetter/sile-typesetter.github.io]
-checkout =
-	git clone git@github.com:sile-typesetter/sile-typesetter.github.io.git
-
-[$HOME/projects/sile-typesetter/vim-sile]
-checkout =
-	git clone git@github.com:alerque/vim-sile.git
-	cd vim-sile
-	git remote add upstream git@github.com:sile-typesetter/vim-sile.git
-
-[$HOME/projects/sile-typesetter/fontproof]
-checkout =
-	git clone git@github.com:alerque/fontproof.git
-	cd fontproof
-	git remote add upstream git@github.com:sile-typesetter/fontproof.git
+list_repos |
+	cat |
+	while read repo; do
+		cat <<- EOF
+			[$HOME/projects/$repo]
+			checkout = gh repo clone $repo
+			update =
+			    git fetch --all
+			    git pull origin
+			    git submodule update --init --remote --recursive
+		EOF
+	done
