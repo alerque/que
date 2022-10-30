@@ -3,20 +3,21 @@
 host=gitlab.alerque.com
 group=onqueacademy
 
-labcache=/tmp/lab-project-list-${group}
+cachefile=/tmp/gitlab-repos-cache
 
 function project_list_cache () (
-	test -s ${labcache} || exit 1
-	test $(date +%s -r ${labcache}) -ge $(date +%s --date "60 min ago") || exit 1
-	cat ${labcache}
+	test -s ${cachefile} || exit 1
+	test $(date +%s -r ${cachefile}) -ge $(date +%s --date "60 min ago") || exit 1
+	cat ${cachefile}
 )
 
 function project_list () {
-	git config --file ~/.private/gitlab.config gitlab.url || return
+	yq --exit-status '.hosts["gitlab.alerque.com"].token' ~/.config/glab-cli/config.yml ||return
 	project_list_cache ||
-		lab project list -a |
+		glab repo list --member --per-page 1000 |
+		awk '/^[^ ]/ { print $1 }' |
 		sort |
-		tee ${labcache}
+		tee ${cachefile}
 }
 
 project_list |
