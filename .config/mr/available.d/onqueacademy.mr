@@ -1,34 +1,14 @@
 #!/usr/bin/env zsh
 
+set -x
+set -eo pipefail
+
 host=gitlab.alerque.com
 group=onqueacademy
 
-cachefile=/tmp/gitlab-repos-cache
+libdir="$(dirname $(dirname $(readlink -f $0)))/lib"
+source "$libdir/gitlab.zsh"
 
-function project_list_cache () (
-	test -s ${cachefile} || exit 1
-	test $(date +%s -r ${cachefile}) -ge $(date +%s --date "60 min ago") || exit 1
-	cat ${cachefile}
-)
+list_group_projects onuqueacademy
 
-function project_list () {
-	yq --exit-status '.hosts["gitlab.alerque.com"].token' ~/.config/glab-cli/config.yml ||return
-	project_list_cache ||
-		glab repo list --member --per-page 1000 |
-		awk '/^[^ ]/ { print $1 }' |
-		sort |
-		tee ${cachefile}
-}
-
-project_list |
-	grep -e "^${group}/" |
-	sort -u |
-	while read project; do
-		cat <<- EOF
-			[$HOME/projects/${project}]
-			checkout = git clone --recursive gitlab@${host}:${project}.git
-			update =
-			    git pull origin
-			    git submodule foreach git pull origin master
-		EOF
-	done
+# vi: ft=zsh
