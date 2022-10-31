@@ -45,3 +45,5 @@ EOF
 #             update = svn update
 #         EOF
 #     done
+
+# vi: ft=zsh

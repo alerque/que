@@ -200,6 +200,7 @@
 !/.config/mr/config.d-starfish/que.vcsh
 !/.config/mr/config.d-turtle/que-sys-base.mr
 !/.config/mr/config.d-turtle/que.vcsh
+!/.config/mr/lib/gitlab.zsh
 !/.config/pacman/makepkg.conf
 !/.config/tig/config
 !/.config/tig/molokai-like-theme.tigrc

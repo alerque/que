@@ -1,6 +1,5 @@
 #!/usr/bin/env zsh
 
-set -x
 set -eo pipefail
 
 host=gitlab.alerque.com
@@ -9,6 +8,6 @@ group=onqueacademy
 libdir="$(dirname $(dirname $(readlink -f $0)))/lib"
 source "$libdir/gitlab.zsh"
 
-list_group_projects onuqueacademy
+list_group_projects $host $group
 
 # vi: ft=zsh
