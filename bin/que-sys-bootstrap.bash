@@ -98,9 +98,10 @@ DEVELPACKAGES=(
 		git-filter-repo
 		git-lfs
 		git-revise
+		github-cli
+		glab
 		gnu-netcat
 		html-xml-utils
-		lab
 		markdown2ctags
 		mlocate
 		ntp
@@ -119,19 +120,18 @@ DESKTOPPACKAGES=(
 		atom
 		awesome
 		bluez-tools
-		chromium
-		google-chrome
 		brave
+		chromium
 		cups
 		firefox
 		flameshot
 		geeqie
 		gimp
 		git-annex
-		github-cli
 		gnome
 		gnome-packagekit
 		gnome-shell
+		google-chrome
 		gpaste
 		gvfs
 		hub
@@ -293,6 +293,7 @@ case $DISTRO in
 		distro_pkg etckeeper etckeeper{,-packages}
 		distro_pkg firefox firefox{,-i18n-{tr,ru}}
 		distro_pkg geeqie geeqie-git
+		distro_pkg glab glab-git
 		distro_pkg gnome gnome gnome-{extra,tweak-tool,defaults-list} lightdm cbatticon notification-daemon
 		distro_pkg gnome-shell gnome-shell chrome-gnome-shell gnome-shell-extension-no-title-bar
 		#  gnome-shell-extension-topicons-redux
