@@ -294,7 +294,8 @@ case $DISTRO in
 		distro_pkg firefox firefox{,-i18n-{tr,ru}}
 		distro_pkg geeqie geeqie-git
 		distro_pkg gnome gnome gnome-{extra,tweak-tool,defaults-list} lightdm cbatticon notification-daemon
-		distro_pkg gnome-shell gnome-shell chrome-gnome-shell gnome-shell-extension-{topicons-redux,no-title-bar}
+		distro_pkg gnome-shell gnome-shell chrome-gnome-shell gnome-shell-extension-no-title-bar
+		#  gnome-shell-extension-topicons-redux
 		distro_pkg gvfs gvfs-{mtp,smb,goa}
 		distro_pkg libreoffice libreoffice-fresh{,-tr,-ru} unoconv
 		distro_pkg lightdm lightdm{,-gtk-greeter{,-settings}}
