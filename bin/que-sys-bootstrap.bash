@@ -132,7 +132,6 @@ DESKTOPPACKAGES=(
 		gnome
 		gnome-packagekit
 		gnome-shell
-		google-talkplugin
 		gpaste
 		gvfs
 		hub
@@ -173,6 +172,7 @@ REMOVEPACKAGES=(
 		emojione-color-font
 		firefox-adblock-plus
 		gnome-packagekit
+		google-talkplugin
 		gtop
 		gvim
 		keepass
@@ -349,7 +349,6 @@ case $DISTRO in
 		distro_pkg gimp ''
 		distro_pkg gnome ''
 		distro_pkg gnome-packagekit ''
-		distro_pkg google-talkplugin ''
 		distro_pkg gpaste ''
 		distro_pkg gvfs ''
 		distro_pkg keepassx ''
