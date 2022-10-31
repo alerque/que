@@ -102,6 +102,7 @@ DEVELPACKAGES=(
 		glab
 		gnu-netcat
 		html-xml-utils
+		lua-language-server
 		markdown2ctags
 		mlocate
 		ntp
