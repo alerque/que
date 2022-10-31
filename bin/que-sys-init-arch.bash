@@ -55,7 +55,7 @@ $DEBUG pacman-key --populate archlinux$(grep -q ARM /etc/os-release && echo arm)
 $DEBUG update_mirrors ||:
 
 # Add my own Arch package repository, after community
-$DEBUG pacman-key --recv-keys 63CC496475267693
+$DEBUG pacman-key --keyserver keyserver.ubuntu.com --recv-keys 63CC496475267693
 $DEBUG pacman-key --lsign-key 63CC496475267693
 $DEBUG grep -q alerque /etc/pacman.conf ||
     sed -i -e '/^.community/{n;n;s!^!\n\[alerque\]\nServer = https://arch.alerque.com/$arch\n!}' /etc/pacman.conf
