@@ -117,7 +117,6 @@ DEVELPACKAGES=(
 
 DESKTOPPACKAGES=(
 		alacritty
-		atom
 		awesome
 		bluez-tools
 		brave
@@ -137,6 +136,7 @@ DESKTOPPACKAGES=(
 		hub
 		inkscape
 		keepassxc
+		lapce
 		libreoffice
 		mplayer
 		neovim-gtk
