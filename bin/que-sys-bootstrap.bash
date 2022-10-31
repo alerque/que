@@ -57,6 +57,7 @@ BASEPACKAGES=(
 		git
 		git-crypt
 		gnupg
+		himalaya
 		ifplugd
 		iftop
 		innernet
