@@ -127,6 +127,7 @@ DESKTOPPACKAGES=(
 		geeqie
 		gimp
 		git-annex
+		gittyup
 		gnome
 		gnome-packagekit
 		gnome-shell
@@ -138,6 +139,7 @@ DESKTOPPACKAGES=(
 		keepassxc
 		lapce
 		libreoffice
+		lite-xl
 		mplayer
 		neovim-gtk
 		nextcloud-client
