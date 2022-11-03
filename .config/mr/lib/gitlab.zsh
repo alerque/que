@@ -34,8 +34,8 @@ function list_group_projects () {
 				[$HOME/projects/${project}]
 				checkout = GITLAB_HOST=$host glab repo clone $project -- --recursive
 				update =
-					git pull origin
-					git submodule foreach git pull origin master
+				    git pull
+				    git submodule foreach git pull
 			EOF
 		done
 }
