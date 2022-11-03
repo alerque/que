@@ -48,3 +48,5 @@ aur_list |
 			    git diff-index --quiet --cached HEAD || git commit -m 'Normalize .gitignore file'
 		EOF
 	done
+
+# vi: ft=zsh
