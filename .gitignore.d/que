@@ -129,6 +129,7 @@
 !/.config/mr/config.d-iguana/tprk.mr
 !/.config/mr/config.d-iguana/typesetting.mr
 !/.config/mr/config.d-jaguar/ahit.mr
+!/.config/mr/config.d-jaguar/archlinux.mr
 !/.config/mr/config.d-jaguar/aur.mr
 !/.config/mr/config.d-jaguar/brkt.mr
 !/.config/mr/config.d-jaguar/ccm.mr
