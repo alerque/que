@@ -16,6 +16,7 @@
 !/bin/que-sys-init-ubuntu.bash
 !/.config/git/attributes
 !/.config/mr/available.d/ahit.mr
+!/.config/mr/available.d/angela.mr
 !/.config/mr/available.d/archlinux.mr
 !/.config/mr/available.d/aur.mr
 !/.config/mr/available.d/brkt.mr
@@ -62,6 +63,7 @@
 !/.config/mr/config.d-armadillo/que-sys-desktop.mr
 !/.config/mr/config.d-armadillo/tprk.mr
 !/.config/mr/config.d-aslan/ahit.mr
+!/.config/mr/config.d-aslan/angela.mr
 !/.config/mr/config.d-aslan/archlinux.mr
 !/.config/mr/config.d-aslan/aur.mr
 !/.config/mr/config.d-aslan/brkt.mr
@@ -98,6 +100,7 @@
 !/.config/mr/config.d-dessie/que-sys-base.mr
 !/.config/mr/config.d-dessie/que.vcsh
 !/.config/mr/config.d-emircik/ahit.mr
+!/.config/mr/config.d-emircik/angela.mr
 !/.config/mr/config.d-emircik/archlinux.mr
 !/.config/mr/config.d-emircik/aur.mr
 !/.config/mr/config.d-emircik/ccm.mr
@@ -129,6 +132,7 @@
 !/.config/mr/config.d-iguana/tprk.mr
 !/.config/mr/config.d-iguana/typesetting.mr
 !/.config/mr/config.d-jaguar/ahit.mr
+!/.config/mr/config.d-jaguar/angela.mr
 !/.config/mr/config.d-jaguar/archlinux.mr
 !/.config/mr/config.d-jaguar/aur.mr
 !/.config/mr/config.d-jaguar/brkt.mr
@@ -165,6 +169,7 @@
 !/.config/mr/config.d-lobster/que-sys-desktop.mr
 !/.config/mr/config.d-oyster/que-sys-base.mr
 !/.config/mr/config.d-oyster/que-sys-desktop.mr
+!/.config/mr/config.d-pars/angela.mr
 !/.config/mr/config.d-pars/aur.mr
 !/.config/mr/config.d-pars/ccm.mr
 !/.config/mr/config.d-pars/distro-packaging.mr
