@@ -91,8 +91,10 @@
 !/.config/mr/config.d-aslan/vcsh.git
 !/.config/mr/config.d-aslan/viachristus.mr
 !/.config/mr/config.d-aslan/vim-plugins.mr
+!/.config/mr/config.d-asper/brkt.mr
 !/.config/mr/config.d-asper/darlene.mr
 !/.config/mr/config.d-asper/que-sys-base.mr
+!/.config/mr/config.d-asper/tprk.mr
 !/.config/mr/config.d-basilisk/que-sys-base.mr
 !/.config/mr/config.d-basilisk/systems.mr
 !/.config/mr/config.d-dagu/que-sys-base.mr
