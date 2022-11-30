@@ -14,6 +14,7 @@
 !/bin/que-sys-init-pld.bash
 !/bin/que-sys-init-termux.bash
 !/bin/que-sys-init-ubuntu.bash
+!/.config/gh/config.yml
 !/.config/git/attributes
 !/.config/mr/available.d/ahit.mr
 !/.config/mr/available.d/angela.mr
