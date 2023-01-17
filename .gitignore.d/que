@@ -20,7 +20,6 @@
 !/.config/mr/available.d/angela.mr
 !/.config/mr/available.d/archlinux.mr
 !/.config/mr/available.d/aur.mr
-!/.config/mr/available.d/brkt.mr
 !/.config/mr/available.d/ccm.mr
 !/.config/mr/available.d/darlene.mr
 !/.config/mr/available.d/distro-packaging.mr
@@ -67,7 +66,6 @@
 !/.config/mr/config.d-aslan/angela.mr
 !/.config/mr/config.d-aslan/archlinux.mr
 !/.config/mr/config.d-aslan/aur.mr
-!/.config/mr/config.d-aslan/brkt.mr
 !/.config/mr/config.d-aslan/ccm.mr
 !/.config/mr/config.d-aslan/darlene.mr
 !/.config/mr/config.d-aslan/finances.git
@@ -92,7 +90,6 @@
 !/.config/mr/config.d-aslan/vcsh.git
 !/.config/mr/config.d-aslan/viachristus.mr
 !/.config/mr/config.d-aslan/vim-plugins.mr
-!/.config/mr/config.d-asper/brkt.mr
 !/.config/mr/config.d-asper/darlene.mr
 !/.config/mr/config.d-asper/que-sys-base.mr
 !/.config/mr/config.d-asper/tprk.mr
@@ -106,7 +103,6 @@
 !/.config/mr/config.d-emircik/angela.mr
 !/.config/mr/config.d-emircik/archlinux.mr
 !/.config/mr/config.d-emircik/aur.mr
-!/.config/mr/config.d-emircik/brkt.mr
 !/.config/mr/config.d-emircik/ccm.mr
 !/.config/mr/config.d-emircik/finances.git
 !/.config/mr/config.d-emircik/homebrew.mr
@@ -139,7 +135,6 @@
 !/.config/mr/config.d-jaguar/angela.mr
 !/.config/mr/config.d-jaguar/archlinux.mr
 !/.config/mr/config.d-jaguar/aur.mr
-!/.config/mr/config.d-jaguar/brkt.mr
 !/.config/mr/config.d-jaguar/ccm.mr
 !/.config/mr/config.d-jaguar/distro-packaging.mr
 !/.config/mr/config.d-jaguar/finances.git
