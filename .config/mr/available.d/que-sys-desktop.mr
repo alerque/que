@@ -23,6 +23,10 @@ checkout = vcsh clone git@github.com:alerque/que-gnome.git
 order = 5
 checkout = vcsh clone git@github.com:alerque/que-inkscape.git
 
+[$HOME/.config/vcsh/repo.d/que-wayland.git]
+order = 5
+checkout = vcsh clone git@github.com:alerque/que-wayland.git
+
 [$HOME/.config/vcsh/repo.d/que-xorg.git]
 checkout = vcsh clone git@github.com:alerque/que-xorg.git
 
