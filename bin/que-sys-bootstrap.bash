@@ -118,6 +118,24 @@ DEVELPACKAGES=(
 )
 
 DESKTOPPACKAGES=(
+		cliphist
+		dunst
+		eww-wayland
+		fuzzel
+		grim
+		hypresome
+		hyprland
+		hyprpaper
+		otf-font-awesome
+		qt6-wayland
+		rofi
+		slurp
+		waybar-hyperland
+		waylock
+		wayprompt
+		wev
+		wl-clipboard
+
 		alacritty
 		awesome
 		bluez-tools
@@ -303,7 +321,7 @@ case $DISTRO in
 		#  gnome-shell-extension-topicons-redux
 		distro_pkg gvfs gvfs-{mtp,smb,goa}
 		distro_pkg libreoffice libreoffice-fresh{,-tr,-ru} unoconv
-		distro_pkg lightdm lightdm{,-gtk-greeter{,-settings}}
+		distro_pkg lightdm lightdm{,-slick-greeter}
         distro_pkg man{,-db,-pages}
 		distro_pkg neomutt neomutt goobook-git
 		distro_pkg neovim neovim nodejs-neovim python-pynvim
