@@ -195,6 +195,7 @@ REMOVEPACKAGES=(
 		firefox-adblock-plus
 		gnome-packagekit
 		google-talkplugin
+		gpmdp
 		gtop
 		gvim
 		keepass
