@@ -123,16 +123,16 @@ DESKTOPPACKAGES=(
 		eww-wayland
 		fuzzel
 		grim
-		hypresome
 		hyprland
 		hyprpaper
+		hyprsome-git
 		otf-font-awesome
 		qt6-wayland
-		rofi
+		rofi-lbonn-wayland-git
 		slurp
-		waybar-hyperland
+		waybar-hyprland-git
 		waylock
-		wayprompt
+		wayprompt-git
 		wev
 		wl-clipboard
 
