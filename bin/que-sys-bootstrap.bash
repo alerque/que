@@ -130,6 +130,7 @@ DESKTOPPACKAGES=(
 		qt6-wayland
 		rofi-lbonn-wayland-git
 		slurp
+		swayidle
 		waybar-hyprland-git
 		waylock
 		wayprompt-git
