@@ -43,6 +43,7 @@ fi
 
 # Setup stuff
 BASEPACKAGES=(
+		atuin
 		base
 		bat
 		btop
