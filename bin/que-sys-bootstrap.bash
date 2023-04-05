@@ -121,12 +121,10 @@ DEVELPACKAGES=(
 DESKTOPPACKAGES=(
 		cliphist
 		dunst
-		eww-wayland
 		fuzzel
 		grim
 		hyprland
 		hyprpaper
-		hyprsome-git
 		otf-font-awesome
 		qt6-wayland
 		rofi-lbonn-wayland-git
@@ -194,12 +192,14 @@ REMOVEPACKAGES=(
 		diff-so-fancy
 		dropbox
 		emojione-color-font
+		eww-wayland
 		firefox-adblock-plus
 		gnome-packagekit
 		google-talkplugin
 		gpmdp
 		gtop
 		gvim
+		hyprsome-git
 		keepass
 		keepassx
 		owncloud-client
