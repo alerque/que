@@ -36,14 +36,23 @@ cat <<- EOF
 	checkout = svn checkout -N svn+ssh://svn-community@repos.archlinux.org/srv/repos/svn-community/svn community
 	adopt = ${non_extants:+svn update $non_extants} ${non_extants:-:}
 	repro = arch-repro-status -m alerque
-EOF
 
-# list_maintained |
-#     while read pkgbase; do
-#         cat <<- EOF
-#             [$HOME/projects/archlinux/community/$pkgbase]
-#             update = svn update
-#         EOF
-#     done
+	[$HOME/projects/archlinux/packages]
+	checkout = mkdir packages
+	adopt = pkgctl repo clone -m alerque
+	repro = arch-repro-status -m alerque
+EOF
+# adopt = ${non_extants:+pkgctl repo clone $non_extants} ${non_extants:-:}
+
+list_maintained |
+	while read pkgbase; do
+		cat <<- EOF
+			[$HOME/projects/archlinux/packages/$pkgbase]
+			checkout = pkgctl repo clone
+			pull = git pull
+			status = git status
+			update = git pull
+		EOF
+	done
 
 # vi: ft=zsh
