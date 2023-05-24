@@ -48,10 +48,12 @@ list_maintained |
 	while read pkgbase; do
 		cat <<- EOF
 			[$HOME/projects/archlinux/packages/$pkgbase]
-			checkout = pkgctl repo clone
+			checkout = pkgctl repo clone $pkgbase
 			pull = git pull
-			status = git status
 			update = git pull
+			status = git status
+			repro = arch-repro-status -n $pkgbase
+
 		EOF
 	done
 
