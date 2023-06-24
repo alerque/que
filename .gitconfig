@@ -170,6 +170,9 @@
     file-decoration-style = none
 [init]
 	defaultBranch = master
+[gc]
+	rerereUnresolved = 30d
+	rerereResolved  = 365d
 [blame]
 	; ignoreRevsFile = .git-blame-ignore-revs
 	markIgnoredLines = true
