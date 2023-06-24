@@ -17,7 +17,7 @@
 	reflog = delta
 	show = delta
 [push]
-	default = simple
+	default = upstream
 	gpgSign = if-asked
 	recurseSubmodules = check
 [color]
