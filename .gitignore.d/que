@@ -53,6 +53,7 @@
 !/.config/mr/available.d/viachristus.mr
 !/.config/mr/available.d/vim-plugins.mr
 !/.config/mr/available.d/websites.mr
+!/.config/mr/config.d-anole/distro-packaging.mr
 !/.config/mr/config.d-anole/hosts.mr
 !/.config/mr/config.d-anole/que-sys-base.mr
 !/.config/mr/config.d-anole/que.vcsh
