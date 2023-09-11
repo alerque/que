@@ -53,7 +53,6 @@ BASEPACKAGES=(
 		etckeeper
 		exa
 		exim
-		fasd
 		fd
 		git
 		git-crypt
@@ -85,6 +84,7 @@ BASEPACKAGES=(
 		tmux
 		vcsh
 		wireguard
+		zoxide
 		zsh
 )
 
