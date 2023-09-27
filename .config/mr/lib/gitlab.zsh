@@ -29,6 +29,7 @@ function list_group_projects () {
 	cachefile=/tmp/gitlab-repos-cache-$host
 	list_all_projects |
 		grep -e "^$group/" |
+		grep -v -E "^$group/(liturjiler_|boco)" |
 		while read project; do
 			cat <<- EOF
 				[$HOME/projects/${project}]
