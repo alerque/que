@@ -145,6 +145,7 @@
 !/.config/mr/config.d-jaguar/hosts.mr
 !/.config/mr/config.d-jaguar/incil.mr
 !/.config/mr/config.d-jaguar/ipk.mr
+!/.config/mr/config.d-jaguar/lunarmodules.gh
 !/.config/mr/config.d-jaguar/onqueacademy.mr
 !/.config/mr/config.d-jaguar/pandoc.mr
 !/.config/mr/config.d-jaguar/pictures.annex
