@@ -47,7 +47,6 @@
 !/.config/mr/available.d/theleagueof.mr
 !/.config/mr/available.d/tprk.mr
 !/.config/mr/available.d/tsv.mr
-!/.config/mr/available.d/typesetting.mr
 !/.config/mr/available.d/userscripts.mr
 !/.config/mr/available.d/vcsh.git
 !/.config/mr/available.d/viachristus.mr
@@ -86,7 +85,6 @@
 !/.config/mr/config.d-aslan/theleagueof.mr
 !/.config/mr/config.d-aslan/tprk.mr
 !/.config/mr/config.d-aslan/tsv.mr
-!/.config/mr/config.d-aslan/typesetting.mr
 !/.config/mr/config.d-aslan/userscripts.mr
 !/.config/mr/config.d-aslan/vcsh.git
 !/.config/mr/config.d-aslan/viachristus.mr
@@ -121,7 +119,6 @@
 !/.config/mr/config.d-emircik/theleagueof.mr
 !/.config/mr/config.d-emircik/tprk.mr
 !/.config/mr/config.d-emircik/tsv.mr
-!/.config/mr/config.d-emircik/typesetting.mr
 !/.config/mr/config.d-emircik/userscripts.mr
 !/.config/mr/config.d-emircik/vcsh.git
 !/.config/mr/config.d-emircik/viachristus.mr
@@ -132,7 +129,6 @@
 !/.config/mr/config.d-iguana/que-sys-base.mr
 !/.config/mr/config.d-iguana/systems.mr
 !/.config/mr/config.d-iguana/tprk.mr
-!/.config/mr/config.d-iguana/typesetting.mr
 !/.config/mr/config.d-jaguar/ahit.mr
 !/.config/mr/config.d-jaguar/angela.mr
 !/.config/mr/config.d-jaguar/archlinux.mr
@@ -156,7 +152,6 @@
 !/.config/mr/config.d-jaguar/theleagueof.mr
 !/.config/mr/config.d-jaguar/tprk.mr
 !/.config/mr/config.d-jaguar/tsv.mr
-!/.config/mr/config.d-jaguar/typesetting.mr
 !/.config/mr/config.d-jaguar/userscripts.mr
 !/.config/mr/config.d-jaguar/vcsh.git
 !/.config/mr/config.d-jaguar/viachristus.mr
@@ -187,7 +182,6 @@
 !/.config/mr/config.d-pars/theleagueof.mr
 !/.config/mr/config.d-pars/tprk.mr
 !/.config/mr/config.d-pars/tsv.mr
-!/.config/mr/config.d-pars/typesetting.mr
 !/.config/mr/config.d-pars/viachristus.mr
 !/.config/mr/config.d-shrimp/freecheck.git
 !/.config/mr/config.d-shrimp/que-sys-base.mr
