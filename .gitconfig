@@ -44,51 +44,68 @@
 	signoff = true
 [alias]
 	a = add
-	aa = a -A
-	ap = a -p
-	au = a -u
-	af = autofixup
 	ab = absorb
-	abr = absorb -r
+	abr = absorb --rebase
+	af = autofixup
+	ap = add --patch
+	au = add --update
 	b = branch
-	commit = commit -vv
+	bX = branch --delete --force
+	bx = branch --delete
 	c = commit
-	ce = c --amend
-	ca = ce --no-edit
+	ca = commit --amend --no-edit
+	ce = commit --amend
+	cm = commit --message
 	co = checkout
-	cb = co -b
+	cb = checkout -b
 	cp = cherry-pick
-	diff = diff --minimal --word-diff=color
 	d = diff
 	dc = diff --word-diff-regex=. --ignore-all-space
-	dsc = dc --staged
-	dls = diff-tree --no-commit-id --name-status -r
+	diff = diff --minimal --word-diff=color
 	ds = diff --staged
-	dw = diff --word-diff=color --ignore-all-space
-	dsw = diff --staged --word-diff=color --ignore-all-space
-	graph = log --all --graph --decorate --oneline
-	log = log
-	g = graph
-	lg = log --oneline --reverse
+	dsc = diff --word-diff-regex=. --ignore-all-space --staged
+	dsw = diff --ignore-all-space --staged
+	dw = diff --ignore-all-space
+	fa = fetch --all
+	fr = !git pull --rebase
+	g = log --all --graph --decorate --oneline
+	l = log
 	p = push
-	pf = p --force-with-lease
+	pc = push --set-upstream origin "$(git-branch-current 2> /dev/null)"
+	pf = push --force-with-lease
 	r = rebase
+	re = revise
+	ra = rebase --abort
 	rc = rebase --continue
 	ri = rebase --interactive
-	show = show --minimal --word-diff=color
+	rs = rebase --skip
 	s = show
-	sc = show --word-diff=color --word-diff-regex=. --ignore-all-space
+	sc = show --ignore-all-space --word-diff-regex=.
+	show = show --word-diff=color
 	sw = show --ignore-all-space
-	st = status
-	getroot = !pwd
-	# http://stackoverflow.com/a/4991675/313192
-	oldest-ancestor = !zsh -c 'diff --old-line-format='' --new-line-format='' <(git rev-list --first-parent "${1:-master}") <(git rev-list --first-parent "${2:-HEAD}") | head -1' -
-	branchlog = !sh -c 'git log $(git oldest-ancestor)..'
-	branchdiff = !sh -c 'git diff $(git oldest-ancestor)..'
-	; rebase2fork = !zsh -c 'git rebase -i $(git merge-base --fork-point "${0:-master}")'
-	ci-status = !sh -c 'oldest=$(git oldest-ancestor) head=$(git rev-parse HEAD) && git rev-list --oneline $([[ $oldest == $head ]] && echo $head^.. || echo $oldest..) | while read sha x\n do echo $sha $(hub ci-status -v $sha)\n done'
-	conflicts = diff --name-only --diff-filter=U
-	commit-scopes = !zsh -c 'git log --pretty=format:"%s" | rg --pcre2 "^\\\\p{Ll}\\+\\\\\\(\\(\\\\p{Ll}\\+\\)\\\\\\)!\\?:" -or "\\$1" | sort | uniq -c | sort -n'
+	ws = status --ignore-submodules --short
+	; work = checkout @{upstream}
+	; aa = a -A
+	; commit = commit -vv
+	; dls = diff-tree --no-commit-id --name-status -r
+	; prs = pull --rebase --autostash
+	; lg = log --oneline --reverse
+	; p = push
+	; pf = p --force-with-lease
+	; r = rebase
+	; rc = rebase --continue
+	; ri = rebase --interactive
+	; show = show --minimal --word-diff=color
+	; st = status
+	; getroot = !pwd
+	; # http://stackoverflow.com/a/4991675/313192
+	; oldest-ancestor = !zsh -c 'diff --old-line-format='' --new-line-format='' <(git rev-list --first-parent "${1:-master}") <(git rev-list --first-parent "${2:-HEAD}") | head -1' -
+	; branchlog = !sh -c 'git log $(git oldest-ancestor)..'
+	; branchdiff = !sh -c 'git diff $(git oldest-ancestor)..'
+	; ; rebase2fork = !zsh -c 'git rebase -i $(git merge-base --fork-point "${0:-master}")'
+	; ci-status = !sh -c 'oldest=$(git oldest-ancestor) head=$(git rev-parse HEAD) && git rev-list --oneline $([[ $oldest == $head ]] && echo $head^.. || echo $oldest..) | while read sha x\n do echo $sha $(hub ci-status -v $sha)\n done'
+	; conflicts = diff --name-only --diff-filter=U
+	; commit-scopes = !zsh -c 'git log --pretty=format:"%s" | rg --pcre2 "^\\\\p{Ll}\\+\\\\\\(\\(\\\\p{Ll}\\+\\)\\\\\\)!\\?:" -or "\\$1" | sort | uniq -c | sort -n'
 [log]
 	abbrevCommit = true
 	decorate = true
