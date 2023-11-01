@@ -45,7 +45,7 @@
 [alias]
 	a = add
 	ab = absorb
-	abr = absorb --rebase
+	abr = absorb --and-rebase
 	af = autofixup
 	ap = add --patch
 	au = add --update
@@ -67,17 +67,23 @@
 	dsw = diff --ignore-all-space --staged
 	dw = diff --ignore-all-space
 	fa = fetch --all
-	fr = !git pull --rebase
+	fr = pull --rebase
 	g = log --all --graph --decorate --oneline
 	l = log
+	m = merge
+	mc = merge --continue
 	p = push
-	pc = push --set-upstream origin "$(git-branch-current 2> /dev/null)"
+	pc = !zsh -c 'git push --set-upstream origin "$(git-branch-current 2> /dev/null)"'
 	pf = push --force-with-lease
 	r = rebase
 	re = revise
+	rec = revise --cut
+	ree = revise --edit
+	rei = revise --interactive
 	ra = rebase --abort
 	rc = rebase --continue
 	ri = rebase --interactive
+	rin = rebase --interactive --no-autosquash
 	rs = rebase --skip
 	s = show
 	sc = show --ignore-all-space --word-diff-regex=.
