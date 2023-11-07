@@ -1,6 +1,9 @@
 [core]
 	excludesFile = ~/.gitignore
 	quotePath = off
+[checkout]
+	defaultRemote = origin
+	workers = -1
 [interactive]
 	diffFilter = delta --color-only
 [user]
@@ -17,7 +20,9 @@
 	reflog = delta
 	show = delta
 [push]
-	default = upstream
+	default = current
+	autoSetupRemote = true
+	followTags = true
 	gpgSign = if-asked
 	recurseSubmodules = check
 [color]
