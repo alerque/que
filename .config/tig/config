@@ -5,6 +5,7 @@ set commit-order = topo
 set git-colors = no
 set editor-line-number = yes
 set refresh-mode = auto
+set wrap-lines = true
 
 set tab-size = 4
 set line-graphics = utf-8
