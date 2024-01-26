@@ -93,6 +93,7 @@
 	s = show
 	sc = show --ignore-all-space --word-diff-regex=.
 	show = show --word-diff=color
+	st = !datalad -C ${GIT_PREFIX:-.} next-status -r mono
 	sw = show --ignore-all-space
 	ws = status --ignore-submodules --short
 	; work = checkout @{upstream}
