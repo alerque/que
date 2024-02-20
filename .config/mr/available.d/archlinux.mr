@@ -7,6 +7,7 @@ function fetch_maintained () {
 		curl -Ls 'https://archlinux.org/packages/search/json/?maintainer=alerque&page=1'
 		curl -Ls 'https://archlinux.org/packages/search/json/?maintainer=alerque&page=2'
 		curl -Ls 'https://archlinux.org/packages/search/json/?maintainer=alerque&page=3'
+		curl -Ls 'https://archlinux.org/packages/search/json/?maintainer=alerque&page=4'
 	} |
 		jq -r '.results[].pkgbase' |
 		sort -u
