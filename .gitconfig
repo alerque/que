@@ -22,7 +22,7 @@
 [push]
 	default = current
 	autoSetupRemote = true
-	followTags = true
+	followTags = false
 	gpgSign = if-asked
 	recurseSubmodules = check
 [color]
@@ -55,8 +55,8 @@
 	ap = add --patch
 	au = add --update
 	b = branch
-	bX = branch --delete --force
 	bx = branch --delete
+	bX = branch --delete --force
 	c = commit
 	ca = commit --amend --no-edit
 	ce = commit --amend
@@ -75,6 +75,7 @@
 	fr = pull --rebase
 	g = log --all --graph --decorate --oneline
 	l = log
+	lf = ls-files
 	m = merge
 	mc = merge --continue
 	p = push
@@ -136,6 +137,8 @@
 	command = fdiff -c --git
 [difftool]
 	prompt = false
+[difftool "difftastic"]
+	cmd = difft "$LOCAL" "$REMOTE"
 [difftool "latexdiff"]
 	cmd = latexdiff "$LOCAL" "$REMOTE"
 [difftool "ufodiff"]
