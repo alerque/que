@@ -1,0 +1,45 @@
+[$HOME/projects/distro-packaging/fedora/alerque-libertinus-fonts]
+checkout = git clone ssh://caleb@pkgs.fedoraproject.org/rpms/alerque-libertinus-fonts.git
+
+[$HOME/projects/distro-packaging/fedora/lua-argparse]
+checkout = git clone ssh://caleb@pkgs.fedoraproject.org/rpms/lua-argparse.git
+
+[$HOME/projects/distro-packaging/fedora/lua-cassowary]
+checkout = git clone ssh://caleb@pkgs.fedoraproject.org/rpms/lua-cassowary.git
+
+[$HOME/projects/distro-packaging/fedora/lua-cldr]
+checkout = git clone ssh://caleb@pkgs.fedoraproject.org/rpms/lua-cldr.git
+
+[$HOME/projects/distro-packaging/fedora/lua-cliargs]
+checkout = git clone ssh://caleb@pkgs.fedoraproject.org/rpms/lua-cliargs.git
+
+[$HOME/projects/distro-packaging/fedora/lua-cosmo]
+checkout = git clone ssh://caleb@pkgs.fedoraproject.org/rpms/lua-cosmo.git
+
+[$HOME/projects/distro-packaging/fedora/lua-epnf]
+checkout = git clone ssh://caleb@pkgs.fedoraproject.org/rpms/lua-epnf.git
+
+[$HOME/projects/distro-packaging/fedora/lua-fluent]
+checkout = git clone ssh://caleb@pkgs.fedoraproject.org/rpms/lua-fluent.git
+
+[$HOME/projects/distro-packaging/fedora/lua-linenoise]
+checkout = git clone ssh://caleb@pkgs.fedoraproject.org/rpms/lua-linenoise.git
+
+[$HOME/projects/distro-packaging/fedora/lua-loadkit]
+checkout = git clone ssh://caleb@pkgs.fedoraproject.org/rpms/lua-loadkit.git
+
+[$HOME/projects/distro-packaging/fedora/lua-luarepl]
+checkout = git clone ssh://caleb@pkgs.fedoraproject.org/rpms/lua-luarepl.git
+
+[$HOME/projects/distro-packaging/fedora/lua-luautf8]
+checkout = git clone ssh://caleb@pkgs.fedoraproject.org/rpms/lua-luautf8.git
+
+[$HOME/projects/distro-packaging/fedora/lua-vstruct]
+checkout = git clone ssh://caleb@pkgs.fedoraproject.org/rpms/lua-vstruct.git
+
+[$HOME/projects/distro-packaging/fedora/lua-zlib]
+checkout = git clone ssh://caleb@pkgs.fedoraproject.org/rpms/lua-zlib.git
+
+[$HOME/projects/distro-packaging/fedora/source-foundry-hack-fonts]
+checkout = git clone ssh://caleb@pkgs.fedoraproject.org/rpms/source-foundry-hack-fonts.git
+
