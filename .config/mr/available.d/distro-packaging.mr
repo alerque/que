@@ -4,10 +4,10 @@ checkout =
 	cd homebrew
 	git remote add upstream git@github.com:Homebrew/homebrew-core.git
 
-[$HOME/projects/distro-packaging/nix]
+[$HOME/projects/distro-packaging/nixpkgs]
 checkout =
-	git clone git@github.com:alerque/nixpkgs.git nix
-	cd nix
+	git clone git@github.com:alerque/nixpkgs.git
+	cd nixpkgs
 	git remote add upstream git@github.com:NixOS/nixpkgs.git
 
 [$HOME/projects/distro-packaging/void-packages]
