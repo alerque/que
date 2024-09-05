@@ -10,10 +10,10 @@ checkout =
 	cd nix
 	git remote add upstream git@github.com:NixOS/nixpkgs.git
 
-[$HOME/projects/distro-packaging/void]
+[$HOME/projects/distro-packaging/void-packages]
 checkout =
-	git clone git@github.com:alerque/void-packages.git void
-	cd void
+	git clone git@github.com:alerque/void-packages.git
+	cd void-packages
 	git remote add upstream git@github.com:void-linux/void-packages.git
 
 [$HOME/projects/distro-packaging/archlinux]
