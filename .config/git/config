@@ -74,7 +74,9 @@
 	co = checkout
 	cb = checkout -b
 	cp = cherry-pick
+	cpa = cherry-pick --abort
 	d = diff
+	db = !zsh -c 'git diff "$(git merge-base --fork-point "${0:-master}")"'
 	dc = diff --word-diff-regex=. --ignore-all-space
 	diff = diff --minimal --word-diff=color
 	ds = diff --staged
@@ -84,9 +86,11 @@
 	fa = fetch --all
 	fr = pull --rebase
 	g = log --all --graph --decorate --oneline
+	gr = graph --model simple
 	l = log
 	lf = ls-files
 	m = merge
+	ma = merge --abort
 	mc = merge --continue
 	p = push
 	pc = !zsh -c 'git push --set-upstream origin "$(git-branch-current 2> /dev/null)"'
