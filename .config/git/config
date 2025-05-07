@@ -207,7 +207,8 @@
 	detachedHead = false
 [delta]
 	; features = line-numbers decorations
-	features = side-by-side line-numbers decorations line-wrap
+	features = side-by-side line-numbers decorations
+	; features = side-by-side line-numbers decorations line-wrap
 	hunk-header-style = file line-number syntax
 	whitespace-error-style = 22 reverse
 	wrap-max-lines = unlimited
