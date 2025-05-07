@@ -83,6 +83,7 @@
 	dsc = diff --word-diff-regex=. --ignore-all-space --staged
 	dsw = diff --ignore-all-space --staged
 	dw = diff --ignore-all-space
+	diff-svg = "difftool -t lukaj -y"
 	fa = fetch --all
 	fr = pull --rebase
 	g = log --all --graph --decorate --oneline
@@ -157,6 +158,8 @@
 	cmd = latexdiff "$LOCAL" "$REMOTE"
 [difftool "ufodiff"]
 	cmd = ufodiff "$LOCAL" "$REMOTE"
+[difftool "lukaj"]
+	cmd = lukaj "$LOCAL" "$REMOTE"
 [fetch]
 	prune = true
 	parallel = 8

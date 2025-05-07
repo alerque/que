@@ -2,6 +2,7 @@
 *.tex	diff=difftex
 *.ttf	diff=fdiff
 *.ufo	diff=ufodiff
+*.svg	diff=lukaj
 
 *.java merge=mergiraf
 *.properties merge=mergiraf
