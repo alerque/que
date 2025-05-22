@@ -1,0 +1,17 @@
+[$HOME/projects/fluent/fluent]
+checkout = gh repo fork --clone git@github.com:projectfluent/fluent.git
+
+[$HOME/projects/fluent/fluent.js]
+checkout = gh repo fork --clone git@github.com:projectfluent/fluent.js.git
+
+[$HOME/projects/fluent/fluent-langneg-rs]
+checkout = gh repo fork --clone git@github.com:projectfluent/fluent-langneg-rs.git
+
+[$HOME/projects/fluent/fluent-lua]
+checkout = gh repo clone git@github.com:alerque/fluent-lua.git
+
+[$HOME/projects/fluent/fluent-rs]
+checkout = gh repo fork --clone git@github.com:projectfluent/fluent-rs.git
+
+[$HOME/projects/fluent/fluent-vim]
+checkout = gh repo fork --clone git@github.com:projectfluent/fluent-vim.git
