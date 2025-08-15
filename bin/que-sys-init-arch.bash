@@ -118,5 +118,5 @@ update_mirrors
 echo -e 'nameserver 1.1.1.1\nsearch alerque.com' > /etc/resolv.conf
 
 if is_opt $ISCALEB; then
-	localectl list-keymaps | grep -q dvp && localectl --no-convert set-keymap dvp ||:
+	localectl list-keymaps | grep -q dvorak-programmer && localectl --no-convert set-keymap dvorak-programmer ||:
 fi
