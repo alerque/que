@@ -49,6 +49,7 @@ BASEPACKAGES=(
 		btop
 		cron
 		difftastic
+		dua-cli
 		duf
 		etckeeper
 		exa
@@ -57,7 +58,6 @@ BASEPACKAGES=(
 		git
 		git-crypt
 		gnupg
-		himalaya
 		ifplugd
 		iftop
 		innernet
@@ -67,14 +67,11 @@ BASEPACKAGES=(
 		moreutils
 		mosh
 		myrepos
-		ncdu
 		neovim
 		net-tools
-		netctl
 		nodejs
 		openssh
 		pcregrep
-		programmers-dvorak
 		programmers-turkish-f
 		ripgrep
 		rlwrap
@@ -91,7 +88,6 @@ BASEPACKAGES=(
 DEVELPACKAGES=(
 		base-devel
 		ctags
-		cyrus-sasl
 		entr
 		fzf
 		fzy
@@ -105,7 +101,6 @@ DEVELPACKAGES=(
 		gnu-netcat
 		html-xml-utils
 		lua-language-server
-		markdown2ctags
 		mlocate
 		ntp
 		rsync
@@ -119,31 +114,15 @@ DEVELPACKAGES=(
 )
 
 DESKTOPPACKAGES=(
-		cliphist
-		dunst
-		fuzzel
-		grim
-		hyprland
-		hyprpaper
-		otf-font-awesome
-		qt6-wayland
-		rofi-lbonn-wayland-git
-		slurp
-		swayidle
-		waybar-hyprland-git
-		waylock
-		wayprompt-git
-		wev
-		wl-clipboard
-
 		alacritty
-		awesome
 		bluez-tools
-		brave
 		chromium
+		cliphist
 		cups
+		dunst
 		firefox
 		flameshot
+		fuzzel
 		geeqie
 		gimp
 		git-annex
@@ -153,9 +132,13 @@ DESKTOPPACKAGES=(
 		gnome-shell
 		google-chrome
 		gpaste
+		greetd-tuigreet
+		grim
 		gvfs
 		hub
+		hyprland
 		inkscape
+		iwgtk
 		keepassxc
 		lapce
 		libreoffice
@@ -163,23 +146,23 @@ DESKTOPPACKAGES=(
 		mplayer
 		neovim-gtk
 		nextcloud-client
+		otf-font-awesome
 		picom
 		profile-sync-daemon
 		pulseaudio
+		qt6-wayland
+		rofi-lbonn-wayland-git
 		scribus
-		slock
+		slurp
 		smplayer
 		ssh-askpass-fullscreen
 		transmission
 		tridactyl
 		ttf-fonts
-		uim
-		xautolock
-		xdotool
+		waybar-git
+		wev
+		wl-clipboard
 		xiphos
-		xorg-apps
-		xsel
-		xss-lock
 		zathura
 )
 
@@ -297,7 +280,6 @@ case $DISTRO in
 	arch)
 		# If we have ever installed devel or desktop stuff, assume them again
 		pacman -Q ctags 2>&- >&- && ISDEVEL=0
-		pacman -Q awesome 2>&- >&- && ISDESKTOP=0
 
 		if grep -q ARM /etc/os-release; then
 			skip_pkg git-annex
@@ -311,20 +293,17 @@ case $DISTRO in
 		add_pkg paru
 
 		# Distro specific package names
-		distro_pkg awesome awesome{,-revelation-git,-themes-git} lain-git vicious
+		distro_pkg hyprland hyprland hyprpaper hypridle hyprland-qtutils hyprlock hyprpaper hyprsome-git xdg-desktop-portal-hyprland uwsm
 		distro_pkg brave brave-bin
 		distro_pkg cron cronie
 		distro_pkg cups cups cups-filters system-config-printer cups-pk-helper gsfonts gutenprint foomatic-db{,-engine,-nonfree,{,-nonfree,-gutenprint}-ppds} hplip splix cups-pdf
 		distro_pkg etckeeper etckeeper{,-packages}
 		distro_pkg firefox firefox{,-i18n-{tr,ru}}
-		distro_pkg geeqie geeqie-git
-		distro_pkg glab glab-git
-		distro_pkg gnome gnome gnome-{extra,tweak-tool,defaults-list} lightdm cbatticon notification-daemon
+		distro_pkg gnome gnome gnome-{extra,tweak-tool,defaults-list} notification-daemon
 		distro_pkg gnome-shell gnome-shell chrome-gnome-shell gnome-shell-extension-no-title-bar
 		#  gnome-shell-extension-topicons-redux
 		distro_pkg gvfs gvfs-{mtp,smb,goa}
 		distro_pkg libreoffice libreoffice-fresh{,-tr,-ru} unoconv
-		distro_pkg lightdm lightdm{,-slick-greeter}
         distro_pkg man{,-db,-pages}
 		distro_pkg neomutt neomutt goobook-git
 		distro_pkg neovim neovim nodejs-neovim python-pynvim
@@ -368,7 +347,6 @@ case $DISTRO in
 
 	osx)
 		add_pkg rename
-		distro_pkg awesome ''
 		distro_pkg chromium ''
 		distro_pkg cups ''
 		distro_pkg etckeeper ''
@@ -425,7 +403,6 @@ fi
 
 # Drop a few things from remote-only hosts
 if is_opt $ISREMOTE; then
-	BASEPACKAGES=(${BASEPACKAGES[@]/programmers-dvorak})
 	BASEPACKAGES=(${BASEPACKAGES[@]/programmers-turkish-f})
 fi
 
