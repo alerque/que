@@ -37,9 +37,7 @@ done
 set -e
 
 # This environment variable will be wrong in chroots, fix it using manually set value
-if [[ -f /etc/hostname ]]; then
-	export HOSTNAME=$(cat /etc/hostname)
-fi
+export HOSTNAME=$(hostnamectl hostname)
 
 # Setup stuff
 BASEPACKAGES=(
