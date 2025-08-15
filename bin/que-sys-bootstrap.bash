@@ -249,7 +249,7 @@ test -n "$DISTRO" || flunk "unrecognized distro"
 # Detect virtual environments
 if hash systemd-detect-virt 2> /dev/null; then
 	case $(systemd-detect-virt) in
-		none) ISMETAL=1 ;;
+		none|container-other) ISMETAL=1 ;;
 		systemd-nspawn) : ;;
 		xen) ISEC2=$(uname -r | grep -iq ec2; echo $?) ;;
 		kvm) ISDO=$(hash digitalocean-synchronize 2> /dev/null; echo $?) ;;
