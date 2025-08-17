@@ -58,7 +58,7 @@ $DEBUG update_mirrors ||:
 $DEBUG pacman-key --keyserver keyserver.ubuntu.com --recv-keys 63CC496475267693
 $DEBUG pacman-key --lsign-key 63CC496475267693
 $DEBUG grep -q alerque /etc/pacman.conf ||
-    sed -i -e '/^.community/{n;n;s!^!\n\[alerque\]\nServer = https://arch.alerque.com/$arch\n!}' /etc/pacman.conf
+    sed -i -e '/^\[extra\]$/{n;n;s!^!\n\[alerque\]\nServer = https://arch.alerque.com/$arch\n!}' /etc/pacman.conf
 
 # Freshen everything up
 $DEBUG pacman --needed --noconfirm -Syu
