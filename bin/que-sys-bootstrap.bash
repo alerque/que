@@ -298,7 +298,7 @@ case $DISTRO in
 		distro_pkg cups cups cups-filters system-config-printer cups-pk-helper gsfonts gutenprint foomatic-db{,-engine,-nonfree,{,-nonfree,-gutenprint}-ppds} hplip splix cups-pdf
 		distro_pkg etckeeper etckeeper{,-packages}
 		distro_pkg firefox firefox{,-i18n-{tr,ru}}
-		distro_pkg gnome gnome gnome-{extra,tweak-tool} notification-daemon
+		distro_pkg gnome gnome gnome-{extra,tweaks} notification-daemon
 		distro_pkg gnome-shell gnome-shell chrome-gnome-shell gnome-shell-extension-no-title-bar
 		#  gnome-shell-extension-topicons-redux
 		distro_pkg gvfs gvfs-{mtp,smb,goa}
