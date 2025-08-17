@@ -59,6 +59,7 @@ BASEPACKAGES=(
 		ifplugd
 		iftop
 		innernet
+		jq
 		keychain
 		lsof
 		man
@@ -80,6 +81,7 @@ BASEPACKAGES=(
 		tmux
 		vcsh
 		wireguard
+		yq
 		zoxide
 		zsh
 )
