@@ -89,7 +89,7 @@ echo
 read -n "foo?Copy keys from somewhere to this machine, enter to continue when ready"
 chmod 600 $(grep 'PRIVATE KEY' -Rl ~/.ssh) ~/.gnupg/private-keys*/*
 
-auth
+eval $(~/bin/que-auth.zsh)
 
 vcsh run que-secure git stash
 vcsh run que-secure git-crypt unlock
