@@ -69,6 +69,7 @@ BASEPACKAGES=(
 		net-tools
 		nodejs
 		openssh
+		paru
 		pcregrep
 		programmers-turkish-f
 		ripgrep
@@ -128,7 +129,6 @@ DESKTOPPACKAGES=(
 		gnome
 		gnome-packagekit
 		gnome-shell
-		google-chrome
 		gpaste
 		greetd-tuigreet
 		grim
