@@ -90,6 +90,7 @@ BASEPACKAGES=(
 DEVELPACKAGES=(
 		base-devel
 		ctags
+		devtools
 		entr
 		fzf
 		fzy
