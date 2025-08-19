@@ -47,6 +47,7 @@ BASEPACKAGES=(
 		btop
 		cron
 		difftastic
+		dog
 		dua-cli
 		duf
 		etckeeper
