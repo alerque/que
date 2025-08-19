@@ -314,7 +314,7 @@ case $DISTRO in
 		distro_pkg tmux tmux teamocil
 		distro_pkg transmission{,-gtk,-cli}
 		distro_pkg tridactyl firefox-tridactyl{,-native}
-		distro_pkg ttf-fonts gentium-plus-font ttf-{cheapskate,freefont,liberation,hack,amiri,sil-fonts,crimson-pro{,-variable},symbola,joypixels} otf-{libertinus,bravura,crimson-text} montserrat-font-ttf awesome-terminal-fonts nerd-fonts-hack
+		distro_pkg ttf-fonts gentium-plus-font ttf-{cheapskate,freefont,liberation,hack,amiri,sil-fonts,crimson-pro{,-variable},symbola,joypixels,montserrat} otf-{libertinus,bravura,crimson-text} awesome-terminal-fonts nerd-fonts-hack
 		distro_pkg wireguard wireguard-tools
 		distro_pkg zathura zathura{,-pdf-mupdf}
 		distro_pkg zsh zsh zsh-completions
