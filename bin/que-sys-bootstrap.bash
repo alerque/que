@@ -74,6 +74,7 @@ BASEPACKAGES=(
 		net-tools
 		nodejs
 		openssh
+		pandoc
 		paru
 		pcregrep
 		programmers-turkish-f
@@ -92,32 +93,53 @@ BASEPACKAGES=(
 
 DEVELPACKAGES=(
 		base-devel
+		binaryen
+		busted
+		cargo-deny
+		cargo-edit
 		ctags
 		devtools
 		entr
 		fzf
 		fzy
+		git-cliff
 		git-delta
 		git-extras
 		git-filter-repo
 		git-lfs
 		git-revise
+		git-warp-time
 		github-cli
 		glab
 		gnu-netcat
 		html-xml-utils
+		just
 		lua-language-server
+		luacheck
 		luarocks
+		maturin
 		mlocate
+		mold
+		npm
 		ntp
+		pdf2svg
+		python-pytest
 		rsync
+		ruff
 		rustup
 		sd
 		strace
+		stylua
+		svgo
+		taplo
 		tig
+		typos
 		unrar
 		unzip
+		uv
+		wasm-pack
 		wget
+		yarn
 		zip
 )
 
@@ -315,6 +337,7 @@ case $DISTRO in
         distro_pkg man{,-db,-pages}
 		distro_pkg neomutt neomutt goobook-git
 		distro_pkg nextcloud-client nextcloud-client python-nautilus
+		distro_pkg pandoc pandoc-sile-git
 		distro_pkg pcregrep pcre
 		distro_pkg pulseaudio pa{systray,vucontrol,prefs,mixer,-applet-git}
 		distro_pkg tmux tmux teamocil
