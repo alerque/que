@@ -7,6 +7,9 @@ function flunk() {
 	exit 0
 }
 
+# TODO
+# * detect laptops and install brightnessctl
+
 while [[ $# -gt 0 ]]; do
 	case $1 in
 		devel)
@@ -104,9 +107,11 @@ DEVELPACKAGES=(
 		gnu-netcat
 		html-xml-utils
 		lua-language-server
+		luarocks
 		mlocate
 		ntp
 		rsync
+		rustup
 		sd
 		strace
 		tig
@@ -146,7 +151,7 @@ DESKTOPPACKAGES=(
 		libreoffice
 		lite-xl
 		mplayer
-		neovim-gtk
+		neovide
 		nextcloud-client
 		otf-font-awesome
 		picom
@@ -302,21 +307,20 @@ case $DISTRO in
 		distro_pkg cups cups cups-filters system-config-printer cups-pk-helper gsfonts gutenprint foomatic-db{,-engine,-nonfree,{,-nonfree,-gutenprint}-ppds} hplip splix cups-pdf
 		distro_pkg etckeeper etckeeper{,-packages}
 		distro_pkg firefox firefox{,-i18n-{tr,ru}}
-		distro_pkg gnome gnome gnome-{extra,tweaks} notification-daemon
+		distro_pkg gnome gnome gnome-{extra,themes-extra,tweaks} notification-daemon
 		distro_pkg gnome-shell gnome-shell chrome-gnome-shell gnome-shell-extension-no-title-bar
 		#  gnome-shell-extension-topicons-redux
 		distro_pkg gvfs gvfs-{mtp,smb,goa}
 		distro_pkg libreoffice libreoffice-fresh{,-tr,-ru} unoconv
         distro_pkg man{,-db,-pages}
 		distro_pkg neomutt neomutt goobook-git
-		distro_pkg neovim neovim nodejs-neovim python-pynvim
 		distro_pkg nextcloud-client nextcloud-client python-nautilus
 		distro_pkg pcregrep pcre
 		distro_pkg pulseaudio pa{systray,vucontrol,prefs,mixer,-applet-git}
 		distro_pkg tmux tmux teamocil
 		distro_pkg transmission{,-gtk,-cli}
 		distro_pkg tridactyl firefox-tridactyl{,-native}
-		distro_pkg ttf-fonts gentium-plus-font ttf-{cheapskate,freefont,liberation,hack,amiri,sil-fonts,crimson-pro{,-variable},symbola,joypixels,montserrat} otf-{libertinus,bravura,crimson-text} awesome-terminal-fonts nerd-fonts-hack
+		distro_pkg ttf-fonts {gentium-plus,inter}-font ttf-{cheapskate,freefont,liberation,hack,amiri,sil-fonts,crimson-pro{,-variable},symbola,joypixels,montserrat} otf-{libertinus,bravura,crimson-text} {awesome-terminal,noto}-fonts nerd-fonts-hack
 		distro_pkg wireguard wireguard-tools
 		distro_pkg zathura zathura{,-pdf-mupdf}
 		distro_pkg zsh zsh zsh-completions
