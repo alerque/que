@@ -93,10 +93,12 @@ BASEPACKAGES=(
 
 DEVELPACKAGES=(
 		base-devel
+		bc
 		binaryen
 		busted
 		cargo-deny
 		cargo-edit
+		checkmake
 		ctags
 		devtools
 		entr
@@ -114,6 +116,7 @@ DEVELPACKAGES=(
 		gnu-netcat
 		html-xml-utils
 		just
+		ldoc
 		lua-language-server
 		luacheck
 		luarocks
@@ -146,12 +149,15 @@ DEVELPACKAGES=(
 DESKTOPPACKAGES=(
 		alacritty
 		bluez-tools
+		casile
 		chromium
 		cliphist
 		cups
+		decasify
 		dunst
 		firefox
 		flameshot
+		foliate
 		fuzzel
 		geeqie
 		gimp
@@ -182,17 +188,20 @@ DESKTOPPACKAGES=(
 		qt6-wayland
 		rofi-lbonn-wayland-git
 		scribus
+		sile
 		slurp
 		smplayer
 		ssh-askpass-fullscreen
 		transmission
 		tridactyl
 		ttf-fonts
+		typst
 		waybar-git
 		wev
 		wl-clipboard
 		xiphos
 		zathura
+		zettlr
 )
 
 REMOVEPACKAGES=(
@@ -343,7 +352,7 @@ case $DISTRO in
 		distro_pkg tmux tmux teamocil
 		distro_pkg transmission{,-gtk,-cli}
 		distro_pkg tridactyl firefox-tridactyl{,-native}
-		distro_pkg ttf-fonts {gentium-plus,inter}-font ttf-{cheapskate,freefont,liberation,hack,amiri,sil-fonts,crimson-pro{,-variable},symbola,joypixels,montserrat} otf-{libertinus,bravura,crimson-text} {awesome-terminal,noto}-fonts nerd-fonts-hack
+		distro_pkg ttf-fonts {gentium-plus,inter}-font ttf-{cheapskate,freefont,liberation,hack,amiri,sil-fonts,crimson-pro{,-variable},symbola,joypixels,montserrat} otf-{libertinus,bravura,crimson-text} {awesome-terminal,noto,tex-gyre}-fonts nerd-fonts-hack
 		distro_pkg wireguard wireguard-tools
 		distro_pkg zathura zathura{,-pdf-mupdf}
 		distro_pkg zsh zsh zsh-completions
