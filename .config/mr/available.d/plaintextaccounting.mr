@@ -1,0 +1,8 @@
+[$HOME/projects/plaintextaccounting/hledger]
+checkout = gh repo fork --clone git@github.com:simonmichael/hledger.git
+
+[$HOME/projects/plaintextaccounting/ledger]
+checkout = gh repo fork --clone git@github.com:ledger/ledger.git
+
+[$HOME/projects/plaintextaccounting/vim-ledger]
+checkout = gh repo fork --clone git@github.com:ledger/vim-ledger.git
