@@ -9,6 +9,8 @@ function flunk() {
 
 # TODO
 # * detect laptops and install brightnessctl
+# * setup ppd on laptops
+# * radeontop
 
 while [[ $# -gt 0 ]]; do
 	case $1 in
@@ -92,10 +94,12 @@ BASEPACKAGES=(
 )
 
 DEVELPACKAGES=(
+		aurutils
 		base-devel
 		bc
 		binaryen
 		busted
+		cabal
 		cargo-deny
 		cargo-edit
 		checkmake
@@ -116,21 +120,27 @@ DEVELPACKAGES=(
 		gnu-netcat
 		html-xml-utils
 		just
+		just-lsp
 		ldoc
 		lua-language-server
 		luacheck
 		luarocks
+		marksman
 		maturin
 		mlocate
 		mold
+		nix
 		npm
 		ntp
 		pdf2svg
+		pyright
 		python-pytest
 		rsync
 		ruff
+		rust-analyzer
 		rustup
 		sd
+		stack
 		strace
 		stylua
 		svgo
@@ -147,6 +157,7 @@ DEVELPACKAGES=(
 )
 
 DESKTOPPACKAGES=(
+		dmidecode
 		alacritty
 		bluez-tools
 		casile
@@ -174,6 +185,8 @@ DESKTOPPACKAGES=(
 		hyprland
 		inkscape
 		iwgtk
+		impala
+		bluetui
 		keepassxc
 		lapce
 		libreoffice
@@ -494,5 +507,5 @@ fi
 echo -e "Perhaps you want home stuff too?\n    passwd caleb\n    su - caleb\n    zsh <(curl -sfSL $STRAP_URL/bin/que-home-bootstrap.zsh)"
 
 if is_opt $ISDESKTOP; then
-	echo 'Reminder: if this is a manually configured system you need to manually install an appropriate video driver'
+	echo 'Reminder: if this is a manually configured system you need to manually install an appropriate video driver and smi library'
 fi
