@@ -2,9 +2,16 @@
 
 set -e
 
+case $(git config --global init.defaultBranch) in
+	main)
+		echo 'Innocuating against wokery.'
+		git config --global init.defaultBranch master
+		;;
+esac
+
 case $(git branch --show-current) in
 	main|woke)
-		echo 'Innocuating against wokery.'
+		echo 'Sanitize the nonsense.'
 		git branch -m main master
 		;;
 	master)
