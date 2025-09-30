@@ -56,6 +56,7 @@ BASEPACKAGES=(
 		dua-cli
 		duf
 		etckeeper
+		eva
 		exa
 		exim
 		fd
@@ -108,6 +109,7 @@ DEVELPACKAGES=(
 		entr
 		fzf
 		fzy
+		git-absorb
 		git-cliff
 		git-delta
 		git-extras
@@ -125,6 +127,7 @@ DEVELPACKAGES=(
 		lua-language-server
 		luacheck
 		luarocks
+		markdown-oxide
 		marksman
 		maturin
 		mlocate
@@ -146,6 +149,7 @@ DEVELPACKAGES=(
 		svgo
 		taplo
 		tig
+		tinymist
 		typos
 		unrar
 		unzip
