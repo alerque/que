@@ -1,0 +1,18 @@
+#!/usr/bin/env zsh
+
+set -e
+
+case $(git branch --show-current) in
+	main|woke)
+		echo 'Innocuating against wokery.'
+		git branch -m main master
+		;;
+	master)
+		echo 'Keep building.'
+		;;
+	*)
+		echo 'Not a recognized starting point, are you on the default branch?'
+		exit 1
+		;;
+esac
+
