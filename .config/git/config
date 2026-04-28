@@ -150,6 +150,9 @@
 	colorMovedWS = ignore-all-space
 [diff "fdiff"]
 	command = fdiff -c --git
+[diff "hex"]
+	textconv = hexdump -v -C
+	binary = true
 [difftool]
 	prompt = false
 [difftool "difftastic"]
